@@ -1,0 +1,145 @@
+{
+  "appName": "Global Connect Academy",
+  "nav": {
+    "home": "Home",
+    "courses": "Trainings",
+    "about": "About",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Your Gateway to an International Career",
+    "subtitle": "Connecting talents between Europe and Asia in Luxury, Sports, and Business.",
+    "cta": "Explore our courses"
+  },
+  "coursesSection": {
+    "title": "Our Trainings",
+    "subtitle": "Excellence-focused programs designed for the global stage."
+  },
+  "category": {
+    "luxury": "Luxury & Hospitality",
+    "sport": "Sport & Management",
+    "languages": "Languages & International",
+    "business": "Business & Strategy"
+  },
+  "courses": {
+    "flightAttendant": {
+      "title": "Flight Attendant (Cabin Crew)",
+      "desc": "Reach for the sky with our elite cabin crew training."
+    },
+    "luxuryRestaurant": {
+      "title": "Luxury Restaurant Service Staff",
+      "desc": "Master the art of fine dining service."
+    },
+    "luxuryHotel": {
+      "title": "Luxury Hotel Service Staff",
+      "desc": "Excel in the world of high-end hospitality."
+    },
+    "sommelier": {
+      "title": "Sommelier",
+      "desc": "Become an expert in the world of wine."
+    },
+    "fashionModel": {
+      "title": "Fashion Model",
+      "desc": "Walk the world's most prestigious runways."
+    },
+    "footballCoach": {
+      "title": "Football Coach",
+      "desc": "Lead your team to victory with expert coaching skills."
+    },
+    "fifaAgent": {
+      "title": "FIFA Agent",
+      "desc": "Navigate the world of professional football transfers."
+    },
+    "sportsData": {
+      "title": "Sports Data Analyst",
+      "desc": "Turn game data into winning strategies."
+    },
+    "fle": {
+      "title": "FLE (French as a Foreign Language)",
+      "desc": "Immerse yourself in the French language and culture."
+    },
+    "hsk": {
+      "title": "HSK - Chinese Proficiency Test",
+      "desc": "Certify your Chinese language skills."
+    },
+    "tefl": {
+      "title": "TEFL - Teach English Abroad",
+      "desc": "Get certified to teach English anywhere in the world."
+    },
+    "businessChina": {
+      "title": "Business & Digital Edge in China",
+      "desc": "Understand and conquer the Chinese market."
+    },
+    "gatewayEurope": {
+      "title": "Gateway to Europe & Southeast Asia",
+      "desc": "Master international expansion strategies."
+    },
+    "fifaAgentAlt": {
+      "title": "Sports Management",
+      "desc": "A comprehensive look into the business of sports."
+    }
+  },
+  "aboutSection": {
+    "title": "A Bridge Between Europe & Asia",
+    "subtitle": "Our Philosophy",
+    "paragraph1": "Global Connect Academy was founded on a simple yet powerful idea: to create a multicultural educational environment that builds bridges between Europe and Asia. We believe that the future belongs to those who can navigate different cultures with ease and professionalism.",
+    "paragraph2": "Our training programs, focused on high-growth sectors like luxury, sports, and international business, are designed to provide our students with not just theoretical knowledge, but also the practical skills and global mindset needed to succeed. We are more than a school; we are a launchpad for international careers."
+  },
+  "testimonialsSection": {
+    "title": "From Our Alumni",
+    "subtitle": "Success stories from around the globe."
+  },
+  "testimonials": {
+    "1": {
+      "quote": "The Flight Attendant program was intense but incredibly rewarding. I landed my dream job with a major international airline just a month after graduating. The multicultural environment at the academy was the perfect preparation.",
+      "author": "Chloé Dubois",
+      "origin": "France"
+    },
+    "2": {
+      "quote": "As a student from China, learning about European luxury standards was eye-opening. The teachers are industry experts, and the connections I made are invaluable. I now manage a boutique in Paris.",
+      "author": "Wei Zhang (张伟)",
+      "origin": "China"
+    },
+    "3": {
+      "quote": "Transitioning from a finance career to becoming a FIFA Agent seemed impossible. This program gave me the structure, knowledge, and network to make it happen. A true game-changer.",
+      "author": "Alexandre Martin",
+      "origin": "France"
+    }
+  },
+  "contactSection": {
+    "title": "Get in Touch",
+    "subtitle": "Start your international journey with us. We're here to answer your questions.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "you@example.com",
+      "message": "Your Message",
+      "messagePlaceholder": "Tell us about your project or ask a question...",
+      "submit": "Send Message"
+    },
+    "successMessage": "Thank you! Your message has been sent.",
+    "errorMessage": "An error occurred. Please try again."
+  },
+  "footer": {
+    "copyright": "© {year} Global Connect Academy. All rights reserved."
+  },
+  "admin": {
+    "title": "AI Course Content Generator",
+    "description": "Use this tool to generate a comprehensive course description and its translations.",
+    "courseName": "Course Name",
+    "courseNamePlaceholder": "e.g., Luxury Brand Management",
+    "courseCategory": "Course Category",
+    "courseCategoryPlaceholder": "e.g., Luxury & Hospitality",
+    "keyTopics": "Key Topics (one per line)",
+    "keyTopicsPlaceholder": "Brand strategy\nDigital marketing\nClient experience...",
+    "generate": "Generate Content",
+    "generating": "Generating...",
+    "results": "Generated Content",
+    "originalDescription": "Original Description",
+    "frenchTranslation": "French Translation",
+    "englishTranslation": "English Translation",
+    "chineseTranslation": "Chinese Translation"
+  }
+}

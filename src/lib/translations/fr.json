@@ -1,0 +1,145 @@
+{
+  "appName": "Global Connect Academy",
+  "nav": {
+    "home": "Accueil",
+    "courses": "Formations",
+    "about": "À Propos",
+    "testimonials": "Témoignages",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Votre Passerelle vers une Carrière Internationale",
+    "subtitle": "Connecter les talents entre l'Europe et l'Asie dans le Luxe, le Sport et le Business.",
+    "cta": "Découvrir nos formations"
+  },
+  "coursesSection": {
+    "title": "Nos Formations",
+    "subtitle": "Des programmes axés sur l'excellence, conçus pour la scène mondiale."
+  },
+  "category": {
+    "luxury": "Luxe & Hôtellerie",
+    "sport": "Sport & Management",
+    "languages": "Langues & International",
+    "business": "Business & Stratégie"
+  },
+  "courses": {
+    "flightAttendant": {
+      "title": "Personnel Navigant Commercial (PNC)",
+      "desc": "Atteignez les sommets avec notre formation d'élite pour personnel de cabine."
+    },
+    "luxuryRestaurant": {
+      "title": "Personnel de Service en Restauration de Luxe",
+      "desc": "Maîtrisez l'art du service dans la haute gastronomie."
+    },
+    "luxuryHotel": {
+      "title": "Personnel de Service en Hôtellerie de Luxe",
+      "desc": "Excellez dans le monde de l'hospitalité haut de gamme."
+    },
+    "sommelier": {
+      "title": "Sommelier",
+      "desc": "Devenez un expert dans l'univers du vin."
+    },
+    "fashionModel": {
+      "title": "Mannequin de Mode",
+      "desc": "Défilez sur les podiums les plus prestigieux du monde."
+    },
+    "footballCoach": {
+      "title": "Entraîneur de Football",
+      "desc": "Menez votre équipe à la victoire grâce à des compétences d'expert."
+    },
+    "fifaAgent": {
+      "title": "Agent de Joueurs (FIFA)",
+      "desc": "Naviguez dans le monde des transferts de football professionnel."
+    },
+    "sportsData": {
+      "title": "Analyste de Données Sportives",
+      "desc": "Transformez les données de match en stratégies gagnantes."
+    },
+    "fle": {
+      "title": "FLE (Français Langue Étrangère)",
+      "desc": "Plongez au cœur de la langue et de la culture françaises."
+    },
+    "hsk": {
+      "title": "HSK - Test de Compétence en Chinois",
+      "desc": "Certifiez vos compétences en langue chinoise."
+    },
+    "tefl": {
+      "title": "TEFL - Enseigner l'Anglais à l'Étranger",
+      "desc": "Obtenez la certification pour enseigner l'anglais partout dans le monde."
+    },
+    "businessChina": {
+      "title": "Business & Digital en Chine",
+      "desc": "Comprenez et conquérez le marché chinois."
+    },
+    "gatewayEurope": {
+      "title": "Porte d'entrée vers l'Europe & l'Asie du Sud-Est",
+      "desc": "Maîtrisez les stratégies d'expansion internationale."
+    },
+    "fifaAgentAlt": {
+      "title": "Management du Sport",
+      "desc": "Une vision complète du business dans le monde du sport."
+    }
+  },
+  "aboutSection": {
+    "title": "Un Pont Entre l'Europe & l'Asie",
+    "subtitle": "Notre Philosophie",
+    "paragraph1": "Global Connect Academy a été fondée sur une idée simple mais puissante : créer un environnement éducatif multiculturel qui jette des ponts entre l'Europe et l'Asie. Nous croyons que l'avenir appartient à ceux qui peuvent naviguer entre différentes cultures avec aisance et professionnalisme.",
+    "paragraph2": "Nos programmes de formation, axés sur des secteurs à forte croissance comme le luxe, le sport et le commerce international, sont conçus pour fournir à nos étudiants non seulement des connaissances théoriques, mais aussi les compétences pratiques et l'état d'esprit global nécessaires pour réussir. Nous sommes plus qu'une école ; nous sommes un tremplin pour les carrières internationales."
+  },
+  "testimonialsSection": {
+    "title": "Paroles d'Anciens Élèves",
+    "subtitle": "Des success stories du monde entier."
+  },
+  "testimonials": {
+    "1": {
+      "quote": "Le programme PNC était intense mais incroyablement gratifiant. J'ai décroché le job de mes rêves dans une grande compagnie aérienne internationale un mois seulement après mon diplôme. L'environnement multiculturel de l'académie était la préparation parfaite.",
+      "author": "Chloé Dubois",
+      "origin": "France"
+    },
+    "2": {
+      "quote": "En tant qu'étudiant chinois, découvrir les standards du luxe européen a été une révélation. Les professeurs sont des experts de l'industrie, et les contacts que j'ai noués sont inestimables. Je gère maintenant une boutique à Paris.",
+      "author": "Wei Zhang (张伟)",
+      "origin": "Chine"
+    },
+    "3": {
+      "quote": "Passer d'une carrière en finance à celle d'agent FIFA semblait impossible. Ce programme m'a donné la structure, les connaissances et le réseau pour y parvenir. Une véritable révolution.",
+      "author": "Alexandre Martin",
+      "origin": "France"
+    }
+  },
+  "contactSection": {
+    "title": "Contactez-nous",
+    "subtitle": "Commencez votre parcours international avec nous. Nous sommes là pour répondre à vos questions.",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom complet",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "vous@exemple.com",
+      "message": "Votre Message",
+      "messagePlaceholder": "Parlez-nous de votre projet ou posez une question...",
+      "submit": "Envoyer le Message"
+    },
+    "successMessage": "Merci ! Votre message a bien été envoyé.",
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "footer": {
+    "copyright": "© {year} Global Connect Academy. Tous droits réservés."
+  },
+  "admin": {
+    "title": "Générateur de Contenu de Cours IA",
+    "description": "Utilisez cet outil pour générer une description de cours complète et ses traductions.",
+    "courseName": "Nom du Cours",
+    "courseNamePlaceholder": "Ex: Management des Marques de Luxe",
+    "courseCategory": "Catégorie du Cours",
+    "courseCategoryPlaceholder": "Ex: Luxe & Hôtellerie",
+    "keyTopics": "Sujets Clés (un par ligne)",
+    "keyTopicsPlaceholder": "Stratégie de marque\nMarketing digital\nExpérience client...",
+    "generate": "Générer le Contenu",
+    "generating": "Génération en cours...",
+    "results": "Contenu Généré",
+    "originalDescription": "Description Originale",
+    "frenchTranslation": "Traduction Française",
+    "englishTranslation": "Traduction Anglaise",
+    "chineseTranslation": "Traduction Chinoise"
+  }
+}

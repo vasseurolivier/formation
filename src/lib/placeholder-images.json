@@ -1,3 +1,112 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "course-flight-attendant",
+      "description": "Flight attendant in an airplane cabin",
+      "imageUrl": "https://images.unsplash.com/photo-1483450388369-9ed95738483c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaXJwbGFuZSUyMGNhYmlufGVufDB8fHx8MTc3MjQ0NzYyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "airplane cabin"
+    },
+    {
+      "id": "course-luxury-restaurant",
+      "description": "Elegant restaurant dining room",
+      "imageUrl": "https://images.unsplash.com/photo-1643879397174-4f10ac503566?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmaW5lJTIwZGluaW5nfGVufDB8fHx8MTc3MjM0NTAzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fine dining"
+    },
+    {
+      "id": "course-luxury-hotel",
+      "description": "Luxurious hotel lobby",
+      "imageUrl": "https://images.unsplash.com/photo-1692153142524-60285a93c249?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8MTc3MjM4MTI2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hotel lobby"
+    },
+    {
+      "id": "course-sommelier",
+      "description": "Sommelier pouring wine",
+      "imageUrl": "https://images.unsplash.com/photo-1558670460-cad0c19b1840?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aW5lJTIwdGFzdGluZ3xlbnwwfHx8fDE3NzI0MDk0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wine tasting"
+    },
+    {
+      "id": "course-fashion-model",
+      "description": "Fashion model on a runway",
+      "imageUrl": "https://images.unsplash.com/photo-1571924848943-25c2c95bbb4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmYXNoaW9uJTIwcnVud2F5fGVufDB8fHx8MTc3MjQ0NDkyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fashion runway"
+    },
+    {
+      "id": "course-football-coach",
+      "description": "Football coach with a clipboard on a field",
+      "imageUrl": "https://images.unsplash.com/photo-1529932398402-e0b30f66a559?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzb2NjZXIlMjBjb2FjaHxlbnwwfHx8fDE3NzI0NDc2MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "soccer coach"
+    },
+    {
+      "id": "course-fifa-agent",
+      "description": "Two people shaking hands over a contract",
+      "imageUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxidXNpbmVzcyUyMGhhbmRzaGFrZXxlbnwwfHx8fDE3NzI0NDc2MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business handshake"
+    },
+    {
+      "id": "course-sports-data",
+      "description": "Abstract visualization of sports data analytics",
+      "imageUrl": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3NzIzNzc2MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "course-fle",
+      "description": "Students learning French in a classroom setting",
+      "imageUrl": "https://images.unsplash.com/photo-1604881991664-593b31b88488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsYW5ndWFnZSUyMGNsYXNzfGVufDB8fHx8MTc3MjQ0NzYyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "language class"
+    },
+    {
+      "id": "course-hsk",
+      "description": "Chinese characters on a blackboard",
+      "imageUrl": "https://images.unsplash.com/photo-1723613877966-19dc128be163?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGluZXNlJTIwY2hhcmFjdGVyc3xlbnwwfHx8fDE3NzI0NDc2MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chinese characters"
+    },
+    {
+      "id": "course-tefl",
+      "description": "Teacher in front of a class with a world map",
+      "imageUrl": "https://images.unsplash.com/photo-1566828791229-3804b533f840?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZWFjaGluZyUyMGVuZ2xpc2h8ZW58MHx8fHwxNzcyNDQ3NjIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "teaching english"
+    },
+    {
+      "id": "course-business-china",
+      "description": "Modern Shanghai skyline at night",
+      "imageUrl": "https://images.unsplash.com/photo-1648734482677-1bcb09bfeaf6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzaGFuZ2hhaSUyMHNreWxpbmV8ZW58MHx8fHwxNzcyNDQ3NjIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shanghai skyline"
+    },
+    {
+      "id": "course-gateway-europe",
+      "description": "Montage of European and Southeast Asian landmarks",
+      "imageUrl": "https://images.unsplash.com/photo-1758442677857-b145e479dafa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnbG9iYWwlMjBsYW5kbWFya3N8ZW58MHx8fHwxNzcyNDQ3NjIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "global landmarks"
+    },
+    {
+      "id": "course-fifa-agent-alt",
+      "description": "A soccer stadium",
+      "imageUrl": "https://images.unsplash.com/photo-1540379708242-14a809bef941?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c29jY2VyJTIwc3RhZGl1bXxlbnwwfHx8fDE3NzI0Mzc2NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "soccer stadium"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzIzNjE1NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzIzNjE1NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Profile picture of a student",
+      "imageUrl": "https://images.unsplash.com/photo-1521119989659-a83eee488004?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzIzNjE1NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "about-us-image",
+      "description": "A bridge connecting two different architectural styles, symbolizing Europe and Asia",
+      "imageUrl": "https://picsum.photos/seed/about-us/800/600",
+      "imageHint": "modern bridge"
+    }
+  ]
 }

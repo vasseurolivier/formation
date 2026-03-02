@@ -1,0 +1,145 @@
+{
+  "appName": "Global Connect Academy",
+  "nav": {
+    "home": "首页",
+    "courses": "培训课程",
+    "about": "关于我们",
+    "testimonials": "学生感言",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "title": "您通往国际职业生涯的门户",
+    "subtitle": "连接欧洲与亚洲在奢侈品、体育和商业领域的人才。",
+    "cta": "探索我们的课程"
+  },
+  "coursesSection": {
+    "title": "我们的培训课程",
+    "subtitle": "专为全球舞台设计的卓越课程。"
+  },
+  "category": {
+    "luxury": "奢侈品与酒店管理",
+    "sport": "体育与管理",
+    "languages": "语言与国际",
+    "business": "商业与战略"
+  },
+  "courses": {
+    "flightAttendant": {
+      "title": "空乘人员",
+      "desc": "通过我们精英的机组人员培训，飞向天空。"
+    },
+    "luxuryRestaurant": {
+      "title": "豪华餐厅服务人员",
+      "desc": "掌握高级餐饮服务的艺术。"
+    },
+    "luxuryHotel": {
+      "title": "豪华酒店服务人员",
+      "desc": "在高端酒店业中脱颖而出。"
+    },
+    "sommelier": {
+      "title": "侍酒师",
+      "desc": "成为葡萄酒世界的专家。"
+    },
+    "fashionModel": {
+      "title": "时装模特",
+      "desc": "走上世界上最负盛名的T台。"
+    },
+    "footballCoach": {
+      "title": "足球教练",
+      "desc": "以专业的教练技能带领您的团队走向胜利。"
+    },
+    "fifaAgent": {
+      "title": "国际足联经纪人",
+      "desc": "驾驭职业足球转会的世界。"
+    },
+    "sportsData": {
+      "title": "体育数据分析师",
+      "desc": "将比赛数据转化为制胜策略。"
+    },
+    "fle": {
+      "title": "FLE（法语作为外语）",
+      "desc": "沉浸在法语语言和文化中。"
+    },
+    "hsk": {
+      "title": "HSK - 汉语水平考试",
+      "desc": "认证您的汉语语言能力。"
+    },
+    "tefl": {
+      "title": "TEFL - 在国外教英语",
+      "desc": "获得在世界任何地方教英语的认证。"
+    },
+    "businessChina": {
+      "title": "中国的商业与数字优势",
+      "desc": "了解并征服中国市场。"
+    },
+    "gatewayEurope": {
+      "title": "通往欧洲和东南亚的门户",
+      "desc": "掌握国际扩张战略。"
+    },
+    "fifaAgentAlt": {
+      "title": "体育管理",
+      "desc": "全面了解体育产业的商业运作。"
+    }
+  },
+  "aboutSection": {
+    "title": "连接欧亚的桥梁",
+    "subtitle": "我们的理念",
+    "paragraph1": "Global Connect Academy 创立于一个简单而强大的理念：创建一个多文化教育环境，在欧洲和亚洲之间架起桥梁。我们相信，未来属于那些能够轻松、专业地驾驭不同文化的人。",
+    "paragraph2": "我们的培训项目专注于奢侈品、体育和国际商务等高增长领域，旨在为我们的学生不仅提供理论知识，还提供成功所需的实践技能和全球思维。我们不仅仅是一所学校；我们是国际职业生涯的启动平台。"
+  },
+  "testimonialsSection": {
+    "title": "来自我们的校友",
+    "subtitle": "来自全球的成功故事。"
+  },
+  "testimonials": {
+    "1": {
+      "quote": "空乘人员项目强度很大，但回报也难以置信。毕业仅一个月，我就在一家主要的国际航空公司找到了我梦想的工作。学院的多元文化环境是完美的准备。",
+      "author": "克洛伊·杜布瓦",
+      "origin": "法国"
+    },
+    "2": {
+      "quote": "作为一名来自中国的学生，了解欧洲的奢侈品标准让我大开眼界。老师们都是行业专家，我建立的人脉也无比宝贵。我现在在巴黎管理一家精品店。",
+      "author": "张伟",
+      "origin": "中国"
+    },
+    "3": {
+      "quote": "从金融行业转型成为一名国际足联经纪人似乎是不可能的。这个项目为我提供了实现这一目标的结构、知识和网络。这真是改变游戏规则的经历。",
+      "author": "亚历山大·马丁",
+      "origin": "法国"
+    }
+  },
+  "contactSection": {
+    "title": "联系我们",
+    "subtitle": "与我们一起开始您的国际旅程。我们随时为您解答问题。",
+    "form": {
+      "name": "全名",
+      "namePlaceholder": "您的全名",
+      "email": "电子邮件地址",
+      "emailPlaceholder": "you@example.com",
+      "message": "您的留言",
+      "messagePlaceholder": "告诉我们您的项目或提出问题...",
+      "submit": "发送消息"
+    },
+    "successMessage": "谢谢！您的消息已发送。",
+    "errorMessage": "发生错误。请再试一次。"
+  },
+  "footer": {
+    "copyright": "© {year} Global Connect Academy. 版权所有。"
+  },
+  "admin": {
+    "title": "AI 课程内容生成器",
+    "description": "使用此工具生成全面的课程描述及其翻译。",
+    "courseName": "课程名称",
+    "courseNamePlaceholder": "例如，奢侈品牌管理",
+    "courseCategory": "课程类别",
+    "courseCategoryPlaceholder": "例如，奢侈品与酒店管理",
+    "keyTopics": "关键主题（每行一个）",
+    "keyTopicsPlaceholder": "品牌战略\n数字营销\n客户体验...",
+    "generate": "生成内容",
+    "generating": "生成中...",
+    "results": "生成的内容",
+    "originalDescription": "原文描述",
+    "frenchTranslation": "法语翻译",
+    "englishTranslation": "英语翻译",
+    "chineseTranslation": "中文翻译"
+  }
+}
