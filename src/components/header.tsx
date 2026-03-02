@@ -68,9 +68,9 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-           <Link href="/admin/course-generator" legacyBehavior>
-            <Button variant="outline" size="sm">Admin</Button>
-          </Link>
+           <Button asChild variant="outline" size="sm">
+            <Link href="/admin/course-generator">Admin</Link>
+          </Button>
         </div>
       </div>
     </header>
