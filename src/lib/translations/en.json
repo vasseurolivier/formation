@@ -1,5 +1,5 @@
 {
-  "appName": "Global Connect Academy",
+  "appName": "PERPECTIVE PRO FORMATION",
   "nav": {
     "home": "Home",
     "courses": "Trainings",
@@ -83,7 +83,7 @@
   "aboutSection": {
     "title": "A Bridge Between Europe & Asia",
     "subtitle": "Our Philosophy",
-    "paragraph1": "Global Connect Academy was founded on a simple yet powerful idea: to create a multicultural educational environment that builds bridges between Europe and Asia. We believe that the future belongs to those who can navigate different cultures with ease and professionalism.",
+    "paragraph1": "PERPECTIVE PRO FORMATION was founded on a simple yet powerful idea: to create a multicultural educational environment that builds bridges between Europe and Asia. We believe that the future belongs to those who can navigate different cultures with ease and professionalism.",
     "paragraph2": "Our training programs, focused on high-growth sectors like luxury, sports, and international business, are designed to provide our students with not just theoretical knowledge, but also the practical skills and global mindset needed to succeed. We are more than a school; we are a launchpad for international careers."
   },
   "testimonialsSection": {
@@ -123,7 +123,7 @@
     "errorMessage": "An error occurred. Please try again."
   },
   "footer": {
-    "copyright": "© {year} Global Connect Academy. All rights reserved."
+    "copyright": "© {year} PERPECTIVE PRO FORMATION. All rights reserved."
   },
   "admin": {
     "title": "AI Course Content Generator",

@@ -6,7 +6,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'Global Connect Academy',
+  title: 'PERPECTIVE PRO FORMATION',
   description: 'Your Gateway to an International Career',
 };
 

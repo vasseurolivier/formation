@@ -1,5 +1,5 @@
 {
-  "appName": "Global Connect Academy",
+  "appName": "PERPECTIVE PRO FORMATION",
   "nav": {
     "home": "首页",
     "courses": "培训课程",
@@ -83,7 +83,7 @@
   "aboutSection": {
     "title": "连接欧亚的桥梁",
     "subtitle": "我们的理念",
-    "paragraph1": "Global Connect Academy 创立于一个简单而强大的理念：创建一个多文化教育环境，在欧洲和亚洲之间架起桥梁。我们相信，未来属于那些能够轻松、专业地驾驭不同文化的人。",
+    "paragraph1": "PERPECTIVE PRO FORMATION 创立于一个简单而强大的理念：创建一个多文化教育环境，在欧洲和亚洲之间架起桥梁。我们相信，未来属于那些能够轻松、专业地驾驭不同文化的人。",
     "paragraph2": "我们的培训项目专注于奢侈品、体育和国际商务等高增长领域，旨在为我们的学生不仅提供理论知识，还提供成功所需的实践技能和全球思维。我们不仅仅是一所学校；我们是国际职业生涯的启动平台。"
   },
   "testimonialsSection": {
@@ -123,7 +123,7 @@
     "errorMessage": "发生错误。请再试一次。"
   },
   "footer": {
-    "copyright": "© {year} Global Connect Academy. 版权所有。"
+    "copyright": "© {year} PERPECTIVE PRO FORMATION. 版权所有。"
   },
   "admin": {
     "title": "AI 课程内容生成器",
