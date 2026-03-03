@@ -120,7 +120,7 @@ export default function ContactSection() {
                 </Card>
             </ScrollReveal>
             <ScrollReveal delay={400}>
-                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-primary/5 flex flex-col items-center justify-center p-8 space-y-8 text-center">
+                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-muted flex flex-col items-center justify-center p-8 space-y-8 text-center">
                     <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit">
                       <MapPin className="w-10 h-10" />
                     </div>
