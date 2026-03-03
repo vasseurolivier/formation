@@ -52,7 +52,7 @@ export function Globe() {
 
     // Wireframe
     const wireframeMaterial = new THREE.MeshBasicMaterial({
-        color: 0x3b82f6,
+        color: 0x2965b5,
         wireframe: true,
         transparent: true,
         opacity: 0.1,
@@ -89,7 +89,7 @@ export function Globe() {
     const seaVec = toVector3(locations.sea.lat, locations.sea.lon);
 
     const points = [franceVec, chinaVec, seaVec];
-    const pointMaterial = new THREE.MeshBasicMaterial({ color: 0x3b82f6 });
+    const pointMaterial = new THREE.MeshBasicMaterial({ color: 0x2965b5 });
     points.forEach(p => {
         const pointGeom = new THREE.SphereGeometry(0.015, 16, 16);
         const pointMesh = new THREE.Mesh(pointGeom, pointMaterial);
@@ -97,7 +97,7 @@ export function Globe() {
         globe.add(pointMesh);
     });
 
-    const arcMaterial = new THREE.MeshBasicMaterial({ color: 0x3b82f6, transparent: true, opacity: 0.7 });
+    const arcMaterial = new THREE.MeshBasicMaterial({ color: 0x2965b5, transparent: true, opacity: 0.7 });
     
     const arcs = [
         createCurve(franceVec, chinaVec),

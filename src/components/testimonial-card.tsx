@@ -20,7 +20,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   );
 
   return (
-    <Card className="h-full border bg-card hover:bg-accent transition-colors">
+    <Card className="h-full border bg-card hover:bg-accent transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <CardContent className="flex h-full flex-col justify-between p-6">
         <blockquote className="italic text-foreground/80">
           “{t(testimonial.quoteKey)}”

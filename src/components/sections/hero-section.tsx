@@ -23,7 +23,7 @@ export default function HeroSection() {
     <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Globe />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-transparent" />
       </div>
       <div className="relative z-10 flex h-full items-center justify-center text-center">
         <div className="container px-4 md:px-6">
