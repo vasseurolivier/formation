@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import type { Course, CourseCategoryId } from "@/lib/data";
+import type { Course } from "@/lib/data";
 import { useTranslation } from "@/hooks/use-translation";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { useCustomizableImage } from "@/hooks/use-customizable-image";
 
 interface CourseCardProps {
   course: Course;
@@ -14,15 +15,16 @@ interface CourseCardProps {
 
 export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
   const { t } = useTranslation();
+  const imageUrl = useCustomizableImage(course.imageId);
   const placeholderImage = PlaceHolderImages.find((img) => img.id === course.imageId);
 
   return (
     <Card className="group relative overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 border bg-card hover:bg-accent">
       <CardHeader className="p-0">
         <div className="relative h-56 w-full">
-          {placeholderImage && (
+          {imageUrl && placeholderImage && (
              <Image
-              src={placeholderImage.imageUrl}
+              src={imageUrl}
               alt={placeholderImage.description}
               data-ai-hint={placeholderImage.imageHint}
               fill

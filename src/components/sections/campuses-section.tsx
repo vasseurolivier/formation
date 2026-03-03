@@ -5,6 +5,23 @@ import { useTranslation } from "@/hooks/use-translation";
 import { campusLocations } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { useCustomizableImage } from "@/hooks/use-customizable-image";
+
+function CampusImage({ imageId, description, imageHint }: { imageId: string, description: string, imageHint: string }) {
+  const imageUrl = useCustomizableImage(imageId);
+  
+  if (!imageUrl) return null;
+
+  return (
+    <Image
+      src={imageUrl}
+      alt={description}
+      data-ai-hint={imageHint}
+      fill
+      className="object-cover"
+    />
+  );
+}
 
 export default function CampusesSection() {
   const { t } = useTranslation();
@@ -36,12 +53,10 @@ export default function CampusesSection() {
                 >
                   <div className={`relative aspect-video rounded-lg overflow-hidden shadow-2xl shadow-primary/10 ${isReversed ? 'md:col-start-2' : ''}`}>
                     {placeholderImage && (
-                      <Image
-                        src={placeholderImage.imageUrl}
-                        alt={placeholderImage.description}
-                        data-ai-hint={placeholderImage.imageHint}
-                        fill
-                        className="object-cover"
+                      <CampusImage 
+                        imageId={placeholderImage.id}
+                        description={placeholderImage.description}
+                        imageHint={placeholderImage.imageHint}
                       />
                     )}
                   </div>

@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import type { Testimonial } from "@/lib/data";
 import { useTranslation } from "@/hooks/use-translation";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { useCustomizableImage } from "@/hooks/use-customizable-image";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -13,6 +14,7 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   const { t } = useTranslation();
+  const imageUrl = useCustomizableImage(testimonial.imageId);
   const placeholderImage = PlaceHolderImages.find(
     (img) => img.id === testimonial.imageId
   );
@@ -25,9 +27,9 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
         </blockquote>
         <div className="mt-6 flex items-center gap-4">
           <Avatar>
-            {placeholderImage && (
+            {imageUrl && placeholderImage && (
                 <AvatarImage 
-                    src={placeholderImage.imageUrl} 
+                    src={imageUrl} 
                     alt={t(testimonial.authorKey)} 
                     data-ai-hint={placeholderImage.imageHint}
                 />

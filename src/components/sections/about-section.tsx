@@ -4,9 +4,11 @@ import Image from "next/image";
 import { useTranslation } from "@/hooks/use-translation";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { useCustomizableImage } from "@/hooks/use-customizable-image";
 
 export default function AboutSection() {
   const { t } = useTranslation();
+  const imageUrl = useCustomizableImage("about-us-image");
   const aboutImage = PlaceHolderImages.find(img => img.id === "about-us-image");
 
   return (
@@ -15,9 +17,9 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl shadow-primary/10">
-              {aboutImage && (
+              {imageUrl && aboutImage && (
                 <Image
-                  src={aboutImage.imageUrl}
+                  src={imageUrl}
                   alt={aboutImage.description}
                   data-ai-hint={aboutImage.imageHint}
                   fill
