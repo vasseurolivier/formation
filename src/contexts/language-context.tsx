@@ -1,7 +1,7 @@
 "use client";
 
 import type { Dispatch, SetStateAction } from "react";
-import { createContext, useState, useMemo, useEffect } from "react";
+import { createContext, useState, useMemo } from "react";
 import fr from "@/lib/translations/fr.json";
 import en from "@/lib/translations/en.json";
 import zh from "@/lib/translations/zh.json";
@@ -25,13 +25,6 @@ export const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("fr");
-
-  useEffect(() => {
-    const browserLang = navigator.language.split("-")[0];
-    if (browserLang in translationsMap) {
-      setLanguage(browserLang as Language);
-    }
-  }, []);
 
   const translations = useMemo(
     () => translationsMap[language] || en,

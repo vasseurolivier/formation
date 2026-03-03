@@ -49,7 +49,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section className="py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="text-center mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
@@ -118,8 +118,25 @@ export default function ContactSection() {
                 </Card>
             </ScrollReveal>
             <ScrollReveal delay={400}>
-                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-card/50 flex items-center justify-center">
-                    <p className="text-muted-foreground">Interactive map placeholder</p>
+                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-card/50 flex flex-col items-start justify-center p-8 space-y-8">
+                    <div>
+                        <h3 className="font-headline text-xl font-semibold text-foreground">{t("locations.title")}</h3>
+                        <p className="text-muted-foreground mt-2">{t("locations.subtitle")}</p>
+                    </div>
+                    <div className="space-y-4 text-left">
+                        <div>
+                            <h4 className="font-semibold text-foreground">Évron</h4>
+                            <p className="text-muted-foreground">{t("locations.evron")}</p>
+                        </div>
+                        <div>
+                            <h4 className="font-semibold text-foreground">Sainte-Tulle</h4>
+                            <p className="text-muted-foreground">{t("locations.sainteTulle")}</p>
+                        </div>
+                        <div>
+                            <h4 className="font-semibold text-foreground">Sainte-Bazeille</h4>
+                            <p className="text-muted-foreground">{t("locations.sainteBazeille")}</p>
+                        </div>
+                    </div>
                 </div>
             </ScrollReveal>
         </div>

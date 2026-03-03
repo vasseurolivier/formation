@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/contexts/language-context';
 import './globals.css';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'Global Connect Academy',
@@ -22,7 +24,13 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased selection:bg-primary/20">
         <LanguageProvider>
-          {children}
+          <div className="flex flex-col min-h-screen bg-background">
+            <Header />
+            <main className="flex-grow pt-20">
+              {children}
+            </main>
+            <Footer />
+          </div>
           <Toaster />
         </LanguageProvider>
       </body>

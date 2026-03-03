@@ -6,6 +6,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import Link from "next/link";
 
 const Globe = dynamic(
   () => import("@/components/globe").then((mod) => mod.Globe),
@@ -18,18 +19,8 @@ const Globe = dynamic(
 export default function HeroSection() {
   const { t } = useTranslation();
 
-  const handleScrollToCourses = () => {
-    const coursesSection = document.getElementById("courses");
-    if (coursesSection) {
-      window.scrollTo({
-        top: coursesSection.offsetTop - 80, // Offset for header
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
-    <section id="home" className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Globe />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -48,9 +39,11 @@ export default function HeroSection() {
           </ScrollReveal>
           <ScrollReveal delay={400}>
             <div className="mt-10">
-              <Button size="lg" onClick={handleScrollToCourses}>
-                {t("hero.cta")}
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" asChild>
+                <Link href="/courses">
+                  {t("hero.cta")}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </ScrollReveal>

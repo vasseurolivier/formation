@@ -141,5 +141,35 @@
     "frenchTranslation": "法语翻译",
     "englishTranslation": "英语翻译",
     "chineseTranslation": "中文翻译"
+  },
+  "locations": {
+    "title": "我们的校区",
+    "subtitle": "我们欢迎您来到我们位于法国的三个校区，致力于您的成功。",
+    "evron": "埃夫龙校区 (马耶讷省)",
+    "sainteTulle": "圣蒂勒校区 (上普罗旺斯阿尔卑斯省)",
+    "sainteBazeille": "圣巴泽耶校区 (洛特-加龙省)"
+  },
+  "whyChooseUs": {
+    "title": "为什么选择我们？",
+    "subtitle": "独特的教学方法，助您开启无国界职业生涯。",
+    "features": [
+      {
+        "title": "国际视野",
+        "description": "我们的课程以全球视角设计，为您在世界任何地方工作做好准备。"
+      },
+      {
+        "title": "专家讲师",
+        "description": "向行业专业人士学习，他们将真实世界经验带入课堂。"
+      },
+      {
+        "title": "卓越实践",
+        "description": "我们专注于实践技能和现实世界经验，确保您为工作做好准备。"
+      }
+    ]
+  },
+  "cta": {
+    "title": "准备好开始您的旅程了吗？",
+    "subtitle": "立即联系我们，了解更多关于我们课程的信息，以及我们如何帮助您实现职业目标。",
+    "button": "联系我们"
   }
 }

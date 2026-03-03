@@ -141,5 +141,35 @@
     "frenchTranslation": "Traduction Française",
     "englishTranslation": "Traduction Anglaise",
     "chineseTranslation": "Traduction Chinoise"
+  },
+  "locations": {
+    "title": "Nos Campus",
+    "subtitle": "Nous vous accueillons sur nos trois sites en France, dédiés à votre réussite.",
+    "evron": "Campus d'Évron (Mayenne)",
+    "sainteTulle": "Campus de Sainte-Tulle (Alpes-de-Haute-Provence)",
+    "sainteBazeille": "Campus de Sainte-Bazeille (Lot-et-Garonne)"
+  },
+  "whyChooseUs": {
+    "title": "Pourquoi nous choisir ?",
+    "subtitle": "Une approche unique pour une carrière sans frontières.",
+    "features": [
+      {
+        "title": "Vision Internationale",
+        "description": "Nos programmes sont conçus avec une perspective mondiale, vous préparant à travailler partout dans le monde."
+      },
+      {
+        "title": "Formateurs Experts",
+        "description": "Apprenez auprès de professionnels de l'industrie qui apportent une expérience du monde réel dans la salle de classe."
+      },
+      {
+        "title": "Excellence Pratique",
+        "description": "Nous nous concentrons sur les compétences pratiques et les expériences concrètes pour garantir que vous soyez prêt pour le marché du travail."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à commencer votre voyage ?",
+    "subtitle": "Contactez-nous dès aujourd'hui pour en savoir plus sur nos programmes et comment nous pouvons vous aider à atteindre vos objectifs de carrière.",
+    "button": "Nous Contacter"
   }
 }

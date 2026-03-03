@@ -141,5 +141,35 @@
     "frenchTranslation": "French Translation",
     "englishTranslation": "English Translation",
     "chineseTranslation": "Chinese Translation"
+  },
+  "locations": {
+    "title": "Our Campuses",
+    "subtitle": "We welcome you to our three locations in France, dedicated to your success.",
+    "evron": "Evron Campus (Mayenne)",
+    "sainteTulle": "Sainte-Tulle Campus (Alpes-de-Haute-Provence)",
+    "sainteBazeille": "Sainte-Bazeille Campus (Lot-et-Garonne)"
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Us?",
+    "subtitle": "A unique approach for a career without borders.",
+    "features": [
+      {
+        "title": "International Vision",
+        "description": "Our programs are designed with a global perspective, preparing you to work anywhere in the world."
+      },
+      {
+        "title": "Expert Instructors",
+        "description": "Learn from industry professionals who bring real-world experience into the classroom."
+      },
+      {
+        "title": "Practical Excellence",
+        "description": "We focus on hands-on skills and real-world experiences to ensure you are job-ready."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Start Your Journey?",
+    "subtitle": "Contact us today to learn more about our programs and how we can help you achieve your career goals.",
+    "button": "Contact Us"
   }
 }
