@@ -17,7 +17,7 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
   const placeholderImage = PlaceHolderImages.find((img) => img.id === course.imageId);
 
   return (
-    <Card className="group relative overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 border-transparent bg-card/50 hover:bg-card">
+    <Card className="group relative overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 border bg-card hover:bg-accent">
       <CardHeader className="p-0">
         <div className="relative h-56 w-full">
           {placeholderImage && (

@@ -10,7 +10,7 @@ export default function AboutSection() {
   const aboutImage = PlaceHolderImages.find(img => img.id === "about-us-image");
 
   return (
-    <section className="py-20 md:py-32 bg-card/30">
+    <section className="py-20 md:py-32 bg-primary/5">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <ScrollReveal>

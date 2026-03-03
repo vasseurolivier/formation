@@ -15,7 +15,7 @@ export default function LocationsSection() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-card/30">
+    <section className="py-20 md:py-32 bg-primary/5">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="text-center mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
@@ -28,7 +28,7 @@ export default function LocationsSection() {
         <div className="grid md:grid-cols-3 gap-8">
           {locations.map((location, index) => (
             <ScrollReveal key={location.name} delay={index * 150}>
-              <Card className="text-center h-full border-transparent bg-card/50 hover:bg-card hover:shadow-lg transition-all">
+              <Card className="text-center h-full border bg-card hover:bg-accent hover:shadow-lg transition-all">
                 <CardHeader>
                   <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit">
                     <MapPin className="w-8 h-8" />

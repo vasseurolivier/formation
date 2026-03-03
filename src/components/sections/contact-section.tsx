@@ -62,7 +62,7 @@ export default function ContactSection() {
         
         <div className="grid md:grid-cols-2 gap-12">
             <ScrollReveal delay={200}>
-                <Card className="bg-card/50 border-transparent">
+                <Card className="border bg-card">
                     <CardContent className="p-8">
                         <Form {...form}>
                           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -118,7 +118,7 @@ export default function ContactSection() {
                 </Card>
             </ScrollReveal>
             <ScrollReveal delay={400}>
-                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-card/50 flex flex-col items-start justify-center p-8 space-y-8">
+                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-primary/5 flex flex-col items-start justify-center p-8 space-y-8">
                     <div>
                         <h3 className="font-headline text-xl font-semibold text-foreground">{t("locations.title")}</h3>
                         <p className="text-muted-foreground mt-2">{t("locations.subtitle")}</p>

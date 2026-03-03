@@ -18,7 +18,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   );
 
   return (
-    <Card className="h-full border-transparent bg-card/50">
+    <Card className="h-full border bg-card hover:bg-accent transition-colors">
       <CardContent className="flex h-full flex-col justify-between p-6">
         <blockquote className="italic text-foreground/80">
           “{t(testimonial.quoteKey)}”
