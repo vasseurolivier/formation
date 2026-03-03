@@ -3,6 +3,7 @@
   "nav": {
     "home": "首页",
     "courses": "培训课程",
+    "locations": "我们的校区",
     "about": "关于我们",
     "testimonials": "学生感言",
     "contact": "联系我们"
@@ -15,6 +16,11 @@
   "coursesSection": {
     "title": "我们的培训课程",
     "subtitle": "专为全球舞台设计的卓越课程。"
+  },
+  "coursesPreview": {
+    "title": "我们的旗舰课程",
+    "subtitle": "一窥改变职业生涯的旅程。",
+    "cta": "查看所有课程"
   },
   "category": {
     "luxury": "奢侈品与酒店管理",
@@ -119,6 +125,11 @@
       "messagePlaceholder": "告诉我们您的项目或提出问题...",
       "submit": "发送消息"
     },
+     "locations": {
+      "title": "我们的校区",
+      "description": "我们欢迎您来到我们位于法国的三个校区，致力于您的成功。",
+      "cta": "探索我们的校区"
+    },
     "successMessage": "谢谢！您的消息已发送。",
     "errorMessage": "发生错误。请再试一次。"
   },
@@ -143,11 +154,19 @@
     "chineseTranslation": "中文翻译"
   },
   "locations": {
-    "title": "我们的校区",
-    "subtitle": "我们欢迎您来到我们位于法国的三个校区，致力于您的成功。",
+    "sectionTitle": "我们在法国的校区",
+    "sectionSubtitle": "位于法国标志性地区的独特学习环境。",
+    "pageTitle": "我们的校区",
+    "pageSubtitle": "三个卓越的地点，带来完全的沉浸式体验。",
+    "cta": "探索我们的校区",
     "evron": "埃夫龙校区 (马耶讷省)",
     "sainteTulle": "圣蒂勒校区 (上普罗旺斯阿尔卑斯省)",
-    "sainteBazeille": "圣巴泽耶校区 (洛特-加龙省)"
+    "sainteBazeille": "圣巴泽耶校区 (洛特-加龙省)",
+    "details": {
+      "evron": "我们的埃夫龙校区坐落在马耶讷省迷人的埃夫龙镇，提供宁静的学习环境。学生们可以在紧密联系的社区中享用现代化设施，这里是专注于学习同时体验法式生活艺术的理想之地。",
+      "sainteTulle": "圣蒂勒校区坐落在普罗旺斯的中心地带，是一个真正的和平天堂。周围环绕着美丽的风景，激发着创造力和幸福感。这里是与生活艺术和酒店管理相关的课程的理想场所。",
+      "sainteBazeille": "我们的圣巴泽耶校区靠近波尔多，位于世界上最著名的葡萄酒产区之一的中心。它为与葡萄酒、美食和国际管理相关的课程提供了独特的沉浸式体验。"
+    }
   },
   "whyChooseUs": {
     "title": "为什么选择我们？",

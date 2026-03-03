@@ -3,6 +3,7 @@
   "nav": {
     "home": "Home",
     "courses": "Trainings",
+    "locations": "Our Campuses",
     "about": "About",
     "testimonials": "Testimonials",
     "contact": "Contact"
@@ -15,6 +16,11 @@
   "coursesSection": {
     "title": "Our Trainings",
     "subtitle": "Excellence-focused programs designed for the global stage."
+  },
+  "coursesPreview": {
+    "title": "Our Flagship Courses",
+    "subtitle": "A glimpse into career-transforming journeys.",
+    "cta": "View All Courses"
   },
   "category": {
     "luxury": "Luxury & Hospitality",
@@ -119,6 +125,11 @@
       "messagePlaceholder": "Tell us about your project or ask a question...",
       "submit": "Send Message"
     },
+    "locations": {
+      "title": "Our Campuses",
+      "description": "We welcome you to our three locations in France, dedicated to your success.",
+      "cta": "Discover Our Campuses"
+    },
     "successMessage": "Thank you! Your message has been sent.",
     "errorMessage": "An error occurred. Please try again."
   },
@@ -143,11 +154,19 @@
     "chineseTranslation": "Chinese Translation"
   },
   "locations": {
-    "title": "Our Campuses",
-    "subtitle": "We welcome you to our three locations in France, dedicated to your success.",
+    "sectionTitle": "Our Campuses in France",
+    "sectionSubtitle": "Unique learning environments in the heart of iconic French regions.",
+    "pageTitle": "Our Campuses",
+    "pageSubtitle": "Three exceptional locations for a complete immersion.",
+    "cta": "Discover Our Campuses",
     "evron": "Evron Campus (Mayenne)",
     "sainteTulle": "Sainte-Tulle Campus (Alpes-de-Haute-Provence)",
-    "sainteBazeille": "Sainte-Bazeille Campus (Lot-et-Garonne)"
+    "sainteBazeille": "Sainte-Bazeille Campus (Lot-et-Garonne)",
+    "details": {
+      "evron": "Located in the charming town of Évron in Mayenne, our campus offers a peaceful and studious setting. Students benefit from modern facilities within a close-knit community, ideal for focusing on studies while discovering the French way of life.",
+      "sainteTulle": "Nestled in the heart of Provence, the Sainte-Tulle campus is a true haven of peace. Surrounded by beautiful landscapes, it inspires creativity and well-being. It is the perfect place for our courses related to the art of living and hospitality.",
+      "sainteBazeille": "Near Bordeaux, our Sainte-Bazeille campus is in the heart of one of the world's most famous wine regions. It offers a unique immersion for courses related to wine, gastronomy, and international management."
+    }
   },
   "whyChooseUs": {
     "title": "Why Choose Us?",

@@ -48,3 +48,9 @@ export const testimonials: Testimonial[] = [
     { id: '2', quoteKey: 'testimonials.2.quote', authorKey: 'testimonials.2.author', originKey: 'testimonials.2.origin', imageId: 'testimonial-2' },
     { id: '3', quoteKey: 'testimonials.3.quote', authorKey: 'testimonials.3.author', originKey: 'testimonials.3.origin', imageId: 'testimonial-3' },
 ];
+
+export const campusLocations = [
+  { id: 'evron', name: 'Évron', descriptionKey: 'locations.evron', detailsKey: 'locations.details.evron', imageId: 'campus-evron' },
+  { id: 'sainte-tulle', name: 'Sainte-Tulle', descriptionKey: 'locations.sainteTulle', detailsKey: 'locations.details.sainteTulle', imageId: 'campus-sainte-tulle' },
+  { id: 'sainte-bazeille', name: 'Sainte-Bazeille', descriptionKey: 'locations.sainteBazeille', detailsKey: 'locations.details.sainteBazeille', imageId: 'campus-sainte-bazeille' },
+];

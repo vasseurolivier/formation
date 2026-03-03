@@ -18,6 +18,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollReveal } from "../scroll-reveal";
+import { MapPin, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactSection() {
   const { t } = useTranslation();
@@ -118,25 +120,20 @@ export default function ContactSection() {
                 </Card>
             </ScrollReveal>
             <ScrollReveal delay={400}>
-                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-primary/5 flex flex-col items-start justify-center p-8 space-y-8">
+                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-primary/5 flex flex-col items-center justify-center p-8 space-y-8 text-center">
+                    <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit">
+                      <MapPin className="w-10 h-10" />
+                    </div>
                     <div>
-                        <h3 className="font-headline text-xl font-semibold text-foreground">{t("locations.title")}</h3>
-                        <p className="text-muted-foreground mt-2">{t("locations.subtitle")}</p>
+                        <h3 className="font-headline text-xl font-semibold text-foreground">{t("contactSection.locations.title")}</h3>
+                        <p className="text-muted-foreground mt-2 max-w-sm mx-auto">{t("contactSection.locations.description")}</p>
                     </div>
-                    <div className="space-y-4 text-left">
-                        <div>
-                            <h4 className="font-semibold text-foreground">Évron</h4>
-                            <p className="text-muted-foreground">{t("locations.evron")}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold text-foreground">Sainte-Tulle</h4>
-                            <p className="text-muted-foreground">{t("locations.sainteTulle")}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold text-foreground">Sainte-Bazeille</h4>
-                            <p className="text-muted-foreground">{t("locations.sainteBazeille")}</p>
-                        </div>
-                    </div>
+                     <Button asChild>
+                        <Link href="/locations">
+                            {t("contactSection.locations.cta")}
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                    </Button>
                 </div>
             </ScrollReveal>
         </div>

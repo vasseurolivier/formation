@@ -3,6 +3,7 @@
   "nav": {
     "home": "Accueil",
     "courses": "Formations",
+    "locations": "Nos Campus",
     "about": "À Propos",
     "testimonials": "Témoignages",
     "contact": "Contact"
@@ -15,6 +16,11 @@
   "coursesSection": {
     "title": "Nos Formations",
     "subtitle": "Des programmes axés sur l'excellence, conçus pour la scène mondiale."
+  },
+  "coursesPreview": {
+    "title": "Nos Formations Phares",
+    "subtitle": "Un aperçu des parcours qui transforment les carrières.",
+    "cta": "Voir toutes les formations"
   },
   "category": {
     "luxury": "Luxe & Hôtellerie",
@@ -119,6 +125,11 @@
       "messagePlaceholder": "Parlez-nous de votre projet ou posez une question...",
       "submit": "Envoyer le Message"
     },
+    "locations": {
+      "title": "Nos Campus",
+      "description": "Nous vous accueillons sur nos trois sites en France, dédiés à votre réussite.",
+      "cta": "Découvrir nos campus"
+    },
     "successMessage": "Merci ! Votre message a bien été envoyé.",
     "errorMessage": "Une erreur est survenue. Veuillez réessayer."
   },
@@ -143,11 +154,19 @@
     "chineseTranslation": "Traduction Chinoise"
   },
   "locations": {
-    "title": "Nos Campus",
-    "subtitle": "Nous vous accueillons sur nos trois sites en France, dédiés à votre réussite.",
+    "sectionTitle": "Nos Campus en France",
+    "sectionSubtitle": "Des environnements d'apprentissage uniques, au cœur de régions françaises emblématiques.",
+    "pageTitle": "Nos Campus",
+    "pageSubtitle": "Trois lieux d'exception pour une immersion complète.",
+    "cta": "Découvrir nos campus",
     "evron": "Campus d'Évron (Mayenne)",
     "sainteTulle": "Campus de Sainte-Tulle (Alpes-de-Haute-Provence)",
-    "sainteBazeille": "Campus de Sainte-Bazeille (Lot-et-Garonne)"
+    "sainteBazeille": "Campus de Sainte-Bazeille (Lot-et-Garonne)",
+    "details": {
+      "evron": "Situé dans la charmante ville d'Évron en Mayenne, notre campus offre un cadre paisible et studieux. Les étudiants bénéficient d'installations modernes au sein d'une communauté soudée, idéale pour se concentrer sur les études tout en découvrant l'art de vivre à la française.",
+      "sainteTulle": "Niché au cœur de la Provence, le campus de Sainte-Tulle est un véritable havre de paix. Entouré de paysages magnifiques, il inspire la créativité et le bien-être. C'est le lieu parfait pour nos formations en lien avec l'art de vivre et l'hospitalité.",
+      "sainteBazeille": "À proximité de Bordeaux, notre campus de Sainte-Bazeille est au cœur d'une des plus célèbres régions viticoles du monde. Il offre une immersion unique pour les formations liées au vin, à la gastronomie et au management international."
+    }
   },
   "whyChooseUs": {
     "title": "Pourquoi nous choisir ?",

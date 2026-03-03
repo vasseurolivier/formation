@@ -104,9 +104,27 @@
     },
     {
       "id": "about-us-image",
-      "description": "A bridge connecting two different architectural styles, symbolizing Europe and Asia",
-      "imageUrl": "https://picsum.photos/seed/about-us/800/600",
-      "imageHint": "modern bridge"
+      "description": "A modern bridge over a river, connecting two shores",
+      "imageUrl": "https://images.unsplash.com/photo-1506126491219-4d69b305b955?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxicmlkZ2UlMjBjb25uZWN0aW9ufGVufDB8fHx8MTc3MjUyMDYwMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bridge connection"
+    },
+    {
+      "id": "campus-evron",
+      "description": "A charming street in a French town",
+      "imageUrl": "https://images.unsplash.com/photo-1590141220463-057d398939f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjB0b3dufGVufDB8fHx8MTc3MjUyMDc2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "French town"
+    },
+    {
+      "id": "campus-sainte-tulle",
+      "description": "Lavender fields in Provence, France",
+      "imageUrl": "https://images.unsplash.com/photo-1564998235459-a5717b08518f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQcm92ZW5jZSUyMGxhdmVuZGVyfGVufDB8fHx8MTc3MjUyMDc5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Provence lavender"
+    },
+    {
+      "id": "campus-sainte-bazeille",
+      "description": "A vineyard in the Bordeaux region of France",
+      "imageUrl": "https://images.unsplash.com/photo-1588821321528-f683a6519163?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxCb3JkZWF1eCUyMHZpbmV5YXJkfGVufDB8fHx8MTc3MjUyMDgzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Bordeaux vineyard"
     }
   ]
 }
