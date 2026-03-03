@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { BookOpenText } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
@@ -12,6 +13,7 @@ import { Button } from "@/components/ui/button";
 export default function Header() {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const pathname = usePathname();
 
   const navItems = [
@@ -27,7 +29,25 @@ export default function Header() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    // Load logo from local storage
+    const storedLogo = localStorage.getItem('siteLogo');
+    if (storedLogo) {
+      setLogoUrl(storedLogo);
+    }
+
+    // Listen for storage changes to update logo in real-time
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === 'siteLogo') {
+        setLogoUrl(event.newValue);
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('storage', handleStorageChange);
+    }
   }, []);
 
   return (
@@ -39,10 +59,23 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <BookOpenText className="h-6 w-6 text-primary" />
-          <span className="font-headline text-lg font-bold text-foreground">
-            {t("appName")}
-          </span>
+          {logoUrl ? (
+            <div className="relative h-8 w-32">
+              <Image 
+                src={logoUrl} 
+                alt="Site Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+          ) : (
+            <>
+              <BookOpenText className="h-6 w-6 text-primary" />
+              <span className="font-headline text-lg font-bold text-foreground">
+                {t("appName")}
+              </span>
+            </>
+          )}
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
@@ -61,7 +94,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
            <Button asChild variant="outline" size="sm">
-            <Link href="/admin/course-generator">Admin</Link>
+            <Link href="/admin">Admin</Link>
           </Button>
         </div>
       </div>

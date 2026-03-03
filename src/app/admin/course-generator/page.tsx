@@ -69,9 +69,9 @@ export default function CourseGeneratorPage() {
   return (
     <div className="min-h-screen bg-background p-4 sm:p-6 md:p-8">
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4">
+        <Link href="/admin" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4">
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            Back to Admin Dashboard
         </Link>
         <Card className="mb-8">
           <CardHeader>
