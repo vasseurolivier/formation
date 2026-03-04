@@ -47,9 +47,6 @@ export default function LogoUploaderPage() {
     if (logoPreview && selectedFile && logoDocRef) {
       setIsUploading(true);
       
-      // In a real app, you would upload the file to Firebase Storage
-      // and then save the URL to Firestore.
-      // For this prototype, we'll store the Data URL directly.
       const newLogoData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
         url: logoPreview,
         type: selectedFile.type,
@@ -104,14 +101,15 @@ export default function LogoUploaderPage() {
             <div className="space-y-4">
                 <h3 className="font-semibold">Current Logo</h3>
                 {isLoading ? (
-                    <div className="w-full h-24 bg-muted rounded-md animate-pulse"></div>
+                    <div className="w-full h-14 bg-muted rounded-md animate-pulse"></div>
                 ) : currentLogoUrl ? (
-                    <div className="relative w-full h-24">
+                    <div className="flex justify-start">
                         <Image
                             src={currentLogoUrl}
                             alt="Current Site Logo"
-                            fill
-                            className="object-contain"
+                            width={336}
+                            height={56}
+                            className="h-14 w-auto"
                         />
                     </div>
                 ) : (
@@ -120,19 +118,20 @@ export default function LogoUploaderPage() {
             </div>
 
             <div className="space-y-2">
-                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended aspect ratio: ~4:1 (e.g., 384x96 pixels).</p>
+                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended aspect ratio: ~6:1 (e.g., 336x56 pixels).</p>
                 <Input type="file" accept="image/*" onChange={handleFileChange} />
             </div>
 
             {logoPreview && (
-              <div className="space-y-4 text-center">
+              <div className="space-y-4">
                   <h3 className="font-semibold">New Logo Preview</h3>
-                  <div className="relative w-full h-24 mx-auto border rounded-md p-2 flex items-center justify-center">
+                  <div className="flex justify-start border rounded-md p-2">
                       <Image
                           src={logoPreview}
                           alt="Logo Preview"
-                          fill
-                          className="object-contain"
+                          width={336}
+                          height={56}
+                          className="h-14 w-auto"
                       />
                   </div>
               </div>

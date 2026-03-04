@@ -56,18 +56,18 @@ export default function Header() {
         isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
-      <div className="flex h-32 w-full items-center px-4 md:px-6">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <div className="flex items-center">
             <Link href="/" className="flex-shrink-0">
             {logoUrl ? (
-                <div className="relative h-24 w-[24rem]">
-                <Image 
-                    src={logoUrl} 
+                <Image
+                    src={logoUrl}
                     alt="Site Logo"
-                    fill
-                    className="object-contain"
+                    width={336}
+                    height={56}
+                    className="h-14 w-auto"
+                    priority
                 />
-                </div>
             ) : (
                 <BookOpenText className="h-6 w-6 text-white" />
             )}
@@ -87,7 +87,7 @@ export default function Header() {
             ))}
             </nav>
         </div>
-        <div className="ml-auto flex items-center gap-4 text-white">
+        <div className="flex items-center gap-4 text-white">
           <LanguageSwitcher />
            <Button asChild variant="outline" size="sm" className="text-white border-white/50 hover:bg-white/10">
             <Link href="/admin">Admin</Link>
