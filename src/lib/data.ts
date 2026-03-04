@@ -49,8 +49,38 @@ export const testimonials: Testimonial[] = [
     { id: '3', quoteKey: 'testimonials.3.quote', authorKey: 'testimonials.3.author', originKey: 'testimonials.3.origin', imageId: 'testimonial-3' },
 ];
 
-export const campusLocations = [
-  { id: 'evron', name: 'Évron', descriptionKey: 'locations.evron', detailsKey: 'locations.details.evron', imageId: 'campus-evron' },
-  { id: 'sainte-tulle', name: 'Sainte-Tulle', descriptionKey: 'locations.sainteTulle', detailsKey: 'locations.details.sainteTulle', imageId: 'campus-sainte-tulle' },
-  { id: 'sainte-bazeille', name: 'Sainte-Bazeille', descriptionKey: 'locations.sainteBazeille', detailsKey: 'locations.details.sainteBazeille', imageId: 'campus-sainte-bazeille' },
+export interface CampusLocation {
+  id: string;
+  name: string;
+  descriptionKey: string;
+  detailsKey: string;
+  mainImageId: string;
+  galleryImageIds: string[];
+}
+
+export const campusLocations: CampusLocation[] = [
+  { 
+    id: 'evron', 
+    name: 'Évron', 
+    descriptionKey: 'locations.evron', 
+    detailsKey: 'locations.details.evron', 
+    mainImageId: 'campus-evron',
+    galleryImageIds: ['campus-evron-gallery-1', 'campus-evron-gallery-2', 'campus-evron-gallery-3']
+  },
+  { 
+    id: 'sainte-tulle', 
+    name: 'Sainte-Tulle', 
+    descriptionKey: 'locations.sainteTulle', 
+    detailsKey: 'locations.details.sainteTulle', 
+    mainImageId: 'campus-sainte-tulle',
+    galleryImageIds: ['campus-sainte-tulle-gallery-1', 'campus-sainte-tulle-gallery-2', 'campus-sainte-tulle-gallery-3']
+  },
+  { 
+    id: 'sainte-bazeille', 
+    name: 'Sainte-Bazeille', 
+    descriptionKey: 'locations.sainteBazeille', 
+    detailsKey: 'locations.details.sainteBazeille', 
+    mainImageId: 'campus-sainte-bazeille',
+    galleryImageIds: ['campus-sainte-bazeille-gallery-1', 'campus-sainte-bazeille-gallery-2', 'campus-sainte-bazeille-gallery-3']
+  },
 ];

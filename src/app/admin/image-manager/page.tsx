@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
+import { campusLocations } from '@/lib/data';
 
 const STORAGE_KEY = 'customImages';
 
@@ -33,8 +34,8 @@ export default function ImageManagerPage() {
       setCustomImages({});
     }
   }, []);
-
-  const imageGroups: ImageGroup[] = [
+  
+  const otherImageGroups: ImageGroup[] = [
     {
       title: 'Course Images',
       images: PlaceHolderImages.filter(img => img.id.startsWith('course-')),
@@ -44,14 +45,23 @@ export default function ImageManagerPage() {
       images: PlaceHolderImages.filter(img => img.id.startsWith('testimonial-')),
     },
     {
-      title: 'Campus Images',
-      images: PlaceHolderImages.filter(img => img.id.startsWith('campus-')),
-    },
-    {
       title: 'General Page Images',
       images: PlaceHolderImages.filter(img => img.id.startsWith('about-')),
     },
-  ].filter(group => group.images.length > 0);
+  ];
+
+  const campusImageGroups: ImageGroup[] = campusLocations.map(campus => {
+      const mainImage = PlaceHolderImages.find(img => img.id === campus.mainImageId);
+      const galleryImages = campus.galleryImageIds.map(id => PlaceHolderImages.find(img => img.id === id));
+      return {
+          title: `Campus: ${campus.name}`,
+          images: [mainImage, ...galleryImages].filter((img): img is ImagePlaceholder => !!img)
+      }
+  });
+
+  const imageGroups: ImageGroup[] = [...otherImageGroups, ...campusImageGroups]
+    .filter(group => group.images.length > 0)
+    .sort((a,b) => a.title.localeCompare(b.title));
 
   const handleFileChange = (id: string, event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];

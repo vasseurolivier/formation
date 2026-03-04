@@ -115,16 +115,70 @@
       "imageHint": "French town"
     },
     {
+      "id": "campus-evron-gallery-1",
+      "description": "Basilique Notre-Dame d'Évron",
+      "imageUrl": "https://images.unsplash.com/photo-1605706909458-5f7787317578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBiYXNpbGljYXxlbnwwfHx8fDE3NzI1MjE2MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "French basilica"
+    },
+    {
+      "id": "campus-evron-gallery-2",
+      "description": "Paysage verdoyant de la Mayenne",
+      "imageUrl": "https://images.unsplash.com/photo-1475518112998-c627f4d5b948?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBjb3VudHJ5c2lkZXxlbnwwfHx8fDE3NzI1MjE2NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "french countryside"
+    },
+    {
+      "id": "campus-evron-gallery-3",
+      "description": "Marché local en France",
+      "imageUrl": "https://images.unsplash.com/photo-1543083477-4f785aeafaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBtYXJrZXR8ZW58MHx8fHwxNzcyNTIxNjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "french market"
+    },
+    {
       "id": "campus-sainte-tulle",
       "description": "Lavender fields in Provence, France",
       "imageUrl": "https://images.unsplash.com/photo-1564998235459-a5717b08518f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQcm92ZW5jZSUyMGxhdmVuZGVyfGVufDB8fHx8MTc3MjUyMDc5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Provence lavender"
     },
     {
+      "id": "campus-sainte-tulle-gallery-1",
+      "description": "Village typique de Provence",
+      "imageUrl": "https://images.unsplash.com/photo-1549959955-33068f182f6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQcm92ZW5jZSUyMHZpbGxhZ2V8ZW58MHx8fHwxNzcyNTIxNzA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "provence village"
+    },
+    {
+      "id": "campus-sainte-tulle-gallery-2",
+      "description": "Champ d'oliviers en Provence",
+      "imageUrl": "https://images.unsplash.com/photo-1590272588364-a4c84c1f6487?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvcnVzJTIwb2xpdmVzJTIwZ3JvdmlufGVufDB8fHx8MTc3MjUyMTcyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "olive grove"
+    },
+    {
+      "id": "campus-sainte-tulle-gallery-3",
+      "description": "Montagnes des Alpes-de-Haute-Provence",
+      "imageUrl": "https://images.unsplash.com/photo-1629822349015-3ea20391d308?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQcm92ZW5jZSUyMG1vdW50YWluc3xlbnwwfHx8fDE3NzI1MjE3NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "provence mountains"
+    },
+    {
       "id": "campus-sainte-bazeille",
       "description": "A vineyard in the Bordeaux region of France",
       "imageUrl": "https://images.unsplash.com/photo-1588821321528-f683a6519163?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxCb3JkZWF1eCUyMHZpbmV5YXJkfGVufDB8fHx8MTc3MjUyMDgzMXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Bordeaux vineyard"
+    },
+    {
+      "id": "campus-sainte-bazeille-gallery-1",
+      "description": "Chai à barriques bordelais",
+      "imageUrl": "https://images.unsplash.com/photo-1557954979-6238b0e774c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aW5lJTIwY2VsbGFyfGVufDB8fHx8MTc3MjUyMTc3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wine cellar"
+    },
+    {
+      "id": "campus-sainte-bazeille-gallery-2",
+      "description": "Vendanges en région bordelaise",
+      "imageUrl": "https://images.unsplash.com/photo-1563725899983-ca0e10d32f50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aW5lJTIwaGFydmVzdHxlbnwwfHx8fDE3NzI1MjE3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grape harvest"
+    },
+    {
+      "id": "campus-sainte-bazeille-gallery-3",
+      "description": "Dégustation de vin à Bordeaux",
+      "imageUrl": "https://images.unsplash.com/photo-1506377242188-340d7c75624b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aW5lJTIwdGFzdGluZ3xlbnwwfHx8fDE3NzI0MDk0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wine tasting"
     }
   ]
 }

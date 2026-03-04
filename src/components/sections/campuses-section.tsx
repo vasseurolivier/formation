@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslation } from "@/hooks/use-translation";
-import { campusLocations } from "@/lib/data";
+import { campusLocations, type CampusLocation } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
@@ -38,10 +38,10 @@ export default function CampusesSection() {
           </p>
         </ScrollReveal>
 
-        <div className="space-y-16">
-          {campusLocations.map((location, index) => {
-            const placeholderImage = PlaceHolderImages.find(
-              (img) => img.id === location.imageId
+        <div className="space-y-24">
+          {campusLocations.map((location: CampusLocation, index) => {
+            const mainPlaceholderImage = PlaceHolderImages.find(
+              (img) => img.id === location.mainImageId
             );
             const isReversed = index % 2 !== 0;
             return (
@@ -51,14 +51,16 @@ export default function CampusesSection() {
                     isReversed ? "md:grid-flow-col-dense" : ""
                   }`}
                 >
-                  <div className={`relative aspect-video rounded-lg overflow-hidden shadow-2xl shadow-primary/10 ${isReversed ? 'md:col-start-2' : ''}`}>
-                    {placeholderImage && (
-                      <CampusImage 
-                        imageId={placeholderImage.id}
-                        description={placeholderImage.description}
-                        imageHint={placeholderImage.imageHint}
-                      />
-                    )}
+                  <div className={`${isReversed ? 'md:col-start-2' : ''}`}>
+                    <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl shadow-primary/10">
+                      {mainPlaceholderImage && (
+                        <CampusImage 
+                          imageId={mainPlaceholderImage.id}
+                          description={mainPlaceholderImage.description}
+                          imageHint={mainPlaceholderImage.imageHint}
+                        />
+                      )}
+                    </div>
                   </div>
                   <div className={`space-y-4 ${isReversed ? 'md:col-start-1' : ''}`}>
                     <h3 className="font-headline text-2xl md:text-3xl font-bold text-primary">
@@ -67,6 +69,26 @@ export default function CampusesSection() {
                     <p className="text-lg text-muted-foreground">
                       {t(location.detailsKey)}
                     </p>
+                    
+                    <div className="pt-4">
+                      <h4 className="font-semibold text-lg text-foreground mb-4">En images...</h4>
+                      <div className="grid grid-cols-3 gap-4">
+                        {location.galleryImageIds.map(imageId => {
+                          const galleryPlaceholder = PlaceHolderImages.find(img => img.id === imageId);
+                          if (!galleryPlaceholder) return null;
+                          return (
+                            <div key={imageId} className="relative aspect-video rounded-md overflow-hidden shadow-lg transition-transform hover:scale-105">
+                              <CampusImage 
+                                imageId={galleryPlaceholder.id}
+                                description={galleryPlaceholder.description}
+                                imageHint={galleryPlaceholder.imageHint}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </ScrollReveal>
