@@ -86,7 +86,7 @@ export default function LogoUploaderPage() {
 
   return (
     <div className="min-h-screen bg-background p-4 pt-24 sm:p-6 md:p-8">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <Link
           href="/admin"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
@@ -104,9 +104,9 @@ export default function LogoUploaderPage() {
             <div className="space-y-4">
                 <h3 className="font-semibold">Current Logo</h3>
                 {isLoading ? (
-                    <div className="w-48 h-12 bg-muted rounded-md animate-pulse"></div>
+                    <div className="w-96 h-24 bg-muted rounded-md animate-pulse"></div>
                 ) : currentLogoUrl ? (
-                    <div className="relative w-48 h-12">
+                    <div className="relative w-96 h-24">
                         <Image
                             src={currentLogoUrl}
                             alt="Current Site Logo"
@@ -120,14 +120,14 @@ export default function LogoUploaderPage() {
             </div>
 
             <div className="space-y-2">
-                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: 128x32 pixels.</p>
+                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: 384x96 pixels.</p>
                 <Input type="file" accept="image/*" onChange={handleFileChange} />
             </div>
 
             {logoPreview && (
               <div className="space-y-4 text-center">
                   <h3 className="font-semibold">New Logo Preview</h3>
-                  <div className="relative w-48 h-12 mx-auto border rounded-md p-2 flex items-center justify-center">
+                  <div className="relative w-96 h-24 mx-auto border rounded-md p-2 flex items-center justify-center">
                       <Image
                           src={logoPreview}
                           alt="Logo Preview"

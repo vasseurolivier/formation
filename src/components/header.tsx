@@ -56,10 +56,10 @@ export default function Header() {
         isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center">
           {logoUrl ? (
-            <div className="relative h-16 w-64">
+            <div className="relative h-24 w-96">
               <Image 
                 src={logoUrl} 
                 alt="Site Logo"
