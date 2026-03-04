@@ -37,10 +37,6 @@ export default function ImageManagerPage() {
   
   const otherImageGroups: ImageGroup[] = [
     {
-        title: 'Page Hero Images',
-        images: PlaceHolderImages.filter(img => img.id.startsWith('hero-')),
-    },
-    {
       title: 'Course Images',
       images: PlaceHolderImages.filter(img => img.id.startsWith('course-')),
     },

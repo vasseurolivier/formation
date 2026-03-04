@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCustomizableImage } from "@/hooks/use-customizable-image";
+import { useCustomizableHeroMedia } from "@/hooks/use-customizable-hero-media";
 import { useTranslation } from "@/hooks/use-translation";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -14,21 +14,35 @@ interface PageHeroSectionProps {
 
 export default function PageHeroSection({ imageId, titleKey, subtitleKey }: PageHeroSectionProps) {
   const { t } = useTranslation();
-  const imageUrl = useCustomizableImage(imageId);
+  const media = useCustomizableHeroMedia(imageId);
   const placeholderImage = PlaceHolderImages.find((img) => img.id === imageId);
 
   return (
-    <section className="relative w-full h-[60vh] min-h-[450px] text-white">
-      {imageUrl && placeholderImage && (
-        <Image
-          src={imageUrl}
-          alt={placeholderImage.description}
-          data-ai-hint={placeholderImage.imageHint}
-          fill
-          className="object-cover"
-          priority
-        />
-      )}
+    <section className="relative w-full h-[60vh] min-h-[450px] text-white bg-black">
+      {media ? (
+            media.type.startsWith('video') ? (
+               <video
+                key={media.url}
+                src={media.url}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+               placeholderImage && (
+                <Image
+                  src={media.url}
+                  alt={placeholderImage.description}
+                  data-ai-hint={placeholderImage.imageHint}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )
+            )
+          ) : null}
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent" />
       <div className="relative z-10 flex h-full items-end pb-20">
         <div className="container px-4 md:px-6">

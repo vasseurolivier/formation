@@ -55,7 +55,7 @@ export default function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border/50" : "bg-transparent"
+        isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -70,9 +70,9 @@ export default function Header() {
               />
             </div>
           ) : (
-            <BookOpenText className="h-6 w-6 text-primary" />
+            <BookOpenText className="h-6 w-6 text-white" />
           )}
-          <span className="font-headline text-lg font-bold text-foreground">
+          <span className="font-headline text-lg font-bold text-white">
             {t("appName")}
           </span>
         </Link>
@@ -82,17 +82,17 @@ export default function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === item.href ? "text-primary" : "text-muted-foreground"
+                "text-sm font-medium text-white/80 transition-colors hover:text-white",
+                pathname === item.href && "text-white font-semibold"
               )}
             >
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 text-white">
           <LanguageSwitcher />
-           <Button asChild variant="outline" size="sm">
+           <Button asChild variant="outline" size="sm" className="text-white border-white/50 hover:bg-white/10">
             <Link href="/admin">Admin</Link>
           </Button>
         </div>

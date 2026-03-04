@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { List, Upload, Image as ImageIcon } from "lucide-react";
+import { List, Upload, Image as ImageIcon, Film } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminDashboardPage() {
@@ -31,6 +31,14 @@ export default function AdminDashboardPage() {
                       <Upload className="w-8 h-8 text-primary" />
                       <CardTitle className="font-sans text-lg">Logo Uploader</CardTitle>
                   </CardHeader>
+                </Card>
+              </Link>
+              <Link href="/admin/hero-manager">
+                <Card className="hover:bg-accent transition-colors">
+                    <CardHeader className="flex flex-row items-center gap-4 space-y-0 p-4">
+                        <Film className="w-8 h-8 text-primary" />
+                        <CardTitle className="font-sans text-lg">Hero Media Manager</CardTitle>
+                    </CardHeader>
                 </Card>
               </Link>
               <Link href="/admin/image-manager">

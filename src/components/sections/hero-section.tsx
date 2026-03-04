@@ -6,27 +6,41 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import Link from "next/link";
 import Image from "next/image";
-import { useCustomizableImage } from "@/hooks/use-customizable-image";
+import { useCustomizableHeroMedia } from "@/hooks/use-customizable-hero-media";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function HeroSection() {
   const { t } = useTranslation();
   const imageId = "hero-home";
-  const imageUrl = useCustomizableImage(imageId);
+  const media = useCustomizableHeroMedia(imageId);
   const placeholderImage = PlaceHolderImages.find((img) => img.id === imageId);
 
   return (
-    <section className="relative w-full h-screen text-white">
-      {imageUrl && placeholderImage && (
-        <Image
-          src={imageUrl}
-          alt={placeholderImage.description}
-          data-ai-hint={placeholderImage.imageHint}
-          fill
-          className="object-cover"
-          priority
-        />
-      )}
+    <section className="relative w-full h-screen text-white bg-black">
+      {media ? (
+        media.type.startsWith('video') ? (
+          <video
+            key={media.url}
+            src={media.url}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          placeholderImage && (
+            <Image
+              src={media.url}
+              alt={placeholderImage.description}
+              data-ai-hint={placeholderImage.imageHint}
+              fill
+              className="object-cover"
+              priority
+            />
+          )
+        )
+      ) : null}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-foreground/30" />
       <div className="relative z-10 flex h-full items-center justify-center text-center">
         <div className="container px-4 md:px-6">
