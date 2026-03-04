@@ -1,3 +1,4 @@
+
 {
   "appName": "PERPECTIVE PRO FORMATION",
   "nav": {
@@ -31,59 +32,129 @@
   "courses": {
     "flightAttendant": {
       "title": "Flight Attendant (Cabin Crew)",
-      "desc": "Reach for the sky with our elite cabin crew training."
+      "shortDesc": "Reach for the sky with our elite cabin crew training.",
+      "fullDesc": "This comprehensive training prepares you for an exciting career in commercial aviation. You will learn everything from passenger safety and emergency procedures to exceptional customer service. Our state-of-the-art cabin simulators and experienced instructors ensure you are fully prepared for the demands of leading airlines.",
+      "duration": "6 months",
+      "target": "Aspiring cabin crew members with excellent communication skills, a service-oriented mindset, and high adaptability.",
+      "prerequisites": "High school diploma or equivalent, excellent English proficiency (other languages are a plus), good physical condition.",
+      "outcomes": "Flight Attendant / Cabin Crew for national and international airlines."
     },
     "luxuryRestaurant": {
       "title": "Luxury Restaurant Service Staff",
-      "desc": "Master the art of fine dining service."
+      "shortDesc": "Master the art of fine dining service.",
+      "fullDesc": "Become an ambassador of culinary excellence. This program teaches you the subtleties of table service in Michelin-starred restaurants and luxury hotels. You will learn service techniques, sommelier skills, the art of table setting, and how to manage relationships with a demanding clientele.",
+      "duration": "4 months",
+      "target": "Enthusiasts of gastronomy and service, wishing to work in prestigious establishments.",
+      "prerequisites": "No formal prerequisites, but initial experience in the restaurant industry is appreciated. Strong motivation and impeccable presentation are essential.",
+      "outcomes": "Maître d'hôtel, Head Waiter, Junior Sommelier in gastronomic restaurants, luxury hotels."
     },
     "luxuryHotel": {
       "title": "Luxury Hotel Service Staff",
-      "desc": "Excel in the world of high-end hospitality."
+      "shortDesc": "Excel in the world of high-end hospitality.",
+      "fullDesc": "This training opens the doors to the world's greatest hotels. You will develop skills in reception, concierge services, room service, and customer relations, with an emphasis on personalizing the experience and anticipating the needs of an international clientele.",
+      "duration": "5 months",
+      "target": "Candidates with excellent interpersonal skills, a polished appearance, and a passion for luxury hospitality.",
+      "prerequisites": "High school diploma, fluency in English and another foreign language. Experience in hospitality is an advantage.",
+      "outcomes": "Receptionist, Concierge, Housekeeper in 5-star hotels and palaces."
     },
     "sommelier": {
       "title": "Sommelier",
-      "desc": "Become an expert in the world of wine."
+      "shortDesc": "Become an expert in the world of wine.",
+      "fullDesc": "Travel through the world's vineyards without leaving our tasting room. Our sommelier training covers oenology, tasting, cellar management, food and wine pairing, and service. You will learn from renowned sommeliers and have the opportunity to visit prestigious wine estates.",
+      "duration": "6 months",
+      "target": "Wine lovers wishing to professionalize their passion, restaurant professionals.",
+      "prerequisites": "Good basic knowledge of wine. Experience in the restaurant industry is a plus.",
+      "outcomes": "Restaurant Sommelier, Wine Merchant, Wine Advisor, Representative for a winery."
     },
     "fashionModel": {
       "title": "Fashion Model",
-      "desc": "Walk the world's most prestigious runways."
+      "shortDesc": "Walk the world's most prestigious runways.",
+      "fullDesc": "This intensive program prepares you for the demanding world of modeling. It covers runway walking, photographic posing techniques, portfolio development, image and career management, as well as nutrition and wellness.",
+      "duration": "3 months",
+      "target": "Young talents (men and women) with strong physical potential and a charismatic personality.",
+      "prerequisites": "Industry-standard height and measurement criteria. Evaluation based on portfolio and interview.",
+      "outcomes": "Runway model, advertising campaigns, fashion editorials."
     },
     "footballCoach": {
       "title": "Football Coach",
-      "desc": "Lead your team to victory with expert coaching skills."
+      "shortDesc": "Lead your team to victory with expert coaching skills.",
+      "fullDesc": "Acquire the tactical, technical, and managerial skills to become a successful football coach. The program covers training session planning, match analysis, physical preparation, sports psychology, and team management.",
+      "duration": "10 months (part-time)",
+      "target": "Former players, sports educators, football enthusiasts aspiring to a coaching career.",
+      "prerequisites": "Experience as a player or sports supervisor. Good knowledge of football.",
+      "outcomes": "Coach for amateur or semi-professional clubs, youth coach, video analyst."
     },
     "fifaAgent": {
       "title": "FIFA Agent",
-      "desc": "Navigate the world of professional football transfers."
+      "shortDesc": "Navigate the world of professional football transfers.",
+      "fullDesc": "Become a key player in world football. This specialized training prepares you for the FIFA agent exam and teaches you sports law, contract negotiation, talent scouting, and the career management of professional players.",
+      "duration": "8 months",
+      "target": "Legal, marketing, or finance professionals with a passion for football. Former players in career transition.",
+      "prerequisites": "University degree (Law, Economics, Sports Management is a plus). In-depth knowledge of the football environment.",
+      "outcomes": "Licensed FIFA players' agent, collaborator in a sports agency, legal manager in a club."
     },
     "sportsData": {
       "title": "Sports Data Analyst",
-      "desc": "Turn game data into winning strategies."
+      "shortDesc": "Turn game data into winning strategies.",
+      "fullDesc": "Modern sport is driven by data. Learn to collect, analyze, and interpret performance data to optimize team strategies, player recruitment, and injury prevention. The program covers statistical tools, video analysis software, and data visualization.",
+      "duration": "6 months",
+      "target": "Analytical profiles with an interest in sports, students in sports science, mathematics, or computer science.",
+      "prerequisites": "2/3 years of higher education. Strong logical and analytical skills. Knowledge of a programming language (Python, R) is a plus.",
+      "outcomes": "Data analyst for a professional club, a sports federation, or a sports media company."
     },
     "fle": {
       "title": "FLE (French as a Foreign Language)",
-      "desc": "Immerse yourself in the French language and culture."
+      "shortDesc": "Immerse yourself in the French language and culture.",
+      "fullDesc": "Our French as a Foreign Language courses are designed for total immersion. Focused on communication, they will quickly provide you with the necessary skills to live, study, or work in France. We offer all levels, from complete beginner (A1) to expert (C2).",
+      "duration": "Variable (4-week modules)",
+      "target": "International students, expatriates, professionals, and anyone wishing to learn French.",
+      "prerequisites": "None. Placement test upon registration.",
+      "outcomes": "Mastery of French for personal, academic, or professional goals. Preparation for DELF/DALF exams."
     },
     "hsk": {
       "title": "HSK - Chinese Proficiency Test",
-      "desc": "Certify your Chinese language skills."
+      "shortDesc": "Certify your Chinese language skills.",
+      "fullDesc": "Effectively prepare for the official Chinese proficiency test (HSK). Our courses specifically target the skills required for each level of the exam, from HSK 1 to HSK 6, by working on vocabulary, grammar, listening, and reading comprehension.",
+      "duration": "Variable (12-week sessions per level)",
+      "target": "Students of Chinese, professionals working with China, anyone wishing for official certification of their level.",
+      "prerequisites": "Basic knowledge of Chinese (depending on the target level).",
+      "outcomes": "Success in the HSK exam, international recognition of Chinese language level."
     },
     "tefl": {
       "title": "TEFL - Teach English Abroad",
-      "desc": "Get certified to teach English anywhere in the world."
+      "shortDesc": "Get certified to teach English anywhere in the world.",
+      "fullDesc": "The TEFL (Teaching English as a Foreign Language) certificate is your passport to an international English teaching career. Our accredited program will give you the pedagogical tools, classroom management techniques, and confidence needed to effectively teach non-native speakers.",
+      "duration": "4 weeks (intensive)",
+      "target": "Native or bilingual English speakers wishing to travel and teach.",
+      "prerequisites": "Excellent level of English. University degree recommended but not required.",
+      "outcomes": "Globally recognized TEFL certification, access to our network of partner schools for job offers."
     },
     "businessChina": {
       "title": "Business & Digital Edge in China",
-      "desc": "Understand and conquer the Chinese market."
+      "shortDesc": "Understand and conquer the Chinese market.",
+      "fullDesc": "This program is essential for any professional targeting the Chinese market. It covers the cultural specifics of business in China, market entry strategies, the digital ecosystem (WeChat, Alibaba), cross-border e-commerce, and legal and financial aspects.",
+      "duration": "3 months",
+      "target": "Business leaders, marketing directors, export managers, entrepreneurs.",
+      "prerequisites": "Professional experience in business or marketing. No knowledge of Chinese is required.",
+      "outcomes": "Ability to develop and implement a development strategy for the Chinese market."
     },
     "gatewayEurope": {
       "title": "Gateway to Europe & Southeast Asia",
-      "desc": "Master international expansion strategies."
+      "shortDesc": "Master international expansion strategies.",
+      "fullDesc": "Aimed at Asian entrepreneurs and companies, this program provides the keys to successfully establishing a presence in Europe. It covers European regulatory frameworks, intercultural marketing strategies, logistics, and the specifics of the main European markets.",
+      "duration": "3 months",
+      "target": "Entrepreneurs and managers from Asia wishing to expand into Europe.",
+      "prerequisites": "Solid business project. Good level of English or Chinese.",
+      "outcomes": "Business plan for European expansion, network of contacts in Europe."
     },
     "fifaAgentAlt": {
       "title": "Sports Management",
-      "desc": "A comprehensive look into the business of sports."
+      "shortDesc": "A comprehensive look into the business of sports.",
+      "fullDesc": "This course offers a 360° perspective on the sports industry. Topics covered include sports marketing, sponsorship, event management, sports law, club and federation finance, and sports infrastructure management.",
+      "duration": "9 months",
+      "target": "Students and professionals seeking a career in sports administration and management.",
+      "prerequisites": "2/3 years of higher education. Strong interest in sports and its economy.",
+      "outcomes": "Positions in marketing, communication, event management, or administration within sports organizations."
     }
   },
   "aboutSection": {
@@ -190,5 +261,16 @@
     "title": "Ready to Start Your Journey?",
     "subtitle": "Contact us today to learn more about our programs and how we can help you achieve your career goals.",
     "button": "Contact Us"
+  },
+  "coursePage": {
+    "aboutTitle": "About this Training",
+    "keyInfoTitle": "Key Information",
+    "duration": "Duration",
+    "targetAudience": "Target Audience",
+    "prerequisites": "Prerequisites",
+    "careerOutcomes": "Career Outcomes",
+    "galleryTitle": "In Pictures"
   }
 }
+
+    

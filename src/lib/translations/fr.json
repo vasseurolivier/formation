@@ -1,3 +1,4 @@
+
 {
   "appName": "PERPECTIVE PRO FORMATION",
   "nav": {
@@ -31,59 +32,129 @@
   "courses": {
     "flightAttendant": {
       "title": "Personnel Navigant Commercial (PNC)",
-      "desc": "Atteignez les sommets avec notre formation d'élite pour personnel de cabine."
+      "shortDesc": "Atteignez les sommets avec notre formation d'élite pour personnel de cabine.",
+      "fullDesc": "Cette formation complète vous prépare à une carrière passionnante dans l'aviation commerciale. Vous apprendrez tout, de la sécurité des passagers au service client d'exception, en passant par la gestion des situations d'urgence. Nos simulateurs de cabine de dernière génération et nos formateurs expérimentés vous garantissent une préparation optimale aux exigences des plus grandes compagnies aériennes.",
+      "duration": "6 mois",
+      "target": "Personnes aspirant à une carrière de personnel de cabine, excellentes compétences en communication, sens du service, grande adaptabilité.",
+      "prerequisites": "Baccalauréat ou équivalent, excellent niveau d'anglais (autres langues un plus), bonne condition physique.",
+      "outcomes": "Personnel Navigant Commercial (Hôtesse de l'air / Steward) pour des compagnies aériennes nationales et internationales."
     },
     "luxuryRestaurant": {
       "title": "Personnel de Service en Restauration de Luxe",
-      "desc": "Maîtrisez l'art du service dans la haute gastronomie."
+      "shortDesc": "Maîtrisez l'art du service dans la haute gastronomie.",
+      "fullDesc": "Devenez un ambassadeur de l'excellence culinaire. Ce programme vous enseigne les subtilités du service en salle dans les restaurants étoilés et les palaces. Vous apprendrez les techniques de service, la sommellerie, l'art de la table, et la gestion de la relation avec une clientèle exigeante.",
+      "duration": "4 mois",
+      "target": "Passionnés de gastronomie et de service, désirant travailler dans des établissements de prestige.",
+      "prerequisites": "Aucun prérequis formel, mais une première expérience en restauration est appréciée. Forte motivation et présentation irréprochable.",
+      "outcomes": "Maître d'hôtel, Chef de rang, Sommelier junior dans des restaurants gastronomiques, hôtels de luxe."
     },
     "luxuryHotel": {
       "title": "Personnel de Service en Hôtellerie de Luxe",
-      "desc": "Excellez dans le monde de l'hospitalité haut de gamme."
+      "shortDesc": "Excellez dans le monde de l'hospitalité haut de gamme.",
+      "fullDesc": "Cette formation vous ouvre les portes des plus grands hôtels du monde. Vous développerez des compétences en réception, conciergerie, service d'étage et relation client, en mettant l'accent sur la personnalisation de l'expérience et l'anticipation des besoins d'une clientèle internationale.",
+      "duration": "5 mois",
+      "target": "Candidats avec un excellent sens du relationnel, une présentation soignée et une passion pour l'hôtellerie de luxe.",
+      "prerequisites": "Baccalauréat, maîtrise de l'anglais et d'une autre langue étrangère. Expérience en hôtellerie est un avantage.",
+      "outcomes": "Réceptionniste, Concierge, Gouvernant(e) dans des hôtels 5 étoiles et palaces."
     },
     "sommelier": {
       "title": "Sommelier",
-      "desc": "Devenez un expert dans l'univers du vin."
+      "shortDesc": "Devenez un expert dans l'univers du vin.",
+      "fullDesc": "Voyagez à travers les vignobles du monde sans quitter notre salle de dégustation. Notre formation de sommelier couvre l'œnologie, la dégustation, la gestion de cave, les accords mets et vins, et le service. Vous apprendrez auprès de sommeliers renommés et aurez l'opportunité de visiter des domaines viticoles prestigieux.",
+      "duration": "6 mois",
+      "target": "Amateurs de vin souhaitant professionnaliser leur passion, professionnels de la restauration.",
+      "prerequisites": "Bonnes connaissances de base en vin. Une expérience en restauration est un plus.",
+      "outcomes": "Sommelier en restaurant, Caviste, Conseiller en vin, Représentant pour un domaine viticole."
     },
     "fashionModel": {
       "title": "Mannequin de Mode",
-      "desc": "Défilez sur les podiums les plus prestigieux du monde."
+      "shortDesc": "Défilez sur les podiums les plus prestigieux du monde.",
+      "fullDesc": "Ce programme intensif vous prépare au monde exigeant du mannequinat. Il couvre la démarche sur podium, les techniques de pose photographique, le développement de votre portfolio, la gestion de votre image et de votre carrière, ainsi que la nutrition et le bien-être.",
+      "duration": "3 mois",
+      "target": "Jeunes talents (hommes et femmes) avec un fort potentiel physique et une personnalité charismatique.",
+      "prerequisites": "Critères de taille et de mensurations standards de l'industrie. Évaluation sur portfolio et entretien.",
+      "outcomes": "Mannequin pour défilés, campagnes publicitaires, éditoriaux de mode."
     },
     "footballCoach": {
       "title": "Entraîneur de Football",
-      "desc": "Menez votre équipe à la victoire grâce à des compétences d'expert."
+      "shortDesc": "Menez votre équipe à la victoire grâce à des compétences d'expert.",
+      "fullDesc": "Acquérez les compétences tactiques, techniques et managériales pour devenir un entraîneur de football performant. Le programme couvre la planification de séances d'entraînement, l'analyse de match, la préparation physique, la psychologie du sport et la gestion d'équipe.",
+      "duration": "10 mois (temps partiel)",
+      "target": "Anciens joueurs, éducateurs sportifs, passionnés de football désirant une carrière d'entraîneur.",
+      "prerequisites": "Expérience en tant que joueur ou encadrant sportif. Bonne connaissance du football.",
+      "outcomes": "Entraîneur pour clubs amateurs ou semi-professionnels, coach pour jeunes, analyste vidéo."
     },
     "fifaAgent": {
       "title": "Agent de Joueurs (FIFA)",
-      "desc": "Naviguez dans le monde des transferts de football professionnel."
+      "shortDesc": "Naviguez dans le monde des transferts de football professionnel.",
+      "fullDesc": "Devenez un acteur clé du football mondial. Cette formation spécialisée vous prépare à l'examen d'agent de la FIFA et vous enseigne le droit du sport, la négociation de contrats, le scouting de talents, et la gestion de carrière de joueurs professionnels.",
+      "duration": "8 mois",
+      "target": "Professionnels du droit, du marketing ou de la finance avec une passion pour le football. Anciens joueurs en reconversion.",
+      "prerequisites": "Diplôme universitaire (Droit, Économie, Management du Sport est un plus). Connaissance approfondie du milieu du football.",
+      "outcomes": "Agent de joueurs licencié FIFA, Collaborateur d'agence sportive, Responsable juridique dans un club."
     },
     "sportsData": {
       "title": "Analyste de Données Sportives",
-      "desc": "Transformez les données de match en stratégies gagnantes."
+      "shortDesc": "Transformez les données de match en stratégies gagnantes.",
+      "fullDesc": "Le sport moderne est piloté par la data. Apprenez à collecter, analyser et interpréter les données de performance pour optimiser les stratégies d'équipe, le recrutement de joueurs et la prévention des blessures. Le programme couvre les outils statistiques, les logiciels d'analyse vidéo et la data visualisation.",
+      "duration": "6 mois",
+      "target": "Profils analytiques avec un intérêt pour le sport, étudiants en STAPS, mathématiques, informatique.",
+      "prerequisites": "Bac +2/3. Solides compétences en logique et en analyse. La connaissance d'un langage de programmation (Python, R) est un plus.",
+      "outcomes": "Analyste de données pour un club professionnel, une fédération sportive, ou une entreprise de médias sportifs."
     },
     "fle": {
       "title": "FLE (Français Langue Étrangère)",
-      "desc": "Plongez au cœur de la langue et de la culture françaises."
+      "shortDesc": "Plongez au cœur de la langue et de la culture françaises.",
+      "fullDesc": "Nos cours de Français Langue Étrangère sont conçus pour une immersion totale. Axés sur la communication, ils vous permettront d'acquérir rapidement les compétences nécessaires pour vivre, étudier ou travailler en France. Nous proposons tous les niveaux, du débutant complet (A1) à l'expert (C2).",
+      "duration": "Variable (modules de 4 semaines)",
+      "target": "Étudiants internationaux, expatriés, professionnels, et toute personne souhaitant apprendre le français.",
+      "prerequisites": "Aucun. Test de niveau à l'inscription.",
+      "outcomes": "Maîtrise du français pour des objectifs personnels, académiques ou professionnels. Préparation aux examens DELF/DALF."
     },
     "hsk": {
       "title": "HSK - Test de Compétence en Chinois",
-      "desc": "Certifiez vos compétences en langue chinoise."
+      "shortDesc": "Certifiez vos compétences en langue chinoise.",
+      "fullDesc": "Préparez-vous efficacement à l'examen officiel de compétence en chinois (HSK). Nos cours ciblent spécifiquement les compétences requises pour chaque niveau de l'examen, de HSK 1 à HSK 6, en travaillant le vocabulaire, la grammaire, la compréhension orale et écrite.",
+      "duration": "Variable (sessions de 12 semaines par niveau)",
+      "target": "Étudiants en chinois, professionnels travaillant avec la Chine, toute personne souhaitant une certification officielle de son niveau.",
+      "prerequisites": "Connaissance de base du chinois (selon le niveau visé).",
+      "outcomes": "Réussite à l'examen HSK, reconnaissance internationale du niveau de chinois."
     },
     "tefl": {
       "title": "TEFL - Enseigner l'Anglais à l'Étranger",
-      "desc": "Obtenez la certification pour enseigner l'anglais partout dans le monde."
+      "shortDesc": "Obtenez la certification pour enseigner l'anglais partout dans le monde.",
+      "fullDesc": "Le certificat TEFL (Teaching English as a Foreign Language) est votre passeport pour une carrière d'enseignant d'anglais à l'international. Notre programme accrédité vous donnera les outils pédagogiques, les techniques de gestion de classe et la confiance nécessaires pour enseigner efficacement à des non-anglophones.",
+      "duration": "4 semaines (intensif)",
+      "target": "Anglophones natifs ou bilingues souhaitant voyager et enseigner.",
+      "prerequisites": "Excellent niveau d'anglais. Diplôme universitaire recommandé mais pas obligatoire.",
+      "outcomes": "Certification TEFL reconnue mondialement, accès à notre réseau d'écoles partenaires pour des offres d'emploi."
     },
     "businessChina": {
       "title": "Business & Digital en Chine",
-      "desc": "Comprenez et conquérez le marché chinois."
+      "shortDesc": "Comprenez et conquérez le marché chinois.",
+      "fullDesc": "Ce programme est essentiel pour tout professionnel visant le marché chinois. Il couvre les spécificités culturelles des affaires en Chine, les stratégies d'entrée sur le marché, l'écosystème digital (WeChat, Alibaba), le e-commerce transfrontalier, et les aspects juridiques et financiers.",
+      "duration": "3 mois",
+      "target": "Chefs d'entreprise, directeurs marketing, responsables export, entrepreneurs.",
+      "prerequisites": "Expérience professionnelle en commerce ou marketing. Aucune connaissance du chinois n'est requise.",
+      "outcomes": "Capacité à élaborer et mettre en œuvre une stratégie de développement sur le marché chinois."
     },
     "gatewayEurope": {
       "title": "Porte d'entrée vers l'Europe & l'Asie du Sud-Est",
-      "desc": "Maîtrisez les stratégies d'expansion internationale."
+      "shortDesc": "Maîtrisez les stratégies d'expansion internationale.",
+      "fullDesc": "Destiné aux entrepreneurs et entreprises asiatiques, ce programme offre les clés pour réussir son implantation en Europe. Il aborde les cadres réglementaires européens, les stratégies de marketing interculturel, la logistique, et les spécificités des principaux marchés européens.",
+      "duration": "3 mois",
+      "target": "Entrepreneurs et managers d'Asie désirant s'étendre en Europe.",
+      "prerequisites": "Projet d'entreprise solide. Bon niveau d'anglais ou de chinois.",
+      "outcomes": "Plan d'affaires pour une expansion européenne, réseau de contacts en Europe."
     },
     "fifaAgentAlt": {
       "title": "Management du Sport",
-      "desc": "Une vision complète du business dans le monde du sport."
+      "shortDesc": "Une vision complète du business dans le monde du sport.",
+      "fullDesc": "Ce cours offre une perspective à 360° sur l'industrie du sport. Les thèmes abordés incluent le marketing sportif, le sponsoring, la gestion d'événements, le droit du sport, la finance des clubs et des fédérations, et le management des infrastructures sportives.",
+      "duration": "9 mois",
+      "target": "Étudiants et professionnels souhaitant une carrière dans l'administration et la gestion du sport.",
+      "prerequisites": "Bac +2/3. Fort intérêt pour le sport et son économie.",
+      "outcomes": "Postes en marketing, communication, gestion d'événements ou administration au sein d'organisations sportives."
     }
   },
   "aboutSection": {
@@ -190,5 +261,16 @@
     "title": "Prêt à commencer votre voyage ?",
     "subtitle": "Contactez-nous dès aujourd'hui pour en savoir plus sur nos programmes et comment nous pouvons vous aider à atteindre vos objectifs de carrière.",
     "button": "Nous Contacter"
+  },
+  "coursePage": {
+    "aboutTitle": "À propos de cette formation",
+    "keyInfoTitle": "Informations Clés",
+    "duration": "Durée",
+    "targetAudience": "Public Cible",
+    "prerequisites": "Prérequis",
+    "careerOutcomes": "Débouchés",
+    "galleryTitle": "En Images"
   }
 }
+
+    

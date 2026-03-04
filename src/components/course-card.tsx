@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -17,11 +18,11 @@ interface CourseCardProps {
 
 export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
   const { t } = useTranslation();
-  const imageUrl = useCustomizableImage(course.imageId);
-  const placeholderImage = PlaceHolderImages.find((img) => img.id === course.imageId);
+  const imageUrl = useCustomizableImage(course.thumbnailImageId);
+  const placeholderImage = PlaceHolderImages.find((img) => img.id === course.thumbnailImageId);
 
   return (
-    <Link href="#" className="block group">
+    <Link href={`/courses/${course.id}`} className="block group">
         <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/20 border bg-card hover:bg-accent">
         <CardHeader className="p-0">
             <div className="relative h-56 w-full">
@@ -52,3 +53,5 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
     </Link>
   );
 }
+
+    
