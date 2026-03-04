@@ -57,9 +57,9 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center">
           {logoUrl ? (
-            <div className="relative h-8 w-32">
+            <div className="relative h-16 w-64">
               <Image 
                 src={logoUrl} 
                 alt="Site Logo"
@@ -70,9 +70,6 @@ export default function Header() {
           ) : (
             <BookOpenText className="h-6 w-6 text-white" />
           )}
-          <span className="font-headline text-lg font-bold text-white">
-            {t("appName")}
-          </span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
