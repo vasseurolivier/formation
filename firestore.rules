@@ -1,0 +1,149 @@
+/**
+ * Core Philosophy: This ruleset enforces a "Public Read, Admin Write" security model.
+ * All website content, such as training courses, categories, and media, is publicly
+ * readable by any user, including unauthenticated visitors. However, all write
+ * operations (creating, updating, or deleting content) are strictly reserved for
+ * authenticated users who are designated as administrators.
+ *
+ * Data Structure: The data is organized into flat, top-level collections, such as
+ * /trainingCourses and /mediaAssets. This structure promotes performance and simplifies
+ * security rules by avoiding complex hierarchical dependencies.
+ *
+ * Key Security Decisions:
+ * - Admin Role Management: Administrator privileges are managed directly in Firestore
+ *   within the `/roles_admin/{adminUid}` collection. A user is considered an admin if a
+ *   document with their UID exists in this collection. This approach avoids reliance
+ *   on custom claims and allows for dynamic role management.
+ * - Conditional Visibility: The `/testimonials` collection contains a 'published'
+ *   boolean field. Security rules enforce that only testimonials with `published == true`
+ *   can be read individually. Listing the entire collection is disabled to prevent
+ *   leaking unpublished testimonials, as rules cannot filter list queries.
+ * - Default Posture: All write access is denied by default. Permissions are explicitly
+ *   granted only to administrators. There are no user-owned data collections.
+ *
+ * Denormalization for Authorization: The primary denormalization strategy is the
+ * `/roles_admin` collection, which serves as a centralized lookup for admin status.
+ * This allows any other rule in the system to perform a simple, fast `exists()`
+ * check to determine if the requesting user has administrative rights, without
+ * needing to inspect the resource being accessed.
+ *
+ * Structural Segregation: The design uses a boolean flag (`published`) on testimonials
+ * rather than separate collections for drafts and published content. The security
+rules
+ * accommodate this by explicitly blocking `list` operations and only allowing `get`
+ * operations on documents that meet the `published == true` criteria.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper Functions
+    
+    /**
+     * Checks if the user is authenticated.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /**
+     * Checks if the user has an admin role by verifying the existence of their
+     * UID in the roles_admin collection.
+     */
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+    }
+    
+    /**
+     * A robust check for update/delete operations, ensuring the user is an admin
+     * and the document they are trying to modify already exists.
+     */
+    function isExistingDocAdmin() {
+        return isAdmin() && resource != null;
+    }
+
+    /**
+     * @description Publicly readable training category data. Only admins can modify.
+     * @path /trainingCategories/{categoryId}
+     * @allow (get) Any user, signed in or not, can read a training category.
+     * @deny (create) A signed-in, non-admin user cannot create a new category.
+     * @principle Enforces public read access for general content while restricting modifications to privileged roles.
+     */
+    match /trainingCategories/{categoryId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isExistingDocAdmin();
+    }
+
+    /**
+     * @description Publicly readable training course data. Only admins can modify.
+     * @path /trainingCourses/{courseId}
+     * @allow (list) Any user, signed in or not, can list all training courses.
+     * @deny (update) A signed-in, non-admin user cannot update a course.
+     * @principle Enforces public read access for general content while restricting modifications to privileged roles.
+     */
+    match /trainingCourses/{courseId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isExistingDocAdmin();
+    }
+
+    /**
+     * @description Student testimonials. Publicly readable only if marked as 'published'. Only admins can modify.
+     * @path /testimonials/{testimonialId}
+     * @allow (get) Any user can read a testimonial IF `resource.data.published == true`.
+     * @deny (get) Any user attempts to read a testimonial where `published` is false or missing.
+     * @deny (list) Listing the entire collection is forbidden to prevent leaking unpublished testimonials.
+     * @principle Enforces conditional visibility based on a field within the document.
+     */
+    match /testimonials/{testimonialId} {
+      allow get: if resource.data.published == true;
+      // List is denied to prevent leaking unpublished testimonials, as rules cannot filter queries.
+      // The client must query with `.where('published', '==', true)` and the `get` rule above secures individual doc reads.
+      allow list: if false;
+      allow create: if isAdmin();
+      allow update, delete: if isExistingDocAdmin();
+    }
+
+    /**
+     * @description Metadata for media assets (images, videos). Publicly readable. Only admins can modify.
+     * @path /mediaAssets/{mediaId}
+     * @allow (get) Any user can read the metadata for a media asset.
+     * @deny (delete) A signed-in, non-admin user cannot delete a media asset.
+     * @principle Provides public read access for content linked across the site, with writes restricted to admins.
+     */
+    match /mediaAssets/{mediaId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isExistingDocAdmin();
+    }
+
+    /**
+     * @description Singleton collection for homepage content. Publicly readable. Only admins can modify.
+     * @path /homepageContent/{contentId}
+     * @allow (get) Any user can read the homepage content.
+     * @deny (create) A signed-in, non-admin user cannot create homepage content.
+     * @principle Secures global site content, allowing public viewing but admin-only management.
+     */
+    match /homepageContent/{contentId} {
+      allow get, list: if true;
+      allow create: if isAdmin();
+      allow update, delete: if isExistingDocAdmin();
+    }
+
+    /**
+     * @description Manages administrator roles. Only existing admins can read or write to this collection.
+     * @path /roles_admin/{adminUid}
+     * @allow (create) An existing admin can create a document to grant another user admin rights.
+     * @deny (get) A non-admin user cannot read the list of admins.
+     * @deny (delete) A non-admin user cannot revoke admin rights.
+     * @principle Secures the role management system itself, ensuring only admins can manage other admins.
+     */
+    match /roles_admin/{adminUid} {
+      allow get, list: if isAdmin();
+      allow create: if isAdmin();
+      allow update, delete: if isExistingDocAdmin();
+    }
+
+  }
+}

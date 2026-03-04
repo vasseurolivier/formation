@@ -1,0 +1,489 @@
+{
+  "entities": {
+    "TrainingCategory": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TrainingCategory",
+      "type": "object",
+      "description": "Represents a category under which training courses are grouped, such as 'Luxe & Hôtellerie' or 'Sport & Management'.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the TrainingCategory entity."
+        },
+        "nameFr": {
+          "type": "string",
+          "description": "The name of the category in French."
+        },
+        "nameEn": {
+          "type": "string",
+          "description": "The name of the category in English."
+        },
+        "nameZh": {
+          "type": "string",
+          "description": "The name of the category in Simplified Chinese."
+        },
+        "displayOrder": {
+          "type": "number",
+          "description": "The numerical order for displaying categories on the website."
+        }
+      },
+      "required": [
+        "id",
+        "nameFr",
+        "nameEn",
+        "nameZh",
+        "displayOrder"
+      ]
+    },
+    "TrainingCourse": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TrainingCourse",
+      "type": "object",
+      "description": "Details about a specific training course offered by the academy.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the TrainingCourse entity."
+        },
+        "categoryId": {
+          "type": "string",
+          "description": "Reference to the TrainingCategory this course belongs to. (Relationship: TrainingCategory 1:N TrainingCourse)"
+        },
+        "titleFr": {
+          "type": "string",
+          "description": "The title of the training course in French."
+        },
+        "titleEn": {
+          "type": "string",
+          "description": "The title of the training course in English."
+        },
+        "titleZh": {
+          "type": "string",
+          "description": "The title of the training course in Simplified Chinese."
+        },
+        "shortDescriptionFr": {
+          "type": "string",
+          "description": "A brief summary of the course in French, suitable for cards or overviews."
+        },
+        "shortDescriptionEn": {
+          "type": "string",
+          "description": "A brief summary of the course in English, suitable for cards or overviews."
+        },
+        "shortDescriptionZh": {
+          "type": "string",
+          "description": "A brief summary of the course in Simplified Chinese, suitable for cards or overviews."
+        },
+        "fullDescriptionFr": {
+          "type": "string",
+          "description": "The comprehensive description of the course in French, for detail pages."
+        },
+        "fullDescriptionEn": {
+          "type": "string",
+          "description": "The comprehensive description of the course in English, for detail pages."
+        },
+        "fullDescriptionZh": {
+          "type": "string",
+          "description": "The comprehensive description of the course in Simplified Chinese, for detail pages."
+        },
+        "durationFr": {
+          "type": "string",
+          "description": "The typical duration of the course in French (e.g., '6 mois')."
+        },
+        "durationEn": {
+          "type": "string",
+          "description": "The typical duration of the course in English (e.g., '6 months')."
+        },
+        "durationZh": {
+          "type": "string",
+          "description": "The typical duration of the course in Simplified Chinese (e.g., '6个月')."
+        },
+        "targetAudienceFr": {
+          "type": "string",
+          "description": "Description of the target audience for the course in French."
+        },
+        "targetAudienceEn": {
+          "type": "string",
+          "description": "Description of the target audience for the course in English."
+        },
+        "targetAudienceZh": {
+          "type": "string",
+          "description": "Description of the target audience for the course in Simplified Chinese."
+        },
+        "prerequisitesFr": {
+          "type": "string",
+          "description": "Entry requirements or prior knowledge needed for the course in French."
+        },
+        "prerequisitesEn": {
+          "type": "string",
+          "description": "Entry requirements or prior knowledge needed for the course in English."
+        },
+        "prerequisitesZh": {
+          "type": "string",
+          "description": "Entry requirements or prior knowledge needed for the course in Simplified Chinese."
+        },
+        "careerOutcomesFr": {
+          "type": "string",
+          "description": "Potential career paths or benefits after completing the course in French."
+        },
+        "careerOutcomesEn": {
+          "type": "string",
+          "description": "Potential career paths or benefits after completing the course in English."
+        },
+        "careerOutcomesZh": {
+          "type": "string",
+          "description": "Potential career paths or benefits after completing the course in Simplified Chinese."
+        },
+        "thumbnailMediaId": {
+          "type": "string",
+          "description": "Reference to the MediaAsset entity used as a thumbnail for the course card. (Relationship: MediaAsset 1:N TrainingCourse)"
+        },
+        "heroMediaId": {
+          "type": "string",
+          "description": "Reference to the MediaAsset entity used as a hero image or video on the course detail page. (Relationship: MediaAsset 1:N TrainingCourse)"
+        },
+        "iconMediaId": {
+          "type": "string",
+          "description": "Reference to a small MediaAsset entity for the interactive card animation (e.g., a stylized airplane seat). (Relationship: MediaAsset 1:N TrainingCourse)"
+        },
+        "galleryMediaIds": {
+          "type": "array",
+          "description": "References to MediaAsset entities for a gallery on the course detail page. (Relationship: MediaAsset N:N TrainingCourse)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "categoryId",
+        "titleFr",
+        "titleEn",
+        "titleZh",
+        "shortDescriptionFr",
+        "shortDescriptionEn",
+        "shortDescriptionZh",
+        "fullDescriptionFr",
+        "fullDescriptionEn",
+        "fullDescriptionZh",
+        "durationFr",
+        "durationEn",
+        "durationZh",
+        "targetAudienceFr",
+        "targetAudienceEn",
+        "targetAudienceZh",
+        "prerequisitesFr",
+        "prerequisitesEn",
+        "prerequisitesZh",
+        "careerOutcomesFr",
+        "careerOutcomesEn",
+        "careerOutcomesZh",
+        "thumbnailMediaId",
+        "heroMediaId",
+        "iconMediaId"
+      ]
+    },
+    "Testimonial": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Testimonial",
+      "type": "object",
+      "description": "A testimonial from a former student, including their profile picture and quote.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Testimonial entity."
+        },
+        "studentName": {
+          "type": "string",
+          "description": "The full name of the student providing the testimonial."
+        },
+        "studentOrigin": {
+          "type": "string",
+          "description": "The country or region of origin of the student (e.g., 'France', 'China')."
+        },
+        "quoteFr": {
+          "type": "string",
+          "description": "The student's testimonial quote in French."
+        },
+        "quoteEn": {
+          "type": "string",
+          "description": "The student's testimonial quote in English."
+        },
+        "quoteZh": {
+          "type": "string",
+          "description": "The student's testimonial quote in Simplified Chinese."
+        },
+        "courseId": {
+          "type": "string",
+          "description": "Reference to the TrainingCourse the student completed, if applicable. (Relationship: TrainingCourse 1:N Testimonial)"
+        },
+        "profilePictureMediaId": {
+          "type": "string",
+          "description": "Reference to the MediaAsset entity used as the student's profile picture. (Relationship: MediaAsset 1:N Testimonial)"
+        },
+        "published": {
+          "type": "boolean",
+          "description": "Indicates whether the testimonial is approved and should be displayed on the website."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "The date and time when the testimonial record was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "studentName",
+        "studentOrigin",
+        "quoteFr",
+        "quoteEn",
+        "quoteZh",
+        "profilePictureMediaId",
+        "published",
+        "createdAt"
+      ]
+    },
+    "MediaAsset": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "MediaAsset",
+      "type": "object",
+      "description": "Represents a digital media asset, such as an image or a video, uploaded for use on the website. This entity ensures permanent storage of uploaded content as per the user's request.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the MediaAsset entity."
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL where the media asset file is hosted (e.g., CDN, cloud storage).",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of media asset (e.g., 'image' or 'video').",
+          "items": {
+            "type": "string"
+          }
+        },
+        "altTextFr": {
+          "type": "string",
+          "description": "Alternative text for the media asset in French, important for accessibility and SEO. (Primarily for images, but can describe video content)."
+        },
+        "altTextEn": {
+          "type": "string",
+          "description": "Alternative text for the media asset in English, important for accessibility and SEO. (Primarily for images, but can describe video content)."
+        },
+        "altTextZh": {
+          "type": "string",
+          "description": "Alternative text for the media asset in Simplified Chinese, important for accessibility and SEO. (Primarily for images, but can describe video content)."
+        },
+        "uploadedAt": {
+          "type": "string",
+          "description": "The date and time when the media asset was uploaded.",
+          "format": "date-time"
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The MIME type of the media asset (e.g., 'image/jpeg', 'video/mp4')."
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The original file name of the uploaded media asset."
+        },
+        "width": {
+          "type": "number",
+          "description": "The width of the media asset in pixels, if applicable (e.g., for images or videos)."
+        },
+        "height": {
+          "type": "number",
+          "description": "The height of the media asset in pixels, if applicable (e.g., for images or videos)."
+        },
+        "durationInSeconds": {
+          "type": "number",
+          "description": "The duration of the video asset in seconds, if applicable."
+        }
+      },
+      "required": [
+        "id",
+        "url",
+        "type",
+        "altTextFr",
+        "altTextEn",
+        "altTextZh",
+        "uploadedAt",
+        "mimeType",
+        "fileName"
+      ]
+    },
+    "HomePageContent": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "HomePageContent",
+      "type": "object",
+      "description": "Stores content specific to the homepage, including the hero section's media and text, and general contact information. This allows for dynamic updates to core static pages.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the HomePageContent entity. (e.g., 'main-homepage' to represent the single instance of homepage content)."
+        },
+        "heroTitleFr": {
+          "type": "string",
+          "description": "The main title for the hero section in French."
+        },
+        "heroTitleEn": {
+          "type": "string",
+          "description": "The main title for the hero section in English."
+        },
+        "heroTitleZh": {
+          "type": "string",
+          "description": "The main title for the hero section in Simplified Chinese."
+        },
+        "heroSubtitleFr": {
+          "type": "string",
+          "description": "The subtitle or tagline for the hero section in French."
+        },
+        "heroSubtitleEn": {
+          "type": "string",
+          "description": "The subtitle or tagline for the hero section in English."
+        },
+        "heroSubtitleZh": {
+          "type": "string",
+          "description": "The subtitle or tagline for the hero section in Simplified Chinese."
+        },
+        "heroMediaId": {
+          "type": "string",
+          "description": "Reference to the MediaAsset entity used for the hero background (video or image). (Relationship: MediaAsset 1:N HomePageContent)"
+        },
+        "aboutUsFr": {
+          "type": "string",
+          "description": "The 'About Us' section text in French, detailing the academy's philosophy and bridge role."
+        },
+        "aboutUsEn": {
+          "type": "string",
+          "description": "The 'About Us' section text in English, detailing the academy's philosophy and bridge role."
+        },
+        "aboutUsZh": {
+          "type": "string",
+          "description": "The 'About Us' section text in Simplified Chinese, detailing the academy's philosophy and bridge role."
+        },
+        "contactEmail": {
+          "type": "string",
+          "description": "The primary contact email address for the academy.",
+          "format": "email"
+        },
+        "contactPhone": {
+          "type": "string",
+          "description": "The primary contact phone number for the academy."
+        },
+        "contactAddressFr": {
+          "type": "string",
+          "description": "The physical address of the academy in French."
+        },
+        "contactAddressEn": {
+          "type": "string",
+          "description": "The physical address of the academy in English."
+        },
+        "contactAddressZh": {
+          "type": "string",
+          "description": "The physical address of the academy in Simplified Chinese."
+        },
+        "mapEmbedUrl": {
+          "type": "string",
+          "description": "An embeddable URL for the interactive map (e.g., Google Maps embed link).",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "heroTitleFr",
+        "heroTitleEn",
+        "heroTitleZh",
+        "heroMediaId",
+        "aboutUsFr",
+        "aboutUsEn",
+        "aboutUsZh",
+        "contactEmail",
+        "contactPhone",
+        "contactAddressFr",
+        "contactAddressEn",
+        "contactAddressZh",
+        "mapEmbedUrl"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/trainingCategories/{categoryId}",
+        "definition": {
+          "entityName": "TrainingCategory",
+          "schema": {
+            "$ref": "#/backend/entities/TrainingCategory"
+          },
+          "description": "Collection for training categories. Publicly readable for all users, writeable only by administrators. No denormalized authorization fields are required as access is global or by admin role."
+        }
+      },
+      {
+        "path": "/trainingCourses/{courseId}",
+        "definition": {
+          "entityName": "TrainingCourse",
+          "schema": {
+            "$ref": "#/backend/entities/TrainingCourse"
+          },
+          "description": "Collection for individual training courses. Publicly readable for all users, writeable only by administrators. Includes `categoryId` as a data reference, not for authorization dependency. No denormalized authorization fields are required."
+        }
+      },
+      {
+        "path": "/testimonials/{testimonialId}",
+        "definition": {
+          "entityName": "Testimonial",
+          "schema": {
+            "$ref": "#/backend/entities/Testimonial"
+          },
+          "description": "Collection for student testimonials. Documents are publicly readable only if the `published` field is true. Writeable only by administrators. No denormalized authorization fields are required."
+        }
+      },
+      {
+        "path": "/mediaAssets/{mediaId}",
+        "definition": {
+          "entityName": "MediaAsset",
+          "schema": {
+            "$ref": "#/backend/entities/MediaAsset"
+          },
+          "description": "Collection for media asset metadata. Publicly readable for all users, enabling direct referencing from other entities. Writeable only by administrators. Addresses the user's request for permanent photo storage by persisting metadata and a permanent URL. No denormalized authorization fields are required."
+        }
+      },
+      {
+        "path": "/homepageContent/{contentId}",
+        "definition": {
+          "entityName": "HomePageContent",
+          "schema": {
+            "$ref": "#/backend/entities/HomePageContent"
+          },
+          "description": "Collection for singular homepage content (e.g., ID 'main-homepage'). Publicly readable for all users, writeable only by administrators. No denormalized authorization fields are required."
+        }
+      },
+      {
+        "path": "/roles_admin/{adminUid}",
+        "definition": {
+          "entityName": "AdminRole",
+          "schema": {
+            "$ref": "#/backend/entities/AdminRole"
+          },
+          "description": "Collection to manage administrator roles. The existence of a document at `/roles_admin/{uid}` grants administrative privileges to the user with that UID. Used for Database Access Control (DBAC). Only administrators can create or delete documents in this collection.",
+          "params": [
+            {
+              "name": "adminUid",
+              "description": "The unique identifier of the administrator user."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to support a modern, multilingual showcase website with a strong emphasis on clarity, security, and maintainability. It adheres strictly to the core design principles:\n\n1.  **Authorization Independence:** All collections are structured to avoid hierarchical authorization dependencies. For instance, `TrainingCourse` documents directly include `categoryId`, but access to a course does not depend on first `get()`-ing its parent category. This means security rules for `trainingCourses` can evaluate access rights without needing to fetch the corresponding `trainingCategory` document, enabling atomic operations and simplifying rule debugging. Similarly, `MediaAsset` documents are top-level, meaning their metadata access doesn't depend on the entities that reference them (e.g., a `TrainingCourse` or `Testimonial`).\n\n2.  **Clarity of Intent:** Each collection (`trainingCategories`, `trainingCourses`, `testimonials`, `mediaAssets`, `homepageContent`, `roles_admin`) serves a distinct purpose, making access patterns predictable. For example, `testimonials` uses a `published` boolean field for explicit public visibility control, rather than inferring state.\n\n3.  **DBAC (No Custom Claims):** Administrative roles are managed directly within Firestore via the `/roles_admin/{adminUid}` collection. The existence of a document in this collection for a user's `uid` grants them admin privileges, allowing for straightforward rule evaluation using `exists(/roles_admin/$(request.auth.uid))`. This removes reliance on Firebase Authentication custom claims, simplifying user management and rule logic.\n\n4.  **QAPs (Rules are not Filters):**\n    *   **Public Collections:** `trainingCategories`, `trainingCourses`, `mediaAssets`, and `homepageContent` are designed for public read access. Any `list` operation on these collections by an unauthenticated user will simply retrieve all accessible documents, with no need for server-side filtering based on user-specific permissions. The client-side application is responsible for querying and displaying the data as desired (e.g., filtering `trainingCourses` by `categoryId`).\n    *   **Conditional Public Data:** The `testimonials` collection demonstrates QAP by having a `published` field. While a client application would likely query `testimonials.where('published', '==', true)`, the security rule would *enforce* this predicate: `allow read: if resource.data.published == true;`. This ensures that even if a client attempts to bypass the filter, the rule prevents access to unpublished content, maintaining security without requiring complex `get()` operations.\n\n5.  **Invariants:** The structure supports data integrity through explicit ID fields and clear relationships (e.g., `categoryId` in `TrainingCourse` references `TrainingCategory`). Timestamps like `uploadedAt` for `MediaAsset` and `createdAt` for `Testimonial` are included to maintain auditability.\n\n**Denormalization Strategy for Authorization Independence:**\nIn this specific application, the primary access control is binary: either public read or admin write. There are no subcollections whose security posture depends on a parent document's dynamic `ownerId` or `members` map. Therefore, extensive denormalization of *authorization context* is not required for nested data, as there are no 'user-owned' subcollections that would create such dependencies. Instead, direct references (e.g., `categoryId`, `mediaId`) are used for data linking, not for security rule evaluation. The `/roles_admin` collection serves as the central denormalized source for admin authorization.\n\n**Permanent Photo Storage (User Request):** The `MediaAsset` entity directly addresses the user's requirement for permanent photo storage. Each uploaded media file (e.g., an image) will have a corresponding `MediaAsset` document in `/mediaAssets/{mediaId}`. This document stores essential metadata (like `url`, `fileName`, `uploadedAt`, `type`, `altText`) that is permanently persisted in Firestore. The `url` field links to the actual file stored in a cloud storage solution (e.g., Firebase Storage, Google Cloud Storage), ensuring that the content itself is also durable. The `MediaAsset` documents are publicly readable, allowing any entity (like `TrainingCourse` or `Testimonial`) to reference their `url` for display without complex authorization checks."
+  }
+}
