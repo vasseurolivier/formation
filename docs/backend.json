@@ -1,5 +1,19 @@
 {
   "entities": {
+    "AdminRole": {
+      "title": "AdminRole",
+      "type": "object",
+      "description": "Defines a user's administrative role.",
+      "properties": {
+        "isAdmin": {
+          "type": "boolean",
+          "description": "Flag to indicate if the user is an administrator."
+        }
+      },
+      "required": [
+        "isAdmin"
+      ]
+    },
     "TrainingCategory": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "TrainingCategory",

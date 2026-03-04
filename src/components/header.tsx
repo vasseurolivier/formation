@@ -9,12 +9,25 @@ import { useTranslation } from "@/hooks/use-translation";
 import LanguageSwitcher from "@/components/language-switcher";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useFirestore, useDoc, useMemoFirebase } from "@/firebase";
+import { doc } from 'firebase/firestore';
+import type { MediaAsset } from "@/lib/firebase-types";
+
+const LOGO_DOC_ID = 'siteLogo';
 
 export default function Header() {
   const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [logoUrl, setLogoUrl] = useState<string | null>(null);
   const pathname = usePathname();
+  const firestore = useFirestore();
+
+  const logoDocRef = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return doc(firestore, 'mediaAssets', LOGO_DOC_ID);
+  }, [firestore]);
+
+  const { data: logoData } = useDoc<MediaAsset>(logoDocRef);
+  const logoUrl = logoData?.url;
 
   const navItems = [
     { href: "/", label: t("nav.home") },
@@ -30,24 +43,9 @@ export default function Header() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
-    
-    // Load logo from local storage
-    const storedLogo = localStorage.getItem('siteLogo');
-    if (storedLogo) {
-      setLogoUrl(storedLogo);
-    }
-
-    // Listen for storage changes to update logo in real-time
-    const handleStorageChange = (event: StorageEvent) => {
-      if (event.key === 'siteLogo') {
-        setLogoUrl(event.newValue);
-      }
-    };
-    window.addEventListener('storage', handleStorageChange);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener('storage', handleStorageChange);
     }
   }, []);
 
