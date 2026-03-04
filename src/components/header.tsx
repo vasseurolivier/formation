@@ -56,35 +56,37 @@ export default function Header() {
         isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center">
-          {logoUrl ? (
-            <div className="relative h-24 w-96">
-              <Image 
-                src={logoUrl} 
-                alt="Site Logo"
-                fill
-                className="object-contain"
-              />
-            </div>
-          ) : (
-            <BookOpenText className="h-6 w-6 text-white" />
-          )}
-        </Link>
-        <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "text-sm font-medium text-white/80 transition-colors hover:text-white",
-                pathname === item.href && "text-white font-semibold"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+      <div className="container mx-auto flex h-40 items-center justify-between px-4 md:px-6">
+        <div className="flex items-center gap-10">
+          <Link href="/" className="flex items-center">
+            {logoUrl ? (
+              <div className="relative h-32 w-[32rem]">
+                <Image 
+                  src={logoUrl} 
+                  alt="Site Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <BookOpenText className="h-6 w-6 text-white" />
+            )}
+          </Link>
+          <nav className="hidden items-center gap-6 md:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "text-sm font-medium text-white/80 transition-colors hover:text-white",
+                  pathname === item.href && "text-white font-semibold"
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
         <div className="flex items-center gap-4 text-white">
           <LanguageSwitcher />
            <Button asChild variant="outline" size="sm" className="text-white border-white/50 hover:bg-white/10">

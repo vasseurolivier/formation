@@ -104,9 +104,9 @@ export default function LogoUploaderPage() {
             <div className="space-y-4">
                 <h3 className="font-semibold">Current Logo</h3>
                 {isLoading ? (
-                    <div className="w-96 h-24 bg-muted rounded-md animate-pulse"></div>
+                    <div className="w-full h-32 bg-muted rounded-md animate-pulse"></div>
                 ) : currentLogoUrl ? (
-                    <div className="relative w-96 h-24">
+                    <div className="relative w-full h-32">
                         <Image
                             src={currentLogoUrl}
                             alt="Current Site Logo"
@@ -120,14 +120,14 @@ export default function LogoUploaderPage() {
             </div>
 
             <div className="space-y-2">
-                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: 384x96 pixels.</p>
+                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended aspect ratio: 4:1 (e.g., 512x128 pixels).</p>
                 <Input type="file" accept="image/*" onChange={handleFileChange} />
             </div>
 
             {logoPreview && (
               <div className="space-y-4 text-center">
                   <h3 className="font-semibold">New Logo Preview</h3>
-                  <div className="relative w-96 h-24 mx-auto border rounded-md p-2 flex items-center justify-center">
+                  <div className="relative w-full h-32 mx-auto border rounded-md p-2 flex items-center justify-center">
                       <Image
                           src={logoPreview}
                           alt="Logo Preview"
