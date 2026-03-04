@@ -1,40 +1,40 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-
-const STORAGE_KEY = 'customImages';
+import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
+import { doc } from 'firebase/firestore';
+import type { MediaAsset } from '@/lib/firebase-types';
 
 export function useCustomizableImage(imageId: string) {
+    const firestore = useFirestore();
+
+    const imageDocRef = useMemoFirebase(() => {
+        if (!firestore || !imageId) return null;
+        return doc(firestore, 'mediaAssets', imageId);
+    }, [firestore, imageId]);
+    
+    const { data: imageData, isLoading } = useDoc<MediaAsset>(imageDocRef);
+
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
-    const updateImage = useCallback(() => {
-        const originalImage = PlaceHolderImages.find(img => img.id === imageId);
-        try {
-            const storedImages = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-            const customUrl = storedImages[imageId];
-            
-            if (customUrl) {
-                setImageUrl(customUrl);
-            } else if (originalImage) {
-                setImageUrl(originalImage.imageUrl);
-            } else {
-                setImageUrl(null);
-            }
-        } catch (e) {
-             if (originalImage) {
-                setImageUrl(originalImage.imageUrl);
-            }
-        }
-    }, [imageId]);
-
     useEffect(() => {
-        updateImage();
+        const originalImage = PlaceHolderImages.find(img => img.id === imageId);
 
-        window.addEventListener('storage', updateImage);
-        return () => {
-            window.removeEventListener('storage', updateImage);
-        };
-    }, [updateImage]);
+        if (isLoading) {
+            if (originalImage) {
+                setImageUrl(originalImage.imageUrl);
+            }
+            return;
+        }
+
+        if (imageData?.url) {
+            setImageUrl(imageData.url);
+        } else if (originalImage) {
+            setImageUrl(originalImage.imageUrl);
+        } else {
+            setImageUrl(null);
+        }
+    }, [imageData, imageId, isLoading]);
 
     return imageUrl;
 }

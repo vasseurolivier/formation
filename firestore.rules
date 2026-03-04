@@ -114,8 +114,7 @@ service cloud.firestore {
      */
     match /mediaAssets/{mediaId} {
       allow get, list: if true;
-      allow create: if isAdmin();
-      allow update, delete: if isExistingDocAdmin();
+      allow write: if isAdmin();
     }
 
     /**
@@ -140,9 +139,9 @@ service cloud.firestore {
      * @principle Secures the role management system itself, ensuring only admins can manage other admins.
      */
     match /roles_admin/{adminUid} {
-      allow get, list: if isAdmin();
-      allow create: if isAdmin();
-      allow update, delete: if isExistingDocAdmin();
+      allow get: if isSignedIn() && request.auth.uid == adminUid;
+      allow list: if isAdmin();
+      allow create, update, delete: if isSignedIn() && request.auth.uid == adminUid;
     }
   }
 }
