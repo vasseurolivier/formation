@@ -7,6 +7,7 @@ import type { Testimonial } from "@/lib/data";
 import { useTranslation } from "@/hooks/use-translation";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
+import { Quote } from "lucide-react";
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -22,9 +23,12 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <Card className="h-full border bg-card hover:bg-accent transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
       <CardContent className="flex h-full flex-col justify-between p-6">
-        <blockquote className="italic text-foreground/80">
-          “{t(testimonial.quoteKey)}”
-        </blockquote>
+        <div className="flex-grow">
+          <Quote className="w-8 h-8 text-primary/20 mb-4" />
+          <blockquote className="italic text-foreground/80">
+            {t(testimonial.quoteKey)}
+          </blockquote>
+        </div>
         <div className="mt-6 flex items-center gap-4">
           <Avatar>
             {imageUrl && placeholderImage && (

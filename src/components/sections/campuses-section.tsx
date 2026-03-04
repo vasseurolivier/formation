@@ -38,7 +38,7 @@ export default function CampusesSection() {
           </p>
         </ScrollReveal>
 
-        <div className="space-y-20">
+        <div className="space-y-16">
           {campusLocations.map((location, index) => {
             const placeholderImage = PlaceHolderImages.find(
               (img) => img.id === location.imageId

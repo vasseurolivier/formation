@@ -3,6 +3,7 @@
 import { useTranslation } from "@/hooks/use-translation";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Globe, Users, Trophy } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function WhyChooseUsSection() {
     const { t } = useTranslation();
@@ -40,15 +41,19 @@ export default function WhyChooseUsSection() {
                 <div className="grid md:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
                         <ScrollReveal key={index} delay={index * 150}>
-                            <div className="text-center p-6">
-                                <div className="flex justify-center mb-4">
-                                     <div className="bg-primary/10 text-primary rounded-full p-4">
-                                        <feature.icon className="w-8 h-8" />
+                             <Card className="text-center h-full border bg-card hover:shadow-xl transition-shadow duration-300">
+                                <CardHeader>
+                                    <div className="flex justify-center mb-4">
+                                        <div className="bg-primary/10 text-primary rounded-full p-4">
+                                            <feature.icon className="w-8 h-8" />
+                                        </div>
                                     </div>
-                                </div>
-                                <h3 className="text-xl font-bold font-headline text-foreground">{t(feature.titleKey)}</h3>
-                                <p className="mt-2 text-muted-foreground">{t(feature.descriptionKey)}</p>
-                            </div>
+                                    <CardTitle className="text-xl font-bold font-headline text-foreground">{t(feature.titleKey)}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="mt-2 text-muted-foreground">{t(feature.descriptionKey)}</p>
+                                </CardContent>
+                            </Card>
                         </ScrollReveal>
                     ))}
                 </div>

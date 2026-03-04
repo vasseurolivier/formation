@@ -12,8 +12,14 @@ export default function AboutSection() {
   const aboutImage = PlaceHolderImages.find(img => img.id === "about-us-image");
 
   return (
-    <section className="py-20 md:py-32 bg-muted">
+    <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
+        <ScrollReveal className="text-center mb-16">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
+            {t("aboutSection.title")}
+          </h2>
+           <p className="text-lg text-muted-foreground mt-2">{t("aboutSection.subtitle")}</p>
+        </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl shadow-primary/10">
@@ -29,11 +35,6 @@ export default function AboutSection() {
             </div>
           </ScrollReveal>
           <div className="space-y-6">
-            <ScrollReveal>
-              <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
-                {t("aboutSection.title")}
-              </h2>
-            </ScrollReveal>
             <ScrollReveal delay={100}>
               <p className="text-lg text-muted-foreground">
                 {t("aboutSection.paragraph1")}

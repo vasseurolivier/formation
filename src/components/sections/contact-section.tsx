@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { ScrollReveal } from "../scroll-reveal";
 import { MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -51,7 +51,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="py-20 md:py-32">
+    <section className="py-20 md:py-32 bg-muted">
       <div className="container mx-auto px-4 md:px-6">
         <ScrollReveal className="text-center mb-12">
           <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
@@ -62,10 +62,10 @@ export default function ContactSection() {
           </p>
         </ScrollReveal>
         
-        <div className="grid md:grid-cols-2 gap-12">
-            <ScrollReveal delay={200}>
-                <Card className="border bg-card">
-                    <CardContent className="p-8">
+        <Card className="overflow-hidden">
+            <div className="grid md:grid-cols-2">
+                <ScrollReveal>
+                    <div className="p-8 md:p-12">
                         <Form {...form}>
                           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                             <FormField
@@ -116,27 +116,27 @@ export default function ContactSection() {
                             </Button>
                           </form>
                         </Form>
-                    </CardContent>
-                </Card>
-            </ScrollReveal>
-            <ScrollReveal delay={400}>
-                 <div className="w-full h-full min-h-[400px] md:min-h-full rounded-lg bg-muted flex flex-col items-center justify-center p-8 space-y-8 text-center">
-                    <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit">
-                      <MapPin className="w-10 h-10" />
                     </div>
-                    <div>
-                        <h3 className="font-headline text-xl font-semibold text-foreground">{t("contactSection.locations.title")}</h3>
-                        <p className="text-muted-foreground mt-2 max-w-sm mx-auto">{t("contactSection.locations.description")}</p>
+                </ScrollReveal>
+                <ScrollReveal delay={200}>
+                    <div className="relative w-full h-full min-h-[400px] md:min-h-full bg-primary/5 flex flex-col items-center justify-center p-8 space-y-8 text-center">
+                        <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit">
+                        <MapPin className="w-10 h-10" />
+                        </div>
+                        <div>
+                            <h3 className="font-headline text-xl font-semibold text-foreground">{t("contactSection.locations.title")}</h3>
+                            <p className="text-muted-foreground mt-2 max-w-sm mx-auto">{t("contactSection.locations.description")}</p>
+                        </div>
+                        <Button asChild>
+                            <Link href="/locations">
+                                {t("contactSection.locations.cta")}
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                        </Button>
                     </div>
-                     <Button asChild>
-                        <Link href="/locations">
-                            {t("contactSection.locations.cta")}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                    </Button>
-                </div>
-            </ScrollReveal>
-        </div>
+                </ScrollReveal>
+            </div>
+        </Card>
       </div>
     </section>
   );
