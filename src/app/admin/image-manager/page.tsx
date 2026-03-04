@@ -48,7 +48,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (preview && selectedFile && imageDocRef) {
       setIsUploading(true);
       const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
@@ -61,20 +61,16 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
         mimeType: selectedFile.type,
       };
 
-      try {
-        await setDocumentNonBlocking(imageDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
-        toast({
-          title: 'Image successfully uploaded!',
-          description: `The image for "${image.description}" has been updated.`,
-        });
-        setPreview(null);
-        setSelectedFile(null);
-      } catch (error) {
-        toast({ variant: 'destructive', title: 'Upload failed', description: 'Could not save image to the database.' });
-        console.error(error);
-      } finally {
-        setIsUploading(false);
-      }
+      setDocumentNonBlocking(imageDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
+
+      toast({
+        title: 'Téléversement en cours !',
+        description: `L'image pour "${image.description}" est en cours de mise à jour.`,
+      });
+
+      setIsUploading(false);
+      setPreview(null);
+      setSelectedFile(null);
     }
   };
 
@@ -101,7 +97,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
           {isCustom && (
             <div className="absolute top-2 right-2 flex items-center gap-1 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
               <CheckCircle className="w-3 h-3" />
-              Custom
+              Personnalisé
             </div>
           )}
         </div>
@@ -118,7 +114,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
                 disabled={!selectedFile || isUploading}
                 className="w-full"
             >
-              {isUploading ? 'Uploading...' : <><Upload className="mr-2 h-4 w-4" /> Save Image</>}
+              {isUploading ? 'Téléversement...' : <><Upload className="mr-2 h-4 w-4" /> Sauvegarder l'image</>}
             </Button>
         </div>
       </CardContent>
@@ -129,15 +125,15 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
 export default function ImageManagerPage() {
   const otherImageGroups: ImageGroup[] = [
     {
-      title: 'Course Images',
+      title: 'Images de cours',
       images: PlaceHolderImages.filter(img => img.id.startsWith('course-')),
     },
     {
-      title: 'Testimonial Images',
+      title: 'Images de témoignages',
       images: PlaceHolderImages.filter(img => img.id.startsWith('testimonial-')),
     },
     {
-      title: 'General Page Images',
+      title: 'Images des pages générales',
       images: PlaceHolderImages.filter(img => img.id.startsWith('about-')),
     },
   ];
@@ -163,18 +159,18 @@ export default function ImageManagerPage() {
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Admin Dashboard
+          Retour au Tableau de Bord Admin
         </Link>
         <Card>
           <CardHeader>
             <CardTitle className="font-headline text-2xl text-primary flex items-center gap-2">
               <ImageUp />
-              Website Image Manager
+              Gestionnaire d'Images du Site Web
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-6">
-              Upload and manage the images used across the website. Changes are saved permanently and will be visible to all users.
+              Téléversez et gérez les images utilisées sur l'ensemble du site. Les modifications sont sauvegardées de manière permanente et seront visibles par tous les utilisateurs.
             </p>
             <Accordion type="multiple" defaultValue={['item-0']} className="w-full space-y-4">
               {imageGroups.map((group, groupIndex) => (

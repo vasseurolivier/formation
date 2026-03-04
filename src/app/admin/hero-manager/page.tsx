@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Film, Upload, CheckCircle, Video, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, Film, Upload, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -45,7 +45,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (preview && selectedFile && mediaDocRef) {
       setIsUploading(true);
       const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
@@ -58,20 +58,16 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
         mimeType: selectedFile.type,
       };
 
-      try {
-        await setDocumentNonBlocking(mediaDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
-        toast({
-          title: 'Media successfully uploaded!',
-          description: `The hero media for "${image.description}" has been updated.`,
-        });
-        setPreview(null);
-        setSelectedFile(null);
-      } catch (error) {
-        toast({ variant: 'destructive', title: 'Upload failed', description: 'Could not save media to the database.' });
-        console.error(error);
-      } finally {
-        setIsUploading(false);
-      }
+      setDocumentNonBlocking(mediaDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
+      
+      toast({
+        title: 'Téléversement en cours !',
+        description: `Le média pour "${image.description}" est en cours de mise à jour.`,
+      });
+      
+      setIsUploading(false);
+      setPreview(null);
+      setSelectedFile(null);
     }
   };
 
@@ -98,7 +94,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
           {isCustom && (
             <div className="absolute top-2 right-2 flex items-center gap-1 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
               <CheckCircle className="w-3 h-3" />
-              Custom
+              Personnalisé
             </div>
           )}
         </div>
@@ -115,7 +111,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
             disabled={!selectedFile || isUploading}
             className="w-full"
           >
-            {isUploading ? 'Uploading...' : <><Upload className="mr-2 h-4 w-4" /> Save Media</>}
+            {isUploading ? 'Téléversement...' : <><Upload className="mr-2 h-4 w-4" /> Sauvegarder le Média</>}
           </Button>
         </div>
       </CardContent>
@@ -135,18 +131,18 @@ export default function HeroManagerPage() {
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-4"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Admin Dashboard
+          Retour au Tableau de Bord Admin
         </Link>
         <Card>
           <CardHeader>
             <CardTitle className="font-headline text-2xl text-primary flex items-center gap-2">
               <Film />
-              Hero Section Media Manager
+              Gestionnaire des Médias de la Section Héro
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-6">
-             Upload custom images or videos for the main hero sections of your site. Your changes will be saved permanently and will be visible to all users.
+             Téléversez des images ou des vidéos personnalisées pour les sections héro principales de votre site. Vos modifications seront sauvegardées de manière permanente et visibles par tous les utilisateurs.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {heroImages.map(image => (
