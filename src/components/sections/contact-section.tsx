@@ -53,15 +53,6 @@ export default function ContactSection() {
   return (
     <section className="py-20 md:py-32 bg-muted">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollReveal className="text-center mb-12">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
-            {t("contactSection.title")}
-          </h2>
-          <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">
-            {t("contactSection.subtitle")}
-          </p>
-        </ScrollReveal>
-        
         <Card className="overflow-hidden">
             <div className="grid md:grid-cols-2">
                 <ScrollReveal>

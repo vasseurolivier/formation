@@ -1,30 +1,33 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import Link from "next/link";
-
-const Globe = dynamic(
-  () => import("@/components/globe").then((mod) => mod.Globe),
-  {
-    ssr: false,
-    loading: () => <Skeleton className="w-full h-full absolute inset-0" />,
-  }
-);
+import Image from "next/image";
+import { useCustomizableImage } from "@/hooks/use-customizable-image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function HeroSection() {
   const { t } = useTranslation();
+  const imageId = "hero-home";
+  const imageUrl = useCustomizableImage(imageId);
+  const placeholderImage = PlaceHolderImages.find((img) => img.id === imageId);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Globe />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-transparent" />
-      </div>
+    <section className="relative w-full h-screen text-white">
+      {imageUrl && placeholderImage && (
+        <Image
+          src={imageUrl}
+          alt={placeholderImage.description}
+          data-ai-hint={placeholderImage.imageHint}
+          fill
+          className="object-cover"
+          priority
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-foreground/30" />
       <div className="relative z-10 flex h-full items-center justify-center text-center">
         <div className="container px-4 md:px-6">
           <ScrollReveal>
@@ -33,7 +36,7 @@ export default function HeroSection() {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-white/90 md:text-xl">
               {t("hero.subtitle")}
             </p>
           </ScrollReveal>

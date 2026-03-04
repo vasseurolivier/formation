@@ -18,15 +18,6 @@ export default function TestimonialsSection() {
   return (
     <section className="py-20 md:py-32 bg-muted">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollReveal className="text-center mb-12">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
-            {t("testimonialsSection.title")}
-          </h2>
-          <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">
-            {t("testimonialsSection.subtitle")}
-          </p>
-        </ScrollReveal>
-
         <ScrollReveal delay={200}>
             <Carousel
               opts={{

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function AdminDashboardPage() {
   return (
-    <div className="min-h-screen bg-background p-4 sm:p-6 md:p-8">
+    <div className="min-h-screen bg-background p-4 pt-24 sm:p-6 md:p-8">
       <div className="max-w-4xl mx-auto">
         <Card>
           <CardHeader>

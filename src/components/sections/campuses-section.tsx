@@ -29,15 +29,6 @@ export default function CampusesSection() {
   return (
     <section className="py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <ScrollReveal className="text-center mb-16">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-primary">
-            {t("locations.pageTitle")}
-          </h2>
-          <p className="text-lg text-muted-foreground mt-2 max-w-3xl mx-auto">
-            {t("locations.pageSubtitle")}
-          </p>
-        </ScrollReveal>
-
         <div className="space-y-24">
           {campusLocations.map((location: CampusLocation, index) => {
             const mainPlaceholderImage = PlaceHolderImages.find(

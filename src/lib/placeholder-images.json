@@ -1,6 +1,42 @@
 {
   "placeholderImages": [
     {
+      "id": "hero-home",
+      "description": "Global education concept",
+      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnbG9iYWwlMjBlZHVjYXRpb258ZW58MHx8fHwxNzcyNTIzMTM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "global education"
+    },
+    {
+      "id": "hero-about",
+      "description": "Team collaboration in a modern office",
+      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwwfHx8fDE3NzI1MjIwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team collaboration"
+    },
+    {
+      "id": "hero-courses",
+      "description": "Student studying in a library",
+      "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdHVkZW50JTIwbGVhcm5pbmd8ZW58MHx8fHwxNzcyNTIyMDQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student learning"
+    },
+    {
+      "id": "hero-locations",
+      "description": "A world map with pins indicating locations",
+      "imageUrl": "https://images.unsplash.com/photo-1539627831859-a911cf04d3cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b3JsZCUyMG1hcHxlbnwwfHx8fDE3NzI1MjIwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "world map"
+    },
+    {
+      "id": "hero-testimonials",
+      "description": "A group of happy and diverse students",
+      "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHN0dWRlbnRzfGVufDB8fHx8MTc3MjUyMjEwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy students"
+    },
+    {
+      "id": "hero-contact",
+      "description": "A person writing on a notebook with a laptop nearby",
+      "imageUrl": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3cml0aW5nJTIwbGV0dGVyfGVufDB8fHx8MTc3MjUyMjEzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "writing letter"
+    },
+    {
       "id": "course-flight-attendant",
       "description": "Flight attendant in an airplane cabin",
       "imageUrl": "https://images.unsplash.com/photo-1483450388369-9ed95738483c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaXJwbGFuZSUyMGNhYmlufGVufDB8fHx8MTc3MjQ0NzYyMHww&ixlib=rb-4.1.0&q=80&w=1080",
