@@ -1,17 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, Upload } from 'lucide-react';
 import Link from 'next/link';
 import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 const LOGO_DOC_ID = 'siteLogo';
 
@@ -30,6 +31,7 @@ export default function LogoUploaderPage() {
 
   const { data: logoData, isLoading } = useDoc<MediaAsset>(logoDocRef);
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
   
   const currentLogoUrl = logoData?.url;
 
@@ -45,7 +47,7 @@ export default function LogoUploaderPage() {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -64,57 +66,62 @@ export default function LogoUploaderPage() {
     }
 
     setIsUploading(true);
+    setUploadProgress(0);
     
     const storage = getStorage(firebaseApp);
     const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
     const fileRef = storageRef(storage, filePath);
+    const uploadTask = uploadBytesResumable(fileRef, selectedFile);
 
-    try {
-      // Step 1: Upload the file to Firebase Storage
-      await uploadBytes(fileRef, selectedFile);
-      
-      // Step 2: Get the download URL
-      const downloadUrl = await getDownloadURL(fileRef);
+    uploadTask.on('state_changed',
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadProgress(progress);
+      },
+      (error) => {
+        console.error("Upload failed:", error);
+        let description = "Une erreur inattendue est survenue.";
+        switch (error.code) {
+          case 'storage/unauthorized':
+            description = "Permission refusée. Assurez-vous d'être un administrateur connecté.";
+            break;
+          case 'storage/canceled':
+            description = "Le téléversement a été annulé.";
+            break;
+        }
+        toast({ variant: "destructive", title: "Échec du téléversement", description });
+        setIsUploading(false);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadUrl) => {
+          const newLogoData: Omit<MediaAsset, 'id'> = {
+            url: downloadUrl,
+            type: 'image',
+            fileName: selectedFile.name,
+            altTextFr: "Logo du site",
+            altTextEn: "Site logo",
+            altTextZh: "网站标志",
+            mimeType: selectedFile.type,
+            uploadedAt: new Date().toISOString()
+          };
+          
+          await setDoc(logoDocRef, newLogoData, { merge: true });
 
-      // Step 3: Create the metadata object for Firestore
-      const newLogoData: Omit<MediaAsset, 'id'> = {
-        url: downloadUrl,
-        type: 'image',
-        fileName: selectedFile.name,
-        altTextFr: "Logo du site",
-        altTextEn: "Site logo",
-        altTextZh: "网站标志",
-        mimeType: selectedFile.type,
-        uploadedAt: new Date().toISOString()
-      };
-      
-      // Step 4: Save the metadata to Firestore
-      await setDoc(logoDocRef, newLogoData, { merge: true });
+          toast({
+            title: 'Logo téléversé avec succès !',
+            description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
+          });
 
-      toast({
-        title: 'Logo téléversé avec succès !',
-        description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
-      });
-
-      setLogoPreview(null);
-      setSelectedFile(null);
-    } catch (error: any) {
-      console.error("Upload failed:", error);
-      let description = "Une erreur inattendue est survenue. Veuillez consulter la console pour les détails techniques.";
-      if (error.code === 'storage/unauthorized') {
-          description = "Permission refusée par le serveur. Assurez-vous d'être connecté et que vos permissions d'administrateur sont actives.";
-      } else if (error.code) {
-          description = `Erreur du serveur : ${error.code}. Veuillez consulter la console.`
+          setLogoPreview(null);
+          setSelectedFile(null);
+        }).catch((err) => {
+          console.error("Finalization failed:", err);
+          toast({ variant: "destructive", title: "Échec de la finalisation", description: "Impossible d'obtenir l'URL du fichier." });
+        }).finally(() => {
+          setIsUploading(false);
+        });
       }
-      
-      toast({
-        variant: 'destructive',
-        title: 'Le téléversement a échoué',
-        description: description,
-      });
-    } finally {
-      setIsUploading(false);
-    }
+    );
   };
 
   const displayUrl = logoPreview || currentLogoUrl;
@@ -158,7 +165,7 @@ export default function LogoUploaderPage() {
 
             <div className="space-y-2">
                 <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: around 530x110 pixels.</p>
-                <Input type="file" accept="image/*" onChange={handleFileChange} />
+                <Input type="file" accept="image/*" onChange={handleFileChange} disabled={isUploading} />
             </div>
 
             {logoPreview && (
@@ -177,10 +184,19 @@ export default function LogoUploaderPage() {
               </div>
             )}
 
-            <Button onClick={handleUpload} disabled={!selectedFile || isUploading} className="w-full">
-              <Upload className="mr-2 h-4 w-4" />
-              {isUploading ? "Téléversement..." : "Sauvegarder et appliquer le logo"}
-            </Button>
+            {isUploading ? (
+              <div className="space-y-2 pt-2">
+                <Progress value={uploadProgress} />
+                <p className="text-sm text-center text-muted-foreground">
+                  Téléversement... {Math.round(uploadProgress)}%
+                </p>
+              </div>
+            ) : (
+              <Button onClick={handleUpload} disabled={!selectedFile} className="w-full">
+                <Upload className="mr-2 h-4 w-4" />
+                Sauvegarder et appliquer le logo
+              </Button>
+            )}
           </CardContent>
         </Card>
       </div>

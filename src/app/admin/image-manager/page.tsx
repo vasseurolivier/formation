@@ -7,6 +7,7 @@ import { ArrowLeft, ImageUp, Upload, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Progress } from '@/components/ui/progress';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
@@ -15,7 +16,7 @@ import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 type ImageGroup = {
   title: string;
@@ -38,6 +39,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -51,7 +53,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -70,57 +72,62 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
     }
     
     setIsUploading(true);
+    setUploadProgress(0);
 
     const storage = getStorage(firebaseApp);
     const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
     const fileRef = storageRef(storage, filePath);
+    const uploadTask = uploadBytesResumable(fileRef, selectedFile);
 
-    try {
-      // Step 1: Upload the file to Firebase Storage
-      await uploadBytes(fileRef, selectedFile);
+    uploadTask.on('state_changed', 
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadProgress(progress);
+      },
+      (error) => {
+        console.error("Upload failed:", error);
+        let description = "Une erreur inattendue est survenue.";
+        switch (error.code) {
+          case 'storage/unauthorized':
+            description = "Permission refusée. Assurez-vous d'être un administrateur connecté.";
+            break;
+          case 'storage/canceled':
+            description = "Le téléversement a été annulé.";
+            break;
+        }
+        toast({ variant: "destructive", title: "Échec du téléversement", description });
+        setIsUploading(false);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadUrl) => {
+          const newMediaData: Omit<MediaAsset, 'id'> = {
+            url: downloadUrl,
+            type: 'image',
+            fileName: selectedFile.name,
+            altTextFr: image.description,
+            altTextEn: image.description,
+            altTextZh: image.description,
+            mimeType: selectedFile.type,
+            uploadedAt: new Date().toISOString(),
+          };
 
-      // Step 2: Get the download URL
-      const downloadUrl = await getDownloadURL(fileRef);
+          await setDoc(imageDocRef, newMediaData, { merge: true });
 
-      // Step 3: Create metadata object for Firestore
-      const newMediaData: Omit<MediaAsset, 'id'> = {
-        url: downloadUrl,
-        type: 'image',
-        fileName: selectedFile.name,
-        altTextFr: image.description,
-        altTextEn: image.description,
-        altTextZh: image.description,
-        mimeType: selectedFile.type,
-        uploadedAt: new Date().toISOString(),
-      };
+          toast({
+            title: 'Téléversement réussi !',
+            description: `L'image pour "${image.description}" a été mise à jour.`,
+          });
 
-      // Step 4: Save metadata to Firestore
-      await setDoc(imageDocRef, newMediaData, { merge: true });
-
-      toast({
-        title: 'Téléversement réussi !',
-        description: `L'image pour "${image.description}" a été mise à jour.`,
-      });
-
-      setPreview(null);
-      setSelectedFile(null);
-    } catch (error: any) {
-      console.error("Upload failed:", error);
-      let description = "Une erreur inattendue est survenue. Veuillez consulter la console pour les détails techniques.";
-      if (error.code === 'storage/unauthorized') {
-          description = "Permission refusée par le serveur. Assurez-vous d'être connecté et que vos permissions d'administrateur sont actives.";
-      } else if (error.code) {
-          description = `Erreur du serveur : ${error.code}. Veuillez consulter la console.`
+          setPreview(null);
+          setSelectedFile(null);
+        }).catch((err) => {
+          console.error("Finalization failed:", err);
+          toast({ variant: "destructive", title: "Échec de la finalisation", description: "Impossible d'obtenir l'URL du fichier." });
+        }).finally(() => {
+          setIsUploading(false);
+        });
       }
-      
-      toast({
-        variant: "destructive",
-        title: "Le téléversement a échoué",
-        description: description,
-      });
-    } finally {
-      setIsUploading(false);
-    }
+    );
   };
 
   const displayUrl = preview || customImageData?.url || image.imageUrl;
@@ -158,13 +165,22 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
                 onChange={handleFileChange}
                 disabled={isUploading}
             />
-            <Button
-                onClick={handleUpload}
-                disabled={!selectedFile || isUploading}
-                className="w-full"
-            >
-              {isUploading ? 'Téléversement...' : <><Upload className="mr-2 h-4 w-4" /> Sauvegarder l'image</>}
-            </Button>
+            {isUploading ? (
+              <div className="space-y-2 pt-2">
+                <Progress value={uploadProgress} />
+                <p className="text-sm text-center text-muted-foreground">
+                  Téléversement... {Math.round(uploadProgress)}%
+                </p>
+              </div>
+            ) : (
+              <Button
+                  onClick={handleUpload}
+                  disabled={!selectedFile}
+                  className="w-full"
+              >
+                <Upload className="mr-2 h-4 w-4" /> Sauvegarder l'image
+              </Button>
+            )}
         </div>
       </CardContent>
     </Card>
