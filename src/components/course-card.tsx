@@ -34,7 +34,7 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
                     />
                 )}
                  {course.languageHighlight && (
-                  <Badge className="absolute top-4 right-4 border-accent bg-accent/80 text-accent-foreground backdrop-blur-sm">
+                  <Badge variant="default" className="absolute top-4 right-4 border-primary-foreground/20 backdrop-blur-sm">
                     {t('courseCard.languageBadge')}
                   </Badge>
                 )}
