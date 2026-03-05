@@ -1,14 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo } from 'react';
 import { ArrowLeft, Inbox, Mail, MailOpen } from 'lucide-react';
 import { collection, doc, updateDoc, query, orderBy, Timestamp } from 'firebase/firestore';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
-import { useCollection, type WithId } from '@/firebase/firestore/use-collection';
-import { useFirebase } from '@/firebase/provider';
+import { useFirebase, useCollection, useMemoFirebase, type WithId } from '@/firebase';
 import { useTranslation } from '@/hooks/use-translation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -65,7 +63,7 @@ const SubmissionItem = ({ submission }: { submission: WithId<ContactSubmission> 
 export default function SubmissionsPage() {
     const { firestore, isUserLoading } = useFirebase();
     
-    const submissionsQuery = useMemo(() => {
+    const submissionsQuery = useMemoFirebase(() => {
         if (!firestore) return null;
         return query(collection(firestore, 'contactSubmissions'), orderBy('submittedAt', 'desc'));
     }, [firestore]);
