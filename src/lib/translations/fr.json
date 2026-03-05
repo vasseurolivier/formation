@@ -270,7 +270,14 @@
     "prerequisites": "Prérequis",
     "careerOutcomes": "Débouchés",
     "galleryTitle": "En Images"
+  },
+  "coursesIntro": {
+    "title": "Une Approche Pédagogique Unique",
+    "subtitle": "Nos programmes sont plus que de simples cours ; ce sont des expériences conçues pour développer des compétences pratiques, une aisance interculturelle et un réseau mondial.",
+    "stats": {
+      "programs": "Programmes Spécialisés",
+      "placement": "Taux de placement des diplômés",
+      "partners": "Partenaires Internationaux"
+    }
   }
 }
-
-    

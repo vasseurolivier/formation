@@ -270,7 +270,14 @@
     "prerequisites": "Prerequisites",
     "careerOutcomes": "Career Outcomes",
     "galleryTitle": "In Pictures"
+  },
+  "coursesIntro": {
+    "title": "A Unique Approach to Learning",
+    "subtitle": "Our programs are more than just courses; they are experiences designed to build practical skills, intercultural competence, and a global network.",
+    "stats": {
+      "programs": "Specialized Programs",
+      "placement": "Graduate Placement Rate",
+      "partners": "International Partners"
+    }
   }
 }
-
-    
