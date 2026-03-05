@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ImageUp, Upload, CheckCircle, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, ImageUp, Upload, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,7 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { campusLocations } from '@/lib/data';
-import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, useFirebaseApp } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -25,7 +25,6 @@ type ImageGroup = {
 const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const firestore = useFirestore();
-  const auth = useAuth();
   const firebaseApp = useFirebaseApp();
 
   const imageDocRef = useMemoFirebase(() => {
@@ -38,13 +37,11 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedFile(file);
-      setUploadError(null);
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result as string);
@@ -54,7 +51,6 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   };
 
   const handleUpload = async () => {
-    setUploadError(null);
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -63,7 +59,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
       });
       return;
     }
-    if (!imageDocRef || !auth || !firebaseApp) {
+    if (!imageDocRef || !firebaseApp) {
         toast({
             variant: "destructive",
             title: "Erreur d'initialisation",
@@ -102,30 +98,11 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
         setPreview(null);
         setSelectedFile(null);
     } catch (error) {
-        console.error("[UPLOAD_ERROR]", error);
-        
-        let detailedMessage = "Une erreur inconnue est survenue.";
-        if (error instanceof Error) {
-             detailedMessage = error.message;
-             if ('code' in error) {
-                detailedMessage = `Code: ${(error as any).code}\nMessage: ${error.message}`;
-             }
-        } else if (typeof error === 'object' && error !== null) {
-            try {
-                detailedMessage = JSON.stringify(error, null, 2);
-            } catch (e) {
-                detailedMessage = "Impossible de convertir l'objet d'erreur en chaîne de caractères.";
-            }
-        } else {
-            detailedMessage = String(error);
-        }
-
-        setUploadError(detailedMessage);
-        
+        console.error("Échec du téléversement:", error);
         toast({
             variant: "destructive",
             title: "Échec du téléversement",
-            description: "Une erreur est survenue. Voir les détails dans la carte.",
+            description: "Une erreur est survenue. Veuillez vérifier la console pour plus de détails.",
         });
     } finally {
         setIsUploading(false);
@@ -182,17 +159,6 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
               </Button>
             )}
         </div>
-        {uploadError && (
-          <div className="mt-4 p-3 rounded-md bg-destructive/10 text-destructive border border-destructive/20">
-            <div className="flex items-start gap-2">
-              <AlertTriangle className="h-5 w-5 mt-0.5"/>
-              <div>
-                <p className="font-semibold">Une erreur est survenue</p>
-                <pre className="text-xs whitespace-pre-wrap font-mono mt-1">{uploadError}</pre>
-              </div>
-            </div>
-          </div>
-        )}
       </CardContent>
     </Card>
   );

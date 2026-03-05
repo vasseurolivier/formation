@@ -6,9 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowLeft, Upload, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Upload } from 'lucide-react';
 import Link from 'next/link';
-import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, useFirebaseApp } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -20,7 +20,6 @@ export default function LogoUploaderPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { toast } = useToast();
   const firestore = useFirestore();
-  const auth = useAuth();
   const firebaseApp = useFirebaseApp();
 
   const logoDocRef = useMemoFirebase(() => {
@@ -30,7 +29,6 @@ export default function LogoUploaderPage() {
 
   const { data: logoData, isLoading } = useDoc<MediaAsset>(logoDocRef);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadError, setUploadError] = useState<string | null>(null);
   
   const currentLogoUrl = logoData?.url;
 
@@ -38,7 +36,6 @@ export default function LogoUploaderPage() {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedFile(file);
-      setUploadError(null);
       const reader = new FileReader();
       reader.onloadend = () => {
         setLogoPreview(reader.result as string);
@@ -48,7 +45,6 @@ export default function LogoUploaderPage() {
   };
 
   const handleUpload = async () => {
-    setUploadError(null);
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -57,7 +53,7 @@ export default function LogoUploaderPage() {
       });
       return;
     }
-    if (!logoDocRef || !auth || !firebaseApp) {
+    if (!logoDocRef || !firebaseApp) {
         toast({
             variant: "destructive",
             title: "Erreur d'initialisation",
@@ -96,30 +92,11 @@ export default function LogoUploaderPage() {
         setLogoPreview(null);
         setSelectedFile(null);
     } catch (error) {
-        console.error("[UPLOAD_ERROR]", error);
-        
-        let detailedMessage = "Une erreur inconnue est survenue.";
-        if (error instanceof Error) {
-             detailedMessage = error.message;
-             if ('code' in error) {
-                detailedMessage = `Code: ${(error as any).code}\nMessage: ${error.message}`;
-             }
-        } else if (typeof error === 'object' && error !== null) {
-            try {
-                detailedMessage = JSON.stringify(error, null, 2);
-            } catch (e) {
-                detailedMessage = "Impossible de convertir l'objet d'erreur en chaîne de caractères.";
-            }
-        } else {
-            detailedMessage = String(error);
-        }
-
-        setUploadError(detailedMessage);
-        
+        console.error("Échec du téléversement:", error);
         toast({
             variant: "destructive",
             title: "Échec du téléversement",
-            description: "Une erreur est survenue. Voir les détails ci-dessous.",
+            description: "Une erreur est survenue. Veuillez vérifier la console pour plus de détails.",
         });
     } finally {
         setIsUploading(false);
@@ -196,18 +173,6 @@ export default function LogoUploaderPage() {
                 <Upload className="mr-2 h-4 w-4" />
                 Sauvegarder et appliquer le logo
               </Button>
-            )}
-
-            {uploadError && (
-              <div className="mt-4 p-3 rounded-md bg-destructive/10 text-destructive border border-destructive/20">
-                <div className="flex items-start gap-2">
-                  <AlertTriangle className="h-5 w-5 mt-0.5"/>
-                  <div>
-                    <p className="font-semibold">Une erreur est survenue</p>
-                    <pre className="text-xs whitespace-pre-wrap font-mono mt-1">{uploadError}</pre>
-                  </div>
-                </div>
-              </div>
             )}
 
           </CardContent>
