@@ -8,10 +8,33 @@ import {
   CollectionReference,
   DocumentReference,
   SetOptions,
+  FirestoreError,
 } from 'firebase/firestore';
 import { Auth } from 'firebase/auth';
 import { errorEmitter } from '@/firebase/error-emitter';
-import { FirestorePermissionError } from '@/firebase/errors';
+import { FirestorePermissionError, type SecurityRuleContext } from '@/firebase/errors';
+import { toast } from '@/hooks/use-toast';
+
+function handleFirestoreError(
+    error: any, 
+    auth: Auth, 
+    context: SecurityRuleContext
+) {
+    if (error instanceof FirestoreError && error.code === 'permission-denied') {
+        errorEmitter.emit(
+            'permission-error',
+            new FirestorePermissionError(auth, context)
+        );
+    } else {
+        console.error(`An unexpected Firestore error occurred during ${context.operation} on ${context.path}:`, error);
+        toast({
+            variant: "destructive",
+            title: "An unexpected error occurred",
+            description: error.message || "Could not complete the operation. Please check the console.",
+        });
+    }
+}
+
 
 /**
  * Initiates a setDoc operation for a document reference.
@@ -19,14 +42,11 @@ import { FirestorePermissionError } from '@/firebase/errors';
  */
 export function setDocumentNonBlocking(auth: Auth, docRef: DocumentReference, data: any, options: SetOptions) {
   setDoc(docRef, data, options).catch(error => {
-    errorEmitter.emit(
-      'permission-error',
-      new FirestorePermissionError(auth, {
+    handleFirestoreError(error, auth, {
         path: docRef.path,
-        operation: 'write', // or 'create'/'update' based on options
+        operation: options.merge ? 'update' : 'create',
         requestResourceData: data,
-      })
-    )
+    });
   })
   // Execution continues immediately
 }
@@ -40,14 +60,11 @@ export function setDocumentNonBlocking(auth: Auth, docRef: DocumentReference, da
 export function addDocumentNonBlocking(auth: Auth, colRef: CollectionReference, data: any) {
   const promise = addDoc(colRef, data)
     .catch(error => {
-      errorEmitter.emit(
-        'permission-error',
-        new FirestorePermissionError(auth, {
-          path: colRef.path,
-          operation: 'create',
-          requestResourceData: data,
-        })
-      )
+        handleFirestoreError(error, auth, {
+            path: colRef.path,
+            operation: 'create',
+            requestResourceData: data,
+        });
     });
   return promise;
 }
@@ -60,14 +77,11 @@ export function addDocumentNonBlocking(auth: Auth, colRef: CollectionReference, 
 export function updateDocumentNonBlocking(auth: Auth, docRef: DocumentReference, data: any) {
   updateDoc(docRef, data)
     .catch(error => {
-      errorEmitter.emit(
-        'permission-error',
-        new FirestorePermissionError(auth, {
-          path: docRef.path,
-          operation: 'update',
-          requestResourceData: data,
-        })
-      )
+        handleFirestoreError(error, auth, {
+            path: docRef.path,
+            operation: 'update',
+            requestResourceData: data,
+        });
     });
 }
 
@@ -79,12 +93,9 @@ export function updateDocumentNonBlocking(auth: Auth, docRef: DocumentReference,
 export function deleteDocumentNonBlocking(auth: Auth, docRef: DocumentReference) {
   deleteDoc(docRef)
     .catch(error => {
-      errorEmitter.emit(
-        'permission-error',
-        new FirestorePermissionError(auth, {
-          path: docRef.path,
-          operation: 'delete',
-        })
-      )
+        handleFirestoreError(error, auth, {
+            path: docRef.path,
+            operation: 'delete',
+        });
     });
 }
