@@ -12,26 +12,15 @@
  * Key Security Decisions:
  * - Admin Role Management: Administrator privileges are managed directly in Firestore
  *   within the `/roles_admin/{adminUid}` collection. A user is considered an admin if a
- *   document with their UID exists in this collection. This approach avoids reliance
- *   on custom claims and allows for dynamic role management.
- * - Conditional Visibility: The `/testimonials` collection contains a 'published'
- *   boolean field. Security rules enforce that only testimonials with `published == true`
- *   can be read individually. Listing the entire collection is disabled to prevent
- *   leaking unpublished testimonials, as rules cannot filter list queries.
+ *   document with their UID exists in this collection and has `isAdmin: true`. This
+ *   approach avoids reliance on custom claims and allows for dynamic role management.
  * - Default Posture: All write access is denied by default. Permissions are explicitly
  *   granted only to administrators. There are no user-owned data collections.
  *
  * Denormalization for Authorization: The primary denormalization strategy is the
  * `/roles_admin` collection, which serves as a centralized lookup for admin status.
- * This allows any other rule in the system to perform a simple, fast `exists()`
- * check to determine if the requesting user has administrative rights, without
- * needing to inspect the resource being accessed.
- *
- * Structural Segregation: The design uses a boolean flag (`published`) on testimonials
- * rather than separate collections for drafts and published content. The security
-rules
- * accommodate this by explicitly blocking `list` operations and only allowing `get`
- * operations on documents that meet the `published == true` criteria.
+ * This allows any other rule in the system to perform a simple, fast check
+ * to determine if the requesting user has administrative rights.
  */
 rules_version = '2';
 service cloud.firestore {
@@ -47,17 +36,18 @@ service cloud.firestore {
     }
 
     /**
-     * Checks if the user has an admin role by verifying the existence of their
-     * UID in the roles_admin collection.
+     * Checks if the user has an admin role. This is a robust check that
+     * first ensures the role document exists, then checks if its `isAdmin` flag is true.
+     * This prevents errors if the rule is checked before the document is created.
      */
     function isAdmin() {
-      // Use get() instead of exists() for better consistency in read-after-write scenarios.
-      // This checks that the admin document exists AND that its `isAdmin` flag is explicitly true.
-      return isSignedIn() && get(/databases/$(database)/documents/roles_admin/$(request.auth.uid)).data.isAdmin == true;
+      return isSignedIn() 
+        && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid))
+        && get(/databases/$(database)/documents/roles_admin/$(request.auth.uid)).data.isAdmin == true;
     }
     
     /**
-     * A robust check for update/delete operations, ensuring the user is an admin
+     * A check for update/delete operations, ensuring the user is an admin
      * and the document they are trying to modify already exists.
      */
     function isExistingDocAdmin() {
@@ -66,10 +56,6 @@ service cloud.firestore {
 
     /**
      * @description Publicly readable training category data. Only admins can modify.
-     * @path /trainingCategories/{categoryId}
-     * @allow (get) Any user, signed in or not, can read a training category.
-     * @deny (create) A signed-in, non-admin user cannot create a new category.
-     * @principle Enforces public read access for general content while restricting modifications to privileged roles.
      */
     match /trainingCategories/{categoryId} {
       allow get, list: if true;
@@ -79,10 +65,6 @@ service cloud.firestore {
 
     /**
      * @description Publicly readable training course data. Only admins can modify.
-     * @path /trainingCourses/{courseId}
-     * @allow (list) Any user, signed in or not, can list all training courses.
-     * @deny (update) A signed-in, non-admin user cannot update a course.
-     * @principle Enforces public read access for general content while restricting modifications to privileged roles.
      */
     match /trainingCourses/{courseId} {
       allow get, list: if true;
@@ -92,10 +74,6 @@ service cloud.firestore {
 
     /**
      * @description Metadata for media assets (images, videos). Publicly readable. Only admins can modify.
-     * @path /mediaAssets/{mediaId}
-     * @allow (get) Any user can read the metadata for a media asset.
-     * @deny (delete) A signed-in, non-admin user cannot delete a media asset.
-     * @principle Provides public read access for content linked across the site, with writes restricted to admins.
      */
     match /mediaAssets/{mediaId} {
       allow get, list: if true;
@@ -104,10 +82,6 @@ service cloud.firestore {
 
     /**
      * @description Singleton collection for homepage content. Publicly readable. Only admins can modify.
-     * @path /homepageContent/{contentId}
-     * @allow (get) Any user can read the homepage content.
-     * @deny (create) A signed-in, non-admin user cannot create homepage content.
-     * @principle Secures global site content, allowing public viewing but admin-only management.
      */
     match /homepageContent/{contentId} {
       allow get, list: if true;
@@ -117,10 +91,6 @@ service cloud.firestore {
 
     /**
      * @description Contact form submissions. Publicly writeable, admin readable.
-     * @path /contactSubmissions/{submissionId}
-     * @allow (create) Any user can submit the contact form.
-     * @deny (read) A non-admin cannot read submissions.
-     * @principle Allows public data submission while protecting submitted PII.
      */
     match /contactSubmissions/{submissionId} {
       allow create: if true;
@@ -129,11 +99,6 @@ service cloud.firestore {
 
     /**
      * @description Manages administrator roles. Only existing admins can read or write to this collection.
-     * @path /roles_admin/{adminUid}
-     * @allow (create) An existing admin can create a document to grant another user admin rights.
-     * @deny (get) A non-admin user cannot read the list of admins.
-     * @deny (delete) A non-admin user cannot revoke admin rights.
-     * @principle Secures the role management system itself, ensuring only admins can manage other admins.
      */
     match /roles_admin/{adminUid} {
       allow get: if isSignedIn() && request.auth.uid == adminUid;
