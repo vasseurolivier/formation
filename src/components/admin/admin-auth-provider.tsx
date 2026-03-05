@@ -21,11 +21,11 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
   // Step 2: Once we have a user, ensure their admin role document exists.
   // This is fire-and-forget; we confirm the write in the next effect.
   useEffect(() => {
-    if (user && firestore) {
+    if (user && firestore && auth) {
       const adminRoleRef = doc(firestore, 'roles_admin', user.uid);
-      setDocumentNonBlocking(adminRoleRef, { isAdmin: true }, { merge: true });
+      setDocumentNonBlocking(auth, adminRoleRef, { isAdmin: true }, { merge: true });
     }
-  }, [user, firestore]);
+  }, [user, firestore, auth]);
 
   // Step 3: Listen for the admin role document to be created/confirmed in Firestore.
   // This is the source of truth for readiness.
@@ -37,6 +37,10 @@ export function AdminAuthProvider({ children }: { children: React.ReactNode }) {
           setIsAdminRoleSet(true); // Mark as ready
           unsubscribe(); // Clean up listener once confirmed
         }
+      }, (error) => {
+        // This can happen if the rules don't allow the read yet.
+        // We'll retry by re-triggering the write in the other effect.
+        console.warn("Admin role snapshot listener error, will retry:", error.message);
       });
       return () => unsubscribe();
     }

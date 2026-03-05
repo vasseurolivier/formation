@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, Upload } from 'lucide-react';
 import Link from 'next/link';
-import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, useAuth } from '@/firebase';
 import { doc } from 'firebase/firestore';
 import { setDocumentNonBlocking } from '@/firebase/non-blocking-updates';
 import type { MediaAsset } from '@/lib/firebase-types';
@@ -20,6 +20,7 @@ export default function LogoUploaderPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { toast } = useToast();
   const firestore = useFirestore();
+  const auth = useAuth();
 
   const logoDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -44,7 +45,7 @@ export default function LogoUploaderPage() {
   };
 
   const handleUpload = async () => {
-    if (logoPreview && selectedFile && logoDocRef) {
+    if (logoPreview && selectedFile && logoDocRef && auth) {
       setIsUploading(true);
       
       const newLogoData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
@@ -57,7 +58,7 @@ export default function LogoUploaderPage() {
         mimeType: selectedFile.type,
       };
 
-      setDocumentNonBlocking(logoDocRef, {
+      setDocumentNonBlocking(auth, logoDocRef, {
         ...newLogoData,
         uploadedAt: new Date().toISOString()
       }, { merge: true });
@@ -104,13 +105,14 @@ export default function LogoUploaderPage() {
                     <div className="w-full h-14 bg-muted rounded-md animate-pulse"></div>
                 ) : currentLogoUrl ? (
                     <div className="flex justify-start">
-                        <Image
-                            src={currentLogoUrl}
-                            alt="Current Site Logo"
-                            width={336}
-                            height={56}
-                            className="h-14 w-auto"
-                        />
+                        <div className="relative" style={{ height: '4.5rem', width: '22rem' }}>
+                            <Image
+                                src={currentLogoUrl}
+                                alt="Current Site Logo"
+                                fill
+                                style={{ objectFit: 'contain', objectPosition: 'left' }}
+                            />
+                        </div>
                     </div>
                 ) : (
                     <p className="text-sm text-muted-foreground">No logo uploaded yet.</p>
@@ -118,7 +120,7 @@ export default function LogoUploaderPage() {
             </div>
 
             <div className="space-y-2">
-                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended aspect ratio: ~6:1 (e.g., 336x56 pixels).</p>
+                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: around 880x180 pixels.</p>
                 <Input type="file" accept="image/*" onChange={handleFileChange} />
             </div>
 
@@ -126,13 +128,14 @@ export default function LogoUploaderPage() {
               <div className="space-y-4">
                   <h3 className="font-semibold">New Logo Preview</h3>
                   <div className="flex justify-start border rounded-md p-2">
-                      <Image
-                          src={logoPreview}
-                          alt="Logo Preview"
-                          width={336}
-                          height={56}
-                          className="h-14 w-auto"
-                      />
+                        <div className="relative" style={{ height: '4.5rem', width: '22rem' }}>
+                            <Image
+                                src={logoPreview}
+                                alt="Logo Preview"
+                                fill
+                                style={{ objectFit: 'contain', objectPosition: 'left' }}
+                            />
+                        </div>
                   </div>
               </div>
             )}

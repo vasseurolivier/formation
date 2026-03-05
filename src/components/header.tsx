@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { BookOpenText } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 import LanguageSwitcher from "@/components/language-switcher";
 import { cn } from "@/lib/utils";
@@ -56,23 +55,24 @@ export default function Header() {
         isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0">
-            {logoUrl ? (
-                <Image
-                    src={logoUrl}
-                    alt="Site Logo"
-                    width={336}
-                    height={56}
-                    className="h-14 w-auto"
-                    priority
-                />
-            ) : (
-                <BookOpenText className="h-6 w-6 text-white" />
-            )}
-            </Link>
-            <nav className="ml-10 hidden items-center gap-6 md:flex">
+      <div className="w-full mx-auto flex h-28 items-center justify-between px-4 md:px-6">
+        <div className="flex items-center gap-10">
+          <Link href="/" className="flex-shrink-0">
+              <div className="relative" style={{ height: '4.5rem', width: '22rem' }}>
+                {logoUrl ? (
+                    <Image
+                        src={logoUrl}
+                        alt="Site Logo"
+                        fill
+                        style={{ objectFit: 'contain', objectPosition: 'left' }}
+                        priority
+                    />
+                ) : (
+                  <div className="h-full w-full bg-white/10 animate-pulse rounded-md"></div>
+                )}
+              </div>
+          </Link>
+          <nav className="hidden items-center gap-6 md:flex">
             {navItems.map((item) => (
                 <Link
                 key={item.href}
@@ -85,8 +85,9 @@ export default function Header() {
                 {item.label}
                 </Link>
             ))}
-            </nav>
+          </nav>
         </div>
+
         <div className="flex items-center gap-4 text-white">
           <LanguageSwitcher />
            <Button asChild variant="outline" size="sm" className="text-white border-white/50 hover:bg-white/10">

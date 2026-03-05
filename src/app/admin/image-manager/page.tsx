@@ -11,7 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { campusLocations } from '@/lib/data';
-import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking, useAuth } from '@/firebase';
 import { doc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -24,6 +24,7 @@ type ImageGroup = {
 const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const firestore = useFirestore();
+  const auth = useAuth();
 
   const imageDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -49,7 +50,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   };
 
   const handleUpload = () => {
-    if (preview && selectedFile && imageDocRef) {
+    if (preview && selectedFile && imageDocRef && auth) {
       setIsUploading(true);
       const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
         url: preview,
@@ -61,11 +62,11 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
         mimeType: selectedFile.type,
       };
 
-      setDocumentNonBlocking(imageDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
+      setDocumentNonBlocking(auth, imageDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
 
       toast({
         title: 'Téléversement en cours !',
-        description: `L'image pour "${image.description}" est en cours de mise à jour.`,
+        description: `L\'image pour "${image.description}" est en cours de mise à jour.`,
       });
 
       setIsUploading(false);

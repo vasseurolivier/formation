@@ -10,6 +10,7 @@ import {
 } from 'firebase/firestore';
 import { errorEmitter } from '@/firebase/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors';
+import { useAuth } from '@/firebase/provider';
 
 /** Utility type to add an 'id' field to a given type T. */
 type WithId<T> = T & { id: string };
@@ -46,6 +47,7 @@ export function useDoc<T = any>(
   const [data, setData] = useState<StateDataType>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<FirestoreError | Error | null>(null);
+  const auth = useAuth();
 
   useEffect(() => {
     if (!memoizedDocRef) {
@@ -72,7 +74,13 @@ export function useDoc<T = any>(
         setIsLoading(false);
       },
       (error: FirestoreError) => {
-        const contextualError = new FirestorePermissionError({
+        if (!auth) {
+          setError(new Error("Auth service not available for permission error handling."));
+          setData(null);
+          setIsLoading(false);
+          return;
+        }
+        const contextualError = new FirestorePermissionError(auth, {
           operation: 'get',
           path: memoizedDocRef.path,
         })
@@ -87,7 +95,7 @@ export function useDoc<T = any>(
     );
 
     return () => unsubscribe();
-  }, [memoizedDocRef]); // Re-run if the memoizedDocRef changes.
+  }, [memoizedDocRef, auth]); // Re-run if the memoizedDocRef changes.
 
   return { data, isLoading, error };
 }

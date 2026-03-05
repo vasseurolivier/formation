@@ -9,18 +9,19 @@ import {
   DocumentReference,
   SetOptions,
 } from 'firebase/firestore';
+import { Auth } from 'firebase/auth';
 import { errorEmitter } from '@/firebase/error-emitter';
-import {FirestorePermissionError} from '@/firebase/errors';
+import { FirestorePermissionError } from '@/firebase/errors';
 
 /**
  * Initiates a setDoc operation for a document reference.
  * Does NOT await the write operation internally.
  */
-export function setDocumentNonBlocking(docRef: DocumentReference, data: any, options: SetOptions) {
+export function setDocumentNonBlocking(auth: Auth, docRef: DocumentReference, data: any, options: SetOptions) {
   setDoc(docRef, data, options).catch(error => {
     errorEmitter.emit(
       'permission-error',
-      new FirestorePermissionError({
+      new FirestorePermissionError(auth, {
         path: docRef.path,
         operation: 'write', // or 'create'/'update' based on options
         requestResourceData: data,
@@ -36,12 +37,12 @@ export function setDocumentNonBlocking(docRef: DocumentReference, data: any, opt
  * Does NOT await the write operation internally.
  * Returns the Promise for the new doc ref, but typically not awaited by caller.
  */
-export function addDocumentNonBlocking(colRef: CollectionReference, data: any) {
+export function addDocumentNonBlocking(auth: Auth, colRef: CollectionReference, data: any) {
   const promise = addDoc(colRef, data)
     .catch(error => {
       errorEmitter.emit(
         'permission-error',
-        new FirestorePermissionError({
+        new FirestorePermissionError(auth, {
           path: colRef.path,
           operation: 'create',
           requestResourceData: data,
@@ -56,12 +57,12 @@ export function addDocumentNonBlocking(colRef: CollectionReference, data: any) {
  * Initiates an updateDoc operation for a document reference.
  * Does NOT await the write operation internally.
  */
-export function updateDocumentNonBlocking(docRef: DocumentReference, data: any) {
+export function updateDocumentNonBlocking(auth: Auth, docRef: DocumentReference, data: any) {
   updateDoc(docRef, data)
     .catch(error => {
       errorEmitter.emit(
         'permission-error',
-        new FirestorePermissionError({
+        new FirestorePermissionError(auth, {
           path: docRef.path,
           operation: 'update',
           requestResourceData: data,
@@ -75,12 +76,12 @@ export function updateDocumentNonBlocking(docRef: DocumentReference, data: any) 
  * Initiates a deleteDoc operation for a document reference.
  * Does NOT await the write operation internally.
  */
-export function deleteDocumentNonBlocking(docRef: DocumentReference) {
+export function deleteDocumentNonBlocking(auth: Auth, docRef: DocumentReference) {
   deleteDoc(docRef)
     .catch(error => {
       errorEmitter.emit(
         'permission-error',
-        new FirestorePermissionError({
+        new FirestorePermissionError(auth, {
           path: docRef.path,
           operation: 'delete',
         })

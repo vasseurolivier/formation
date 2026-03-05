@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking, useAuth } from '@/firebase';
 import { doc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 
@@ -21,6 +21,7 @@ type CustomMedia = {
 const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const firestore = useFirestore();
+  const auth = useAuth();
 
   const mediaDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -46,7 +47,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   };
 
   const handleUpload = () => {
-    if (preview && selectedFile && mediaDocRef) {
+    if (preview && selectedFile && mediaDocRef && auth) {
       setIsUploading(true);
       const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
         url: preview.url,
@@ -58,7 +59,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
         mimeType: selectedFile.type,
       };
 
-      setDocumentNonBlocking(mediaDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
+      setDocumentNonBlocking(auth, mediaDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
       
       toast({
         title: 'Téléversement en cours !',
