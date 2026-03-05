@@ -42,7 +42,7 @@
       "fullDesc": "This comprehensive training prepares you for an exciting career in commercial aviation. You will learn everything from passenger safety and emergency procedures to exceptional customer service. Our state-of-the-art cabin simulators and experienced instructors ensure you are fully prepared for the demands of leading airlines.",
       "duration": "6 months",
       "target": "Aspiring cabin crew members with excellent communication skills, a service-oriented mindset, and high adaptability.",
-      "prerequisites": "High school diploma or equivalent, excellent English proficiency (other languages are a plus), good physical condition.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Flight Attendant / Cabin Crew for national and international airlines."
     },
     "luxuryRestaurant": {
@@ -51,7 +51,7 @@
       "fullDesc": "Become an ambassador of culinary excellence. This program teaches you the subtleties of table service in Michelin-starred restaurants and luxury hotels. You will learn service techniques, sommelier skills, the art of table setting, and how to manage relationships with a demanding clientele.",
       "duration": "4 months",
       "target": "Enthusiasts of gastronomy and service, wishing to work in prestigious establishments.",
-      "prerequisites": "No formal prerequisites, but initial experience in the restaurant industry is appreciated. Strong motivation and impeccable presentation are essential.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Maître d'hôtel, Head Waiter, Junior Sommelier in gastronomic restaurants, luxury hotels."
     },
     "luxuryHotel": {
@@ -60,7 +60,7 @@
       "fullDesc": "This training opens the doors to the world's greatest hotels. You will develop skills in reception, concierge services, room service, and customer relations, with an emphasis on personalizing the experience and anticipating the needs of an international clientele.",
       "duration": "5 months",
       "target": "Candidates with excellent interpersonal skills, a polished appearance, and a passion for luxury hospitality.",
-      "prerequisites": "High school diploma, fluency in English and another foreign language. Experience in hospitality is an advantage.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Receptionist, Concierge, Housekeeper in 5-star hotels and palaces."
     },
     "sommelier": {
@@ -69,7 +69,7 @@
       "fullDesc": "Travel through the world's vineyards without leaving our tasting room. Our sommelier training covers oenology, tasting, cellar management, food and wine pairing, and service. You will learn from renowned sommeliers and have the opportunity to visit prestigious wine estates.",
       "duration": "6 months",
       "target": "Wine lovers wishing to professionalize their passion, restaurant professionals.",
-      "prerequisites": "Good basic knowledge of wine. Experience in the restaurant industry is a plus.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Restaurant Sommelier, Wine Merchant, Wine Advisor, Representative for a winery."
     },
     "fashionModel": {
@@ -78,7 +78,7 @@
       "fullDesc": "This intensive program prepares you for the demanding world of modeling. It covers runway walking, photographic posing techniques, portfolio development, image and career management, as well as nutrition and wellness.",
       "duration": "3 months",
       "target": "Young talents (men and women) with strong physical potential and a charismatic personality.",
-      "prerequisites": "Industry-standard height and measurement criteria. Evaluation based on portfolio and interview.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Runway model, advertising campaigns, fashion editorials."
     },
     "fle": {
@@ -87,7 +87,7 @@
       "fullDesc": "Our French as a Foreign Language courses are designed for total immersion. Focused on communication, they will quickly provide you with the necessary skills to live, study, or work in France. We offer all levels, from complete beginner (A1) to expert (C2).",
       "duration": "Variable (4-week modules)",
       "target": "International students, expatriates, professionals, and anyone wishing to learn French.",
-      "prerequisites": "None. Placement test upon registration.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Mastery of French for personal, academic, or professional goals. Preparation for DELF/DALF exams."
     },
     "hsk": {
@@ -96,7 +96,7 @@
       "fullDesc": "Effectively prepare for the official Chinese proficiency test (HSK). Our courses specifically target the skills required for each level of the exam, from HSK 1 to HSK 6, by working on vocabulary, grammar, listening, and reading comprehension.",
       "duration": "Variable (12-week sessions per level)",
       "target": "Students of Chinese, professionals working with China, anyone wishing for official certification of their level.",
-      "prerequisites": "Basic knowledge of Chinese (depending on the target level).",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Success in the HSK exam, international recognition of Chinese language level."
     },
     "tefl": {
@@ -105,7 +105,7 @@
       "fullDesc": "The TEFL (Teaching English as a Foreign Language) certificate is your passport to an international English teaching career. Our accredited program will give you the pedagogical tools, classroom management techniques, and confidence needed to effectively teach non-native speakers.",
       "duration": "4 weeks (intensive)",
       "target": "Native or bilingual English speakers wishing to travel and teach.",
-      "prerequisites": "Excellent level of English. University degree recommended but not required.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Globally recognized TEFL certification, access to our network of partner schools for job offers."
     },
     "businessChina": {
@@ -114,7 +114,7 @@
       "fullDesc": "This program is essential for any professional targeting the Chinese market. It covers the cultural specifics of business in China, market entry strategies, the digital ecosystem (WeChat, Alibaba), cross-border e-commerce, and legal and financial aspects.",
       "duration": "3 months",
       "target": "Business leaders, marketing directors, export managers, entrepreneurs.",
-      "prerequisites": "Professional experience in business or marketing. No knowledge of Chinese is required.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Ability to develop and implement a development strategy for the Chinese market."
     },
     "gatewayEurope": {
@@ -123,7 +123,7 @@
       "fullDesc": "Aimed at Asian entrepreneurs and companies, this program provides the keys to successfully establishing a presence in Europe. It covers European regulatory frameworks, intercultural marketing strategies, logistics, and the specifics of the main European markets.",
       "duration": "3 months",
       "target": "Entrepreneurs and managers from Asia wishing to expand into Europe.",
-      "prerequisites": "Solid business project. Good level of English or Chinese.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Business plan for European expansion, network of contacts in Europe."
     }
   },
@@ -186,7 +186,7 @@
     "pageTitle": "Our Campuses",
     "pageSubtitle": "Three exceptional locations for a complete immersion.",
     "cta": "Discover Our Campuses",
-    "evron": "Evron Campus (Mayenne)",
+    "evron": "Évron Campus (Mayenne)",
     "sainteTulle": "Sainte-Tulle Campus (Alpes-de-Haute-Provence)",
     "sainteBazeille": "Sainte-Bazeille Campus (Lot-et-Garonne)",
     "details": {
@@ -231,7 +231,7 @@
     "title": "A Unique Approach to Learning",
     "subtitle": "Our programs are more than just courses; they are experiences designed to build practical skills, intercultural competence, and a global network.",
     "stats": {
-      "programs": "Specialized Programs",
+      "programs": "10 Specialized Programs",
       "placement": "Graduate Placement Rate",
       "partners": "International Partners"
     }
@@ -258,3 +258,5 @@
     "languageBadge": "Course in English or Chinese"
   }
 }
+
+    

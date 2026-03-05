@@ -37,30 +37,30 @@
   },
   "courses": {
     "flightAttendant": {
-      "title": "Personnel Navigant Commercial (PNC)",
+      "title": "Hotesse de l air",
       "shortDesc": "Atteignez les sommets avec notre formation d'élite pour personnel de cabine.",
       "fullDesc": "Cette formation complète vous prépare à une carrière passionnante dans l'aviation commerciale. Vous apprendrez tout, de la sécurité des passagers au service client d'exception, en passant par la gestion des situations d'urgence. Nos simulateurs de cabine de dernière génération et nos formateurs expérimentés vous garantissent une préparation optimale aux exigences des plus grandes compagnies aériennes.",
       "duration": "6 mois",
       "target": "Personnes aspirant à une carrière de personnel de cabine, excellentes compétences en communication, sens du service, grande adaptabilité.",
-      "prerequisites": "Baccalauréat ou équivalent, excellent niveau d'anglais (autres langues un plus), bonne condition physique.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Personnel Navigant Commercial (Hôtesse de l'air / Steward) pour des compagnies aériennes nationales et internationales."
     },
     "luxuryRestaurant": {
-      "title": "Personnel de Service en Restauration de Luxe",
+      "title": "Luxury Restaurant Service Staff",
       "shortDesc": "Maîtrisez l'art du service dans la haute gastronomie.",
       "fullDesc": "Devenez un ambassadeur de l'excellence culinaire. Ce programme vous enseigne les subtilités du service en salle dans les restaurants étoilés et les palaces. Vous apprendrez les techniques de service, la sommellerie, l'art de la table, et la gestion de la relation avec une clientèle exigeante.",
       "duration": "4 mois",
       "target": "Passionnés de gastronomie et de service, désirant travailler dans des établissements de prestige.",
-      "prerequisites": "Aucun prérequis formel, mais une première expérience en restauration est appréciée. Forte motivation et présentation irréprochable.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Maître d'hôtel, Chef de rang, Sommelier junior dans des restaurants gastronomiques, hôtels de luxe."
     },
     "luxuryHotel": {
-      "title": "Personnel de Service en Hôtellerie de Luxe",
+      "title": "Luxury Hotel Service Staff",
       "shortDesc": "Excellez dans le monde de l'hospitalité haut de gamme.",
       "fullDesc": "Cette formation vous ouvre les portes des plus grands hôtels du monde. Vous développerez des compétences en réception, conciergerie, service d'étage et relation client, en mettant l'accent sur la personnalisation de l'expérience et l'anticipation des besoins d'une clientèle internationale.",
       "duration": "5 mois",
       "target": "Candidats avec un excellent sens du relationnel, une présentation soignée et une passion pour l'hôtellerie de luxe.",
-      "prerequisites": "Baccalauréat, maîtrise de l'anglais et d'une autre langue étrangère. Expérience en hôtellerie est un avantage.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Réceptionniste, Concierge, Gouvernant(e) dans des hôtels 5 étoiles et palaces."
     },
     "sommelier": {
@@ -69,16 +69,16 @@
       "fullDesc": "Voyagez à travers les vignobles du monde sans quitter notre salle de dégustation. Notre formation de sommelier couvre l'œnologie, la dégustation, la gestion de cave, les accords mets et vins, et le service. Vous apprendrez auprès de sommeliers renommés et aurez l'opportunité de visiter des domaines viticoles prestigieux.",
       "duration": "6 mois",
       "target": "Amateurs de vin souhaitant professionnaliser leur passion, professionnels de la restauration.",
-      "prerequisites": "Bonnes connaissances de base en vin. Une expérience en restauration est un plus.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Sommelier en restaurant, Caviste, Conseiller en vin, Représentant pour un domaine viticole."
     },
     "fashionModel": {
-      "title": "Mannequin de Mode",
+      "title": "Mannequin",
       "shortDesc": "Défilez sur les podiums les plus prestigieux du monde.",
       "fullDesc": "Ce programme intensif vous prépare au monde exigeant du mannequinat. Il couvre la démarche sur podium, les techniques de pose photographique, le développement de votre portfolio, la gestion de votre image et de votre carrière, ainsi que la nutrition et le bien-être.",
       "duration": "3 mois",
       "target": "Jeunes talents (hommes et femmes) avec un fort potentiel physique et une personnalité charismatique.",
-      "prerequisites": "Critères de taille et de mensurations standards de l'industrie. Évaluation sur portfolio et entretien.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Mannequin pour défilés, campagnes publicitaires, éditoriaux de mode."
     },
     "fle": {
@@ -87,43 +87,43 @@
       "fullDesc": "Nos cours de Français Langue Étrangère sont conçus pour une immersion totale. Axés sur la communication, ils vous permettront d'acquérir rapidement les compétences nécessaires pour vivre, étudier ou travailler en France. Nous proposons tous les niveaux, du débutant complet (A1) à l'expert (C2).",
       "duration": "Variable (modules de 4 semaines)",
       "target": "Étudiants internationaux, expatriés, professionnels, et toute personne souhaitant apprendre le français.",
-      "prerequisites": "Aucun. Test de niveau à l'inscription.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Maîtrise du français pour des objectifs personnels, académiques ou professionnels. Préparation aux examens DELF/DALF."
     },
     "hsk": {
-      "title": "HSK - Test de Compétence en Chinois",
+      "title": "HSK (Mandarin Langue Étrangère )",
       "shortDesc": "Certifiez vos compétences en langue chinoise.",
       "fullDesc": "Préparez-vous efficacement à l'examen officiel de compétence en chinois (HSK). Nos cours ciblent spécifiquement les compétences requises pour chaque niveau de l'examen, de HSK 1 à HSK 6, en travaillant le vocabulaire, la grammaire, la compréhension orale et écrite.",
       "duration": "Variable (sessions de 12 semaines par niveau)",
       "target": "Étudiants en chinois, professionnels travaillant avec la Chine, toute personne souhaitant une certification officielle de son niveau.",
-      "prerequisites": "Connaissance de base du chinois (selon le niveau visé).",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Réussite à l'examen HSK, reconnaissance internationale du niveau de chinois."
     },
     "tefl": {
-      "title": "TEFL - Enseigner l'Anglais à l'Étranger",
+      "title": "TEFL (English as a Foreign Language)",
       "shortDesc": "Obtenez la certification pour enseigner l'anglais partout dans le monde.",
       "fullDesc": "Le certificat TEFL (Teaching English as a Foreign Language) est votre passeport pour une carrière d'enseignant d'anglais à l'international. Notre programme accrédité vous donnera les outils pédagogiques, les techniques de gestion de classe et la confiance nécessaires pour enseigner efficacement à des non-anglophones.",
       "duration": "4 semaines (intensif)",
       "target": "Anglophones natifs ou bilingues souhaitant voyager et enseigner.",
-      "prerequisites": "Excellent niveau d'anglais. Diplôme universitaire recommandé mais pas obligatoire.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Certification TEFL reconnue mondialement, accès à notre réseau d'écoles partenaires pour des offres d'emploi."
     },
     "businessChina": {
-      "title": "Business & Digital en Chine",
+      "title": "Business & Digital Edge en Chine",
       "shortDesc": "Comprenez et conquérez le marché chinois.",
       "fullDesc": "Ce programme est essentiel pour tout professionnel visant le marché chinois. Il couvre les spécificités culturelles des affaires en Chine, les stratégies d'entrée sur le marché, l'écosystème digital (WeChat, Alibaba), le e-commerce transfrontalier, et les aspects juridiques et financiers.",
       "duration": "3 mois",
       "target": "Chefs d'entreprise, directeurs marketing, responsables export, entrepreneurs.",
-      "prerequisites": "Expérience professionnelle en commerce ou marketing. Aucune connaissance du chinois n'est requise.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Capacité à élaborer et mettre en œuvre une stratégie de développement sur le marché chinois."
     },
     "gatewayEurope": {
-      "title": "Porte d'entrée vers l'Europe & l'Asie du Sud-Est",
+      "title": "Gateway to Europe & Southeast Asia",
       "shortDesc": "Maîtrisez les stratégies d'expansion internationale.",
       "fullDesc": "Destiné aux entrepreneurs et entreprises asiatiques, ce programme offre les clés pour réussir son implantation en Europe. Il aborde les cadres réglementaires européens, les stratégies de marketing interculturel, la logistique, et les spécificités des principaux marchés européens.",
       "duration": "3 mois",
       "target": "Entrepreneurs et managers d'Asie désirant s'étendre en Europe.",
-      "prerequisites": "Projet d'entreprise solide. Bon niveau d'anglais ou de chinois.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Plan d'affaires pour une expansion européenne, réseau de contacts en Europe."
     }
   },
@@ -231,7 +231,7 @@
     "title": "Une Approche Pédagogique Unique",
     "subtitle": "Nos programmes sont plus que de simples cours ; ce sont des expériences conçues pour développer des compétences pratiques, une aisance interculturelle et un réseau mondial.",
     "stats": {
-      "programs": "Programmes Spécialisés",
+      "programs": "10 Programmes Spécialisés",
       "placement": "Taux de placement des diplômés",
       "partners": "Partenaires Internationaux"
     }
@@ -258,3 +258,5 @@
     "languageBadge": "Formation en Anglais ou Chinois"
   }
 }
+
+    
