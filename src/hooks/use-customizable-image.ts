@@ -18,14 +18,13 @@ export function useCustomizableImage(imageId: string) {
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     useEffect(() => {
-        const originalImage = PlaceHolderImages.find(img => img.id === imageId);
-
         if (isLoading) {
-            if (originalImage) {
-                setImageUrl(originalImage.imageUrl);
-            }
+            // While loading, don't set any URL. Let the UI show a placeholder/skeleton.
+            setImageUrl(null);
             return;
         }
+
+        const originalImage = PlaceHolderImages.find(img => img.id === imageId);
 
         if (imageData?.url) {
             setImageUrl(imageData.url);

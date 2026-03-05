@@ -10,6 +10,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface CourseCardProps {
   course: Course;
@@ -25,7 +26,7 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
     <Link href={`/courses/${course.id}`} className="block group h-full">
         <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:shadow-primary/20 border bg-card hover:bg-accent flex flex-col">
             <div className="relative h-56 w-full flex-shrink-0">
-                {imageUrl && placeholderImage && (
+                {imageUrl && placeholderImage ? (
                     <Image
                     src={imageUrl}
                     alt={placeholderImage.description}
@@ -33,6 +34,8 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
+                ) : (
+                    <Skeleton className="w-full h-full" />
                 )}
                  {course.languageHighlight && (
                   <Badge variant="destructive" className="absolute top-4 right-4 border-destructive-foreground/20 backdrop-blur-sm">
@@ -59,4 +62,3 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
     </Link>
   );
 }
-

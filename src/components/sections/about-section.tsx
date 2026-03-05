@@ -5,6 +5,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function AboutSection() {
   const { t } = useTranslation();
@@ -17,7 +18,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <ScrollReveal>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl shadow-primary/10">
-              {imageUrl && aboutImage && (
+              {imageUrl && aboutImage ? (
                 <Image
                   src={imageUrl}
                   alt={aboutImage.description}
@@ -25,6 +26,8 @@ export default function AboutSection() {
                   fill
                   className="object-cover"
                 />
+              ) : (
+                <Skeleton className="w-full h-full" />
               )}
             </div>
           </ScrollReveal>

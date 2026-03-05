@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useCustomizableHeroMedia } from "@/hooks/use-customizable-hero-media";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -40,7 +41,9 @@ export default function HeroSection() {
             />
           )
         )
-      ) : null}
+      ) : (
+        <Skeleton className="absolute inset-0 w-full h-full" />
+      )}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
       <div className="relative z-10 flex h-full items-center justify-start text-left">
         <div className="container px-4 md:px-6">

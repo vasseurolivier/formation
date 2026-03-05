@@ -23,15 +23,13 @@ export function useCustomizableHeroMedia(imageId: string) {
     const [media, setMedia] = useState<HeroMedia | null>(null);
 
     useEffect(() => {
-        const originalImage = PlaceHolderImages.find(img => img.id === imageId);
-
         if (isLoading) {
-            // While loading, we can show the placeholder to avoid flashes of content
-            if(originalImage) {
-                setMedia({ url: originalImage.imageUrl, type: 'image' });
-            }
+            // While loading, don't set any media. Let the UI show a placeholder/skeleton.
+            setMedia(null);
             return;
         }
+
+        const originalImage = PlaceHolderImages.find(img => img.id === imageId);
 
         if (mediaData?.url && mediaData.type) {
             setMedia({ url: mediaData.url, type: mediaData.type });

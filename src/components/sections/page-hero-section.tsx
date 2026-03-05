@@ -5,6 +5,7 @@ import { useCustomizableHeroMedia } from "@/hooks/use-customizable-hero-media";
 import { useTranslation } from "@/hooks/use-translation";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface PageHeroSectionProps {
   imageId: string;
@@ -42,7 +43,9 @@ export default function PageHeroSection({ imageId, titleKey, subtitleKey }: Page
                 />
               )
             )
-          ) : null}
+          ) : (
+            <Skeleton className="absolute inset-0 w-full h-full" />
+          )}
       <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent" />
       <div className="relative z-10 flex h-full items-end pb-20">
         <div className="container px-4 md:px-6">

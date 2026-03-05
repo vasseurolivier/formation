@@ -9,6 +9,7 @@ import { MapPin, ArrowRight } from "lucide-react";
 import { campusLocations } from "@/lib/data";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function LocationsSection() {
   const { t } = useTranslation();
@@ -33,7 +34,7 @@ export default function LocationsSection() {
               <ScrollReveal key={location.id} delay={index * 150}>
                 <Link href="/locations" className="block group">
                   <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
-                    {imageUrl && placeholder && (
+                    {imageUrl && placeholder ? (
                       <Image
                         src={imageUrl}
                         alt={placeholder.description}
@@ -41,6 +42,8 @@ export default function LocationsSection() {
                         fill
                         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       />
+                    ) : (
+                      <Skeleton className="w-full h-full" />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-all duration-300 group-hover:from-black/80" />
                     <div className="relative h-full flex flex-col justify-end p-6 text-white">

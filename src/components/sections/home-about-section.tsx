@@ -8,6 +8,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HomeAboutSection() {
   const { t } = useTranslation();
@@ -29,7 +30,7 @@ export default function HomeAboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <ScrollReveal delay={100}>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-2xl shadow-primary/10">
-              {imageUrl && aboutImage && (
+              {imageUrl && aboutImage ? (
                 <Image
                   src={imageUrl}
                   alt={aboutImage.description}
@@ -37,6 +38,8 @@ export default function HomeAboutSection() {
                   fill
                   className="object-cover"
                 />
+              ) : (
+                <Skeleton className="w-full h-full" />
               )}
             </div>
           </ScrollReveal>

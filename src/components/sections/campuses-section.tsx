@@ -6,11 +6,12 @@ import { campusLocations, type CampusLocation } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function CampusImage({ imageId, description, imageHint }: { imageId: string, description: string, imageHint: string }) {
   const imageUrl = useCustomizableImage(imageId);
   
-  if (!imageUrl) return null;
+  if (!imageUrl) return <Skeleton className="w-full h-full absolute" />;
 
   return (
     <Image

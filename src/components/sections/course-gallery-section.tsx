@@ -6,6 +6,7 @@ import type { Course } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { useTranslation } from '@/hooks/use-translation';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function CourseGallerySection({ course }: { course: Course }) {
   const { t } = useTranslation();
@@ -32,21 +33,21 @@ function GalleryImage({ imageId, index }: { imageId: string; index: number }) {
   const imageUrl = useCustomizableImage(imageId);
   const placeholder = PlaceHolderImages.find((p) => p.id === imageId);
 
-  if (!imageUrl || !placeholder) return null;
-
   return (
     <ScrollReveal delay={index * 100}>
       <div className="relative aspect-video w-full rounded-lg overflow-hidden shadow-lg group">
-        <Image
-          src={imageUrl}
-          alt={placeholder.description}
-          data-ai-hint={placeholder.imageHint}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-        />
+        {imageUrl && placeholder ? (
+            <Image
+            src={imageUrl}
+            alt={placeholder.description}
+            data-ai-hint={placeholder.imageHint}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+        ) : (
+            <Skeleton className="w-full h-full" />
+        )}
       </div>
     </ScrollReveal>
   );
 }
-
-    
