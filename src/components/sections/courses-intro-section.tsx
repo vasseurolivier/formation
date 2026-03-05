@@ -20,7 +20,7 @@ export default function CoursesIntroSection() {
     },
     {
       icon: Award,
-      value: "25+",
+      value: "10+",
       labelKey: "coursesIntro.stats.partners",
     },
   ];
