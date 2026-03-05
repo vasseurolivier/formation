@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp, errorEmitter, FirestorePermissionError } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -68,50 +68,56 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
 
     setIsUploading(true);
 
+    let downloadUrl: string;
     try {
-      const storage = getStorage(firebaseApp);
-      const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
-      const fileRef = storageRef(storage, filePath);
-      
-      const snapshot = await uploadBytes(fileRef, selectedFile);
-      const downloadUrl = await getDownloadURL(snapshot.ref);
-      
-      const newMediaData: Omit<MediaAsset, 'id'> = {
-        url: downloadUrl,
-        type: selectedFile.type.startsWith('video') ? 'video' : 'image',
-        fileName: selectedFile.name,
-        altTextFr: image.description,
-        altTextEn: image.description,
-        altTextZh: image.description,
-        mimeType: selectedFile.type,
-        uploadedAt: new Date().toISOString()
-      };
-
-      await setDoc(mediaDocRef, newMediaData, { merge: true });
-      
-      toast({
-        title: 'Téléversement réussi !',
-        description: `Le média pour "${image.description}" a été mis à jour.`,
-      });
-      
-      setPreview(null);
-      setSelectedFile(null);
-
-    } catch (error: any) {
-      console.error("Upload failed:", error);
-      let description = "Une erreur inattendue est survenue.";
-      switch (error.code) {
-        case 'storage/unauthorized':
-          description = "Permission refusée. Assurez-vous d'être un administrateur connecté.";
-          break;
-        case 'storage/canceled':
-          description = "Le téléversement a été annulé.";
-          break;
-      }
-      toast({ variant: "destructive", title: "Échec du téléversement", description });
-    } finally {
-      setIsUploading(false);
+        const storage = getStorage(firebaseApp);
+        const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
+        const fileRef = storageRef(storage, filePath);
+        
+        const snapshot = await uploadBytes(fileRef, selectedFile);
+        downloadUrl = await getDownloadURL(snapshot.ref);
+    } catch (storageError: any) {
+        console.error("Storage upload failed:", storageError);
+        let description = "Une erreur inattendue est survenue lors du téléversement.";
+        if (storageError.code === 'storage/unauthorized') {
+            description = "Permission de stockage refusée.";
+        }
+        toast({ variant: "destructive", title: "Échec du téléversement", description });
+        setIsUploading(false);
+        return;
     }
+    
+    const newMediaData: Omit<MediaAsset, 'id'> = {
+      url: downloadUrl,
+      type: selectedFile.type.startsWith('video') ? 'video' : 'image',
+      fileName: selectedFile.name,
+      altTextFr: image.description,
+      altTextEn: image.description,
+      altTextZh: image.description,
+      mimeType: selectedFile.type,
+      uploadedAt: new Date().toISOString()
+    };
+
+    setDoc(mediaDocRef, newMediaData, { merge: true })
+      .then(() => {
+        toast({
+          title: 'Téléversement réussi !',
+          description: `Le média pour "${image.description}" a été mis à jour.`,
+        });
+        setPreview(null);
+        setSelectedFile(null);
+      })
+      .catch((firestoreError) => {
+        const permissionError = new FirestorePermissionError(auth, {
+            path: mediaDocRef.path,
+            operation: 'write',
+            requestResourceData: newMediaData,
+        });
+        errorEmitter.emit('permission-error', permissionError);
+      })
+      .finally(() => {
+        setIsUploading(false);
+      });
   };
 
   const media: CustomMedia = preview 
