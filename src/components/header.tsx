@@ -16,9 +16,14 @@ const LOGO_DOC_ID = 'siteLogo';
 
 export default function Header() {
   const { t } = useTranslation();
+  const [isMounted, setIsMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const firestore = useFirestore();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const logoDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -38,27 +43,31 @@ export default function Header() {
   ];
 
   useEffect(() => {
+    if (!isMounted) return;
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+    
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }
-  }, []);
+  }, [isMounted]);
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
+        isMounted && isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <div className="flex items-center gap-10">
+      <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-6">
+        <div className="flex flex-1 items-center gap-10">
           <Link href="/" className="flex-shrink-0">
-              <div className="relative" style={{ height: '3.15rem', width: '13.2rem' }}>
+              <div className="relative" style={{ width: 'auto', height: '4.5rem', aspectRatio: '530 / 110' }}>
                 {logoUrl ? (
                     <Image
                         src={logoUrl}
