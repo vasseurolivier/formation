@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking, useAuth, useFirebaseApp } from '@/firebase';
-import { doc } from 'firebase/firestore';
+import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
+import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -49,50 +49,74 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   };
 
   const handleUpload = async () => {
-    if (selectedFile && mediaDocRef && auth && firebaseApp) {
-      setIsUploading(true);
-
-      const storage = getStorage(firebaseApp);
-      const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
-      const fileRef = storageRef(storage, filePath);
-
-      try {
-        await uploadBytes(fileRef, selectedFile);
-        const downloadUrl = await getDownloadURL(fileRef);
-
-        const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
-          url: downloadUrl,
-          type: selectedFile.type.startsWith('video') ? 'video' : 'image',
-          fileName: selectedFile.name,
-          altTextFr: image.description,
-          altTextEn: image.description,
-          altTextZh: image.description,
-          mimeType: selectedFile.type,
-        };
-
-        setDocumentNonBlocking(auth, mediaDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
-        
+    if (!selectedFile) {
+      toast({
+        variant: 'destructive',
+        title: 'Aucun fichier sélectionné',
+        description: "Veuillez sélectionner un fichier média à téléverser.",
+      });
+      return;
+    }
+    if (!mediaDocRef || !auth || !firebaseApp) {
         toast({
-          title: 'Téléversement réussi !',
-          description: `Le média pour "${image.description}" a été mis à jour.`,
+            variant: "destructive",
+            title: "Erreur d'initialisation",
+            description: "Les services Firebase ne sont pas disponibles. Veuillez rafraîchir la page.",
         });
-        
-        setPreview(null);
-        setSelectedFile(null);
-      } catch (error: any) {
-        console.error("Upload failed:", error);
-        let description = "Une erreur s'est produite lors du téléversement. Veuillez vérifier la console pour plus de détails.";
-        if (error.code === 'storage/unauthorized') {
-            description = "Permission refusée. Vous n'avez pas les droits nécessaires pour téléverser ce fichier.";
-        }
-        toast({
-          variant: "destructive",
-          title: "Le téléversement a échoué",
-          description: description,
-        });
-      } finally {
-        setIsUploading(false);
+        return;
+    }
+
+    setIsUploading(true);
+
+    const storage = getStorage(firebaseApp);
+    const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
+    const fileRef = storageRef(storage, filePath);
+
+    try {
+      // Step 1: Upload the file to Firebase Storage
+      await uploadBytes(fileRef, selectedFile);
+      
+      // Step 2: Get the download URL
+      const downloadUrl = await getDownloadURL(fileRef);
+
+      // Step 3: Create the metadata object for Firestore
+      const newMediaData: Omit<MediaAsset, 'id'> = {
+        url: downloadUrl,
+        type: selectedFile.type.startsWith('video') ? 'video' : 'image',
+        fileName: selectedFile.name,
+        altTextFr: image.description,
+        altTextEn: image.description,
+        altTextZh: image.description,
+        mimeType: selectedFile.type,
+        uploadedAt: new Date().toISOString()
+      };
+
+      // Step 4: Save the metadata to Firestore
+      await setDoc(mediaDocRef, newMediaData, { merge: true });
+      
+      toast({
+        title: 'Téléversement réussi !',
+        description: `Le média pour "${image.description}" a été mis à jour.`,
+      });
+      
+      setPreview(null);
+      setSelectedFile(null);
+    } catch (error: any) {
+      console.error("Upload failed:", error);
+      let description = "Une erreur inattendue est survenue. Veuillez consulter la console pour les détails techniques.";
+      if (error.code === 'storage/unauthorized') {
+          description = "Permission refusée par le serveur. Assurez-vous d'être connecté et que vos permissions d'administrateur sont actives.";
+      } else if (error.code) {
+          description = `Erreur du serveur : ${error.code}. Veuillez consulter la console.`
       }
+      
+      toast({
+        variant: "destructive",
+        title: "Le téléversement a échoué",
+        description: description,
+      });
+    } finally {
+      setIsUploading(false);
     }
   };
 

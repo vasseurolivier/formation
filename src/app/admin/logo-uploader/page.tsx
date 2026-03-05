@@ -9,8 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, Upload } from 'lucide-react';
 import Link from 'next/link';
 import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
-import { doc } from 'firebase/firestore';
-import { setDocumentNonBlocking } from '@/firebase/non-blocking-updates';
+import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
@@ -47,59 +46,74 @@ export default function LogoUploaderPage() {
   };
 
   const handleUpload = async () => {
-    if (selectedFile && logoDocRef && auth && firebaseApp) {
-      setIsUploading(true);
-      
-      const storage = getStorage(firebaseApp);
-      const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
-      const fileRef = storageRef(storage, filePath);
-
-      try {
-        await uploadBytes(fileRef, selectedFile);
-        const downloadUrl = await getDownloadURL(fileRef);
-
-        const newLogoData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
-          url: downloadUrl,
-          type: 'image',
-          fileName: selectedFile.name,
-          altTextFr: "Logo du site",
-          altTextEn: "Site logo",
-          altTextZh: "网站标志",
-          mimeType: selectedFile.type,
-        };
-
-        setDocumentNonBlocking(auth, logoDocRef, {
-          ...newLogoData,
-          uploadedAt: new Date().toISOString()
-        }, { merge: true });
-
-        toast({
-          title: 'Logo téléversé avec succès !',
-          description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
-        });
-
-        setLogoPreview(null);
-        setSelectedFile(null);
-      } catch (error: any) {
-        console.error("Upload failed:", error);
-        let description = "Une erreur s'est produite lors du téléversement. Veuillez vérifier la console pour plus de détails.";
-        if (error.code === 'storage/unauthorized') {
-            description = "Permission refusée. Vous n'avez pas les droits nécessaires pour téléverser ce fichier.";
-        }
-        toast({
-          variant: 'destructive',
-          title: 'Le téléversement a échoué',
-          description: description,
-        });
-      } finally {
-        setIsUploading(false);
-      }
-    } else {
+    if (!selectedFile) {
       toast({
         variant: 'destructive',
         title: 'Aucun fichier sélectionné',
         description: 'Veuillez sélectionner un fichier image à téléverser.',
       });
+      return;
+    }
+    if (!logoDocRef || !auth || !firebaseApp) {
+        toast({
+            variant: "destructive",
+            title: "Erreur d'initialisation",
+            description: "Les services Firebase ne sont pas disponibles. Veuillez rafraîchir la page.",
+        });
+        return;
+    }
+
+    setIsUploading(true);
+    
+    const storage = getStorage(firebaseApp);
+    const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
+    const fileRef = storageRef(storage, filePath);
+
+    try {
+      // Step 1: Upload the file to Firebase Storage
+      await uploadBytes(fileRef, selectedFile);
+      
+      // Step 2: Get the download URL
+      const downloadUrl = await getDownloadURL(fileRef);
+
+      // Step 3: Create the metadata object for Firestore
+      const newLogoData: Omit<MediaAsset, 'id'> = {
+        url: downloadUrl,
+        type: 'image',
+        fileName: selectedFile.name,
+        altTextFr: "Logo du site",
+        altTextEn: "Site logo",
+        altTextZh: "网站标志",
+        mimeType: selectedFile.type,
+        uploadedAt: new Date().toISOString()
+      };
+      
+      // Step 4: Save the metadata to Firestore
+      await setDoc(logoDocRef, newLogoData, { merge: true });
+
+      toast({
+        title: 'Logo téléversé avec succès !',
+        description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
+      });
+
+      setLogoPreview(null);
+      setSelectedFile(null);
+    } catch (error: any) {
+      console.error("Upload failed:", error);
+      let description = "Une erreur inattendue est survenue. Veuillez consulter la console pour les détails techniques.";
+      if (error.code === 'storage/unauthorized') {
+          description = "Permission refusée par le serveur. Assurez-vous d'être connecté et que vos permissions d'administrateur sont actives.";
+      } else if (error.code) {
+          description = `Erreur du serveur : ${error.code}. Veuillez consulter la console.`
+      }
+      
+      toast({
+        variant: 'destructive',
+        title: 'Le téléversement a échoué',
+        description: description,
+      });
+    } finally {
+      setIsUploading(false);
     }
   };
 
