@@ -7,13 +7,12 @@ import { ArrowLeft, Film, Upload, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
-import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 type CustomMedia = {
   url: string;
@@ -36,7 +35,6 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   const [preview, setPreview] = useState<CustomMedia | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -50,7 +48,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -69,62 +67,51 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
     }
 
     setIsUploading(true);
-    setUploadProgress(0);
 
-    const storage = getStorage(firebaseApp);
-    const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
-    const fileRef = storageRef(storage, filePath);
-    const uploadTask = uploadBytesResumable(fileRef, selectedFile);
+    try {
+      const storage = getStorage(firebaseApp);
+      const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
+      const fileRef = storageRef(storage, filePath);
+      
+      const snapshot = await uploadBytes(fileRef, selectedFile);
+      const downloadUrl = await getDownloadURL(snapshot.ref);
+      
+      const newMediaData: Omit<MediaAsset, 'id'> = {
+        url: downloadUrl,
+        type: selectedFile.type.startsWith('video') ? 'video' : 'image',
+        fileName: selectedFile.name,
+        altTextFr: image.description,
+        altTextEn: image.description,
+        altTextZh: image.description,
+        mimeType: selectedFile.type,
+        uploadedAt: new Date().toISOString()
+      };
 
-    uploadTask.on('state_changed', 
-      (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress);
-      },
-      (error) => {
-        console.error("Upload failed:", error);
-        let description = "Une erreur inattendue est survenue.";
-        switch (error.code) {
-          case 'storage/unauthorized':
-            description = "Permission refusée. Assurez-vous d'être un administrateur connecté.";
-            break;
-          case 'storage/canceled':
-            description = "Le téléversement a été annulé.";
-            break;
-        }
-        toast({ variant: "destructive", title: "Échec du téléversement", description });
-        setIsUploading(false);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadUrl) => {
-          const newMediaData: Omit<MediaAsset, 'id'> = {
-            url: downloadUrl,
-            type: selectedFile.type.startsWith('video') ? 'video' : 'image',
-            fileName: selectedFile.name,
-            altTextFr: image.description,
-            altTextEn: image.description,
-            altTextZh: image.description,
-            mimeType: selectedFile.type,
-            uploadedAt: new Date().toISOString()
-          };
+      await setDoc(mediaDocRef, newMediaData, { merge: true });
+      
+      toast({
+        title: 'Téléversement réussi !',
+        description: `Le média pour "${image.description}" a été mis à jour.`,
+      });
+      
+      setPreview(null);
+      setSelectedFile(null);
 
-          await setDoc(mediaDocRef, newMediaData, { merge: true });
-          
-          toast({
-            title: 'Téléversement réussi !',
-            description: `Le média pour "${image.description}" a été mis à jour.`,
-          });
-          
-          setPreview(null);
-          setSelectedFile(null);
-        }).catch((err) => {
-          console.error("Finalization failed:", err);
-          toast({ variant: "destructive", title: "Échec de la finalisation", description: "Impossible d'obtenir l'URL du fichier." });
-        }).finally(() => {
-          setIsUploading(false);
-        });
+    } catch (error: any) {
+      console.error("Upload failed:", error);
+      let description = "Une erreur inattendue est survenue.";
+      switch (error.code) {
+        case 'storage/unauthorized':
+          description = "Permission refusée. Assurez-vous d'être un administrateur connecté.";
+          break;
+        case 'storage/canceled':
+          description = "Le téléversement a été annulé.";
+          break;
       }
-    );
+      toast({ variant: "destructive", title: "Échec du téléversement", description });
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   const media: CustomMedia = preview 
@@ -163,12 +150,10 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
             disabled={isUploading}
           />
           {isUploading ? (
-            <div className="space-y-2 pt-2">
-              <Progress value={uploadProgress} />
-              <p className="text-sm text-center text-muted-foreground">
-                Téléversement... {Math.round(uploadProgress)}%
-              </p>
-            </div>
+            <Button disabled className="w-full">
+              <Upload className="mr-2 h-4 w-4 animate-spin" />
+              Enregistrement...
+            </Button>
           ) : (
             <Button
               onClick={handleUpload}

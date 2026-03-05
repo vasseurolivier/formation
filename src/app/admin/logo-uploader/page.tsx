@@ -5,14 +5,13 @@ import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, Upload } from 'lucide-react';
 import Link from 'next/link';
 import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
-import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const LOGO_DOC_ID = 'siteLogo';
 
@@ -31,7 +30,6 @@ export default function LogoUploaderPage() {
 
   const { data: logoData, isLoading } = useDoc<MediaAsset>(logoDocRef);
   const [isUploading, setIsUploading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
   
   const currentLogoUrl = logoData?.url;
 
@@ -47,7 +45,7 @@ export default function LogoUploaderPage() {
     }
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -66,62 +64,50 @@ export default function LogoUploaderPage() {
     }
 
     setIsUploading(true);
-    setUploadProgress(0);
     
-    const storage = getStorage(firebaseApp);
-    const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
-    const fileRef = storageRef(storage, filePath);
-    const uploadTask = uploadBytesResumable(fileRef, selectedFile);
+    try {
+      const storage = getStorage(firebaseApp);
+      const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
+      const fileRef = storageRef(storage, filePath);
 
-    uploadTask.on('state_changed',
-      (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress);
-      },
-      (error) => {
-        console.error("Upload failed:", error);
-        let description = "Une erreur inattendue est survenue.";
-        switch (error.code) {
-          case 'storage/unauthorized':
-            description = "Permission refusée. Assurez-vous d'être un administrateur connecté.";
-            break;
-          case 'storage/canceled':
-            description = "Le téléversement a été annulé.";
-            break;
-        }
-        toast({ variant: "destructive", title: "Échec du téléversement", description });
-        setIsUploading(false);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadUrl) => {
-          const newLogoData: Omit<MediaAsset, 'id'> = {
-            url: downloadUrl,
-            type: 'image',
-            fileName: selectedFile.name,
-            altTextFr: "Logo du site",
-            altTextEn: "Site logo",
-            altTextZh: "网站标志",
-            mimeType: selectedFile.type,
-            uploadedAt: new Date().toISOString()
-          };
-          
-          await setDoc(logoDocRef, newLogoData, { merge: true });
+      const snapshot = await uploadBytes(fileRef, selectedFile);
+      const downloadUrl = await getDownloadURL(snapshot.ref);
 
-          toast({
-            title: 'Logo téléversé avec succès !',
-            description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
-          });
+      const newLogoData: Omit<MediaAsset, 'id'> = {
+        url: downloadUrl,
+        type: 'image',
+        fileName: selectedFile.name,
+        altTextFr: "Logo du site",
+        altTextEn: "Site logo",
+        altTextZh: "网站标志",
+        mimeType: selectedFile.type,
+        uploadedAt: new Date().toISOString()
+      };
+      
+      await setDoc(logoDocRef, newLogoData, { merge: true });
 
-          setLogoPreview(null);
-          setSelectedFile(null);
-        }).catch((err) => {
-          console.error("Finalization failed:", err);
-          toast({ variant: "destructive", title: "Échec de la finalisation", description: "Impossible d'obtenir l'URL du fichier." });
-        }).finally(() => {
-          setIsUploading(false);
-        });
+      toast({
+        title: 'Logo téléversé avec succès !',
+        description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
+      });
+
+      setLogoPreview(null);
+      setSelectedFile(null);
+    } catch (error: any) {
+      console.error("Upload failed:", error);
+      let description = "Une erreur inattendue est survenue.";
+      switch (error.code) {
+        case 'storage/unauthorized':
+          description = "Permission refusée. Assurez-vous d'être un administrateur connecté.";
+          break;
+        case 'storage/canceled':
+          description = "Le téléversement a été annulé.";
+          break;
       }
-    );
+      toast({ variant: "destructive", title: "Échec du téléversement", description });
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   const displayUrl = logoPreview || currentLogoUrl;
@@ -185,12 +171,10 @@ export default function LogoUploaderPage() {
             )}
 
             {isUploading ? (
-              <div className="space-y-2 pt-2">
-                <Progress value={uploadProgress} />
-                <p className="text-sm text-center text-muted-foreground">
-                  Téléversement... {Math.round(uploadProgress)}%
-                </p>
-              </div>
+              <Button disabled className="w-full">
+                <Upload className="mr-2 h-4 w-4 animate-spin" />
+                Enregistrement...
+              </Button>
             ) : (
               <Button onClick={handleUpload} disabled={!selectedFile} className="w-full">
                 <Upload className="mr-2 h-4 w-4" />
