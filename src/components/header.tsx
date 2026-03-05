@@ -64,10 +64,10 @@ export default function Header() {
         isMounted && isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto flex h-28 items-center justify-between px-4 md:px-6">
+      <div className="w-full mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <div className="flex flex-1 items-center gap-10">
           <Link href="/" className="flex-shrink-0">
-              <div className="relative" style={{ width: 'auto', height: '4.5rem', aspectRatio: '530 / 110' }}>
+              <div className="relative" style={{ height: '3.15rem', width: '6.6rem' }}>
                 {logoUrl ? (
                     <Image
                         src={logoUrl}
