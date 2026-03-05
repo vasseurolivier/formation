@@ -194,7 +194,14 @@
       "emailPlaceholder": "you@example.com",
       "message": "您的留言",
       "messagePlaceholder": "告诉我们您的项目或提出问题...",
-      "submit": "发送消息"
+      "submit": "发送消息",
+      "phone": "电话号码（可选）",
+      "phonePlaceholder": "您的电话号码",
+      "subject": "主题",
+      "subjectPlaceholder": "例如，关于课程的问题",
+      "courseOfInterest": "感兴趣的课程（可选）",
+      "courseOfInterestPlaceholder": "选择一门课程",
+      "noCourse": "没有特定课程"
     },
      "locations": {
       "title": "我们的校区",

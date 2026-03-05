@@ -194,7 +194,14 @@
       "emailPlaceholder": "vous@exemple.com",
       "message": "Votre Message",
       "messagePlaceholder": "Parlez-nous de votre projet ou posez une question...",
-      "submit": "Envoyer le Message"
+      "submit": "Envoyer le Message",
+      "phone": "Numéro de téléphone (Facultatif)",
+      "phonePlaceholder": "Votre numéro de téléphone",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Ex: Question sur une formation",
+      "courseOfInterest": "Formation qui vous intéresse (Facultatif)",
+      "courseOfInterestPlaceholder": "Sélectionnez une formation",
+      "noCourse": "Aucune formation spécifique"
     },
     "locations": {
       "title": "Nos Campus",

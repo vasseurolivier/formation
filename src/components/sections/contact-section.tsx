@@ -15,11 +15,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
 import { ScrollReveal } from "../scroll-reveal";
 import { MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { courses } from "@/lib/data";
 
 export default function ContactSection() {
   const { t } = useTranslation();
@@ -28,6 +36,9 @@ export default function ContactSection() {
   const formSchema = z.object({
     name: z.string().min(2, { message: "Name must be at least 2 characters." }),
     email: z.string().email({ message: "Please enter a valid email." }),
+    phone: z.string().optional(),
+    subject: z.string().min(3, { message: "Subject must be at least 3 characters." }),
+    courseOfInterest: z.string().optional(),
     message: z.string().min(10, { message: "Message must be at least 10 characters." }),
   });
 
@@ -36,6 +47,9 @@ export default function ContactSection() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
+      subject: "",
+      courseOfInterest: "",
       message: "",
     },
   });
@@ -81,6 +95,57 @@ export default function ContactSection() {
                                   <FormControl>
                                     <Input placeholder={t("contactSection.form.emailPlaceholder")} {...field} />
                                   </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>{t("contactSection.form.phone")}</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder={t("contactSection.form.phonePlaceholder")} {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                             <FormField
+                              control={form.control}
+                              name="subject"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>{t("contactSection.form.subject")}</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder={t("contactSection.form.subjectPlaceholder")} {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="courseOfInterest"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>{t("contactSection.form.courseOfInterest")}</FormLabel>
+                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                      <SelectTrigger>
+                                        <SelectValue placeholder={t("contactSection.form.courseOfInterestPlaceholder")} />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                      <SelectItem value="none">{t("contactSection.form.noCourse")}</SelectItem>
+                                      {courses.map(course => (
+                                        <SelectItem key={course.id} value={course.id}>
+                                          {t(course.titleKey)}
+                                        </SelectItem>
+                                      ))}
+                                    </SelectContent>
+                                  </Select>
                                   <FormMessage />
                                 </FormItem>
                               )}

@@ -194,7 +194,14 @@
       "emailPlaceholder": "you@example.com",
       "message": "Your Message",
       "messagePlaceholder": "Tell us about your project or ask a question...",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "phone": "Phone Number (Optional)",
+      "phonePlaceholder": "Your phone number",
+      "subject": "Subject",
+      "subjectPlaceholder": "e.g., Question about a course",
+      "courseOfInterest": "Course of Interest (Optional)",
+      "courseOfInterestPlaceholder": "Select a course",
+      "noCourse": "No specific course"
     },
     "locations": {
       "title": "Our Campuses",
