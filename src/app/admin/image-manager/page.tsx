@@ -11,11 +11,12 @@ import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { campusLocations } from '@/lib/data';
+import { campusLocations, courses } from '@/lib/data';
 import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useTranslation } from '@/hooks/use-translation';
 
 type ImageGroup = {
   title: string;
@@ -106,6 +107,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
               alt={image.description}
               fill
               className="object-cover"
+              unoptimized
             />
           )}
           {isCustom && (
@@ -146,9 +148,11 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
 };
 
 export default function ImageManagerPage() {
+  const { t } = useTranslation();
+
   const otherImageGroups: ImageGroup[] = [
     {
-      title: 'Images de cours',
+      title: 'Images de cours (Miniatures)',
       images: PlaceHolderImages.filter(img => img.id.startsWith('course-')),
     },
     {
@@ -166,7 +170,15 @@ export default function ImageManagerPage() {
       }
   });
 
-  const imageGroups: ImageGroup[] = [...otherImageGroups, ...campusImageGroups]
+  const courseGalleryImageGroups: ImageGroup[] = courses.map(course => {
+    const galleryImages = course.galleryImageIds.map(id => PlaceHolderImages.find(img => img.id === id));
+    return {
+        title: `Galerie: ${t(course.titleKey)}`,
+        images: galleryImages.filter((img): img is ImagePlaceholder => !!img)
+    }
+  });
+
+  const imageGroups: ImageGroup[] = [...otherImageGroups, ...campusImageGroups, ...courseGalleryImageGroups]
     .filter(group => group.images.length > 0)
     .sort((a,b) => a.title.localeCompare(b.title));
 
