@@ -89,23 +89,6 @@ service cloud.firestore {
     }
 
     /**
-     * @description Student testimonials. Publicly readable only if marked as 'published'. Only admins can modify.
-     * @path /testimonials/{testimonialId}
-     * @allow (get) Any user can read a testimonial IF `resource.data.published == true`.
-     * @deny (get) Any user attempts to read a testimonial where `published` is false or missing.
-     * @deny (list) Listing the entire collection is forbidden to prevent leaking unpublished testimonials.
-     * @principle Enforces conditional visibility based on a field within the document.
-     */
-    match /testimonials/{testimonialId} {
-      allow get: if resource.data.published == true;
-      // List is denied to prevent leaking unpublished testimonials, as rules cannot filter queries.
-      // The client must query with `.where('published', '==', true)` and the `get` rule above secures individual doc reads.
-      allow list: if false;
-      allow create: if isAdmin();
-      allow update, delete: if isExistingDocAdmin();
-    }
-
-    /**
      * @description Metadata for media assets (images, videos). Publicly readable. Only admins can modify.
      * @path /mediaAssets/{mediaId}
      * @allow (get) Any user can read the metadata for a media asset.

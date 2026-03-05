@@ -196,66 +196,6 @@
         "iconMediaId"
       ]
     },
-    "Testimonial": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Testimonial",
-      "type": "object",
-      "description": "A testimonial from a former student, including their profile picture and quote.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Testimonial entity."
-        },
-        "studentName": {
-          "type": "string",
-          "description": "The full name of the student providing the testimonial."
-        },
-        "studentOrigin": {
-          "type": "string",
-          "description": "The country or region of origin of the student (e.g., 'France', 'China')."
-        },
-        "quoteFr": {
-          "type": "string",
-          "description": "The student's testimonial quote in French."
-        },
-        "quoteEn": {
-          "type": "string",
-          "description": "The student's testimonial quote in English."
-        },
-        "quoteZh": {
-          "type": "string",
-          "description": "The student's testimonial quote in Simplified Chinese."
-        },
-        "courseId": {
-          "type": "string",
-          "description": "Reference to the TrainingCourse the student completed, if applicable. (Relationship: TrainingCourse 1:N Testimonial)"
-        },
-        "profilePictureMediaId": {
-          "type": "string",
-          "description": "Reference to the MediaAsset entity used as the student's profile picture. (Relationship: MediaAsset 1:N Testimonial)"
-        },
-        "published": {
-          "type": "boolean",
-          "description": "Indicates whether the testimonial is approved and should be displayed on the website."
-        },
-        "createdAt": {
-          "type": "string",
-          "description": "The date and time when the testimonial record was created.",
-          "format": "date-time"
-        }
-      },
-      "required": [
-        "id",
-        "studentName",
-        "studentOrigin",
-        "quoteFr",
-        "quoteEn",
-        "quoteZh",
-        "profilePictureMediaId",
-        "published",
-        "createdAt"
-      ]
-    },
     "MediaAsset": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "MediaAsset",
@@ -449,16 +389,6 @@
             "$ref": "#/backend/entities/TrainingCourse"
           },
           "description": "Collection for individual training courses. Publicly readable for all users, writeable only by administrators. Includes `categoryId` as a data reference, not for authorization dependency. No denormalized authorization fields are required."
-        }
-      },
-      {
-        "path": "/testimonials/{testimonialId}",
-        "definition": {
-          "entityName": "Testimonial",
-          "schema": {
-            "$ref": "#/backend/entities/Testimonial"
-          },
-          "description": "Collection for student testimonials. Documents are publicly readable only if the `published` field is true. Writeable only by administrators. No denormalized authorization fields are required."
         }
       },
       {

@@ -6,7 +6,6 @@
     "courses": "Trainings",
     "locations": "Our Campuses",
     "about": "About",
-    "testimonials": "Testimonials",
     "contact": "Contact"
   },
   "hero": {
@@ -162,27 +161,6 @@
     "subtitle": "Our Philosophy",
     "paragraph1": "PERPECTIVE PRO FORMATION was founded on a simple yet powerful idea: to create a multicultural educational environment that builds bridges between Europe and Asia. We believe that the future belongs to those who can navigate different cultures with ease and professionalism.",
     "paragraph2": "Our training programs, focused on high-growth sectors like luxury, sports, and international business, are designed to provide our students with not just theoretical knowledge, but also the practical skills and global mindset needed to succeed. We are more than a school; we are a launchpad for international careers."
-  },
-  "testimonialsSection": {
-    "title": "From Our Alumni",
-    "subtitle": "Success stories from around the globe."
-  },
-  "testimonials": {
-    "1": {
-      "quote": "The Flight Attendant program was intense but incredibly rewarding. I landed my dream job with a major international airline just a month after graduating. The multicultural environment at the academy was the perfect preparation.",
-      "author": "Chloé Dubois",
-      "origin": "France"
-    },
-    "2": {
-      "quote": "As a student from China, learning about European luxury standards was eye-opening. The teachers are industry experts, and the connections I made are invaluable. I now manage a boutique in Paris.",
-      "author": "Wei Zhang (张伟)",
-      "origin": "China"
-    },
-    "3": {
-      "quote": "Transitioning from a finance career to becoming a FIFA Agent seemed impossible. This program gave me the structure, knowledge, and network to make it happen. A true game-changer.",
-      "author": "Alexandre Martin",
-      "origin": "France"
-    }
   },
   "contactSection": {
     "title": "Get in Touch",

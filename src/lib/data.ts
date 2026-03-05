@@ -239,20 +239,6 @@ export const courses: Course[] = [
   },
 ];
 
-export interface Testimonial {
-    id: string;
-    quoteKey: string;
-    authorKey: string;
-    originKey: string;
-    imageId: string;
-}
-
-export const testimonials: Testimonial[] = [
-    { id: '1', quoteKey: 'testimonials.1.quote', authorKey: 'testimonials.1.author', originKey: 'testimonials.1.origin', imageId: 'testimonial-1' },
-    { id: '2', quoteKey: 'testimonials.2.quote', authorKey: 'testimonials.2.author', originKey: 'testimonials.2.origin', imageId: 'testimonial-2' },
-    { id: '3', quoteKey: 'testimonials.3.quote', authorKey: 'testimonials.3.author', originKey: 'testimonials.3.origin', imageId: 'testimonial-3' },
-];
-
 export interface CampusLocation {
   id: string;
   name: string;
@@ -288,5 +274,3 @@ export const campusLocations: CampusLocation[] = [
     galleryImageIds: ['campus-sainte-bazeille-gallery-1', 'campus-sainte-bazeille-gallery-2', 'campus-sainte-bazeille-gallery-3']
   },
 ];
-
-    

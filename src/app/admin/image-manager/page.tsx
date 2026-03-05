@@ -130,10 +130,6 @@ export default function ImageManagerPage() {
       images: PlaceHolderImages.filter(img => img.id.startsWith('course-')),
     },
     {
-      title: 'Images de témoignages',
-      images: PlaceHolderImages.filter(img => img.id.startsWith('testimonial-')),
-    },
-    {
       title: 'Images des pages générales',
       images: PlaceHolderImages.filter(img => img.id.startsWith('about-')),
     },

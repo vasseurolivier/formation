@@ -6,7 +6,6 @@
     "courses": "Formations",
     "locations": "Nos Campus",
     "about": "À Propos",
-    "testimonials": "Témoignages",
     "contact": "Contact"
   },
   "hero": {
@@ -162,27 +161,6 @@
     "subtitle": "Notre Philosophie",
     "paragraph1": "PERPECTIVE PRO FORMATION a été fondée sur une idée simple mais puissante : créer un environnement éducatif multiculturel qui jette des ponts entre l'Europe et l'Asie. Nous croyons que l'avenir appartient à ceux qui peuvent naviguer entre différentes cultures avec aisance et professionnalisme.",
     "paragraph2": "Nos programmes de formation, axés sur des secteurs à forte croissance comme le luxe, le sport et le commerce international, sont conçus pour fournir à nos étudiants non seulement des connaissances théoriques, mais aussi les compétences pratiques et l'état d'esprit global nécessaires pour réussir. Nous sommes plus qu'une école ; nous sommes un tremplin pour les carrières internationales."
-  },
-  "testimonialsSection": {
-    "title": "Paroles d'Anciens Élèves",
-    "subtitle": "Des success stories du monde entier."
-  },
-  "testimonials": {
-    "1": {
-      "quote": "Le programme PNC était intense mais incroyablement gratifiant. J'ai décroché le job de mes rêves dans une grande compagnie aérienne internationale un mois seulement après mon diplôme. L'environnement multiculturel de l'académie était la préparation parfaite.",
-      "author": "Chloé Dubois",
-      "origin": "France"
-    },
-    "2": {
-      "quote": "En tant qu'étudiant chinois, découvrir les standards du luxe européen a été une révélation. Les professeurs sont des experts de l'industrie, et les contacts que j'ai noués sont inestimables. Je gère maintenant une boutique à Paris.",
-      "author": "Wei Zhang (张伟)",
-      "origin": "Chine"
-    },
-    "3": {
-      "quote": "Passer d'une carrière en finance à celle d'agent FIFA semblait impossible. Ce programme m'a donné la structure, les connaissances et le réseau pour y parvenir. Une véritable révolution.",
-      "author": "Alexandre Martin",
-      "origin": "France"
-    }
   },
   "contactSection": {
     "title": "Contactez-nous",

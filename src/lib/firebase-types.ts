@@ -40,19 +40,6 @@ export interface TrainingCourse {
     galleryMediaIds?: string[];
 }
 
-export interface Testimonial {
-    id: string;
-    studentName: string;
-    studentOrigin: string;
-    quoteFr: string;
-    quoteEn: string;
-    quoteZh: string;
-    courseId?: string;
-    profilePictureMediaId: string;
-    published: boolean;
-    createdAt: string;
-}
-
 export interface MediaAsset {
     id: string;
     url: string;

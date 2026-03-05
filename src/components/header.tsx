@@ -38,7 +38,6 @@ export default function Header() {
     { href: "/courses", label: t("nav.courses") },
     { href: "/locations", label: t("nav.locations") },
     { href: "/about", label: t("nav.about") },
-    { href: "/testimonials", label: t("nav.testimonials") },
     { href: "/contact", label: t("nav.contact") },
   ];
 
