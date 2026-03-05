@@ -51,7 +51,9 @@ service cloud.firestore {
      * UID in the roles_admin collection.
      */
     function isAdmin() {
-      return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+      // Use get() instead of exists() for better consistency in read-after-write scenarios.
+      // This checks that the admin document exists AND that its `isAdmin` flag is explicitly true.
+      return isSignedIn() && get(/databases/$(database)/documents/roles_admin/$(request.auth.uid)).data.isAdmin == true;
     }
     
     /**
