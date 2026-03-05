@@ -79,12 +79,16 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
         
         setPreview(null);
         setSelectedFile(null);
-      } catch (error) {
+      } catch (error: any) {
         console.error("Upload failed:", error);
+        let description = "Une erreur s'est produite lors du téléversement. Veuillez vérifier la console pour plus de détails.";
+        if (error.code === 'storage/unauthorized') {
+            description = "Permission refusée. Vous n'avez pas les droits nécessaires pour téléverser ce fichier.";
+        }
         toast({
           variant: "destructive",
           title: "Le téléversement a échoué",
-          description: "Une erreur s'est produite lors du téléversement. Veuillez vérifier la console pour plus de détails.",
+          description: description,
         });
       } finally {
         setIsUploading(false);
