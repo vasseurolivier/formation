@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ImageUp, Upload, CheckCircle } from 'lucide-react';
+import { ArrowLeft, ImageUp, Upload, CheckCircle, AlertTriangle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,7 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { campusLocations } from '@/lib/data';
-import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp, errorEmitter, FirestorePermissionError } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -38,11 +38,13 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setSelectedFile(file);
+      setUploadError(null);
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result as string);
@@ -52,6 +54,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   };
 
   const handleUpload = async () => {
+    setUploadError(null);
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -71,56 +74,46 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
     
     setIsUploading(true);
 
-    let downloadUrl: string;
     try {
         const storage = getStorage(firebaseApp);
         const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
         const fileRef = storageRef(storage, filePath);
 
         const snapshot = await uploadBytes(fileRef, selectedFile);
-        downloadUrl = await getDownloadURL(snapshot.ref);
-    } catch (storageError: any) {
-        console.error("Storage upload failed:", storageError);
-        let description = "Une erreur inattendue est survenue lors du téléversement.";
-        if (storageError.code === 'storage/unauthorized') {
-            description = "Permission de stockage refusée.";
-        }
-        toast({ variant: "destructive", title: "Échec du téléversement", description });
-        setIsUploading(false);
-        return;
-    }
+        const downloadUrl = await getDownloadURL(snapshot.ref);
 
-    const newMediaData: Omit<MediaAsset, 'id'> = {
-      url: downloadUrl,
-      type: 'image',
-      fileName: selectedFile.name,
-      altTextFr: image.description,
-      altTextEn: image.description,
-      altTextZh: image.description,
-      mimeType: selectedFile.type,
-      uploadedAt: new Date().toISOString(),
-    };
+        const newMediaData: Omit<MediaAsset, 'id'> = {
+          url: downloadUrl,
+          type: 'image',
+          fileName: selectedFile.name,
+          altTextFr: image.description,
+          altTextEn: image.description,
+          altTextZh: image.description,
+          mimeType: selectedFile.type,
+          uploadedAt: new Date().toISOString(),
+        };
 
-    setDoc(imageDocRef, newMediaData, { merge: true })
-      .then(() => {
+        await setDoc(imageDocRef, newMediaData, { merge: true });
+
         toast({
           title: 'Téléversement réussi !',
           description: `L'image pour "${image.description}" a été mise à jour.`,
         });
         setPreview(null);
         setSelectedFile(null);
-      })
-      .catch((firestoreError) => {
-        const permissionError = new FirestorePermissionError(auth, {
-            path: imageDocRef.path,
-            operation: 'write',
-            requestResourceData: newMediaData,
+    } catch (error: any) {
+        console.error("[UPLOAD_ERROR]", error);
+        let detailedMessage = `Code: ${error.code}\nMessage: ${error.message}`;
+        setUploadError(detailedMessage);
+
+        toast({
+            variant: "destructive",
+            title: "Échec du téléversement",
+            description: "Une erreur est survenue. Voir les détails dans la carte.",
         });
-        errorEmitter.emit('permission-error', permissionError);
-      })
-      .finally(() => {
+    } finally {
         setIsUploading(false);
-      });
+    }
   };
 
   const displayUrl = preview || customImageData?.url || image.imageUrl;
@@ -173,6 +166,17 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
               </Button>
             )}
         </div>
+        {uploadError && (
+          <div className="mt-4 p-3 rounded-md bg-destructive/10 text-destructive border border-destructive/20">
+            <div className="flex items-start gap-2">
+              <AlertTriangle className="h-5 w-5 mt-0.5"/>
+              <div>
+                <p className="font-semibold">Une erreur est survenue</p>
+                <pre className="text-xs whitespace-pre-wrap font-mono mt-1">{uploadError}</pre>
+              </div>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
