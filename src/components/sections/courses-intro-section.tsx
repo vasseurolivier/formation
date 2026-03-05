@@ -10,7 +10,7 @@ export default function CoursesIntroSection() {
   const stats = [
     {
       icon: GraduationCap,
-      value: "15+",
+      value: "10",
       labelKey: "coursesIntro.stats.programs",
     },
     {
