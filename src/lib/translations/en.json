@@ -264,5 +264,23 @@
       "placement": "Graduate Placement Rate",
       "partners": "International Partners"
     }
+  },
+  "ourValues": {
+    "title": "Our Core Values",
+    "subtitle": "The principles that guide our every action.",
+    "values": [
+      {
+        "title": "Excellence",
+        "description": "We are committed to the highest standards of teaching, content, and student support to ensure an exceptional learning experience."
+      },
+      {
+        "title": "Global Openness",
+        "description": "We cultivate a rich, multicultural environment that encourages exchanges, fosters mutual understanding, and prepares for a globalized world."
+      },
+      {
+        "title": "Pragmatism",
+        "description": "Our training is rooted in the reality of the professional world. We focus on practical, directly applicable skills to ensure the employability of our graduates."
+      }
+    ]
   }
 }

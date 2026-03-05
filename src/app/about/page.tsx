@@ -1,4 +1,6 @@
 import AboutSection from '@/components/sections/about-section';
+import CtaSection from '@/components/sections/cta-section';
+import OurValuesSection from '@/components/sections/our-values-section';
 import PageHeroSection from '@/components/sections/page-hero-section';
 
 export default function AboutPage() {
@@ -10,6 +12,8 @@ export default function AboutPage() {
         subtitleKey="aboutSection.subtitle"
       />
       <AboutSection />
+      <OurValuesSection />
+      <CtaSection />
     </>
   );
 }

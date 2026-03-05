@@ -264,5 +264,23 @@
       "placement": "Taux de placement des diplômés",
       "partners": "Partenaires Internationaux"
     }
+  },
+  "ourValues": {
+    "title": "Nos Valeurs Fondamentales",
+    "subtitle": "Les principes qui guident chacune de nos actions.",
+    "values": [
+      {
+        "title": "Excellence",
+        "description": "Nous nous engageons à atteindre les plus hauts standards d'enseignement, de contenu et de soutien aux étudiants pour garantir une expérience d'apprentissage exceptionnelle."
+      },
+      {
+        "title": "Ouverture sur le Monde",
+        "description": "Nous cultivons un environnement riche et multiculturel qui encourage les échanges, favorise la compréhension mutuelle et prépare à un monde globalisé."
+      },
+      {
+        "title": "Pragmatisme",
+        "description": "Nos formations sont ancrées dans la réalité du monde professionnel. Nous privilégions les compétences pratiques et directement applicables pour assurer l'employabilité de nos diplômés."
+      }
+    ]
   }
 }
