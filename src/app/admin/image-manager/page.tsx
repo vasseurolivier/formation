@@ -50,7 +50,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -60,24 +60,23 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
       return;
     }
     if (!imageDocRef || !firebaseApp) {
-        toast({
-            variant: "destructive",
-            title: "Erreur d'initialisation",
-            description: "Les services Firebase ne sont pas disponibles. Veuillez rafraîchir la page.",
-        });
-        return;
+      toast({
+        variant: "destructive",
+        title: "Erreur d'initialisation",
+        description: "Les services Firebase ne sont pas disponibles.",
+      });
+      return;
     }
     
     setIsUploading(true);
 
-    try {
-        const storage = getStorage(firebaseApp);
-        const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
-        const fileRef = storageRef(storage, filePath);
+    const storage = getStorage(firebaseApp);
+    const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
+    const fileRef = storageRef(storage, filePath);
 
-        const snapshot = await uploadBytes(fileRef, selectedFile);
-        const downloadUrl = await getDownloadURL(snapshot.ref);
-
+    uploadBytes(fileRef, selectedFile)
+      .then(snapshot => getDownloadURL(snapshot.ref))
+      .then(downloadUrl => {
         const newMediaData: Omit<MediaAsset, 'id'> = {
           url: downloadUrl,
           type: 'image',
@@ -88,25 +87,27 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
           mimeType: selectedFile.type,
           uploadedAt: new Date().toISOString(),
         };
-
-        await setDoc(imageDocRef, newMediaData, { merge: true });
-
+        return setDoc(imageDocRef, newMediaData, { merge: true });
+      })
+      .then(() => {
         toast({
           title: 'Téléversement réussi !',
           description: `L'image pour "${image.description}" a été mise à jour.`,
         });
         setPreview(null);
         setSelectedFile(null);
-    } catch (error) {
-        console.error("Échec du téléversement:", error);
+      })
+      .catch((error) => {
+        console.error("Échec de la chaîne de téléversement :", error);
         toast({
-            variant: "destructive",
-            title: "Échec du téléversement",
-            description: "Une erreur est survenue. Veuillez vérifier la console pour plus de détails.",
+          variant: "destructive",
+          title: "Échec du téléversement",
+          description: `Erreur : ${error.code} - ${error.message}`,
         });
-    } finally {
+      })
+      .finally(() => {
         setIsUploading(false);
-    }
+      });
   };
 
   const displayUrl = preview || customImageData?.url || image.imageUrl;

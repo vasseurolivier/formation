@@ -44,7 +44,7 @@ export default function LogoUploaderPage() {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -54,24 +54,23 @@ export default function LogoUploaderPage() {
       return;
     }
     if (!logoDocRef || !firebaseApp) {
-        toast({
-            variant: "destructive",
-            title: "Erreur d'initialisation",
-            description: "Les services Firebase ne sont pas disponibles. Veuillez rafraîchir la page.",
-        });
-        return;
+      toast({
+        variant: "destructive",
+        title: "Erreur d'initialisation",
+        description: "Les services Firebase ne sont pas disponibles.",
+      });
+      return;
     }
 
     setIsUploading(true);
-    
-    try {
-        const storage = getStorage(firebaseApp);
-        const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
-        const fileRef = storageRef(storage, filePath);
 
-        const snapshot = await uploadBytes(fileRef, selectedFile);
-        const downloadUrl = await getDownloadURL(snapshot.ref);
+    const storage = getStorage(firebaseApp);
+    const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
+    const fileRef = storageRef(storage, filePath);
 
+    uploadBytes(fileRef, selectedFile)
+      .then(snapshot => getDownloadURL(snapshot.ref))
+      .then(downloadUrl => {
         const newLogoData: Omit<MediaAsset, 'id'> = {
           url: downloadUrl,
           type: 'image',
@@ -82,25 +81,27 @@ export default function LogoUploaderPage() {
           mimeType: selectedFile.type,
           uploadedAt: new Date().toISOString()
         };
-        
-        await setDoc(logoDocRef, newLogoData, { merge: true });
-
+        return setDoc(logoDocRef, newLogoData, { merge: true });
+      })
+      .then(() => {
         toast({
           title: 'Logo téléversé avec succès !',
           description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
         });
         setLogoPreview(null);
         setSelectedFile(null);
-    } catch (error) {
-        console.error("Échec du téléversement:", error);
+      })
+      .catch((error) => {
+        console.error("Échec de la chaîne de téléversement :", error);
         toast({
-            variant: "destructive",
-            title: "Échec du téléversement",
-            description: "Une erreur est survenue. Veuillez vérifier la console pour plus de détails.",
+          variant: "destructive",
+          title: "Échec du téléversement",
+          description: `Erreur : ${error.code} - ${error.message}`,
         });
-    } finally {
+      })
+      .finally(() => {
         setIsUploading(false);
-    }
+      });
   };
 
   const displayUrl = logoPreview || currentLogoUrl;

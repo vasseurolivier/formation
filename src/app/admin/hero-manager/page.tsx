@@ -47,7 +47,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUpload = () => {
     if (!selectedFile) {
       toast({
         variant: 'destructive',
@@ -57,24 +57,23 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
       return;
     }
     if (!mediaDocRef || !firebaseApp) {
-        toast({
-            variant: "destructive",
-            title: "Erreur d'initialisation",
-            description: "Les services Firebase ne sont pas disponibles. Veuillez rafraîchir la page.",
-        });
-        return;
+      toast({
+        variant: "destructive",
+        title: "Erreur d'initialisation",
+        description: "Les services Firebase ne sont pas disponibles.",
+      });
+      return;
     }
 
     setIsUploading(true);
+    
+    const storage = getStorage(firebaseApp);
+    const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
+    const fileRef = storageRef(storage, filePath);
 
-    try {
-        const storage = getStorage(firebaseApp);
-        const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
-        const fileRef = storageRef(storage, filePath);
-        
-        const snapshot = await uploadBytes(fileRef, selectedFile);
-        const downloadUrl = await getDownloadURL(snapshot.ref);
-
+    uploadBytes(fileRef, selectedFile)
+      .then(snapshot => getDownloadURL(snapshot.ref))
+      .then(downloadUrl => {
         const newMediaData: Omit<MediaAsset, 'id'> = {
           url: downloadUrl,
           type: selectedFile.type.startsWith('video') ? 'video' : 'image',
@@ -85,26 +84,27 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
           mimeType: selectedFile.type,
           uploadedAt: new Date().toISOString()
         };
-
-        await setDoc(mediaDocRef, newMediaData, { merge: true });
-        
+        return setDoc(mediaDocRef, newMediaData, { merge: true });
+      })
+      .then(() => {
         toast({
           title: 'Téléversement réussi !',
           description: `Le média pour "${image.description}" a été mis à jour.`,
         });
         setPreview(null);
         setSelectedFile(null);
-
-    } catch (error) {
-        console.error("Échec du téléversement:", error);
+      })
+      .catch((error) => {
+        console.error("Échec de la chaîne de téléversement :", error);
         toast({
-            variant: "destructive",
-            title: "Échec du téléversement",
-            description: "Une erreur est survenue. Veuillez vérifier la console pour plus de détails.",
+          variant: "destructive",
+          title: "Échec du téléversement",
+          description: `Erreur : ${error.code} - ${error.message}`,
         });
-    } finally {
+      })
+      .finally(() => {
         setIsUploading(false);
-    }
+      });
   };
 
   const media: CustomMedia = preview 
