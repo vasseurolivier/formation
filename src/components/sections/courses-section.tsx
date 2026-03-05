@@ -22,7 +22,7 @@ export default function CoursesSection() {
               {courses
                 .filter((course) => course.categoryId === category.id)
                 .map((course, index) => (
-                  <ScrollReveal key={course.id} delay={index * 100}>
+                  <ScrollReveal key={course.id} delay={index * 100} className="h-full">
                     <CourseCard course={course} categoryTitle={t(category.titleKey)} />
                   </ScrollReveal>
                 ))}

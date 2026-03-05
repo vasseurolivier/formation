@@ -30,7 +30,7 @@ export default function CoursesPreviewSection() {
             {previewCourses.map((course, index) => {
                 const category = courseCategories.find(c => c.id === course.categoryId);
                 return (
-                    <ScrollReveal key={course.id} delay={index * 100}>
+                    <ScrollReveal key={course.id} delay={index * 100} className="h-full">
                         <CourseCard course={course} categoryTitle={category ? t(category.titleKey) : ""} />
                     </ScrollReveal>
                 )
