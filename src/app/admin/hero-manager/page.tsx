@@ -72,14 +72,13 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
     setIsUploading(true);
 
     try {
-        // 1. Upload to Storage
         const storage = getStorage(firebaseApp);
         const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
         const fileRef = storageRef(storage, filePath);
+        
         const snapshot = await uploadBytes(fileRef, selectedFile);
         const downloadUrl = await getDownloadURL(snapshot.ref);
 
-        // 2. Create metadata for Firestore
         const newMediaData: Omit<MediaAsset, 'id'> = {
           url: downloadUrl,
           type: selectedFile.type.startsWith('video') ? 'video' : 'image',
@@ -91,7 +90,6 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
           uploadedAt: new Date().toISOString()
         };
 
-        // 3. Save metadata to Firestore (AWAITED)
         await setDoc(mediaDocRef, newMediaData, { merge: true });
         
         toast({
@@ -101,9 +99,25 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
         setPreview(null);
         setSelectedFile(null);
 
-    } catch (error: any) {
+    } catch (error) {
         console.error("[UPLOAD_ERROR]", error);
-        let detailedMessage = `Code: ${error.code}\nMessage: ${error.message}`;
+        
+        let detailedMessage = "Une erreur inconnue est survenue.";
+        if (error instanceof Error) {
+             detailedMessage = error.message;
+             if ('code' in error) {
+                detailedMessage = `Code: ${(error as any).code}\nMessage: ${error.message}`;
+             }
+        } else if (typeof error === 'object' && error !== null) {
+            try {
+                detailedMessage = JSON.stringify(error, null, 2);
+            } catch (e) {
+                detailedMessage = "Impossible de convertir l'objet d'erreur en chaîne de caractères.";
+            }
+        } else {
+            detailedMessage = String(error);
+        }
+
         setUploadError(detailedMessage);
         
         toast({

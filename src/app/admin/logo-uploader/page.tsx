@@ -95,9 +95,25 @@ export default function LogoUploaderPage() {
         });
         setLogoPreview(null);
         setSelectedFile(null);
-    } catch (error: any) {
+    } catch (error) {
         console.error("[UPLOAD_ERROR]", error);
-        let detailedMessage = `Code: ${error.code}\nMessage: ${error.message}`;
+        
+        let detailedMessage = "Une erreur inconnue est survenue.";
+        if (error instanceof Error) {
+             detailedMessage = error.message;
+             if ('code' in error) {
+                detailedMessage = `Code: ${(error as any).code}\nMessage: ${error.message}`;
+             }
+        } else if (typeof error === 'object' && error !== null) {
+            try {
+                detailedMessage = JSON.stringify(error, null, 2);
+            } catch (e) {
+                detailedMessage = "Impossible de convertir l'objet d'erreur en chaîne de caractères.";
+            }
+        } else {
+            detailedMessage = String(error);
+        }
+
         setUploadError(detailedMessage);
         
         toast({
