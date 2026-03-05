@@ -11,10 +11,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { campusLocations } from '@/lib/data';
-import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking, useAuth } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking, useAuth, useFirebaseApp } from '@/firebase';
 import { doc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 type ImageGroup = {
   title: string;
@@ -25,6 +26,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const firestore = useFirestore();
   const auth = useAuth();
+  const firebaseApp = useFirebaseApp();
 
   const imageDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -49,29 +51,47 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = () => {
-    if (preview && selectedFile && imageDocRef && auth) {
+  const handleUpload = async () => {
+    if (selectedFile && imageDocRef && auth && firebaseApp) {
       setIsUploading(true);
-      const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
-        url: preview,
-        type: 'image',
-        fileName: selectedFile.name,
-        altTextFr: image.description,
-        altTextEn: image.description,
-        altTextZh: image.description,
-        mimeType: selectedFile.type,
-      };
 
-      setDocumentNonBlocking(auth, imageDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
+      const storage = getStorage(firebaseApp);
+      const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
+      const fileRef = storageRef(storage, filePath);
 
-      toast({
-        title: 'Téléversement en cours !',
-        description: `L\'image pour "${image.description}" est en cours de mise à jour.`,
-      });
+      try {
+        await uploadBytes(fileRef, selectedFile);
+        const downloadUrl = await getDownloadURL(fileRef);
 
-      setIsUploading(false);
-      setPreview(null);
-      setSelectedFile(null);
+        const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
+          url: downloadUrl,
+          type: 'image',
+          fileName: selectedFile.name,
+          altTextFr: image.description,
+          altTextEn: image.description,
+          altTextZh: image.description,
+          mimeType: selectedFile.type,
+        };
+
+        setDocumentNonBlocking(auth, imageDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
+
+        toast({
+          title: 'Téléversement réussi !',
+          description: `L'image pour "${image.description}" a été mise à jour.`,
+        });
+
+        setPreview(null);
+        setSelectedFile(null);
+      } catch (error) {
+        console.error("Upload failed:", error);
+        toast({
+          variant: "destructive",
+          title: "Le téléversement a échoué",
+          description: "Une erreur s'est produite lors du téléversement. Veuillez vérifier la console pour plus de détails.",
+        });
+      } finally {
+        setIsUploading(false);
+      }
     }
   };
 

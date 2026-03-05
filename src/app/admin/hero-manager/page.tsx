@@ -9,9 +9,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking, useAuth } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, setDocumentNonBlocking, useAuth, useFirebaseApp } from '@/firebase';
 import { doc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 type CustomMedia = {
   url: string;
@@ -22,6 +23,7 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const firestore = useFirestore();
   const auth = useAuth();
+  const firebaseApp = useFirebaseApp();
 
   const mediaDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -46,29 +48,47 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
     }
   };
 
-  const handleUpload = () => {
-    if (preview && selectedFile && mediaDocRef && auth) {
+  const handleUpload = async () => {
+    if (selectedFile && mediaDocRef && auth && firebaseApp) {
       setIsUploading(true);
-      const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
-        url: preview.url,
-        type: preview.type.startsWith('video') ? 'video' : 'image',
-        fileName: selectedFile.name,
-        altTextFr: image.description,
-        altTextEn: image.description,
-        altTextZh: image.description,
-        mimeType: selectedFile.type,
-      };
 
-      setDocumentNonBlocking(auth, mediaDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
-      
-      toast({
-        title: 'Téléversement en cours !',
-        description: `Le média pour "${image.description}" est en cours de mise à jour.`,
-      });
-      
-      setIsUploading(false);
-      setPreview(null);
-      setSelectedFile(null);
+      const storage = getStorage(firebaseApp);
+      const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
+      const fileRef = storageRef(storage, filePath);
+
+      try {
+        await uploadBytes(fileRef, selectedFile);
+        const downloadUrl = await getDownloadURL(fileRef);
+
+        const newMediaData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
+          url: downloadUrl,
+          type: selectedFile.type.startsWith('video') ? 'video' : 'image',
+          fileName: selectedFile.name,
+          altTextFr: image.description,
+          altTextEn: image.description,
+          altTextZh: image.description,
+          mimeType: selectedFile.type,
+        };
+
+        setDocumentNonBlocking(auth, mediaDocRef, { ...newMediaData, uploadedAt: new Date().toISOString() }, { merge: true });
+        
+        toast({
+          title: 'Téléversement réussi !',
+          description: `Le média pour "${image.description}" a été mis à jour.`,
+        });
+        
+        setPreview(null);
+        setSelectedFile(null);
+      } catch (error) {
+        console.error("Upload failed:", error);
+        toast({
+          variant: "destructive",
+          title: "Le téléversement a échoué",
+          description: "Une erreur s'est produite lors du téléversement. Veuillez vérifier la console pour plus de détails.",
+        });
+      } finally {
+        setIsUploading(false);
+      }
     }
   };
 

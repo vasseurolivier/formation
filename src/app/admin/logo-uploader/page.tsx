@@ -8,10 +8,11 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, Upload } from 'lucide-react';
 import Link from 'next/link';
-import { useFirestore, useDoc, useMemoFirebase, useAuth } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase, useAuth, useFirebaseApp } from '@/firebase';
 import { doc } from 'firebase/firestore';
 import { setDocumentNonBlocking } from '@/firebase/non-blocking-updates';
 import type { MediaAsset } from '@/lib/firebase-types';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const LOGO_DOC_ID = 'siteLogo';
 
@@ -21,6 +22,7 @@ export default function LogoUploaderPage() {
   const { toast } = useToast();
   const firestore = useFirestore();
   const auth = useAuth();
+  const firebaseApp = useFirebaseApp();
 
   const logoDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -45,37 +47,54 @@ export default function LogoUploaderPage() {
   };
 
   const handleUpload = async () => {
-    if (logoPreview && selectedFile && logoDocRef && auth) {
+    if (selectedFile && logoDocRef && auth && firebaseApp) {
       setIsUploading(true);
       
-      const newLogoData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
-        url: logoPreview,
-        type: selectedFile.type,
-        fileName: selectedFile.name,
-        altTextFr: "Logo du site",
-        altTextEn: "Site logo",
-        altTextZh: "网站标志",
-        mimeType: selectedFile.type,
-      };
+      const storage = getStorage(firebaseApp);
+      const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
+      const fileRef = storageRef(storage, filePath);
 
-      setDocumentNonBlocking(auth, logoDocRef, {
-        ...newLogoData,
-        uploadedAt: new Date().toISOString()
-      }, { merge: true });
+      try {
+        await uploadBytes(fileRef, selectedFile);
+        const downloadUrl = await getDownloadURL(fileRef);
 
-      toast({
-        title: 'Logo successfully uploaded!',
-        description: 'The new logo will now be displayed in the header.',
-      });
+        const newLogoData: Omit<MediaAsset, 'id' | 'uploadedAt'> = {
+          url: downloadUrl,
+          type: 'image',
+          fileName: selectedFile.name,
+          altTextFr: "Logo du site",
+          altTextEn: "Site logo",
+          altTextZh: "网站标志",
+          mimeType: selectedFile.type,
+        };
 
-      setIsUploading(false);
-      setLogoPreview(null);
-      setSelectedFile(null);
+        setDocumentNonBlocking(auth, logoDocRef, {
+          ...newLogoData,
+          uploadedAt: new Date().toISOString()
+        }, { merge: true });
+
+        toast({
+          title: 'Logo téléversé avec succès !',
+          description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
+        });
+
+        setLogoPreview(null);
+        setSelectedFile(null);
+      } catch (error) {
+        console.error("Upload failed:", error);
+        toast({
+          variant: 'destructive',
+          title: 'Le téléversement a échoué',
+          description: "Une erreur s'est produite lors du téléversement. Veuillez vérifier la console pour plus de détails.",
+        });
+      } finally {
+        setIsUploading(false);
+      }
     } else {
       toast({
         variant: 'destructive',
-        title: 'No file selected',
-        description: 'Please select an image file to upload.',
+        title: 'Aucun fichier sélectionné',
+        description: 'Veuillez sélectionner un fichier image à téléverser.',
       });
     }
   };
@@ -142,7 +161,7 @@ export default function LogoUploaderPage() {
 
             <Button onClick={handleUpload} disabled={!selectedFile || isUploading} className="w-full">
               <Upload className="mr-2 h-4 w-4" />
-              {isUploading ? "Uploading..." : "Save and Apply Logo"}
+              {isUploading ? "Téléversement..." : "Sauvegarder et appliquer le logo"}
             </Button>
           </CardContent>
         </Card>
