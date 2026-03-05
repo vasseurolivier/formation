@@ -361,6 +361,61 @@
         "contactAddressZh",
         "mapEmbedUrl"
       ]
+    },
+    "ContactSubmission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactSubmission",
+      "type": "object",
+      "description": "Represents a submission from the public contact form.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the ContactSubmission entity."
+        },
+        "name": {
+          "type": "string",
+          "description": "The full name of the person who submitted the form."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the person.",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The optional phone number provided."
+        },
+        "subject": {
+          "type": "string",
+          "description": "The subject of the contact message."
+        },
+        "courseOfInterest": {
+          "type": "string",
+          "description": "The ID of the course the person is interested in, if any."
+        },
+        "message": {
+          "type": "string",
+          "description": "The content of the message."
+        },
+        "submittedAt": {
+          "type": "string",
+          "description": "The ISO 8601 timestamp when the form was submitted.",
+          "format": "date-time"
+        },
+        "isRead": {
+          "type": "boolean",
+          "description": "Flag to indicate if the submission has been read by an admin."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "subject",
+        "message",
+        "submittedAt",
+        "isRead"
+      ]
     }
   },
   "auth": {
@@ -409,6 +464,16 @@
             "$ref": "#/backend/entities/HomePageContent"
           },
           "description": "Collection for singular homepage content (e.g., ID 'main-homepage'). Publicly readable for all users, writeable only by administrators. No denormalized authorization fields are required."
+        }
+      },
+      {
+        "path": "/contactSubmissions/{submissionId}",
+        "definition": {
+          "entityName": "ContactSubmission",
+          "schema": {
+            "$ref": "#/backend/entities/ContactSubmission"
+          },
+          "description": "Collection for contact form submissions. Writeable by anyone (public form), but readable only by administrators. This allows admins to review inquiries without exposing user data publicly."
         }
       },
       {

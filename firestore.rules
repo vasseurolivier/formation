@@ -114,6 +114,18 @@ service cloud.firestore {
     }
 
     /**
+     * @description Contact form submissions. Publicly writeable, admin readable.
+     * @path /contactSubmissions/{submissionId}
+     * @allow (create) Any user can submit the contact form.
+     * @deny (read) A non-admin cannot read submissions.
+     * @principle Allows public data submission while protecting submitted PII.
+     */
+    match /contactSubmissions/{submissionId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    /**
      * @description Manages administrator roles. Only existing admins can read or write to this collection.
      * @path /roles_admin/{adminUid}
      * @allow (create) An existing admin can create a document to grant another user admin rights.

@@ -28,10 +28,13 @@ import { ScrollReveal } from "../scroll-reveal";
 import { MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { courses } from "@/lib/data";
+import { useFirebase } from "@/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function ContactSection() {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const { firestore } = useFirebase();
 
   const formSchema = z.object({
     name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -55,13 +58,37 @@ export default function ContactSection() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // Mock form submission
-    console.log(values);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    toast({
-      title: t('contactSection.successMessage'),
-    });
-    form.reset();
+    if (!firestore) {
+      toast({
+        variant: "destructive",
+        title: "Erreur de connexion",
+        description: "Impossible de se connecter au serveur. Veuillez réessayer plus tard.",
+      });
+      return;
+    }
+
+    try {
+      const submissionData = {
+        ...values,
+        courseOfInterest: values.courseOfInterest === "none" ? "" : values.courseOfInterest,
+        submittedAt: new Date(),
+        isRead: false,
+      };
+
+      await addDoc(collection(firestore, "contactSubmissions"), submissionData);
+
+      toast({
+        title: t('contactSection.successMessage'),
+      });
+      form.reset();
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      toast({
+        variant: "destructive",
+        title: "Erreur",
+        description: t('contactSection.errorMessage'),
+      });
+    }
   }
 
   return (
@@ -168,7 +195,7 @@ export default function ContactSection() {
                               )}
                             />
                             <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-                              {form.formState.isSubmitting ? 'Sending...' : t("contactSection.form.submit")}
+                              {form.formState.isSubmitting ? 'Envoi en cours...' : t("contactSection.form.submit")}
                             </Button>
                           </form>
                         </Form>

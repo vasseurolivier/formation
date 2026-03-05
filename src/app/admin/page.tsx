@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { List, Upload, Image as ImageIcon, Film } from "lucide-react";
+import { List, Upload, Image as ImageIcon, Film, Inbox } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminDashboardPage() {
@@ -46,6 +46,14 @@ export default function AdminDashboardPage() {
                   <CardHeader className="flex flex-row items-center gap-4 space-y-0 p-4">
                       <ImageIcon className="w-8 h-8 text-primary" />
                       <CardTitle className="font-sans text-lg">Website Image Manager</CardTitle>
+                  </CardHeader>
+                </Card>
+              </Link>
+              <Link href="/admin/submissions">
+                <Card className="hover:bg-accent transition-colors">
+                  <CardHeader className="flex flex-row items-center gap-4 space-y-0 p-4">
+                      <Inbox className="w-8 h-8 text-primary" />
+                      <CardTitle className="font-sans text-lg">Boîte de Réception</CardTitle>
                   </CardHeader>
                 </Card>
               </Link>

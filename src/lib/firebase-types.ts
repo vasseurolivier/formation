@@ -74,3 +74,15 @@ export interface HomePageContent {
     contactAddressZh: string;
     mapEmbedUrl: string;
 }
+
+export interface ContactSubmission {
+    id: string;
+    name: string;
+    email: string;
+    phone?: string;
+    subject: string;
+    courseOfInterest?: string;
+    message: string;
+    submittedAt: Date;
+    isRead: boolean;
+}
