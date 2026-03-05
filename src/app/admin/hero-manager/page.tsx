@@ -3,26 +3,26 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Film, Upload, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Film, Save, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { useFirestore, useDoc, useMemoFirebase, useFirebaseApp } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 type CustomMedia = {
   url: string;
-  type: string;
+  type: 'image' | 'video';
 };
 
 const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const firestore = useFirestore();
-  const firebaseApp = useFirebaseApp();
 
   const mediaDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -31,32 +31,20 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
 
   const { data: customMediaData, isLoading } = useDoc<MediaAsset>(mediaDocRef);
 
-  const [preview, setPreview] = useState<CustomMedia | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
+  const [url, setUrl] = useState('');
+  const [mediaType, setMediaType] = useState<'image' | 'video'>('image');
+  const [isSaving, setIsSaving] = useState(false);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setSelectedFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview({ url: reader.result as string, type: file.type });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleUpload = () => {
-    if (!selectedFile) {
+  const handleSave = () => {
+    if (!url) {
       toast({
         variant: 'destructive',
-        title: 'Aucun fichier sélectionné',
-        description: "Veuillez sélectionner un fichier média à téléverser.",
+        title: 'URL manquante',
+        description: "Veuillez saisir une URL pour le média.",
       });
       return;
     }
-    if (!mediaDocRef || !firebaseApp) {
+    if (!mediaDocRef) {
       toast({
         variant: "destructive",
         title: "Erreur d'initialisation",
@@ -65,52 +53,45 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
       return;
     }
 
-    setIsUploading(true);
+    setIsSaving(true);
     
-    const storage = getStorage(firebaseApp);
-    const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
-    const fileRef = storageRef(storage, filePath);
+    const newMediaData: Omit<MediaAsset, 'id'> = {
+      url: url,
+      type: mediaType,
+      fileName: 'media_from_url',
+      altTextFr: image.description,
+      altTextEn: image.description,
+      altTextZh: image.description,
+      mimeType: mediaType === 'image' ? 'image/png' : 'video/mp4',
+      uploadedAt: new Date().toISOString()
+    };
 
-    uploadBytes(fileRef, selectedFile)
-      .then(snapshot => getDownloadURL(snapshot.ref))
-      .then(downloadUrl => {
-        const newMediaData: Omit<MediaAsset, 'id'> = {
-          url: downloadUrl,
-          type: selectedFile.type.startsWith('video') ? 'video' : 'image',
-          fileName: selectedFile.name,
-          altTextFr: image.description,
-          altTextEn: image.description,
-          altTextZh: image.description,
-          mimeType: selectedFile.type,
-          uploadedAt: new Date().toISOString()
-        };
-        return setDoc(mediaDocRef, newMediaData, { merge: true });
-      })
+    setDoc(mediaDocRef, newMediaData, { merge: true })
       .then(() => {
         toast({
-          title: 'Téléversement réussi !',
+          title: 'Média sauvegardé !',
           description: `Le média pour "${image.description}" a été mis à jour.`,
         });
-        setPreview(null);
-        setSelectedFile(null);
+        setUrl('');
       })
       .catch((error) => {
-        console.error("Échec de la chaîne de téléversement :", error);
+        console.error("Échec de la sauvegarde :", error);
         toast({
           variant: "destructive",
-          title: "Échec du téléversement",
+          title: "Échec de la sauvegarde",
           description: `Erreur : ${error.code} - ${error.message}`,
         });
       })
       .finally(() => {
-        setIsUploading(false);
+        setIsSaving(false);
       });
   };
 
-  const media: CustomMedia = preview 
-    || (customMediaData ? { url: customMediaData.url, type: customMediaData.type } : { url: image.imageUrl, type: 'image' });
+  const media: CustomMedia = customMediaData 
+    ? { url: customMediaData.url, type: customMediaData.type } 
+    : { url: image.imageUrl, type: 'image' };
   
-  const isCustom = !!customMediaData && !preview;
+  const isCustom = !!customMediaData;
   const isVideo = media.type.startsWith('video');
 
   return (
@@ -134,26 +115,46 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
             </div>
           )}
         </div>
-        <div className="space-y-2">
-          <Input
-            id={`file-${image.id}`}
-            type="file"
-            accept="image/*,video/mp4,video/webm"
-            onChange={handleFileChange}
-            disabled={isUploading}
-          />
-          {isUploading ? (
+        <div className="space-y-3">
+          <div className="space-y-1">
+            <Label htmlFor={`url-${image.id}`}>URL du Média</Label>
+            <Input
+              id={`url-${image.id}`}
+              type="text"
+              placeholder="https://example.com/media.mp4"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              disabled={isSaving}
+            />
+          </div>
+          <div className='space-y-1'>
+            <Label htmlFor={`type-${image.id}`}>Type de Média</Label>
+            <Select
+              value={mediaType}
+              onValueChange={(value: 'image' | 'video') => setMediaType(value)}
+              disabled={isSaving}
+            >
+              <SelectTrigger id={`type-${image.id}`}>
+                <SelectValue placeholder="Sélectionner le type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="image">Image</SelectItem>
+                <SelectItem value="video">Vidéo</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          {isSaving ? (
             <Button disabled className="w-full">
-              <Upload className="mr-2 h-4 w-4 animate-spin" />
+              <Save className="mr-2 h-4 w-4 animate-spin" />
               Enregistrement...
             </Button>
           ) : (
             <Button
-              onClick={handleUpload}
-              disabled={!selectedFile}
+              onClick={handleSave}
+              disabled={!url}
               className="w-full"
             >
-              <Upload className="mr-2 h-4 w-4" /> Sauvegarder le Média
+              <Save className="mr-2 h-4 w-4" /> Sauvegarder le Média
             </Button>
           )}
         </div>
@@ -185,7 +186,7 @@ export default function HeroManagerPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-6">
-             Téléversez des images ou des vidéos personnalisées pour les sections héro principales de votre site. Vos modifications seront sauvegardées de manière permanente et visibles par tous les utilisateurs.
+             Collez une URL pour remplacer une image ou une vidéo pour les sections héro principales de votre site. Vos modifications seront sauvegardées de manière permanente.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {heroImages.map(image => (

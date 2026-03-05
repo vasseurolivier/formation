@@ -6,21 +6,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowLeft, Upload } from 'lucide-react';
+import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
-import { useFirestore, useDoc, useMemoFirebase, useFirebaseApp } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { Label } from '@/components/ui/label';
 
 const LOGO_DOC_ID = 'siteLogo';
 
 export default function LogoUploaderPage() {
-  const [logoPreview, setLogoPreview] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [logoUrl, setLogoUrl] = useState<string>('');
   const { toast } = useToast();
   const firestore = useFirestore();
-  const firebaseApp = useFirebaseApp();
 
   const logoDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -28,32 +26,20 @@ export default function LogoUploaderPage() {
   }, [firestore]);
 
   const { data: logoData, isLoading } = useDoc<MediaAsset>(logoDocRef);
-  const [isUploading, setIsUploading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   
   const currentLogoUrl = logoData?.url;
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setSelectedFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setLogoPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleUpload = () => {
-    if (!selectedFile) {
+  const handleSave = () => {
+    if (!logoUrl) {
       toast({
         variant: 'destructive',
-        title: 'Aucun fichier sélectionné',
-        description: 'Veuillez sélectionner un fichier image à téléverser.',
+        title: 'URL manquante',
+        description: 'Veuillez saisir une URL pour le logo.',
       });
       return;
     }
-    if (!logoDocRef || !firebaseApp) {
+    if (!logoDocRef) {
       toast({
         variant: "destructive",
         title: "Erreur d'initialisation",
@@ -62,49 +48,41 @@ export default function LogoUploaderPage() {
       return;
     }
 
-    setIsUploading(true);
+    setIsSaving(true);
 
-    const storage = getStorage(firebaseApp);
-    const filePath = `mediaAssets/${LOGO_DOC_ID}/${selectedFile.name}`;
-    const fileRef = storageRef(storage, filePath);
+    const newLogoData: Omit<MediaAsset, 'id'> = {
+      url: logoUrl,
+      type: 'image',
+      fileName: 'logo_from_url.png',
+      altTextFr: "Logo du site",
+      altTextEn: "Site logo",
+      altTextZh: "网站标志",
+      mimeType: 'image/png',
+      uploadedAt: new Date().toISOString()
+    };
 
-    uploadBytes(fileRef, selectedFile)
-      .then(snapshot => getDownloadURL(snapshot.ref))
-      .then(downloadUrl => {
-        const newLogoData: Omit<MediaAsset, 'id'> = {
-          url: downloadUrl,
-          type: 'image',
-          fileName: selectedFile.name,
-          altTextFr: "Logo du site",
-          altTextEn: "Site logo",
-          altTextZh: "网站标志",
-          mimeType: selectedFile.type,
-          uploadedAt: new Date().toISOString()
-        };
-        return setDoc(logoDocRef, newLogoData, { merge: true });
-      })
+    setDoc(logoDocRef, newLogoData, { merge: true })
       .then(() => {
         toast({
-          title: 'Logo téléversé avec succès !',
+          title: 'Logo sauvegardé avec succès !',
           description: 'Le nouveau logo va maintenant être affiché dans l\'en-tête.',
         });
-        setLogoPreview(null);
-        setSelectedFile(null);
+        setLogoUrl('');
       })
       .catch((error) => {
-        console.error("Échec de la chaîne de téléversement :", error);
+        console.error("Échec de la sauvegarde :", error);
         toast({
           variant: "destructive",
-          title: "Échec du téléversement",
+          title: "Échec de la sauvegarde",
           description: `Erreur : ${error.code} - ${error.message}`,
         });
       })
       .finally(() => {
-        setIsUploading(false);
+        setIsSaving(false);
       });
   };
 
-  const displayUrl = logoPreview || currentLogoUrl;
+  const displayUrl = logoUrl || currentLogoUrl;
 
   return (
     <div className="min-h-screen bg-background p-4 pt-24 sm:p-6 md:p-8">
@@ -119,16 +97,16 @@ export default function LogoUploaderPage() {
         <Card>
           <CardHeader>
             <CardTitle className="font-headline text-2xl text-primary">
-              Upload Website Logo
+              Gérer le Logo du Site Web
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-4">
-                <h3 className="font-semibold">Current Logo</h3>
+                <h3 className="font-semibold">Logo Actuel</h3>
                 {isLoading ? (
                     <div className="w-full h-14 bg-muted rounded-md animate-pulse"></div>
                 ) : currentLogoUrl ? (
-                    <div className="flex justify-start">
+                    <div className="flex justify-start border p-2 rounded-md">
                         <div className="relative" style={{ height: '3.15rem', width: '6.6rem' }}>
                             <Image
                                 src={currentLogoUrl}
@@ -139,40 +117,32 @@ export default function LogoUploaderPage() {
                         </div>
                     </div>
                 ) : (
-                    <p className="text-sm text-muted-foreground">No logo uploaded yet.</p>
+                    <p className="text-sm text-muted-foreground">Aucun logo défini pour le moment.</p>
                 )}
             </div>
 
             <div className="space-y-2">
-                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: around 530x110 pixels.</p>
-                <Input type="file" accept="image/*" onChange={handleFileChange} disabled={isUploading} />
+                <Label htmlFor="logo-url">Nouvelle URL du logo</Label>
+                <p className="text-sm text-muted-foreground">Collez l'URL de la nouvelle image pour le logo. Taille recommandée : environ 530x110 pixels.</p>
+                <Input
+                  id="logo-url"
+                  type="text"
+                  placeholder="https://example.com/nouveau-logo.png"
+                  value={logoUrl}
+                  onChange={(e) => setLogoUrl(e.target.value)}
+                  disabled={isSaving}
+                />
             </div>
-
-            {logoPreview && (
-              <div className="space-y-4">
-                  <h3 className="font-semibold">New Logo Preview</h3>
-                  <div className="flex justify-start border rounded-md p-2">
-                        <div className="relative" style={{ height: '3.15rem', width: '6.6rem' }}>
-                            <Image
-                                src={logoPreview}
-                                alt="Logo Preview"
-                                fill
-                                style={{ objectFit: 'contain', objectPosition: 'left' }}
-                            />
-                        </div>
-                  </div>
-              </div>
-            )}
-
-            {isUploading ? (
+            
+            {isSaving ? (
               <Button disabled className="w-full">
-                <Upload className="mr-2 h-4 w-4 animate-spin" />
+                <Save className="mr-2 h-4 w-4 animate-spin" />
                 Enregistrement...
               </Button>
             ) : (
-              <Button onClick={handleUpload} disabled={!selectedFile} className="w-full">
-                <Upload className="mr-2 h-4 w-4" />
-                Sauvegarder et appliquer le logo
+              <Button onClick={handleSave} disabled={!logoUrl} className="w-full">
+                <Save className="mr-2 h-4 w-4" />
+                Sauvegarder le nouveau logo
               </Button>
             )}
 

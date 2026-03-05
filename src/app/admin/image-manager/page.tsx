@@ -3,19 +3,19 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ImageUp, Upload, CheckCircle } from 'lucide-react';
+import { ArrowLeft, ImageUp, Save, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { campusLocations } from '@/lib/data';
-import { useFirestore, useDoc, useMemoFirebase, useFirebaseApp } from '@/firebase';
+import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 type ImageGroup = {
   title: string;
@@ -25,7 +25,6 @@ type ImageGroup = {
 const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const firestore = useFirestore();
-  const firebaseApp = useFirebaseApp();
 
   const imageDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -34,32 +33,19 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
 
   const { data: customImageData, isLoading } = useDoc<MediaAsset>(imageDocRef);
 
-  const [preview, setPreview] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setSelectedFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleUpload = () => {
-    if (!selectedFile) {
+  const handleSave = () => {
+    if (!imageUrl) {
       toast({
         variant: 'destructive',
-        title: 'Aucun fichier sélectionné',
-        description: "Veuillez sélectionner un fichier image à téléverser.",
+        title: 'URL manquante',
+        description: "Veuillez saisir une URL pour l'image.",
       });
       return;
     }
-    if (!imageDocRef || !firebaseApp) {
+    if (!imageDocRef) {
       toast({
         variant: "destructive",
         title: "Erreur d'initialisation",
@@ -68,50 +54,42 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
       return;
     }
     
-    setIsUploading(true);
+    setIsSaving(true);
 
-    const storage = getStorage(firebaseApp);
-    const filePath = `mediaAssets/${image.id}/${selectedFile.name}`;
-    const fileRef = storageRef(storage, filePath);
+    const newMediaData: Omit<MediaAsset, 'id'> = {
+      url: imageUrl,
+      type: 'image',
+      fileName: 'image_from_url.jpg',
+      altTextFr: image.description,
+      altTextEn: image.description,
+      altTextZh: image.description,
+      mimeType: 'image/jpeg',
+      uploadedAt: new Date().toISOString(),
+    };
 
-    uploadBytes(fileRef, selectedFile)
-      .then(snapshot => getDownloadURL(snapshot.ref))
-      .then(downloadUrl => {
-        const newMediaData: Omit<MediaAsset, 'id'> = {
-          url: downloadUrl,
-          type: 'image',
-          fileName: selectedFile.name,
-          altTextFr: image.description,
-          altTextEn: image.description,
-          altTextZh: image.description,
-          mimeType: selectedFile.type,
-          uploadedAt: new Date().toISOString(),
-        };
-        return setDoc(imageDocRef, newMediaData, { merge: true });
-      })
+    setDoc(imageDocRef, newMediaData, { merge: true })
       .then(() => {
         toast({
-          title: 'Téléversement réussi !',
+          title: 'Image sauvegardée !',
           description: `L'image pour "${image.description}" a été mise à jour.`,
         });
-        setPreview(null);
-        setSelectedFile(null);
+        setImageUrl('');
       })
       .catch((error) => {
-        console.error("Échec de la chaîne de téléversement :", error);
+        console.error("Échec de la sauvegarde :", error);
         toast({
           variant: "destructive",
-          title: "Échec du téléversement",
+          title: "Échec de la sauvegarde",
           description: `Erreur : ${error.code} - ${error.message}`,
         });
       })
       .finally(() => {
-        setIsUploading(false);
+        setIsSaving(false);
       });
   };
 
-  const displayUrl = preview || customImageData?.url || image.imageUrl;
-  const isCustom = !!customImageData && !preview;
+  const displayUrl = customImageData?.url || image.imageUrl;
+  const isCustom = !!customImageData;
 
   return (
     <Card className="overflow-hidden">
@@ -138,25 +116,27 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
           )}
         </div>
         <div className="space-y-2">
+            <Label htmlFor={`url-${image.id}`}>Nouvelle URL d'image</Label>
             <Input
-                id={`file-${image.id}`}
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-                disabled={isUploading}
+                id={`url-${image.id}`}
+                type="text"
+                placeholder="https://example.com/image.jpg"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
+                disabled={isSaving}
             />
-            {isUploading ? (
+            {isSaving ? (
               <Button disabled className="w-full">
-                <Upload className="mr-2 h-4 w-4 animate-spin" />
+                <Save className="mr-2 h-4 w-4 animate-spin" />
                 Enregistrement...
               </Button>
             ) : (
               <Button
-                  onClick={handleUpload}
-                  disabled={!selectedFile}
+                  onClick={handleSave}
+                  disabled={!imageUrl}
                   className="w-full"
               >
-                <Upload className="mr-2 h-4 w-4" /> Sauvegarder l'image
+                <Save className="mr-2 h-4 w-4" /> Sauvegarder l'image
               </Button>
             )}
         </div>
@@ -209,7 +189,7 @@ export default function ImageManagerPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-6">
-              Téléversez et gérez les images utilisées sur l'ensemble du site. Les modifications sont sauvegardées de manière permanente et seront visibles par tous les utilisateurs.
+              Collez une URL pour remplacer n'importe quelle image du site. Les modifications sont sauvegardées de manière permanente et seront visibles par tous les utilisateurs.
             </p>
             <Accordion type="multiple" defaultValue={['item-0']} className="w-full space-y-4">
               {imageGroups.map((group, groupIndex) => (
