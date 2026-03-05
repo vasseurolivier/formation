@@ -2,7 +2,7 @@
 
 import { useTranslation } from "@/hooks/use-translation";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { Award, Briefcase, GraduationCap } from "lucide-react";
+import { Award, GraduationCap, Languages } from "lucide-react";
 
 export default function CoursesIntroSection() {
   const { t } = useTranslation();
@@ -14,9 +14,9 @@ export default function CoursesIntroSection() {
       labelKey: "coursesIntro.stats.programs",
     },
     {
-      icon: Briefcase,
-      value: "90%",
-      labelKey: "coursesIntro.stats.placement",
+      icon: Languages,
+      value: "3",
+      labelKey: "coursesIntro.stats.languages",
     },
     {
       icon: Award,
