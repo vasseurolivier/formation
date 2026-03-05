@@ -105,7 +105,7 @@ export default function LogoUploaderPage() {
                     <div className="w-full h-14 bg-muted rounded-md animate-pulse"></div>
                 ) : currentLogoUrl ? (
                     <div className="flex justify-start">
-                        <div className="relative" style={{ height: '4.5rem', width: '22rem' }}>
+                        <div className="relative" style={{ height: '3.15rem', width: '13.2rem' }}>
                             <Image
                                 src={currentLogoUrl}
                                 alt="Current Site Logo"
@@ -120,7 +120,7 @@ export default function LogoUploaderPage() {
             </div>
 
             <div className="space-y-2">
-                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: around 880x180 pixels.</p>
+                <p className="text-muted-foreground">Select a new image file for the site logo. Recommended size: around 530x110 pixels.</p>
                 <Input type="file" accept="image/*" onChange={handleFileChange} />
             </div>
 
@@ -128,7 +128,7 @@ export default function LogoUploaderPage() {
               <div className="space-y-4">
                   <h3 className="font-semibold">New Logo Preview</h3>
                   <div className="flex justify-start border rounded-md p-2">
-                        <div className="relative" style={{ height: '4.5rem', width: '22rem' }}>
+                        <div className="relative" style={{ height: '3.15rem', width: '13.2rem' }}>
                             <Image
                                 src={logoPreview}
                                 alt="Logo Preview"

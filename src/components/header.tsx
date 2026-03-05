@@ -55,10 +55,10 @@ export default function Header() {
         isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
       )}
     >
-      <div className="w-full mx-auto flex h-28 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-10">
           <Link href="/" className="flex-shrink-0">
-              <div className="relative" style={{ height: '4.5rem', width: '22rem' }}>
+              <div className="relative" style={{ height: '3.15rem', width: '13.2rem' }}>
                 {logoUrl ? (
                     <Image
                         src={logoUrl}
