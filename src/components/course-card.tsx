@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -34,7 +35,7 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
                     />
                 )}
                  {course.languageHighlight && (
-                  <Badge variant="default" className="absolute top-4 right-4 border-primary-foreground/20 backdrop-blur-sm">
+                  <Badge variant="destructive" className="absolute top-4 right-4 border-destructive-foreground/20 backdrop-blur-sm">
                     {t('courseCard.languageBadge')}
                   </Badge>
                 )}
@@ -58,3 +59,4 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
     </Link>
   );
 }
+

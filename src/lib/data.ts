@@ -88,7 +88,8 @@ export const courses: Course[] = [
     thumbnailImageId: 'course-sommelier',
     heroImageId: 'hero-course-sommelier',
     iconMediaId: 'icon-sommelier',
-    galleryImageIds: ['gallery-course-sommelier-1', 'gallery-course-sommelier-2', 'gallery-course-sommelier-3']
+    galleryImageIds: ['gallery-course-sommelier-1', 'gallery-course-sommelier-2', 'gallery-course-sommelier-3'],
+    languageHighlight: true
   },
   { 
     id: 'fashion-model', 
