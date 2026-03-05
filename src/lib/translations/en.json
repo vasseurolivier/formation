@@ -23,10 +23,11 @@
     "cta": "View All Courses"
   },
   "category": {
-    "luxury": "Luxury & Hospitality",
-    "sport": "Sport & Management",
-    "languages": "Languages & International",
-    "business": "Business & Strategy"
+    "internationalBusiness": "International Business & Management",
+    "languagesAndCultures": "Cultures & Foreign Languages",
+    "luxury": "Luxury Hospitality & Catering",
+    "fashion": "Fashion",
+    "aeronautics": "Aeronautics"
   },
   "courses": {
     "flightAttendant": {
@@ -74,33 +75,6 @@
       "prerequisites": "Industry-standard height and measurement criteria. Evaluation based on portfolio and interview.",
       "outcomes": "Runway model, advertising campaigns, fashion editorials."
     },
-    "footballCoach": {
-      "title": "Football Coach",
-      "shortDesc": "Lead your team to victory with expert coaching skills.",
-      "fullDesc": "Acquire the tactical, technical, and managerial skills to become a successful football coach. The program covers training session planning, match analysis, physical preparation, sports psychology, and team management.",
-      "duration": "10 months (part-time)",
-      "target": "Former players, sports educators, football enthusiasts aspiring to a coaching career.",
-      "prerequisites": "Experience as a player or sports supervisor. Good knowledge of football.",
-      "outcomes": "Coach for amateur or semi-professional clubs, youth coach, video analyst."
-    },
-    "fifaAgent": {
-      "title": "FIFA Agent",
-      "shortDesc": "Navigate the world of professional football transfers.",
-      "fullDesc": "Become a key player in world football. This specialized training prepares you for the FIFA agent exam and teaches you sports law, contract negotiation, talent scouting, and the career management of professional players.",
-      "duration": "8 months",
-      "target": "Legal, marketing, or finance professionals with a passion for football. Former players in career transition.",
-      "prerequisites": "University degree (Law, Economics, Sports Management is a plus). In-depth knowledge of the football environment.",
-      "outcomes": "Licensed FIFA players' agent, collaborator in a sports agency, legal manager in a club."
-    },
-    "sportsData": {
-      "title": "Sports Data Analyst",
-      "shortDesc": "Turn game data into winning strategies.",
-      "fullDesc": "Modern sport is driven by data. Learn to collect, analyze, and interpret performance data to optimize team strategies, player recruitment, and injury prevention. The program covers statistical tools, video analysis software, and data visualization.",
-      "duration": "6 months",
-      "target": "Analytical profiles with an interest in sports, students in sports science, mathematics, or computer science.",
-      "prerequisites": "2/3 years of higher education. Strong logical and analytical skills. Knowledge of a programming language (Python, R) is a plus.",
-      "outcomes": "Data analyst for a professional club, a sports federation, or a sports media company."
-    },
     "fle": {
       "title": "FLE (French as a Foreign Language)",
       "shortDesc": "Immerse yourself in the French language and culture.",
@@ -145,15 +119,6 @@
       "target": "Entrepreneurs and managers from Asia wishing to expand into Europe.",
       "prerequisites": "Solid business project. Good level of English or Chinese.",
       "outcomes": "Business plan for European expansion, network of contacts in Europe."
-    },
-    "fifaAgentAlt": {
-      "title": "Sports Management",
-      "shortDesc": "A comprehensive look into the business of sports.",
-      "fullDesc": "This course offers a 360° perspective on the sports industry. Topics covered include sports marketing, sponsorship, event management, sports law, club and federation finance, and sports infrastructure management.",
-      "duration": "9 months",
-      "target": "Students and professionals seeking a career in sports administration and management.",
-      "prerequisites": "2/3 years of higher education. Strong interest in sports and its economy.",
-      "outcomes": "Positions in marketing, communication, event management, or administration within sports organizations."
     }
   },
   "aboutSection": {
@@ -282,5 +247,8 @@
         "description": "Our training is rooted in the reality of the professional world. We focus on practical, directly applicable skills to ensure the employability of our graduates."
       }
     ]
+  },
+  "courseCard": {
+    "languageBadge": "Course in English or Chinese"
   }
 }

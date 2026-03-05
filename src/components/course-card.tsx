@@ -33,6 +33,11 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                 )}
+                 {course.languageHighlight && (
+                  <Badge className="absolute top-4 right-4 border-accent bg-accent/80 text-accent-foreground backdrop-blur-sm">
+                    {t('courseCard.languageBadge')}
+                  </Badge>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                     <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/50">{categoryTitle}</Badge>
@@ -42,8 +47,10 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
                 <h3 className="font-headline text-xl text-foreground mb-2">
                     {t(course.titleKey)}
                 </h3>
-                <div className="flex-grow" />
-                <p className="text-sm text-primary font-semibold flex items-center mt-2">
+                <p className="text-muted-foreground text-sm flex-grow">
+                    {t(course.shortDescriptionKey)}
+                </p>
+                <p className="text-sm text-primary font-semibold flex items-center mt-4">
                     En savoir plus <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                 </p>
             </div>

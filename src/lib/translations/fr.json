@@ -23,10 +23,11 @@
     "cta": "Voir toutes les formations"
   },
   "category": {
-    "luxury": "Luxe & Hôtellerie",
-    "sport": "Sport & Management",
-    "languages": "Langues & International",
-    "business": "Business & Stratégie"
+    "internationalBusiness": "Affaires & Gestion Internationales",
+    "languagesAndCultures": "Cultures & Langues Étrangères",
+    "luxury": "Luxury Hospitality & Catering",
+    "fashion": "Fashion",
+    "aeronautics": "Aeronautics"
   },
   "courses": {
     "flightAttendant": {
@@ -74,33 +75,6 @@
       "prerequisites": "Critères de taille et de mensurations standards de l'industrie. Évaluation sur portfolio et entretien.",
       "outcomes": "Mannequin pour défilés, campagnes publicitaires, éditoriaux de mode."
     },
-    "footballCoach": {
-      "title": "Entraîneur de Football",
-      "shortDesc": "Menez votre équipe à la victoire grâce à des compétences d'expert.",
-      "fullDesc": "Acquérez les compétences tactiques, techniques et managériales pour devenir un entraîneur de football performant. Le programme couvre la planification de séances d'entraînement, l'analyse de match, la préparation physique, la psychologie du sport et la gestion d'équipe.",
-      "duration": "10 mois (temps partiel)",
-      "target": "Anciens joueurs, éducateurs sportifs, passionnés de football désirant une carrière d'entraîneur.",
-      "prerequisites": "Expérience en tant que joueur ou encadrant sportif. Bonne connaissance du football.",
-      "outcomes": "Entraîneur pour clubs amateurs ou semi-professionnels, coach pour jeunes, analyste vidéo."
-    },
-    "fifaAgent": {
-      "title": "Agent de Joueurs (FIFA)",
-      "shortDesc": "Naviguez dans le monde des transferts de football professionnel.",
-      "fullDesc": "Devenez un acteur clé du football mondial. Cette formation spécialisée vous prépare à l'examen d'agent de la FIFA et vous enseigne le droit du sport, la négociation de contrats, le scouting de talents, et la gestion de carrière de joueurs professionnels.",
-      "duration": "8 mois",
-      "target": "Professionnels du droit, du marketing ou de la finance avec une passion pour le football. Anciens joueurs en reconversion.",
-      "prerequisites": "Diplôme universitaire (Droit, Économie, Management du Sport est un plus). Connaissance approfondie du milieu du football.",
-      "outcomes": "Agent de joueurs licencié FIFA, Collaborateur d'agence sportive, Responsable juridique dans un club."
-    },
-    "sportsData": {
-      "title": "Analyste de Données Sportives",
-      "shortDesc": "Transformez les données de match en stratégies gagnantes.",
-      "fullDesc": "Le sport moderne est piloté par la data. Apprenez à collecter, analyser et interpréter les données de performance pour optimiser les stratégies d'équipe, le recrutement de joueurs et la prévention des blessures. Le programme couvre les outils statistiques, les logiciels d'analyse vidéo et la data visualisation.",
-      "duration": "6 mois",
-      "target": "Profils analytiques avec un intérêt pour le sport, étudiants en STAPS, mathématiques, informatique.",
-      "prerequisites": "Bac +2/3. Solides compétences en logique et en analyse. La connaissance d'un langage de programmation (Python, R) est un plus.",
-      "outcomes": "Analyste de données pour un club professionnel, une fédération sportive, ou une entreprise de médias sportifs."
-    },
     "fle": {
       "title": "FLE (Français Langue Étrangère)",
       "shortDesc": "Plongez au cœur de la langue et de la culture françaises.",
@@ -145,15 +119,6 @@
       "target": "Entrepreneurs et managers d'Asie désirant s'étendre en Europe.",
       "prerequisites": "Projet d'entreprise solide. Bon niveau d'anglais ou de chinois.",
       "outcomes": "Plan d'affaires pour une expansion européenne, réseau de contacts en Europe."
-    },
-    "fifaAgentAlt": {
-      "title": "Management du Sport",
-      "shortDesc": "Une vision complète du business dans le monde du sport.",
-      "fullDesc": "Ce cours offre une perspective à 360° sur l'industrie du sport. Les thèmes abordés incluent le marketing sportif, le sponsoring, la gestion d'événements, le droit du sport, la finance des clubs et des fédérations, et le management des infrastructures sportives.",
-      "duration": "9 mois",
-      "target": "Étudiants et professionnels souhaitant une carrière dans l'administration et la gestion du sport.",
-      "prerequisites": "Bac +2/3. Fort intérêt pour le sport et son économie.",
-      "outcomes": "Postes en marketing, communication, gestion d'événements ou administration au sein d'organisations sportives."
     }
   },
   "aboutSection": {
@@ -282,5 +247,8 @@
         "description": "Nos formations sont ancrées dans la réalité du monde professionnel. Nous privilégions les compétences pratiques et directement applicables pour assurer l'employabilité de nos diplômés."
       }
     ]
+  },
+  "courseCard": {
+    "languageBadge": "Formation en Anglais ou Chinois"
   }
 }
