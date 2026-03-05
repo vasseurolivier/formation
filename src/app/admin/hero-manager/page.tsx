@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Film, Save, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Film, Save, CheckCircle, AlertTriangle, RefreshCw } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,9 +11,10 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
+import { useFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 type CustomMedia = {
   url: string;
@@ -22,20 +23,22 @@ type CustomMedia = {
 
 const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
-  const firestore = useFirestore();
+  const { firestore, auth } = useFirebase();
 
   const mediaDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
     return doc(firestore, 'mediaAssets', image.id);
   }, [firestore, image.id]);
 
-  const { data: customMediaData, isLoading } = useDoc<MediaAsset>(mediaDocRef);
+  const { data: customMediaData, isLoading, error: docError, refetch } = useDoc<MediaAsset>(mediaDocRef);
 
   const [url, setUrl] = useState('');
   const [mediaType, setMediaType] = useState<'image' | 'video'>('image');
   const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
   const handleSave = () => {
+    setError(null);
     if (!url) {
       toast({
         variant: 'destructive',
@@ -44,12 +47,9 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
       });
       return;
     }
-    if (!mediaDocRef) {
-      toast({
-        variant: "destructive",
-        title: "Erreur d'initialisation",
-        description: "Les services Firebase ne sont pas disponibles.",
-      });
+    if (!mediaDocRef || !auth) {
+      const initError = new Error("Les services Firebase ne sont pas disponibles.");
+      setError(initError);
       return;
     }
 
@@ -74,19 +74,16 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
         });
         setUrl('');
       })
-      .catch((error) => {
-        console.error("Échec de la sauvegarde :", error);
-        toast({
-          variant: "destructive",
-          title: "Échec de la sauvegarde",
-          description: `Erreur : ${error.code} - ${error.message}`,
-        });
+      .catch((e) => {
+        console.error("Échec de la sauvegarde :", e);
+        setError(e);
       })
       .finally(() => {
         setIsSaving(false);
       });
   };
-
+  
+  const effectiveError = error || docError;
   const media: CustomMedia = customMediaData 
     ? { url: customMediaData.url, type: customMediaData.type } 
     : { url: image.imageUrl, type: 'image' };
@@ -95,27 +92,40 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   const isVideo = media.type.startsWith('video');
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden flex flex-col">
       <CardHeader className="p-4">
         <CardTitle className="text-base font-medium">{image.description}</CardTitle>
       </CardHeader>
-      <CardContent className="p-4 pt-0 space-y-4">
+      <CardContent className="p-4 pt-0 space-y-4 flex flex-col flex-grow">
         <div className="relative aspect-video w-full rounded-md overflow-hidden border bg-black">
           {isLoading ? (
              <div className="w-full h-full bg-muted animate-pulse" />
           ) : isVideo ? (
               <video key={media.url} src={media.url} controls className="w-full h-full object-cover" />
           ) : (
-              <Image src={media.url} alt={image.description} fill className="object-cover" />
+              <Image src={media.url} alt={image.description} fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
           )}
-          {isCustom && (
+          {isCustom && !isLoading && (
             <div className="absolute top-2 right-2 flex items-center gap-1 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
               <CheckCircle className="w-3 h-3" />
               Personnalisé
             </div>
           )}
         </div>
-        <div className="space-y-3">
+        <div className="space-y-3 mt-auto">
+           {effectiveError && (
+             <Alert variant="destructive">
+               <AlertTriangle className="h-4 w-4" />
+               <AlertDescription className="text-xs">
+                 <strong>Erreur : {effectiveError.name}</strong><br />
+                 {effectiveError.message}
+                 <Button variant="ghost" size="sm" onClick={() => refetch()} className="ml-2">
+                   <RefreshCw className="w-3 h-3 mr-1" />
+                   Réessayer
+                 </Button>
+               </AlertDescription>
+             </Alert>
+           )}
           <div className="space-y-1">
             <Label htmlFor={`url-${image.id}`}>URL du Média</Label>
             <Input
@@ -143,20 +153,22 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
               </SelectContent>
             </Select>
           </div>
-          {isSaving ? (
-            <Button disabled className="w-full">
-              <Save className="mr-2 h-4 w-4 animate-spin" />
-              Enregistrement...
-            </Button>
-          ) : (
-            <Button
+          <Button
               onClick={handleSave}
-              disabled={!url}
+              disabled={isSaving || !url}
               className="w-full"
             >
-              <Save className="mr-2 h-4 w-4" /> Sauvegarder le Média
+              {isSaving ? (
+                <>
+                  <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                  Enregistrement...
+                </>
+              ) : (
+                <>
+                  <Save className="mr-2 h-4 w-4" /> Sauvegarder le Média
+                </>
+              )}
             </Button>
-          )}
         </div>
       </CardContent>
     </Card>

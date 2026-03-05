@@ -37,6 +37,7 @@ export default function HomeAboutSection() {
                   data-ai-hint={aboutImage.imageHint}
                   fill
                   className="object-cover"
+                  sizes="(min-width: 768px) 50vw, 100vw"
                 />
               ) : (
                 <Skeleton className="w-full h-full" />

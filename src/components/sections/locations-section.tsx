@@ -41,6 +41,7 @@ export default function LocationsSection() {
                         data-ai-hint={placeholder.imageHint}
                         fill
                         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                        sizes="(min-width: 768px) 33vw, 100vw"
                       />
                     ) : (
                       <Skeleton className="w-full h-full" />

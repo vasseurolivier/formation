@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ImageUp, Save, CheckCircle } from 'lucide-react';
+import { ArrowLeft, ImageUp, Save, CheckCircle, AlertTriangle, RefreshCw } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,11 +12,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { campusLocations, courses } from '@/lib/data';
-import { useFirestore, useDoc, useMemoFirebase } from '@/firebase';
+import { useFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useTranslation } from '@/hooks/use-translation';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 type ImageGroup = {
   title: string;
@@ -25,19 +26,21 @@ type ImageGroup = {
 
 const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
-  const firestore = useFirestore();
+  const { firestore, auth } = useFirebase();
 
   const imageDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
     return doc(firestore, 'mediaAssets', image.id);
   }, [firestore, image.id]);
 
-  const { data: customImageData, isLoading } = useDoc<MediaAsset>(imageDocRef);
+  const { data: customImageData, isLoading, error: docError, refetch } = useDoc<MediaAsset>(imageDocRef);
 
   const [imageUrl, setImageUrl] = useState('');
   const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
   const handleSave = () => {
+    setError(null);
     if (!imageUrl) {
       toast({
         variant: 'destructive',
@@ -46,12 +49,9 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
       });
       return;
     }
-    if (!imageDocRef) {
-      toast({
-        variant: "destructive",
-        title: "Erreur d'initialisation",
-        description: "Les services Firebase ne sont pas disponibles.",
-      });
+    if (!imageDocRef || !auth) {
+      const initError = new Error("Les services Firebase ne sont pas disponibles.");
+      setError(initError);
       return;
     }
     
@@ -76,13 +76,9 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
         });
         setImageUrl('');
       })
-      .catch((error) => {
-        console.error("Échec de la sauvegarde :", error);
-        toast({
-          variant: "destructive",
-          title: "Échec de la sauvegarde",
-          description: `Erreur : ${error.code} - ${error.message}`,
-        });
+      .catch((e) => {
+        console.error("Échec de la sauvegarde :", e);
+        setError(e);
       })
       .finally(() => {
         setIsSaving(false);
@@ -91,13 +87,14 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
 
   const displayUrl = customImageData?.url || image.imageUrl;
   const isCustom = !!customImageData;
+  const effectiveError = error || docError;
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden flex flex-col">
       <CardHeader className="p-4">
         <CardTitle className="text-base font-medium">{image.description}</CardTitle>
       </CardHeader>
-      <CardContent className="p-4 pt-0 space-y-4">
+      <CardContent className="p-4 pt-0 space-y-4 flex flex-col flex-grow">
         <div className="relative aspect-video w-full rounded-md overflow-hidden border">
           {isLoading ? (
             <Skeleton className="w-full h-full" />
@@ -107,17 +104,30 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
               alt={image.description}
               fill
               className="object-cover"
-              unoptimized
+              sizes="(min-width: 768px) 50vw, 100vw"
             />
           )}
-          {isCustom && (
+          {isCustom && !isLoading && (
             <div className="absolute top-2 right-2 flex items-center gap-1 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
               <CheckCircle className="w-3 h-3" />
               Personnalisé
             </div>
           )}
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 mt-auto">
+            {effectiveError && (
+              <Alert variant="destructive">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription className="text-xs">
+                  <strong>Erreur : {effectiveError.name}</strong><br/>
+                  {effectiveError.message}
+                  <Button variant="ghost" size="sm" onClick={() => refetch()} className="ml-2">
+                    <RefreshCw className="w-3 h-3 mr-1" />
+                    Réessayer
+                  </Button>
+                </AlertDescription>
+              </Alert>
+            )}
             <Label htmlFor={`url-${image.id}`}>Nouvelle URL d'image</Label>
             <Input
                 id={`url-${image.id}`}
@@ -127,20 +137,22 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
                 onChange={(e) => setImageUrl(e.target.value)}
                 disabled={isSaving}
             />
-            {isSaving ? (
-              <Button disabled className="w-full">
-                <Save className="mr-2 h-4 w-4 animate-spin" />
-                Enregistrement...
-              </Button>
-            ) : (
-              <Button
-                  onClick={handleSave}
-                  disabled={!imageUrl}
-                  className="w-full"
-              >
-                <Save className="mr-2 h-4 w-4" /> Sauvegarder l'image
-              </Button>
-            )}
+            <Button
+              onClick={handleSave}
+              disabled={isSaving || !imageUrl}
+              className="w-full"
+            >
+              {isSaving ? (
+                <>
+                  <RefreshCw className="mr-2 h-4 w-4 animate-spin" />
+                  Enregistrement...
+                </>
+              ) : (
+                <>
+                  <Save className="mr-2 h-4 w-4" /> Sauvegarder l'image
+                </>
+              )}
+            </Button>
         </div>
       </CardContent>
     </Card>

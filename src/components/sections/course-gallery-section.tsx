@@ -43,6 +43,7 @@ function GalleryImage({ imageId, index }: { imageId: string; index: number }) {
             data-ai-hint={placeholder.imageHint}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
             />
         ) : (
             <Skeleton className="w-full h-full" />
