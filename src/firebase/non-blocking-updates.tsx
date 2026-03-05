@@ -21,16 +21,19 @@ function handleFirestoreError(
     context: SecurityRuleContext
 ) {
     if (error instanceof FirestoreError && error.code === 'permission-denied') {
-        errorEmitter.emit(
-            'permission-error',
-            new FirestorePermissionError(auth, context)
-        );
+        const permissionError = new FirestorePermissionError(auth, context);
+        console.error("Permission denied error:", permissionError.message);
+        toast({
+            variant: "destructive",
+            title: "Permission Refusée",
+            description: "Vous n'avez pas les droits nécessaires pour effectuer cette action.",
+        });
     } else {
         console.error(`An unexpected Firestore error occurred during ${context.operation} on ${context.path}:`, error);
         toast({
             variant: "destructive",
-            title: "An unexpected error occurred",
-            description: error.message || "Could not complete the operation. Please check the console.",
+            title: "Une erreur inattendue est survenue",
+            description: error.message || "Impossible de terminer l'opération. Veuillez vérifier la console.",
         });
     }
 }
