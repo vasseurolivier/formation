@@ -46,16 +46,18 @@
       "duration": "6个月",
       "target": "有志成为客舱服务员，具备出色的沟通技巧、服务意识和高度适应能力的人员。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "国内和国际航空公司的空乘人员。"
+      "outcomes": "国内和国际航空公司的空乘人员。",
+      "price": "1990欧元起"
     },
     "luxuryRestaurant": {
       "title": "豪华餐厅服务人员",
       "shortDesc": "掌握高级餐饮服务的艺术。",
-      "fullDesc": "沉浸在法式生活艺术的核心，成为高级餐饮界的关键一员。我们专注于豪华餐厅服务的培训课程专为追求卓越的热情人士设计。这个项目远不止于简单的技术；它向您介绍一种服务哲学，其中每一个细节都至关重要。您将学习如何策划一次难忘的客户体验，从个性化的欢迎到告别。课程深入涵盖了最高雅的服务技巧：法式服务、英式服务、餐桌旁火焰表演和切割。\n\n培训的一个重要部分致力于入门级侍酒师技能，使您能够自信地为客户提供食物与葡萄酒的搭配建议。您将学习主要的葡萄品种、风土以及品酒的原则。餐桌艺术也将是您学习的中心，设有关于餐桌布置和花艺装饰的讲习班。此外，我们特别强调人际交往能力：客户心理学、投诉管理、客户忠诚度建立以及言语和非言语交流。您将从这次培训中毕业，具备加入世界顶级米其林星级餐厅和宫殿酒店团队所需的优雅、严谨和自信。",
+      "fullDesc": "沉浸在法式生活艺术的核心，成为高级餐饮界的关键一员。我们专注于豪华餐厅服务的培训课程专为追求卓越的热情人士设计。这个项目远不止于简单的技术；它向您介绍一种服务哲学，其中每一个细节都至关重要。您将学习如何策划一次难忘的客户体验，从个性化的欢迎到告别。课程深入涵盖了最高雅的服务技巧：法式服务、英式服务、餐桌旁火焰表演和切割。\n\nA significant part of the training is devoted to introductory sommelier skills, enabling you to advise clients on food and wine pairings with confidence. You will study major grape varieties, terroirs, and the principles of tasting. The art of table setting will also be central to your learning, with workshops on table dressing and floral decoration. Moreover, we place special emphasis on interpersonal skills: customer psychology, complaint management, loyalty building, and verbal and non-verbal communication. You will graduate from this training with the elegance, rigor, and confidence needed to join the brigades of the world's greatest Michelin-starred restaurants and palaces.",
       "duration": "4个月",
       "target": "对美食和服务充满热情，希望在著名场所工作的人。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "美食餐厅、豪华酒店的餐厅经理、领班、初级侍酒师。"
+      "outcomes": "美食餐厅、豪华酒店的餐厅经理、领班、初级侍酒师。",
+      "price": "1490欧元起"
     },
     "luxuryHotel": {
       "title": "豪华酒店服务人员",
@@ -64,7 +66,8 @@
       "duration": "5个月",
       "target": "具有出色人际交往能力、仪容整洁、对豪华酒店业充满热情的候选人。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "五星级酒店和宫殿酒店的接待员、礼宾员、客房主管。"
+      "outcomes": "五星级酒店和宫殿酒店的接待员、礼宾员、客房主管。",
+      "price": "1790欧元起"
     },
     "sommelier": {
       "title": "侍酒师",
@@ -73,7 +76,8 @@
       "duration": "6个月",
       "target": "希望将热情职业化的葡萄酒爱好者，餐饮专业人士。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "餐厅侍酒师、葡萄酒商、葡萄酒顾问、酒庄代表。"
+      "outcomes": "餐厅侍酒师、葡萄酒商、葡萄酒顾问、酒庄代表。",
+      "price": "2490欧元起"
     },
     "fashionModel": {
       "title": "时装模特",
@@ -82,7 +86,8 @@
       "duration": "1个模块（7天），完整（14天）",
       "target": "具有强大身体潜力和魅力个性的年轻才俊（男女均可）。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "时装秀模特、广告活动模特、时尚杂志模特。"
+      "outcomes": "时装秀模特、广告活动模特、时尚杂志模特。",
+      "price": "990欧元起"
     },
     "fle": {
       "title": "FLE（法语作为外语）",
@@ -91,7 +96,8 @@
       "duration": "可变（4周模块）",
       "target": "国际学生、外籍人士、专业人士以及任何希望学习法语的人。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "掌握用于个人、学术或专业目标的法语。准备DELF/DALF考试。"
+      "outcomes": "掌握用于个人、学术或专业目标的法语。准备DELF/DALF考试。",
+      "price": "490欧元起"
     },
     "hsk": {
       "title": "HSK - 汉语水平考试",
@@ -100,7 +106,8 @@
       "duration": "可变（每级12周课程）",
       "target": "学习中文的学生、与中国工作的专业人士、任何希望获得官方水平认证的人。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "成功通过HSK考试，获得国际认可的汉语水平。"
+      "outcomes": "成功通过HSK考试，获得国际认可的汉语水平。",
+      "price": "450欧元起"
     },
     "tefl": {
       "title": "TEFL - 在国外教英语",
@@ -109,7 +116,8 @@
       "duration": "4周（强化）",
       "target": "希望旅行和教学的英语母语者或双语者。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "全球认可的TEFL认证，进入我们合作学校网络获得工作机会。"
+      "outcomes": "全球认可的TEFL认证，进入我们合作学校网络获得工作机会。",
+      "price": "1200欧元起"
     },
     "businessChina": {
       "title": "中国的商业与数字优势",
@@ -118,7 +126,8 @@
       "duration": "3个月",
       "target": "企业领导、市场总监、出口经理、企业家。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "能够为中国市场制定并实施发展战略。"
+      "outcomes": "能够为中国市场制定并实施发展战略。",
+      "price": "1800欧元起"
     },
     "gatewayEurope": {
       "title": "通往欧洲和东南亚的门户",
@@ -127,7 +136,8 @@
       "duration": "3个月",
       "target": "希望扩展到欧洲的亚洲企业家和经理人。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "欧洲扩张的商业计划，欧洲的人脉网络。"
+      "outcomes": "欧洲扩张的商业计划，欧洲的人脉网络。",
+      "price": "1800欧元起"
     },
     "footballCoach": {
       "title": "足球教练",
@@ -136,7 +146,8 @@
       "duration": "10个月",
       "target": "未来的教练、体育教育者。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "认证教练、技术总监、球探。"
+      "outcomes": "认证教练、技术总监、球探。",
+      "price": "2990欧元起"
     },
     "fifaAgent": {
       "title": "球员经纪人（FIFA许可证）",
@@ -145,7 +156,8 @@
       "duration": "8个月",
       "target": "具有商业头脑的足球爱好者。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "持有FIFA许可证的球员经纪人、体育顾问。"
+      "outcomes": "持有FIFA许可证的球员经纪人、体育顾问。",
+      "price": "3490欧元起"
     },
     "sportsData": {
       "title": "体育数据分析师",
@@ -154,7 +166,8 @@
       "duration": "6个月",
       "target": "分析型人才、统计师、体育爱好者。",
       "prerequisites": "年满16周岁。",
-      "outcomes": "职业俱乐部、联合会或体育媒体的数据分析师。"
+      "outcomes": "职业俱乐部、联合会或体育媒体的数据分析师。",
+      "price": "2790欧元起"
     }
   },
   "aboutSection": {
@@ -259,7 +272,8 @@
     "formula": "方案",
     "formulaValue": "全食宿, 半食宿, 外部",
     "languages": "语言",
-    "languagesValue": "课程提供英语和中文授课"
+    "languagesValue": "课程提供英语和中文授课",
+    "price": "价格"
   },
   "coursesIntro": {
     "title": "独特的学习方法",

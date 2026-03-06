@@ -46,7 +46,8 @@
       "duration": "6 months",
       "target": "Aspiring cabin crew members with excellent communication skills, a service-oriented mindset, and high adaptability.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Flight Attendant / Cabin Crew for national and international airlines."
+      "outcomes": "Flight Attendant / Cabin Crew for national and international airlines.",
+      "price": "From €1990"
     },
     "luxuryRestaurant": {
       "title": "Luxury Restaurant Service Staff",
@@ -55,7 +56,8 @@
       "duration": "4 months",
       "target": "Enthusiasts of gastronomy and service, wishing to work in prestigious establishments.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Maître d'hôtel, Head Waiter, Junior Sommelier in gastronomic restaurants, luxury hotels."
+      "outcomes": "Maître d'hôtel, Head Waiter, Junior Sommelier in gastronomic restaurants, luxury hotels.",
+      "price": "From €1490"
     },
     "luxuryHotel": {
       "title": "Luxury Hotel Service Staff",
@@ -64,7 +66,8 @@
       "duration": "5 months",
       "target": "Candidates with excellent interpersonal skills, a polished appearance, and a passion for luxury hospitality.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Receptionist, Concierge, Housekeeper in 5-star hotels and palaces."
+      "outcomes": "Receptionist, Concierge, Housekeeper in 5-star hotels and palaces.",
+      "price": "From €1790"
     },
     "sommelier": {
       "title": "Sommelier",
@@ -73,7 +76,8 @@
       "duration": "6 months",
       "target": "Wine lovers wishing to professionalize their passion, restaurant professionals.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Restaurant Sommelier, Wine Merchant, Wine Advisor, Representative for a winery."
+      "outcomes": "Restaurant Sommelier, Wine Merchant, Wine Advisor, Representative for a winery.",
+      "price": "From €2490"
     },
     "fashionModel": {
       "title": "Fashion Model",
@@ -82,7 +86,8 @@
       "duration": "1 Module (7 days), Complete (14 days)",
       "target": "Young talents (men and women) with strong physical potential and a charismatic personality.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Runway model, advertising campaigns, fashion editorials."
+      "outcomes": "Runway model, advertising campaigns, fashion editorials.",
+      "price": "From €990"
     },
     "fle": {
       "title": "FLE (French as a Foreign Language)",
@@ -91,7 +96,8 @@
       "duration": "Variable (4-week modules)",
       "target": "International students, expatriates, professionals, and anyone wishing to learn French.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Mastery of French for personal, academic, or professional goals. Preparation for DELF/DALF exams."
+      "outcomes": "Mastery of French for personal, academic, or professional goals. Preparation for DELF/DALF exams.",
+      "price": "From €490"
     },
     "hsk": {
       "title": "HSK - Chinese Proficiency Test",
@@ -100,7 +106,8 @@
       "duration": "Variable (12-week sessions per level)",
       "target": "Students of Chinese, professionals working with China, anyone wishing for official certification of their level.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Success in the HSK exam, international recognition of Chinese language level."
+      "outcomes": "Success in the HSK exam, international recognition of Chinese language level.",
+      "price": "From €450"
     },
     "tefl": {
       "title": "TEFL - Teach English Abroad",
@@ -109,7 +116,8 @@
       "duration": "4 weeks (intensive)",
       "target": "Native or bilingual English speakers wishing to travel and teach.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Globally recognized TEFL certification, access to our network of partner schools for job offers."
+      "outcomes": "Globally recognized TEFL certification, access to our network of partner schools for job offers.",
+      "price": "From €1200"
     },
     "businessChina": {
       "title": "Business & Digital Edge in China",
@@ -118,7 +126,8 @@
       "duration": "3 months",
       "target": "Business leaders, marketing directors, export managers, entrepreneurs.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Ability to develop and implement a development strategy for the Chinese market."
+      "outcomes": "Ability to develop and implement a development strategy for the Chinese market.",
+      "price": "From €1800"
     },
     "gatewayEurope": {
       "title": "Gateway to Europe & Southeast Asia",
@@ -127,7 +136,8 @@
       "duration": "3 months",
       "target": "Entrepreneurs and managers from Asia wishing to expand into Europe.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Business plan for European expansion, network of contacts in Europe."
+      "outcomes": "Business plan for European expansion, network of contacts in Europe.",
+      "price": "From €1800"
     },
     "footballCoach": {
       "title": "Football Coach",
@@ -136,7 +146,8 @@
       "duration": "10 months",
       "target": "Future coaches, sports educators.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Certified coach, technical director, scout."
+      "outcomes": "Certified coach, technical director, scout.",
+      "price": "From €2990"
     },
     "fifaAgent": {
       "title": "Player Agent (FIFA License)",
@@ -145,7 +156,8 @@
       "duration": "8 months",
       "target": "Football enthusiasts with a business sense.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "FIFA licensed player agent, sports advisor."
+      "outcomes": "FIFA licensed player agent, sports advisor.",
+      "price": "From €3490"
     },
     "sportsData": {
       "title": "Sports Data Analyst",
@@ -154,7 +166,8 @@
       "duration": "6 months",
       "target": "Analytical profiles, statisticians, sports enthusiasts.",
       "prerequisites": "Must be at least 16 years old.",
-      "outcomes": "Data analyst for a professional club, federation, or sports media."
+      "outcomes": "Data analyst for a professional club, federation, or sports media.",
+      "price": "From €2790"
     }
   },
   "aboutSection": {
@@ -259,7 +272,8 @@
     "formula": "Plan",
     "formulaValue": "Full board, half board, external",
     "languages": "Languages",
-    "languagesValue": "Course available in English and Chinese"
+    "languagesValue": "Course available in English and Chinese",
+    "price": "Price"
   },
   "coursesIntro": {
     "title": "A Unique Approach to Learning",

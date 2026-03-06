@@ -46,7 +46,8 @@
       "duration": "6 mois",
       "target": "Personnes aspirant à une carrière de personnel de cabine, excellentes compétences en communication, sens du service, grande adaptabilité.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Personnel Navigant Commercial (Hôtesse de l'air / Steward) pour des compagnies aériennes nationales et internationales."
+      "outcomes": "Personnel Navigant Commercial (Hôtesse de l'air / Steward) pour des compagnies aériennes nationales et internationales.",
+      "price": "À partir de 1990€"
     },
     "luxuryRestaurant": {
       "title": "Luxury Restaurant Service Staff",
@@ -55,7 +56,8 @@
       "duration": "4 mois",
       "target": "Passionnés de gastronomie et de service, désirant travailler dans des établissements de prestige.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Maître d'hôtel, Chef de rang, Sommelier junior dans des restaurants gastronomiques, hôtels de luxe."
+      "outcomes": "Maître d'hôtel, Chef de rang, Sommelier junior dans des restaurants gastronomiques, hôtels de luxe.",
+      "price": "À partir de 1490€"
     },
     "luxuryHotel": {
       "title": "Luxury Hotel Service Staff",
@@ -64,7 +66,8 @@
       "duration": "5 mois",
       "target": "Candidats avec un excellent sens du relationnel, une présentation soignée et une passion pour l'hôtellerie de luxe.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Réceptionniste, Concierge, Gouvernant(e) dans des hôtels 5 étoiles et palaces."
+      "outcomes": "Réceptionniste, Concierge, Gouvernant(e) dans des hôtels 5 étoiles et palaces.",
+      "price": "À partir de 1790€"
     },
     "sommelier": {
       "title": "Sommelier",
@@ -73,7 +76,8 @@
       "duration": "6 mois",
       "target": "Amateurs de vin souhaitant professionnaliser leur passion, professionnels de la restauration.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Sommelier en restaurant, Caviste, Conseiller en vin, Représentant pour un domaine viticole."
+      "outcomes": "Sommelier en restaurant, Caviste, Conseiller en vin, Représentant pour un domaine viticole.",
+      "price": "À partir de 2490€"
     },
     "fashionModel": {
       "title": "Mannequin",
@@ -82,7 +86,8 @@
       "duration": "1 Module (7 jours), Complet (14 jours)",
       "target": "Jeunes talents (hommes et femmes) avec un fort potentiel physique et une personnalité charismatique.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Mannequin pour défilés, campagnes publicitaires, éditoriaux de mode."
+      "outcomes": "Mannequin pour défilés, campagnes publicitaires, éditoriaux de mode.",
+      "price": "À partir de 990€"
     },
     "fle": {
       "title": "FLE (Français Langue Étrangère)",
@@ -91,7 +96,8 @@
       "duration": "Variable (modules de 4 semaines)",
       "target": "Étudiants internationaux, expatriés, professionnels, et toute personne souhaitant apprendre le français.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Maîtrise du français pour des objectifs personnels, académiques ou professionnels. Préparation aux examens DELF/DALF."
+      "outcomes": "Maîtrise du français pour des objectifs personnels, académiques ou professionnels. Préparation aux examens DELF/DALF.",
+      "price": "À partir de 490€"
     },
     "hsk": {
       "title": "HSK (Mandarin Langue Étrangère )",
@@ -100,7 +106,8 @@
       "duration": "Variable (sessions de 12 semaines par niveau)",
       "target": "Étudiants en chinois, professionnels travaillant avec la Chine, toute personne souhaitant une certification officielle de son niveau.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Réussite à l'examen HSK, reconnaissance internationale du niveau de chinois."
+      "outcomes": "Réussite à l'examen HSK, reconnaissance internationale du niveau de chinois.",
+      "price": "À partir de 450€"
     },
     "tefl": {
       "title": "TEFL (English as a Foreign Language)",
@@ -109,7 +116,8 @@
       "duration": "4 semaines (intensif)",
       "target": "Anglophones natifs ou bilingues souhaitant voyager et enseigner.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Certification TEFL reconnue mondialement, accès à notre réseau d'écoles partenaires pour des offres d'emploi."
+      "outcomes": "Certification TEFL reconnue mondialement, accès à notre réseau d'écoles partenaires pour des offres d'emploi.",
+      "price": "À partir de 1200€"
     },
     "businessChina": {
       "title": "Business & Digital Edge en Chine",
@@ -118,7 +126,8 @@
       "duration": "3 mois",
       "target": "Chefs d'entreprise, directeurs marketing, responsables export, entrepreneurs.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Capacité à élaborer et mettre en œuvre une stratégie de développement sur le marché chinois."
+      "outcomes": "Capacité à élaborer et mettre en œuvre une stratégie de développement sur le marché chinois.",
+      "price": "À partir de 1800€"
     },
     "gatewayEurope": {
       "title": "Gateway to Europe & Southeast Asia",
@@ -127,7 +136,8 @@
       "duration": "3 mois",
       "target": "Entrepreneurs et managers d'Asie désirant s'étendre en Europe.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Plan d'affaires pour une expansion européenne, réseau de contacts en Europe."
+      "outcomes": "Plan d'affaires pour une expansion européenne, réseau de contacts en Europe.",
+      "price": "À partir de 1800€"
     },
     "footballCoach": {
       "title": "Entraîneur de Football",
@@ -136,7 +146,8 @@
       "duration": "10 mois",
       "target": "Futurs entraîneurs, éducateurs sportifs.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Entraîneur diplômé, directeur technique, recruteur."
+      "outcomes": "Entraîneur diplômé, directeur technique, recruteur.",
+      "price": "À partir de 2990€"
     },
     "fifaAgent": {
       "title": "Agent de Joueurs (Licence FIFA)",
@@ -145,7 +156,8 @@
       "duration": "8 mois",
       "target": "Passionnés de football avec un sens des affaires.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Agent de joueurs licencié FIFA, conseiller sportif."
+      "outcomes": "Agent de joueurs licencié FIFA, conseiller sportif.",
+      "price": "À partir de 3490€"
     },
     "sportsData": {
       "title": "Data Analyst pour le Sport",
@@ -154,7 +166,8 @@
       "duration": "6 mois",
       "target": "Profils analytiques, statisticiens, passionnés de sport.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
-      "outcomes": "Data analyst pour club professionnel, fédération ou média sportif."
+      "outcomes": "Data analyst pour club professionnel, fédération ou média sportif.",
+      "price": "À partir de 2790€"
     }
   },
   "aboutSection": {
@@ -259,7 +272,8 @@
     "formula": "Formule",
     "formulaValue": "Pension complète, demi-pension, externe",
     "languages": "Langues",
-    "languagesValue": "Formation disponible en Anglais et Chinois"
+    "languagesValue": "Formation disponible en Anglais et Chinois",
+    "price": "Prix"
   },
   "coursesIntro": {
     "title": "Une Approche Pédagogique Unique",

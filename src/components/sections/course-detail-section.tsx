@@ -4,7 +4,7 @@
 import { useTranslation } from '@/hooks/use-translation';
 import type { Course } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Clock, Users, CheckSquare, Target, Bed, Languages } from 'lucide-react';
+import { Clock, Users, CheckSquare, Target, Bed, Languages, Euro } from 'lucide-react';
 import { ScrollReveal } from '../scroll-reveal';
 
 export default function CourseDetailSection({ course }: { course: Course }) {
@@ -15,6 +15,7 @@ export default function CourseDetailSection({ course }: { course: Course }) {
     { icon: Users, title: t('coursePage.targetAudience'), key: course.targetAudienceKey },
     { icon: CheckSquare, title: t('coursePage.prerequisites'), key: course.prerequisitesKey },
     { icon: Target, title: t('coursePage.careerOutcomes'), key: course.careerOutcomesKey },
+    { icon: Euro, title: t('coursePage.price'), key: course.priceKey },
     { icon: Bed, title: t('coursePage.formula'), key: 'coursePage.formulaValue' },
   ];
 
