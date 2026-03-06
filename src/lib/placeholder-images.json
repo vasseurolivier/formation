@@ -3,547 +3,547 @@
     {
       "id": "hero-home",
       "description": "Global education concept",
-      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnbG9iYWwlMjBlZHVjYXRpb258ZW58MHx8fHwxNzcyNTIzMTM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-home/1920/1080",
       "imageHint": "global education"
     },
     {
       "id": "hero-about",
       "description": "Team collaboration in a modern office",
-      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwwfHx8fDE3NzI1MjIwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-about/1920/1080",
       "imageHint": "team collaboration"
     },
     {
       "id": "hero-courses",
       "description": "Student studying in a library",
-      "imageUrl": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdHVkZW50JTIwbGVhcm5pbmd8ZW58MHx8fHwxNzcyNTIyMDQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-courses/1920/1080",
       "imageHint": "student learning"
     },
     {
       "id": "hero-locations",
       "description": "A world map with pins indicating locations",
-      "imageUrl": "https://images.unsplash.com/photo-1539627831859-a911cf04d3cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b3JsZCUyMG1hcHxlbnwwfHx8fDE3NzI1MjIwNzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-locations/1920/1080",
       "imageHint": "world map"
     },
     {
       "id": "hero-testimonials",
       "description": "A group of happy and diverse students",
-      "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHN0dWRlbnRzfGVufDB8fHx8MTc3MjUyMjEwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-testimonials/1920/1080",
       "imageHint": "happy students"
     },
     {
       "id": "hero-contact",
       "description": "A person writing on a notebook with a laptop nearby",
-      "imageUrl": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3cml0aW5nJTIwbGV0dGVyfGVufDB8fHx8MTc3MjUyMjEzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-contact/1920/1080",
       "imageHint": "writing letter"
     },
     {
       "id": "hero-privacy-policy",
       "description": "A secure lock symbolizing data privacy",
-      "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2VjdXJpdHl8ZW58MHx8fHwxNzcyNTYwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-privacy-policy/1920/1080",
       "imageHint": "data security"
     },
     {
       "id": "hero-terms-of-use",
       "description": "A person reading a legal document",
-      "imageUrl": "https://images.unsplash.com/photo-1589211333149-e2a8c79213da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsZWdhbCUyMGRvY3VtZW50fGVufDB8fHx8fDE3NzI1NjAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-terms-of-use/1920/1080",
       "imageHint": "legal document"
     },
     {
       "id": "course-flight-attendant",
       "description": "Flight attendant in an airplane cabin",
-      "imageUrl": "https://images.unsplash.com/photo-1483450388369-9ed95738483c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaXJwbGFuZSUyMGNhYmlufGVufDB8fHx8MTc3MjQ0NzYyMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-flight-attendant/600/400",
       "imageHint": "airplane cabin"
     },
     {
       "id": "hero-course-flight-attendant",
       "description": "View from an airplane window",
-      "imageUrl": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaXJwbGFuZSUyMHdpbmd8ZW58MHx8fHwxNzcyNTQ1MTA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-flight-attendant/1920/1080",
       "imageHint": "airplane wing"
     },
     {
       "id": "gallery-course-flight-attendant-1",
       "description": "Airplane seats",
-      "imageUrl": "https://images.unsplash.com/photo-1544032128-569d1fd4259b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhaXJwbGFuZSUyMHNlYXRzfGVufDB8fHx8fDE3NzI1NDUxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-flight-attendant-1/600/400",
       "imageHint": "airplane seats"
     },
     {
       "id": "gallery-course-flight-attendant-2",
       "description": "Flight attendant serving drinks",
-      "imageUrl": "https://images.unsplash.com/photo-1570764332946-215f79529a6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmbGlnaHQlMjBhdHRlbmRhbnR8ZW58MHx8fHwxNzcyNTQ1MTM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-flight-attendant-2/600/400",
       "imageHint": "flight attendant"
     },
     {
       "id": "gallery-course-flight-attendant-3",
       "description": "Airport terminal",
-      "imageUrl": "https://images.unsplash.com/photo-1499015993801-6eff4b277b96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhirportJTIwdGVybWluYWx8ZW58MHx8fHwxNzcyNTQ1MTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-flight-attendant-3/600/400",
       "imageHint": "airport terminal"
     },
     {
       "id": "course-luxury-restaurant",
       "description": "Elegant restaurant dining room",
-      "imageUrl": "https://images.unsplash.com/photo-1643879397174-4f10ac503566?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmaW5lJTIwZGluaW5nfGVufDB8fHx8MTc3MjM0NTAzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-luxury-restaurant/600/400",
       "imageHint": "fine dining"
     },
     {
       "id": "hero-course-luxury-restaurant",
       "description": "Chef plating a dish",
-      "imageUrl": "https://images.unsplash.com/photo-1551218808-94e220e084d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGVmJTIwcGxhdGluZ3xlbnwwfHx8fDE3NzI1NDUxODB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-luxury-restaurant/1920/1080",
       "imageHint": "chef plating"
     },
     {
       "id": "gallery-course-luxury-restaurant-1",
       "description": "Gourmet dish",
-      "imageUrl": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnb3VybWV0JTIwZm9vZHxlbnwwfHx8fDE3NzI1NDUyMDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-luxury-restaurant-1/600/400",
       "imageHint": "gourmet food"
     },
     {
       "id": "gallery-course-luxury-restaurant-2",
       "description": "Restaurant kitchen",
-      "imageUrl": "https://images.unsplash.com/photo-1556911220-bff31c812db9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50JTIwa2l0Y2hlbnxlbnwwfHx8fDE3NzI1NDUyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-luxury-restaurant-2/600/400",
       "imageHint": "restaurant kitchen"
     },
     {
       "id": "gallery-course-luxury-restaurant-3",
       "description": "Waiter serving guests",
-      "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3YWl0ZXIlMjBzZXJ2aW5nfGVufDB8fHx8MTc3MjU0NTI0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-luxury-restaurant-3/600/400",
       "imageHint": "waiter serving"
     },
     {
       "id": "course-luxury-hotel",
       "description": "Luxurious hotel lobby",
-      "imageUrl": "https://images.unsplash.com/photo-1692153142524-60285a93c249?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8fDE3NzI0MDY0NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-luxury-hotel/600/400",
       "imageHint": "hotel lobby"
     },
     {
       "id": "hero-course-luxury-hotel",
       "description": "Luxury hotel room with a view",
-      "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3RlbCUyMHJvb218ZW58MHx8fHwxNzcyNTQ1MzAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-luxury-hotel/1920/1080",
       "imageHint": "hotel room"
     },
     {
       "id": "gallery-course-luxury-hotel-1",
       "description": "Hotel concierge desk",
-      "imageUrl": "https://images.unsplash.com/photo-1596422770851-4099564d2844?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3RlbCUyMGNvbmNpZXJnZXxlbnwwfHx8fDE3NzI1NDUzMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-luxury-hotel-1/600/400",
       "imageHint": "hotel concierge"
     },
     {
       "id": "gallery-course-luxury-hotel-2",
       "description": "Hotel swimming pool",
-      "imageUrl": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxob3RlbCUyMHBvb2x8ZW58MHx8fHwxNzcyNTQ1MzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-luxury-hotel-2/600/400",
       "imageHint": "hotel pool"
     },
     {
       "id": "gallery-course-luxury-hotel-3",
       "description": "Bellhop with luggage",
-      "imageUrl": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBob3RlbCUyMGJlZHxlbnwwfHx8fDE3NzI1NDUzNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-luxury-hotel-3/600/400",
       "imageHint": "luxury hotel"
     },
     {
       "id": "course-sommelier",
       "description": "Sommelier pouring wine",
-      "imageUrl": "https://images.unsplash.com/photo-1558670460-cad0c19b1840?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aW5lJTIwdGFzdGluZ3xlbnwwfHx8fDE3NzI0MDk0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-sommelier/600/400",
       "imageHint": "wine tasting"
     },
     {
       "id": "hero-course-sommelier",
       "description": "Vineyard landscape",
-      "imageUrl": "https://images.unsplash.com/photo-1533460029329-875855b706b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2aW5leWFyZHxlbnwwfHx8fDE3NzI1NDU0MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-sommelier/1920/1080",
       "imageHint": "vineyard landscape"
     },
     {
       "id": "gallery-course-sommelier-1",
       "description": "Wine cellar",
-      "imageUrl": "https://images.unsplash.com/photo-1510812431442-7471bd357454?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aW5lJTIwY2VsbGFyfGVufDB8fHx8fDE3NzI1NDU0MzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-sommelier-1/600/400",
       "imageHint": "wine cellar"
     },
     {
       "id": "gallery-course-sommelier-2",
       "description": "Close-up of wine glasses",
-      "imageUrl": "https://images.unsplash.com/photo-1578911373434-0cb395d2c7b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3aW5lJTIwZ2xhc3Nlc3xlbnwwfHx8fDE3NzI1NDU0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-sommelier-2/600/400",
       "imageHint": "wine glasses"
     },
     {
       "id": "gallery-course-sommelier-3",
       "description": "Wine and cheese pairing",
-      "imageUrl": "https://images.unsplash.com/photo-1610411757833-ffac5b822863?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aW5lJTIwY2hlZXNlfGVufDB8fHx8fDE3NzI1NDU0NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-sommelier-3/600/400",
       "imageHint": "wine cheese"
     },
     {
       "id": "course-fashion-model",
       "description": "Fashion model on a runway",
-      "imageUrl": "https://images.unsplash.com/photo-1571924848943-25c2c95bbb4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmYXNoaW9uJTIwcnVud2F5fGVufDB8fHx8fDE3NzI0NDQ5MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-fashion-model/600/400",
       "imageHint": "fashion runway"
     },
     {
       "id": "hero-course-fashion-model",
       "description": "High fashion photography shoot",
-      "imageUrl": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoaWdoJTIwZmFzaGlvbnxlbnwwfHx8fDE3NzI1NDU1MDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-fashion-model/1920/1080",
       "imageHint": "high fashion"
     },
     {
       "id": "gallery-course-fashion-model-1",
       "description": "Backstage at a fashion show",
-      "imageUrl": "https://images.unsplash.com/photo-1533038601633-d897b5a1b525?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwYmFja3N0YWdlfGVufDB8fHx8fDE3NzI1NDU1MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fashion-model-1/600/400",
       "imageHint": "fashion backstage"
     },
     {
       "id": "gallery-course-fashion-model-2",
       "description": "Fashion designer sketching",
-      "imageUrl": "https://images.unsplash.com/photo-1549298242-04c3c130c264?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwZGVzaWduZXJ8ZW58MHx8fHwxNzcyNTQ1NTM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fashion-model-2/600/400",
       "imageHint": "fashion designer"
     },
     {
       "id": "gallery-course-fashion-model-3",
       "description": "Close-up of a fashion model's face",
-      "imageUrl": "https://images.unsplash.com/photo-1611601334839-3c72a6b7d19e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmYXNoaW9uJTIwbW9kZWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzI1NDU1NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fashion-model-3/600/400",
       "imageHint": "model portrait"
     },
     {
       "id": "course-football-coach",
       "description": "Football coach with a clipboard on a field",
-      "imageUrl": "https://images.unsplash.com/photo-1529932398402-e0b30f66a559?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzb2NjZXIlMjBjb2FjaHxlbnwwfHx8fDE3NzI0NDc2MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-football-coach/600/400",
       "imageHint": "soccer coach"
     },
     {
       "id": "hero-course-football-coach",
       "description": "A football stadium seen from the pitch",
-      "imageUrl": "https://images.unsplash.com/photo-1511886921315-103a74a1e9ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmb290YmFsbCUyMHN0YWRpdW18ZW58MHx8fHwxNzcyNTQ1NTk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-football-coach/1920/1080",
       "imageHint": "football stadium"
     },
     {
       "id": "gallery-course-football-coach-1",
       "description": "Football team in a huddle",
-      "imageUrl": "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmb290YmFsbCUyMHRlYW18ZW58MHx8fHwxNzcyNTQ1NjExfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-football-coach-1/600/400",
       "imageHint": "football team"
     },
     {
       "id": "gallery-course-football-coach-2",
       "description": "Tactics board with formations",
-      "imageUrl": "https://images.unsplash.com/photo-1593341646782-e027329b85a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjB0YWN0aWNzfGVufDB8fHx8fDE3NzI1NDU2MjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-football-coach-2/600/400",
       "imageHint": "soccer tactics"
     },
     {
       "id": "gallery-course-football-coach-3",
       "description": "Football player training",
-      "imageUrl": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjBwbGF5ZXJ8ZW58MHx8fHwxNzcyNTQ1NjQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-football-coach-3/600/400",
       "imageHint": "soccer player"
     },
     {
       "id": "course-fifa-agent",
       "description": "Two people shaking hands over a contract",
-      "imageUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxidXNpbmVzcyUyMGhhbmRzaGFrZXxlbnwwfHx8fDE3NzI0NDc2MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-fifa-agent/600/400",
       "imageHint": "business handshake"
     },
     {
       "id": "hero-course-fifa-agent",
       "description": "View of a football stadium from the stands",
-      "imageUrl": "https://images.unsplash.com/photo-1487466365202-1af0b8d7c344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmb290YmFsbCUyMHN0YWRpdW18ZW58MHx8fHwxNzcyNTQ1NTk1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-fifa-agent/1920/1080",
       "imageHint": "football stadium"
     },
     {
       "id": "gallery-course-fifa-agent-1",
       "description": "Player signing a contract",
-      "imageUrl": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaWduaW5nJTIwY29udHJhY3R8ZW58MHx8fHwxNzcyNTQ1NzAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fifa-agent-1/600/400",
       "imageHint": "signing contract"
     },
     {
       "id": "gallery-course-fifa-agent-2",
       "description": "Agent talking on the phone at a stadium",
-      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxidXNpbmVzcyUyMG5lZ290aWF0aW9ufGVufDB8fHx8fDE3NzI1NDU3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fifa-agent-2/600/400",
       "imageHint": "business negotiation"
     },
     {
       "id": "gallery-course-fifa-agent-3",
       "description": "Scouting a football match",
-      "imageUrl": "https://images.unsplash.com/photo-1551954316-10111a43a0e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbmFseXppbmclMjBzb2NjZXIlMjBnYW1lfGVufDB8fHx8fDE3NzI1NDU3MzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fifa-agent-3/600/400",
       "imageHint": "analyzing game"
     },
     {
       "id": "course-sports-data",
       "description": "Abstract visualization of sports data analytics",
-      "imageUrl": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3NzIzNzc2MzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-sports-data/600/400",
       "imageHint": "data visualization"
     },
     {
       "id": "hero-course-sports-data",
       "description": "Data charts and graphs on a screen",
-      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8fDE3NzI1NDU3NjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-sports-data/1920/1080",
       "imageHint": "data analytics"
     },
     {
       "id": "gallery-course-sports-data-1",
       "description": "Analyst looking at data on multiple screens",
-      "imageUrl": "https://images.unsplash.com/photo-1608988678393-c91036b04e6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkYXRhJTIwYW5hbHlzdHxlbnwwfHx8fDE3NzI1NDU3ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-sports-data-1/600/400",
       "imageHint": "data analyst"
     },
     {
       "id": "gallery-course-sports-data-2",
       "description": "Basketball analytics on a tablet",
-      "imageUrl": "https://images.unsplash.com/photo-1546519638-68e109498ffc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwc3RyYXRlZ3l8ZW58MHx8fHwxNzcyNTQ1NzkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-sports-data-2/600/400",
       "imageHint": "basketball strategy"
     },
     {
       "id": "gallery-course-sports-data-3",
       "description": "Soccer field with data overlay",
-      "imageUrl": "https://images.unsplash.com/photo-1587847466795-037c76890d23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzb2NjZXIlMjBmaWVsZCUyMHRhY3RpY3N8ZW58MHx8fHwxNzcyNTQ1ODAxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-sports-data-3/600/400",
       "imageHint": "soccer field"
     },
     {
       "id": "course-fle",
       "description": "Students learning French in a classroom setting",
-      "imageUrl": "https://images.unsplash.com/photo-1604881991664-593b31b88488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsYW5ndWFnZSUyMGNsYXNzfGVufDB8fHx8fDE3NzI0NDc2MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-fle/600/400",
       "imageHint": "language class"
     },
     {
       "id": "hero-course-fle",
       "description": "Eiffel Tower in Paris",
-      "imageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760c0341?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJpc3xlbnwwfHx8fDE3NzI1NDU4NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-fle/1920/1080",
       "imageHint": "paris eiffel"
     },
     {
       "id": "gallery-course-fle-1",
       "description": "French cafe scene",
-      "imageUrl": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBjYWZlfGVufDB8fHx8MTc3MjU0NTg1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fle-1/600/400",
       "imageHint": "french cafe"
     },
     {
       "id": "gallery-course-fle-2",
       "description": "Students talking in French",
-      "imageUrl": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsYW5ndWFnZSUyMGV4Y2hhbmdlfGVufDB8fHx8fDE3NzI1NDU4NzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fle-2/600/400",
       "imageHint": "language exchange"
     },
     {
       "id": "gallery-course-fle-3",
       "description": "French books and dictionary",
-      "imageUrl": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBib29rc3xlbnwwfHx8fDE3NzI1NDU4ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fle-3/600/400",
       "imageHint": "french books"
     },
     {
       "id": "course-hsk",
       "description": "Chinese characters on a blackboard",
-      "imageUrl": "https://images.unsplash.com/photo-1723613877966-19dc128be163?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGluZXNlJTIwY2hhcmFjdGVyc3xlbnwwfHx8fDE3NzI0NDc2MjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-hsk/600/400",
       "imageHint": "chinese characters"
     },
     {
       "id": "hero-course-hsk",
       "description": "Great Wall of China",
-      "imageUrl": "https://images.unsplash.com/photo-1508804185872-d7bad50a7112?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHcmVhdCUyMFdhbGwlMjBvZl9DaGluYXxlbnwwfHx8fDE3NzI1NDU5MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-hsk/1920/1080",
       "imageHint": "great wall"
     },
     {
       "id": "gallery-course-hsk-1",
       "description": "Traditional Chinese temple",
-      "imageUrl": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxDaGluZXNlJTIwdGVtcGxlfGVufDB8fHx8fDE3NzI1NDU5MzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-hsk-1/600/400",
       "imageHint": "chinese temple"
     },
     {
       "id": "gallery-course-hsk-2",
       "description": "Student practicing calligraphy",
-      "imageUrl": "https://images.unsplash.com/photo-1529124445350-a94f6f8469d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxDaGluZXNlJTIwY2FsbGlncmFwaHl8ZW58MHx8fHwxNzcyNTQ1OTQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-hsk-2/600/400",
       "imageHint": "chinese calligraphy"
     },
     {
       "id": "gallery-course-hsk-3",
       "description": "Chinese lanterns",
-      "imageUrl": "https://images.unsplash.com/photo-1547989453-11e67fb448de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxDaGluZXNlJTIwbGFudGVybnN8ZW58MHx8fHwxNzcyNTQ1OTU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-hsk-3/600/400",
       "imageHint": "chinese lanterns"
     },
     {
       "id": "course-tefl",
       "description": "Teacher in front of a class with a world map",
-      "imageUrl": "https://images.unsplash.com/photo-1566828791229-3804b533f840?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZWFjaGluZyUyMGVuZ2xpc2h8ZW58MHx8fHwxNzcyNDQ3NjIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-tefl/600/400",
       "imageHint": "teaching english"
     },
     {
       "id": "hero-course-tefl",
       "description": "Diverse group of students in a classroom",
-      "imageUrl": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwY2xhc3Nyb29tfGVufDB8fHx8fDE3NzI1NDU5OTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-tefl/1920/1080",
       "imageHint": "diverse classroom"
     },
     {
       "id": "gallery-course-tefl-1",
       "description": "Teacher helping a student",
-      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWFjaGVyJTIwaGVscGluZyUyMHN0dWRlbnR8ZW58MHx8fHwxNzcyNTQ2MDA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-tefl-1/600/400",
       "imageHint": "teacher helping"
     },
     {
       "id": "gallery-course-tefl-2",
       "description": "English textbooks",
-      "imageUrl": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbmdsaXNoJTIwYm9va3N8ZW58MHx8fHwxNzcyNTQ2MDIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-tefl-2/600/400",
       "imageHint": "english books"
     },
     {
       "id": "gallery-course-tefl-3",
       "description": "Children learning in Asia",
-      "imageUrl": "https://images.unsplash.com/photo-1509062522246-3755977927d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWFjaGluZyUyMGNoaWxkcmVuJTIwYXNpYXxlbnwwfHx8fDE3NzI1NDYwMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-tefl-3/600/400",
       "imageHint": "teaching children"
     },
     {
       "id": "course-business-china",
       "description": "Modern Shanghai skyline at night",
-      "imageUrl": "https://images.unsplash.com/photo-1648734482677-1bcb09bfeaf6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzaGFuZ2hhaSUyMHNreWxpbmV8ZW58MHx8fHwxNzcyNDQ3NjIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-business-china/600/400",
       "imageHint": "shanghai skyline"
     },
     {
       "id": "hero-course-business-china",
       "description": "Business meeting with Chinese partners",
-      "imageUrl": "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMG1lZXRpbmclMjBhc2lhbnxlbnwwfHx8fDE3NzI1NDYwNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-business-china/1920/1080",
       "imageHint": "business meeting"
     },
     {
       "id": "gallery-course-business-china-1",
       "description": "Busy street in a Chinese city",
-      "imageUrl": "https://images.unsplash.com/photo-1563435198034-4b533a11b6d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGluZXNlJTIwY2l0eSUyMHN0cmVldHxlbnwwfHx8fDE3NzI1NDYwODd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-business-china-1/600/400",
       "imageHint": "chinese street"
     },
     {
       "id": "gallery-course-business-china-2",
       "description": "Digital payment using a smartphone",
-      "imageUrl": "https://images.unsplash.com/photo-1616124611599-923b71569476?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwcGF5bWVudCUyMGNoaW5hfGVufDB8fHx8fDE3NzI1NDYxMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-business-china-2/600/400",
       "imageHint": "digital payment"
     },
     {
       "id": "gallery-course-business-china-3",
       "description": "Shipping containers at a port",
-      "imageUrl": "https://images.unsplash.com/photo-1612453457193-27a9c8417e29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbnRlcm5hdGlvbmFsJTIwdHJhZGV8ZW58MHx8fHwxNzcyNTQ2MTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-business-china-3/600/400",
       "imageHint": "international trade"
     },
     {
       "id": "course-gateway-europe",
       "description": "Montage of European and Southeast Asian landmarks",
-      "imageUrl": "https://images.unsplash.com/photo-1758442677857-b145e479dafa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnbG9iYWwlMjBsYW5kbWFya3N8ZW58MHx8fHwxNzcyNDQ3NjIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-gateway-europe/600/400",
       "imageHint": "global landmarks"
     },
     {
       "id": "hero-course-gateway-europe",
       "description": "Airplane flying over the globe",
-      "imageUrl": "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBidXNpbmVzc3xlbnwwfHx8fDE3NzI1NDYxNTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-gateway-europe/1920/1080",
       "imageHint": "global business"
     },
     {
       "id": "gallery-course-gateway-europe-1",
       "description": "Eiffel Tower and Marina Bay Sands composite",
-      "imageUrl": "https://images.unsplash.com/photo-1549924231-151d95952634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbnRlcm5hdGlvbmFsJTIwbWVldGluZ3xlbnwwfHx8fDE3NzI1NDYxNzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-gateway-europe-1/600/400",
       "imageHint": "international meeting"
     },
     {
       "id": "gallery-course-gateway-europe-2",
       "description": "Business people shaking hands in front of a world map",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHBhcnRuZXJzaGlwfGVufDB8fHx8fDE3NzI1NDYyMDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-gateway-europe-2/600/400",
       "imageHint": "business partnership"
     },
     {
       "id": "gallery-course-gateway-europe-3",
       "description": "Skyscrapers from different continents",
-      "imageUrl": "https://images.unsplash.com/photo-1534430480872-3498386e7856?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBmaW5hbmNlfGVufDB8fHx8fDE3NzI1NDYyMTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-gateway-europe-3/600/400",
       "imageHint": "global finance"
     },
     {
       "id": "course-fifa-agent-alt",
       "description": "A soccer stadium",
-      "imageUrl": "https://images.unsplash.com/photo-1540379708242-14a809bef941?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c29jY2VyJTIwc3RhZGl1bXxlbnwwfHx8fDE3NzI0Mzc2NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/course-fifa-agent-alt/600/400",
       "imageHint": "soccer stadium"
     },
     {
       "id": "hero-course-fifa-agent-alt",
       "description": "Trophy being lifted in a stadium",
-      "imageUrl": "https://images.unsplash.com/photo-1582298539399-a8c78b663884?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGFtcGlvbnNoaXAlMjB0cm9waHl8ZW58MHx8fHwxNzcyNTQ2MjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero-course-fifa-agent-alt/1920/1080",
       "imageHint": "championship trophy"
     },
     {
       "id": "gallery-course-fifa-agent-alt-1",
       "description": "Sports marketing event",
-      "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcG9ydHMlMjBtYXJrZXRpbmd8ZW58MHx8fHwxNzcyNTQ2Mjg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fifa-agent-alt-1/600/400",
       "imageHint": "sports marketing"
     },
     {
       "id": "gallery-course-fifa-agent-alt-2",
       "description": "Sports team sponsorship logos",
-      "imageUrl": "https://images.unsplash.com/photo-1587847466795-037c76890d23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzcG9ydHMlMjBzcG9uc29yc2hpcHxlbnwwfHx8fDE3NzI1NDYzMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fifa-agent-alt-2/600/400",
       "imageHint": "sports sponsorship"
     },
     {
       "id": "gallery-course-fifa-agent-alt-3",
       "description": "Audience at a sports event",
-      "imageUrl": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzcG9ydHMlMjBldmVudHxlbnwwfHx8fDE3NzI1NDYzMTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/gallery-course-fifa-agent-alt-3/600/400",
       "imageHint": "sports event"
     },
     {
       "id": "about-us-image",
       "description": "A modern bridge over a river, connecting two shores",
-      "imageUrl": "https://images.unsplash.com/photo-1506126491219-4d69b305b955?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxicmlkZ2UlMjBjb25uZWN0aW9ufGVufDB8fHx8fDE3NzI1MjA2MDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/about-us-image/800/600",
       "imageHint": "bridge connection"
     },
     {
       "id": "campus-evron",
       "description": "A charming street in a French town",
-      "imageUrl": "https://images.unsplash.com/photo-1590141220463-057d398939f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjB0b3dufGVufDB8fHx8MTc3MjUyMDc2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-evron/600/400",
       "imageHint": "French town"
     },
     {
       "id": "campus-evron-gallery-1",
       "description": "Basilique Notre-Dame d'Évron",
-      "imageUrl": "https://images.unsplash.com/photo-1605706909458-5f7787317578?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBiYXNpbGljYXxlbnwwfHx8fDE3NzI1MjE2MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-evron-gallery-1/600/400",
       "imageHint": "French basilica"
     },
     {
       "id": "campus-evron-gallery-2",
       "description": "Paysage verdoyant de la Mayenne",
-      "imageUrl": "https://images.unsplash.com/photo-1475518112998-c627f4d5b948?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBjb3VudHJ5c2lkZXxlbnwwfHx8fDE3NzI1MjE2NDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-evron-gallery-2/600/400",
       "imageHint": "french countryside"
     },
     {
       "id": "campus-evron-gallery-3",
       "description": "Marché local en France",
-      "imageUrl": "https://images.unsplash.com/photo-1543083477-4f785aeafaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxGcmVuY2glMjBtYXJrZXR8ZW58MHx8fHwxNzcyNTIxNjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-evron-gallery-3/600/400",
       "imageHint": "french market"
     },
     {
       "id": "campus-sainte-tulle",
       "description": "Lavender fields in Provence, France",
-      "imageUrl": "https://images.unsplash.com/photo-1564998235459-a5717b08518f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQcm92ZW5jZSUyMGxhdmVuZGVyfGVufDB8fHx8fDE3NzI1MjA3OTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-tulle/600/400",
       "imageHint": "Provence lavender"
     },
     {
       "id": "campus-sainte-tulle-gallery-1",
       "description": "Village typique de Provence",
-      "imageUrl": "https://images.unsplash.com/photo-1549959955-33068f182f6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQcm92ZW5jZSUyMHZpbGxhZ2V8ZW58MHx8fHwxNzcyNTIxNzA2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-tulle-gallery-1/600/400",
       "imageHint": "provence village"
     },
     {
       "id": "campus-sainte-tulle-gallery-2",
       "description": "Champ d'oliviers en Provence",
-      "imageUrl": "https://images.unsplash.com/photo-1590272588364-a4c84c1f6487?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvcnVzJTIwb2xpdmVzJTIwZ3JvdmlufGVufDB8fHx8fDE3NzI1MjE3MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-tulle-gallery-2/600/400",
       "imageHint": "olive grove"
     },
     {
       "id": "campus-sainte-tulle-gallery-3",
       "description": "Montagnes des Alpes-de-Haute-Provence",
-      "imageUrl": "https://images.unsplash.com/photo-1629822349015-3ea20391d308?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxQcm92ZW5jZSUyMG1vdW50YWluc3xlbnwwfHx8fDE3NzI1MjE3NDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-tulle-gallery-3/600/400",
       "imageHint": "provence mountains"
     },
     {
       "id": "campus-sainte-bazeille",
       "description": "A vineyard in the Bordeaux region of France",
-      "imageUrl": "https://images.unsplash.com/photo-1588821321528-f683a6519163?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxCb3JkZWF1eCUyMHZpbmV5YXJkfGVufDB8fHx8fDE3NzI1MjA4MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-bazeille/600/400",
       "imageHint": "Bordeaux vineyard"
     },
     {
       "id": "campus-sainte-bazeille-gallery-1",
       "description": "Chai à barriques bordelais",
-      "imageUrl": "https://images.unsplash.com/photo-1557954979-6238b0e774c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aW5lJTIwY2VsbGFyfGVufDB8fHx8fDE3NzI1MjE3NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-bazeille-gallery-1/600/400",
       "imageHint": "wine cellar"
     },
     {
       "id": "campus-sainte-bazeille-gallery-2",
       "description": "Vendanges en région bordelaise",
-      "imageUrl": "https://images.unsplash.com/photo-1563725899983-ca0e10d32f50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aW5lJTIwaGFydmVzdHxlbnwwfHx8fDE3NzI1MjE3ODh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-bazeille-gallery-2/600/400",
       "imageHint": "grape harvest"
     },
     {
       "id": "campus-sainte-bazeille-gallery-3",
       "description": "Dégustation de vin à Bordeaux",
-      "imageUrl": "https://images.unsplash.com/photo-1506377242188-340d7c75624b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aW5lJTIwdGFzdGluZ3xlbnwwfHx8fDE3NzI0MDk0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/campus-sainte-bazeille-gallery-3/600/400",
       "imageHint": "wine tasting"
     },
     {
@@ -585,7 +585,7 @@
     {
       "id": "icon-fifa-agent",
       "description": "Handshake icon",
-      "imageUrl": "https://images.unsplash.com/photo-1549706844-5ca4f36b20a8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoYW5kc2hha2UlMjBpY29ufGVufDB8fHx8fDE3NzI1NTYwNTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/icon-fifa-agent/100/100",
       "imageHint": "handshake icon"
     },
     {
@@ -609,7 +609,7 @@
     {
       "id": "icon-tefl",
       "description": "Globe icon",
-      "imageUrl": "https://images.unsplash.com/photo-1669950200208-c8a60cd1d8de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxnbG9iZSUyMGljb258ZW58MHx8fHwxNzcyNTU2MDUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/icon-tefl/100/100",
       "imageHint": "globe icon"
     },
     {
