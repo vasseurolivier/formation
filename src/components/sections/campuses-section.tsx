@@ -8,7 +8,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { useCustomizableImage } from "@/hooks/use-customizable-image";
 import { Skeleton } from "@/components/ui/skeleton";
 
-function CampusImage({ imageId, description, imageHint }: { imageId: string, description: string, imageHint: string }) {
+function CampusImage({ imageId, description, imageHint, sizes }: { imageId: string, description: string, imageHint: string, sizes: string }) {
   const imageUrl = useCustomizableImage(imageId);
   
   if (!imageUrl) return <Skeleton className="w-full h-full absolute" />;
@@ -20,6 +20,7 @@ function CampusImage({ imageId, description, imageHint }: { imageId: string, des
       data-ai-hint={imageHint}
       fill
       className="object-cover"
+      sizes={sizes}
     />
   );
 }
@@ -50,6 +51,7 @@ export default function CampusesSection() {
                           imageId={mainPlaceholderImage.id}
                           description={mainPlaceholderImage.description}
                           imageHint={mainPlaceholderImage.imageHint}
+                          sizes="(min-width: 768px) 50vw, 100vw"
                         />
                       )}
                     </div>
@@ -74,6 +76,7 @@ export default function CampusesSection() {
                                 imageId={galleryPlaceholder.id}
                                 description={galleryPlaceholder.description}
                                 imageHint={galleryPlaceholder.imageHint}
+                                sizes="(min-width: 1024px) 25vw, 33vw"
                               />
                             </div>
                           );
