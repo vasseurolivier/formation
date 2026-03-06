@@ -225,7 +225,9 @@
     "targetAudience": "Target Audience",
     "prerequisites": "Prerequisites",
     "careerOutcomes": "Career Outcomes",
-    "galleryTitle": "In Pictures"
+    "galleryTitle": "In Pictures",
+    "formula": "Plan",
+    "formulaValue": "Full board, half board, external"
   },
   "coursesIntro": {
     "title": "A Unique Approach to Learning",

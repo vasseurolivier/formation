@@ -225,7 +225,9 @@
     "targetAudience": "Public Cible",
     "prerequisites": "Prérequis",
     "careerOutcomes": "Débouchés",
-    "galleryTitle": "En Images"
+    "galleryTitle": "En Images",
+    "formula": "Formule",
+    "formulaValue": "Pension complète, demi-pension, externe"
   },
   "coursesIntro": {
     "title": "Une Approche Pédagogique Unique",

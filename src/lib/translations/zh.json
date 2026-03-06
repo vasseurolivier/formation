@@ -225,7 +225,9 @@
     "targetAudience": "目标学员",
     "prerequisites": "先决条件",
     "careerOutcomes": "职业前景",
-    "galleryTitle": "图集"
+    "galleryTitle": "图集",
+    "formula": "方案",
+    "formulaValue": "全食宿, 半食宿, 外部"
   },
   "coursesIntro": {
     "title": "独特的学习方法",
