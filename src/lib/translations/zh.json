@@ -229,7 +229,9 @@
     "careerOutcomes": "职业前景",
     "galleryTitle": "图集",
     "formula": "方案",
-    "formulaValue": "全食宿, 半食宿, 外部"
+    "formulaValue": "全食宿, 半食宿, 外部",
+    "languages": "语言",
+    "languagesValue": "课程提供英语和中文授课"
   },
   "coursesIntro": {
     "title": "独特的学习方法",

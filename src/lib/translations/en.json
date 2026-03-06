@@ -229,7 +229,9 @@
     "careerOutcomes": "Career Outcomes",
     "galleryTitle": "In Pictures",
     "formula": "Plan",
-    "formulaValue": "Full board, half board, external"
+    "formulaValue": "Full board, half board, external",
+    "languages": "Languages",
+    "languagesValue": "Course available in English and Chinese"
   },
   "coursesIntro": {
     "title": "A Unique Approach to Learning",

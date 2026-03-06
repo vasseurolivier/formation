@@ -4,7 +4,7 @@
 import { useTranslation } from '@/hooks/use-translation';
 import type { Course } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Clock, Users, CheckSquare, Target, Bed } from 'lucide-react';
+import { Clock, Users, CheckSquare, Target, Bed, Languages } from 'lucide-react';
 import { ScrollReveal } from '../scroll-reveal';
 
 export default function CourseDetailSection({ course }: { course: Course }) {
@@ -17,6 +17,14 @@ export default function CourseDetailSection({ course }: { course: Course }) {
     { icon: Target, title: t('coursePage.careerOutcomes'), key: course.careerOutcomesKey },
     { icon: Bed, title: t('coursePage.formula'), key: 'coursePage.formulaValue' },
   ];
+
+  if (course.languageHighlight) {
+    details.splice(1, 0, {
+      icon: Languages,
+      title: t('coursePage.languages'),
+      key: 'coursePage.languagesValue',
+    });
+  }
 
   return (
     <section className="py-20 md:py-24 bg-background">
@@ -51,5 +59,3 @@ export default function CourseDetailSection({ course }: { course: Course }) {
     </section>
   );
 }
-
-    
