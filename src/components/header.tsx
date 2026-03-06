@@ -16,13 +16,26 @@ const LOGO_DOC_ID = 'siteLogo';
 
 export default function Header() {
   const { t } = useTranslation();
-  const [isMounted, setIsMounted] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const firestore = useFirestore();
 
+  const [headerClass, setHeaderClass] = useState("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent");
+
   useEffect(() => {
-    setIsMounted(true);
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setHeaderClass("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground/90 backdrop-blur-lg border-b border-white/20");
+      } else {
+        setHeaderClass("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent");
+      }
+    };
+    
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   const logoDocRef = useMemoFirebase(() => {
@@ -41,28 +54,9 @@ export default function Header() {
     { href: "/contact", label: t("nav.contact") },
   ];
 
-  useEffect(() => {
-    if (!isMounted) return;
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
-  }, [isMounted]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isMounted && isScrolled ? "bg-foreground/90 backdrop-blur-lg border-b border-white/20" : "bg-transparent"
-      )}
-    >
+    <header className={headerClass}>
       <div className="w-full mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <div className="flex flex-1 items-center gap-10">
           <Link href="/" className="flex-shrink-0">
