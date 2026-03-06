@@ -86,7 +86,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                    "text-sm font-medium text-white/80 transition-colors hover:text-white",
+                    "text-base font-medium text-white/80 transition-colors hover:text-white [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.5))]",
                     pathname === item.href && "text-white font-semibold"
                 )}
                 >
