@@ -57,10 +57,10 @@ export default function Header() {
 
   return (
     <header className={headerClass}>
-      <div className="w-full mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+      <div className="w-full mx-auto flex h-28 items-center justify-between px-4 md:px-6">
         <div className="flex flex-1 items-center gap-10">
           <Link href="/" className="flex-shrink-0">
-              <div className="relative" style={{ height: '3.15rem', width: '6.6rem' }}>
+              <div className="relative" style={{ height: '6.3rem', width: '13.2rem' }}>
                 {logoUrl ? (
                     <Image
                         src={logoUrl}
@@ -80,7 +80,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                    "text-base font-medium text-white/80 transition-colors hover:text-white [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.5))]",
+                    "text-xl font-medium text-white/80 transition-colors hover:text-white [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.5))]",
                     pathname === item.href && "text-white font-semibold"
                 )}
                 >
