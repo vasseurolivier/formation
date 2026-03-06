@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-home",
-      "description": "Global education concept",
-      "imageUrl": "https://picsum.photos/seed/hero-home/1920/1080",
-      "imageHint": "global education"
+      "description": "Personne suivant une formation professionnelle sur ordinateur",
+      "imageUrl": "https://picsum.photos/seed/formation-pro/1920/1080",
+      "imageHint": "professional training"
     },
     {
       "id": "hero-about",
