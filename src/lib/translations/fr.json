@@ -132,28 +132,28 @@
     "footballCoach": {
       "title": "Entraîneur de Football",
       "shortDesc": "Devenez un tacticien du football moderne.",
-      "fullDesc": "Ce programme vous forme aux dernières méthodologies d'entraînement, à la gestion d'équipe et à l'analyse tactique pour exceller en tant que coach.",
+      "fullDesc": "Devenez le maître tacticien que chaque équipe recherche. Notre formation d'Entraîneur de Football est un programme complet qui vous plonge au cœur de la stratégie et du leadership sportif. Vous apprendrez à concevoir et à diriger des séances d'entraînement modernes, basées sur les principes de la périodisation tactique et adaptées à tous les niveaux, des jeunes aux professionnels. Le cursus couvre en profondeur l'analyse vidéo, vous apprenant à décortiquer les matchs pour identifier les forces et faiblesses de votre équipe et de vos adversaires. Un volet important est dédié à la psychologie sportive et à la gestion humaine : comment motiver vos joueurs, gérer un vestiaire, communiquer efficacement avec les médias et la direction. Vous étudierez également les sciences du sport appliquées au football, incluant la préparation physique, la nutrition et la prévention des blessures. Grâce à des mises en situation pratiques et des stages en club, vous développerez le savoir-faire et l'autorité nécessaires pour mener une équipe vers la victoire et révéler le plein potentiel de chaque joueur.",
       "duration": "10 mois",
       "target": "Futurs entraîneurs, éducateurs sportifs.",
-      "prerequisites": "Bonne connaissance du football, expérience en club appréciée.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Entraîneur diplômé, directeur technique, recruteur."
     },
     "fifaAgent": {
       "title": "Agent de Joueurs (Licence FIFA)",
       "shortDesc": "Gérez la carrière des futures stars du football.",
-      "fullDesc": "Apprenez les arcanes du métier d'agent : droit du sport, négociation de contrats, marketing et gestion de carrière pour obtenir la licence officielle de la FIFA.",
+      "fullDesc": "Entrez dans les coulisses du football professionnel et devenez un acteur incontournable de la carrière des joueurs. Notre préparation à l'examen d'Agent de Joueurs FIFA est la voie royale pour maîtriser les multiples facettes de ce métier exigeant. Le programme est axé sur une compréhension rigoureuse du droit du sport, des réglementations de la FIFA sur le statut et le transfert des joueurs, ainsi que du droit des contrats. Vous apprendrez à rédiger, analyser et négocier des contrats de travail et des accords de transfert complexes. Une partie essentielle de la formation est consacrée aux techniques de négociation et à la stratégie commerciale : comment évaluer la valeur d'un joueur, approcher les clubs, et construire des relations de confiance durables. Vous développerez également des compétences en marketing personnel et en gestion de l'image de vos futurs clients. Des études de cas réels et des simulations de négociations vous prépareront à toutes les situations. À l'issue de cette formation, vous aurez tous les atouts pour réussir l'examen officiel de la FIFA et lancer votre carrière d'agent.",
       "duration": "8 mois",
       "target": "Passionnés de football avec un sens des affaires.",
-      "prerequisites": "Bac+2, connaissances juridiques sont un plus.",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Agent de joueurs licencié FIFA, conseiller sportif."
     },
     "sportsData": {
       "title": "Data Analyst pour le Sport",
       "shortDesc": "La performance sportive analysée par la donnée.",
-      "fullDesc": "Maîtrisez les outils d'analyse de données (tracking, statistiques avancées) pour optimiser la performance des athlètes et des équipes.",
+      "fullDesc": "Révélez les secrets de la performance sportive grâce à la puissance des données. Notre formation de Data Analyst pour le Sport vous positionne à la pointe de la révolution analytique dans le sport. Vous apprendrez à collecter, traiter et interpréter les vastes ensembles de données générées lors des matchs et des entraînements. Le programme couvre les principaux types de données : données événementielles (passes, tirs), données de tracking (positions des joueurs), et données biométriques. Vous maîtriserez les outils logiciels de référence comme Python et R, ainsi que les plateformes de visualisation de données telles que Tableau, pour créer des rapports et des dashboards percutants. Vous étudierez les modèles statistiques et les algorithmes de machine learning pour évaluer la performance des joueurs, analyser les schémas tactiques, et aider le staff technique à prendre des décisions éclairées. Des projets concrets, basés sur de vrais jeux de données de clubs professionnels, vous permettront d'appliquer vos compétences à des problématiques réelles comme le recrutement de joueurs ou l'optimisation des stratégies de jeu.",
       "duration": "6 mois",
       "target": "Profils analytiques, statisticiens, passionnés de sport.",
-      "prerequisites": "Bases en statistiques et programmation (Python/R).",
+      "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Data analyst pour club professionnel, fédération ou média sportif."
     }
   },

@@ -132,28 +132,28 @@
     "footballCoach": {
       "title": "Football Coach",
       "shortDesc": "Become a modern football tactician.",
-      "fullDesc": "This program trains you in the latest coaching methodologies, team management, and tactical analysis to excel as a coach.",
+      "fullDesc": "Become the master tactician every team is looking for. Our Football Coach training is a comprehensive program that immerses you in the heart of sports strategy and leadership. You will learn to design and lead modern training sessions based on the principles of tactical periodization, suitable for all levels, from youth to professionals. The curriculum provides in-depth coverage of video analysis, teaching you to break down matches to identify the strengths and weaknesses of your team and your opponents. A significant component is dedicated to sports psychology and human resource management: how to motivate your players, manage a locker room, and communicate effectively with the media and management. You will also study sports science as applied to football, including physical preparation, nutrition, and injury prevention. Through practical scenarios and club internships, you will develop the know-how and authority needed to lead a team to victory and unlock each player's full potential.",
       "duration": "10 months",
       "target": "Future coaches, sports educators.",
-      "prerequisites": "Good knowledge of football, club experience appreciated.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Certified coach, technical director, scout."
     },
     "fifaAgent": {
       "title": "Player Agent (FIFA License)",
       "shortDesc": "Manage the careers of future football stars.",
-      "fullDesc": "Learn the intricacies of the agent profession: sports law, contract negotiation, marketing, and career management to obtain the official FIFA license.",
+      "fullDesc": "Go behind the scenes of professional football and become an indispensable player in athletes' careers. Our preparation for the FIFA Player Agent exam is the premier path to mastering the many facets of this demanding profession. The program focuses on a rigorous understanding of sports law, FIFA regulations on the status and transfer of players, and contract law. You will learn to draft, analyze, and negotiate complex employment contracts and transfer agreements. An essential part of the training is devoted to negotiation techniques and business strategy: how to assess a player's value, approach clubs, and build lasting relationships of trust. You will also develop skills in personal marketing and image management for your future clients. Real-life case studies and negotiation simulations will prepare you for any situation. Upon completion of this training, you will have all the assets to pass the official FIFA exam and launch your career as an agent.",
       "duration": "8 months",
       "target": "Football enthusiasts with a business sense.",
-      "prerequisites": "2 years of higher education, legal knowledge is a plus.",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "FIFA licensed player agent, sports advisor."
     },
     "sportsData": {
       "title": "Sports Data Analyst",
       "shortDesc": "Sports performance analyzed through data.",
-      "fullDesc": "Master data analysis tools (tracking, advanced statistics) to optimize the performance of athletes and teams.",
+      "fullDesc": "Unlock the secrets of sports performance through the power of data. Our Sports Data Analyst training places you at the forefront of the analytical revolution in sports. You will learn to collect, process, and interpret the vast datasets generated during matches and training sessions. The program covers the main types of data: event data (passes, shots), tracking data (player positions), and biometric data. You will master benchmark software tools like Python and R, as well as data visualization platforms like Tableau, to create impactful reports and dashboards. You will study statistical models and machine learning algorithms to evaluate player performance, analyze tactical patterns, and help technical staff make informed decisions. Concrete projects based on real datasets from professional clubs will allow you to apply your skills to real-world problems such as player recruitment or optimizing game strategies.",
       "duration": "6 months",
       "target": "Analytical profiles, statisticians, sports enthusiasts.",
-      "prerequisites": "Basics in statistics and programming (Python/R).",
+      "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Data analyst for a professional club, federation, or sports media."
     }
   },
