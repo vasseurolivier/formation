@@ -26,29 +26,29 @@ export default function CoursesIntroSection() {
   ];
 
   return (
-    <section className="py-8 md:py-10 bg-primary text-primary-foreground">
+    <section className="py-6 md:py-8 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold">
               {t("coursesIntro.title")}
             </h2>
-            <p className="mt-4 text-lg text-primary-foreground/80">
+            <p className="mt-2 text-base text-primary-foreground/80">
               {t("coursesIntro.subtitle")}
             </p>
           </ScrollReveal>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
           {stats.map((stat, index) => (
             <ScrollReveal key={index} delay={100 * index} className="text-center">
-              <div className="flex justify-center mb-4">
-                  <div className="bg-primary-foreground/10 rounded-full p-4">
-                      <stat.icon className="w-8 h-8 text-primary-foreground" />
+              <div className="flex justify-center mb-3">
+                  <div className="bg-primary-foreground/10 rounded-full p-3">
+                      <stat.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
               </div>
-              <p className="text-4xl font-bold text-primary-foreground">{stat.value}</p>
-              <p className="mt-2 text-primary-foreground/80">{t(stat.labelKey)}</p>
+              <p className="text-3xl font-bold text-primary-foreground">{stat.value}</p>
+              <p className="mt-1 text-sm text-primary-foreground/80">{t(stat.labelKey)}</p>
             </ScrollReveal>
           ))}
         </div>
