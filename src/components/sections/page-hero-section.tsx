@@ -47,16 +47,16 @@ export default function PageHeroSection({ imageId, titleKey, subtitleKey }: Page
           ) : (
             <Skeleton className="absolute inset-0 w-full h-full" />
           )}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
-      <div className="relative z-10 flex h-full items-center justify-start text-left">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      <div className="relative z-10 flex h-full items-end justify-start pb-20 text-left md:pb-24">
         <div className="container px-4 md:px-6">
           <ScrollReveal>
-            <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="font-headline max-w-xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
               {t(titleKey)}
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="mt-4 max-w-2xl text-lg text-white/90 md:text-xl">
+            <p className="mt-4 max-w-2xl text-base text-white/90 md:text-lg">
               {t(subtitleKey)}
             </p>
           </ScrollReveal>
