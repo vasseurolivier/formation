@@ -64,10 +64,10 @@ export default function Header() {
 
   return (
     <header className={headerClass}>
-      <div className="w-full mx-auto flex h-28 items-center justify-between px-4 md:px-6">
+      <div className="w-full mx-auto flex h-28 items-center justify-start px-4 md:px-6">
         <div className="flex items-center gap-10">
           <Link href="/" className="flex-shrink-0">
-              <div className="relative" style={{ height: '6.3rem', width: '10rem' }}>
+              <div className="relative" style={{ height: '6.3rem', width: '5rem' }}>
                 {logoUrl ? (
                     <Image
                         src={logoUrl}
@@ -97,7 +97,7 @@ export default function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4 text-white">
+        <div className="flex items-center gap-4 text-white ml-auto">
           <LanguageSwitcher />
            <Button asChild variant="outline" size="sm" className="text-white border-white/50 hover:bg-white/10">
             <Link href="/admin">Admin</Link>
