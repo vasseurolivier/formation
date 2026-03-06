@@ -6,7 +6,9 @@
     "courses": "Formations",
     "locations": "Nos Campus",
     "about": "À Propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
   },
   "hero": {
     "title": "Votre Passerelle vers une Carrière Internationale",
@@ -258,5 +260,15 @@
   },
   "courseCard": {
     "languageBadge": "Formation en Anglais ou Chinois"
+  },
+  "privacyPolicy": {
+    "title": "Politique de Confidentialité",
+    "subtitle": "Votre vie privée est importante pour nous.",
+    "content": "## 1. Introduction ##\nCette Politique de Confidentialité explique comment PERPECTIVE PRO FORMATION collecte, utilise et protège vos informations personnelles. Cette politique s'applique aux utilisateurs de l'Union Européenne (conformément au RGPD) et de Chine (conformément à la PIPL).\n\n## 2. Informations que nous collectons ##\nNous collectons les informations que vous nous fournissez directement, par exemple lorsque vous remplissez notre formulaire de contact. Celles-ci peuvent inclure votre nom, votre adresse e-mail, votre numéro de téléphone et toute autre information que vous fournissez. Nous collectons également des données automatiquement lors de votre utilisation de notre site, telles que votre adresse IP et votre comportement de navigation, par le biais de cookies et de technologies similaires.\n\n## 3. Utilisation des informations ##\nVos informations sont utilisées pour fournir et améliorer nos services, pour répondre à vos demandes, pour vous envoyer des informations sur nos formations et à des fins administratives. Nous traitons ces données sur la base de votre consentement ou de notre intérêt légitime à exploiter notre site web.\n\n## 4. Vos droits ##\nConformément au RGPD et à la PIPL, vous disposez de droits sur vos données personnelles. Ceux-ci incluent le droit d'accéder, de rectifier ou de supprimer vos données, le droit de limiter ou de vous opposer au traitement, et le droit à la portabilité des données. Pour exercer ces droits, veuillez nous contacter à l'adresse ci-dessous.\n\n## 5. Transferts de données ##\nEn tant qu'organisation internationale, vos données peuvent être transférées et traitées dans des pays autres que le vôtre, y compris la France et la Chine. Nous prenons toutes les mesures nécessaires pour garantir que ces transferts respectent les lois applicables et que vos données restent protégées.\n\n## 6. Sécurité des données ##\nNous nous engageons à protéger la sécurité de vos informations personnelles. Nous utilisons diverses technologies et procédures de sécurité pour aider à protéger vos informations personnelles contre l'accès, l'utilisation ou la divulgation non autorisés.\n\n## 7. Nous contacter ##\nSi vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter via notre formulaire de contact."
+  },
+  "termsOfUse": {
+    "title": "Conditions d'Utilisation",
+    "subtitle": "Veuillez lire attentivement ces conditions.",
+    "content": "## 1. Acceptation des conditions ##\nEn accédant et en utilisant ce site web, vous acceptez d'être lié par les termes et dispositions de cet accord. Si vous n'acceptez pas de respecter ces termes, veuillez ne pas utiliser ce site.\n\n## 2. Utilisation du site web ##\nVous acceptez d'utiliser ce site web uniquement à des fins légales. Il vous est interdit de publier ou de transmettre via le site tout matériel contrefait, menaçant, diffamatoire, obscène ou autrement illégal.\n\n## 3. Propriété intellectuelle ##\nTout le contenu de ce site, y compris les textes, graphiques, logos et images, est la propriété de PERPECTIVE PRO FORMATION ou de ses fournisseurs de contenu et est protégé par les lois internationales sur le droit d'auteur.\n\n## 4. Exclusions de garantie ##\nCe site web et son contenu sont fournis 'en l'état'. PERPECTIVE PRO FORMATION n'offre aucune garantie, expresse ou implicite, et décline par la présente toute autre garantie, y compris, sans limitation, les garanties implicites de qualité marchande, d'adéquation à un usage particulier ou de non-violation de la propriété intellectuelle.\n\n## 5. Limitation de responsabilité ##\nEn aucun cas, PERPECTIVE PRO FORMATION ne pourra être tenu responsable de tout dommage (y compris, sans limitation, les dommages pour perte de données ou de profit, ou en raison d'une interruption d'activité) découlant de l'utilisation ou de l'impossibilité d'utiliser le matériel sur ce site web.\n\n## 6. Droit applicable ##\nCes conditions sont régies et interprétées conformément aux lois de la France pour les utilisateurs européens et aux lois de la République Populaire de Chine pour les utilisateurs chinois, sans égard à ses dispositions en matière de conflit de lois. Tout litige sera soumis à la juridiction exclusive des tribunaux compétents de ces territoires respectifs."
   }
 }

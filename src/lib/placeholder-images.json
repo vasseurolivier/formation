@@ -37,6 +37,18 @@
       "imageHint": "writing letter"
     },
     {
+      "id": "hero-privacy-policy",
+      "description": "A secure lock symbolizing data privacy",
+      "imageUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2VjdXJpdHl8ZW58MHx8fHwxNzcyNTYwMDAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data security"
+    },
+    {
+      "id": "hero-terms-of-use",
+      "description": "A person reading a legal document",
+      "imageUrl": "https://images.unsplash.com/photo-1589211333149-e2a8c79213da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxsZWdhbCUyMGRvY3VtZW50fGVufDB8fHx8fDE3NzI1NjAwMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "legal document"
+    },
+    {
       "id": "course-flight-attendant",
       "description": "Flight attendant in an airplane cabin",
       "imageUrl": "https://images.unsplash.com/photo-1483450388369-9ed95738483c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhaXJwbGFuZSUyMGNhYmlufGVufDB8fHx8MTc3MjQ0NzYyMHww&ixlib=rb-4.1.0&q=80&w=1080",
@@ -99,7 +111,7 @@
     {
       "id": "course-luxury-hotel",
       "description": "Luxurious hotel lobby",
-      "imageUrl": "https://images.unsplash.com/photo-1692153142524-60285a93c249?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8MTc3MjM4MTI2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1692153142524-60285a93c249?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxob3RlbCUyMGxvYmJ5fGVufDB8fHx8fDE3NzI0MDY0NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "hotel lobby"
     },
     {
@@ -243,7 +255,7 @@
     {
       "id": "gallery-course-fifa-agent-3",
       "description": "Scouting a football match",
-      "imageUrl": "https://images.unsplash.com/photo-1551954316-10111a43a0e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbmFseXppbmclMjBzb2NjZXIlMjBnYW1lfGVufDB8fHx8MTc3MjU0NTczMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551954316-10111a43a0e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbmFseXppbmclMjBzb2NjZXIlMjBnYW1lfGVufDB8fHx8fDE3NzI1NDU3MzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "analyzing game"
     },
     {

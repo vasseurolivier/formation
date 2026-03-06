@@ -6,7 +6,9 @@
     "courses": "Trainings",
     "locations": "Our Campuses",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
   },
   "hero": {
     "title": "Your Gateway to an International Career",
@@ -258,5 +260,15 @@
   },
   "courseCard": {
     "languageBadge": "Course in English or Chinese"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy is important to us.",
+    "content": "## 1. Introduction ##\nThis Privacy Policy explains how PERPECTIVE PRO FORMATION collects, uses, and protects your personal information. This policy is applicable to users in the European Union (under GDPR) and in China (under PIPL).\n\n## 2. Information We Collect ##\nWe collect information that you provide to us directly, such as when you fill out our contact form. This may include your name, email address, phone number, and any other information you provide. We also collect data automatically through your use of our site, such as your IP address and browsing behavior, through cookies and similar technologies.\n\n## 3. Use of Information ##\nYour information is used to provide and improve our services, to respond to your inquiries, to send you information about our courses, and for administrative purposes. We process this data based on your consent or our legitimate interest in operating our website.\n\n## 4. Your Rights ##\nUnder GDPR and PIPL, you have rights over your personal data. These include the right to access, rectify, or erase your data, the right to restrict or object to processing, and the right to data portability. To exercise these rights, please contact us at the address below.\n\n## 5. Data Transfers ##\nAs an international organization, your data may be transferred and processed in countries outside of your own, including France and China. We take all necessary measures to ensure that these transfers comply with applicable laws and that your data remains protected.\n\n## 6. Data Security ##\nWe are committed to protecting the security of your personal information. We use a variety of security technologies and procedures to help protect your personal information from unauthorized access, use, or disclosure.\n\n## 7. Contact Us ##\nIf you have any questions about this Privacy Policy, please contact us via our contact form."
+  },
+  "termsOfUse": {
+    "title": "Terms of Use",
+    "subtitle": "Please read these terms carefully.",
+    "content": "## 1. Acceptance of Terms ##\nBy accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not use this site.\n\n## 2. Website Use ##\nYou agree to use this website only for lawful purposes. You are prohibited from posting on or transmitting through the site any material that is infringing, threatening, defamatory, obscene, or otherwise unlawful.\n\n## 3. Intellectual Property ##\nAll content on this site, including text, graphics, logos, and images, is the property of PERPECTIVE PRO FORMATION or its content suppliers and is protected by international copyright laws.\n\n## 4. Disclaimers ##\nThis website and its content are provided on an 'as is' basis. PERPECTIVE PRO FORMATION makes no warranties, expressed or implied, and hereby disclaims all other warranties, including without limitation, implied warranties of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.\n\n## 5. Limitation of Liability ##\nIn no event shall PERPECTIVE PRO FORMATION be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on this website.\n\n## 6. Governing Law ##\nThese terms shall be governed by and construed in accordance with the laws of France for European users and the laws of the People's Republic of China for Chinese users, without regard to its conflict of law provisions. Any disputes will be subject to the exclusive jurisdiction of the competent courts in these respective territories."
   }
 }
