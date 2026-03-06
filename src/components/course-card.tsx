@@ -21,8 +21,6 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
   const { t } = useTranslation();
   const imageUrl = useCustomizableImage(course.thumbnailImageId);
   const placeholderImage = PlaceHolderImages.find((img) => img.id === course.thumbnailImageId);
-  const iconUrl = useCustomizableImage(course.iconMediaId);
-  const iconPlaceholder = PlaceHolderImages.find((img) => img.id === course.iconMediaId);
 
   return (
     <Link href={`/courses/${course.id}`} className="block group h-full">
@@ -34,26 +32,14 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
                       alt={placeholderImage.description}
                       data-ai-hint={placeholderImage.imageHint}
                       fill
-                      className="object-cover transition-all duration-500 ease-in-out group-hover/card:scale-110 group-hover/card:blur-sm group-hover/card:brightness-75"
+                      className="object-cover transition-all duration-500 ease-in-out group-hover/card:scale-110"
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     />
                 ) : (
                     <Skeleton className="w-full h-full" />
                 )}
                 
-                <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 opacity-0 group-hover/card:opacity-100">
-                  {iconUrl && iconPlaceholder && (
-                    <Image
-                      src={iconUrl}
-                      alt={iconPlaceholder.description}
-                      width={80}
-                      height={80}
-                      className="transition-transform duration-500 ease-out group-hover/card:scale-110"
-                    />
-                  )}
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent transition-all duration-300 opacity-80 group-hover/card:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-300" />
                 
                  {course.languageHighlight && (
                   <Badge variant="destructive" className="absolute top-4 right-4 border-destructive-foreground/20 backdrop-blur-sm z-10">
