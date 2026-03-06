@@ -20,8 +20,15 @@ export default function Header() {
   const firestore = useFirestore();
 
   const [headerClass, setHeaderClass] = useState("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent");
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setHeaderClass("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground/90 backdrop-blur-lg border-b border-white/20");
@@ -36,7 +43,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }
-  }, []);
+  }, [isMounted]);
 
   const logoDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -58,7 +65,7 @@ export default function Header() {
   return (
     <header className={headerClass}>
       <div className="w-full mx-auto flex h-28 items-center justify-between px-4 md:px-6">
-        <div className="flex flex-1 items-center gap-10">
+        <div className="flex items-center gap-10">
           <Link href="/" className="flex-shrink-0">
               <div className="relative" style={{ height: '6.3rem', width: '13.2rem' }}>
                 {logoUrl ? (
