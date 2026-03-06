@@ -19,7 +19,7 @@ export default function PageHeroSection({ imageId, titleKey, subtitleKey }: Page
   const placeholderImage = PlaceHolderImages.find((img) => img.id === imageId);
 
   return (
-    <section className="relative w-full h-[60vh] min-h-[450px] text-white bg-black">
+    <section className="relative w-full h-screen text-white bg-black">
       {media ? (
             media.type.startsWith('video') ? (
                <video
@@ -40,14 +40,15 @@ export default function PageHeroSection({ imageId, titleKey, subtitleKey }: Page
                   fill
                   className="object-cover"
                   priority
+                  sizes="100vw"
                 />
               )
             )
           ) : (
             <Skeleton className="absolute inset-0 w-full h-full" />
           )}
-      <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent" />
-      <div className="relative z-10 flex h-full items-end pb-20">
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+      <div className="relative z-10 flex h-full items-center justify-start text-left">
         <div className="container px-4 md:px-6">
           <ScrollReveal>
             <h1 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
