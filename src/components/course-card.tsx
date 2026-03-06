@@ -48,7 +48,7 @@ export default function CourseCard({ course, categoryTitle }: CourseCardProps) {
                 )}
 
                 <div className="absolute bottom-4 left-4 z-10">
-                    <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/50">{categoryTitle}</Badge>
+                    <Badge variant="secondary" className="bg-background/80 text-primary border-primary/30 backdrop-blur-sm">{categoryTitle}</Badge>
                 </div>
             </div>
             <div className="p-6 flex flex-col flex-grow bg-card">
