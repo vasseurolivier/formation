@@ -19,24 +19,23 @@ export default function Header() {
   const pathname = usePathname();
   const firestore = useFirestore();
 
-  const [headerClass, setHeaderClass] = useState("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setHeaderClass("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground/90 backdrop-blur-lg border-b border-white/20");
-      } else {
-        setHeaderClass("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent");
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
-    handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const headerClass = isScrolled
+    ? "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground/90 backdrop-blur-lg border-b border-white/20"
+    : "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent";
 
   const logoDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
