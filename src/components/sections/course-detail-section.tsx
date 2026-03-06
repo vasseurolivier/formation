@@ -38,7 +38,7 @@ export default function CourseDetailSection({ course }: { course: Course }) {
              </ScrollReveal>
           </div>
           <ScrollReveal delay={200}>
-            <Card className="sticky top-28">
+            <Card className="md:sticky top-32">
               <CardHeader>
                 <CardTitle>{t('coursePage.keyInfoTitle')}</CardTitle>
               </CardHeader>

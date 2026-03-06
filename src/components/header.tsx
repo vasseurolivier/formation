@@ -11,6 +11,13 @@ import { Button } from "@/components/ui/button";
 import { useFirestore, useDoc, useMemoFirebase } from "@/firebase";
 import { doc } from 'firebase/firestore';
 import type { MediaAsset } from "@/lib/firebase-types";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 const LOGO_DOC_ID = 'siteLogo';
 
@@ -57,7 +64,7 @@ export default function Header() {
 
   return (
     <header className={headerClass}>
-      <div className="w-full mx-auto flex h-28 items-center justify-start px-4 md:px-6">
+      <div className="w-full mx-auto flex h-28 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-10">
           <Link href="/" className="flex-shrink-0">
               <div className="relative" style={{ height: '6.3rem', width: '5rem' }}>
@@ -95,10 +102,40 @@ export default function Header() {
         </div>
 
         <div className={cn(
-          "flex items-center gap-4 ml-auto",
+          "flex items-center gap-2",
           isScrolled ? "text-foreground" : "text-white"
           )}>
           <LanguageSwitcher />
+          <div className="md:hidden">
+              <Sheet>
+                  <SheetTrigger asChild>
+                      <Button variant="ghost" size="icon">
+                          <Menu className="h-8 w-8" />
+                          <span className="sr-only">Ouvrir le menu</span>
+                      </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="w-[300px] bg-background p-0">
+                      <div className="p-6 h-full">
+                        <nav className="flex flex-col gap-6 mt-8">
+                            {navItems.map((item) => (
+                                <SheetClose asChild key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        className={cn(
+                                            "text-2xl font-medium",
+                                            pathname === item.href ? "text-primary" : "text-foreground/80",
+                                            "hover:text-primary transition-colors"
+                                        )}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </SheetClose>
+                            ))}
+                        </nav>
+                      </div>
+                  </SheetContent>
+              </Sheet>
+          </div>
         </div>
       </div>
     </header>
