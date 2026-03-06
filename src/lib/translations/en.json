@@ -35,7 +35,8 @@
     "languagesAndCultures": "Cultures & Foreign Languages",
     "luxury": "Luxury Hospitality & Catering",
     "fashion": "Fashion",
-    "aeronautics": "Aeronautics"
+    "aeronautics": "Aeronautics",
+    "sportManagement": "Sport & Management"
   },
   "courses": {
     "flightAttendant": {
@@ -127,6 +128,33 @@
       "target": "Entrepreneurs and managers from Asia wishing to expand into Europe.",
       "prerequisites": "Must be at least 16 years old.",
       "outcomes": "Business plan for European expansion, network of contacts in Europe."
+    },
+    "footballCoach": {
+      "title": "Football Coach",
+      "shortDesc": "Become a modern football tactician.",
+      "fullDesc": "This program trains you in the latest coaching methodologies, team management, and tactical analysis to excel as a coach.",
+      "duration": "10 months",
+      "target": "Future coaches, sports educators.",
+      "prerequisites": "Good knowledge of football, club experience appreciated.",
+      "outcomes": "Certified coach, technical director, scout."
+    },
+    "fifaAgent": {
+      "title": "Player Agent (FIFA License)",
+      "shortDesc": "Manage the careers of future football stars.",
+      "fullDesc": "Learn the intricacies of the agent profession: sports law, contract negotiation, marketing, and career management to obtain the official FIFA license.",
+      "duration": "8 months",
+      "target": "Football enthusiasts with a business sense.",
+      "prerequisites": "2 years of higher education, legal knowledge is a plus.",
+      "outcomes": "FIFA licensed player agent, sports advisor."
+    },
+    "sportsData": {
+      "title": "Sports Data Analyst",
+      "shortDesc": "Sports performance analyzed through data.",
+      "fullDesc": "Master data analysis tools (tracking, advanced statistics) to optimize the performance of athletes and teams.",
+      "duration": "6 months",
+      "target": "Analytical profiles, statisticians, sports enthusiasts.",
+      "prerequisites": "Basics in statistics and programming (Python/R).",
+      "outcomes": "Data analyst for a professional club, federation, or sports media."
     }
   },
   "aboutSection": {

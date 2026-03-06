@@ -35,7 +35,8 @@
     "languagesAndCultures": "文化与外语",
     "luxury": "豪华酒店与餐饮",
     "fashion": "时尚",
-    "aeronautics": "航空"
+    "aeronautics": "航空",
+    "sportManagement": "体育与管理"
   },
   "courses": {
     "flightAttendant": {
@@ -122,11 +123,38 @@
     "gatewayEurope": {
       "title": "通往欧洲和东南亚的门户",
       "shortDesc": "掌握国际扩张战略。",
-      "fullDesc": "通过我们的‘通往欧洲和东南亚的门户’课程，充满信心地征服新市场。这项战略培训专为主要来自亚洲的企业家和公司设计，他们旨在在欧洲市场立足并茁壮成长，同时也了解东南亚的动态。该课程是一个真正的门户，将帮助您解读这些地区的法规、文化和商业复杂性。您将学习欧盟的法律框架，包括GDPR、产品合规标准（CE标志）以及与国际贸易相关的税务方面。\n\n一个重要的组成部分致力于营销策略和产品适应。您将学习分析欧洲国家之间消费者行为的差异，并为每个目标市场调整您的信息和产品。我们还将解决物流挑战：如何优化您的供应链、选择您的分销伙伴以及管理进出口。通过具体的案例研究和国际贸易专家的介绍，您将为您的扩张制定一个坚实的行动计划。这项培训将为您提供决定性的竞争优势，将您的全球愿景转变为商业成功。",
+      "fullDesc": "通过我们的‘通往欧洲和东南亚的门户’课程，充满信心地征服新市场。这项战略培训专为主要来自亚洲的企业家和公司设计，他们旨在在欧洲市场立足并茁壮成长，同时也了解东南亚的动态。该课程是一个真正的门户，将帮助您解读这些地区的法规、文化和商业复杂性。您将学习欧盟的法律框架，包括GDPR、产品合规标准（CE标志）以及与国际贸易相关的税务方面。\n\nA significant component is devoted to marketing strategies and product adaptation. You will learn to analyze differences in consumer behavior between European countries and adjust your message and offer for each target market. We will also address logistical challenges: how to optimize your supply chain, choose your distribution partners, and manage import-export. Through concrete case studies and presentations by international trade experts, you will develop a solid action plan for your expansion. This training will give you a decisive competitive advantage to turn your global vision into commercial success.",
       "duration": "3个月",
       "target": "希望扩展到欧洲的亚洲企业家和经理人。",
       "prerequisites": "年满16周岁。",
       "outcomes": "欧洲扩张的商业计划，欧洲的人脉网络。"
+    },
+    "footballCoach": {
+      "title": "足球教练",
+      "shortDesc": "成为现代足球战术家。",
+      "fullDesc": "该课程培训您最新的教练方法、团队管理和战术分析，助您成为一名出色的教练。",
+      "duration": "10个月",
+      "target": "未来的教练、体育教育者。",
+      "prerequisites": "对足球有良好了解，有俱乐部经验者优先。",
+      "outcomes": "认证教练、技术总监、球探。"
+    },
+    "fifaAgent": {
+      "title": "球员经纪人（FIFA许可证）",
+      "shortDesc": "管理未来足球明星的职业生涯。",
+      "fullDesc": "学习经纪人职业的复杂性：体育法、合同谈判、市场营销和职业管理，以获得官方FIFA许可证。",
+      "duration": "8个月",
+      "target": "具有商业头脑的足球爱好者。",
+      "prerequisites": "两年高等教育，有法律知识者优先。",
+      "outcomes": "持有FIFA许可证的球员经纪人、体育顾问。"
+    },
+    "sportsData": {
+      "title": "体育数据分析师",
+      "shortDesc": "通过数据分析体育表现。",
+      "fullDesc": "掌握数据分析工具（跟踪、高级统计），以优化运动员和团队的表现。",
+      "duration": "6个月",
+      "target": "分析型人才、统计师、体育爱好者。",
+      "prerequisites": "统计学和编程（Python/R）基础。",
+      "outcomes": "职业俱乐部、联合会或体育媒体的数据分析师。"
     }
   },
   "aboutSection": {

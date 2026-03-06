@@ -5,6 +5,7 @@ export const courseCategories = [
   { id: 'luxury-hospitality', titleKey: 'category.luxury' },
   { id: 'fashion', titleKey: 'category.fashion' },
   { id: 'aeronautics', titleKey: 'category.aeronautics' },
+  { id: 'sport-management', titleKey: 'category.sportManagement' },
 ] as const;
 
 export type CourseCategoryId = (typeof courseCategories)[number]['id'];
@@ -183,6 +184,51 @@ export const courses: Course[] = [
     galleryImageIds: ['gallery-course-gateway-europe-1', 'gallery-course-gateway-europe-2', 'gallery-course-gateway-europe-3'],
     languageHighlight: true
   },
+  {
+    id: 'football-coach',
+    categoryId: 'sport-management',
+    titleKey: 'courses.footballCoach.title',
+    shortDescriptionKey: 'courses.footballCoach.shortDesc',
+    fullDescriptionKey: 'courses.footballCoach.fullDesc',
+    durationKey: 'courses.footballCoach.duration',
+    targetAudienceKey: 'courses.footballCoach.target',
+    prerequisitesKey: 'courses.footballCoach.prerequisites',
+    careerOutcomesKey: 'courses.footballCoach.outcomes',
+    thumbnailImageId: 'course-football-coach',
+    heroImageId: 'hero-course-football-coach',
+    iconMediaId: 'icon-football-coach',
+    galleryImageIds: ['gallery-course-football-coach-1', 'gallery-course-football-coach-2', 'gallery-course-football-coach-3']
+  },
+  {
+    id: 'fifa-agent',
+    categoryId: 'sport-management',
+    titleKey: 'courses.fifaAgent.title',
+    shortDescriptionKey: 'courses.fifaAgent.shortDesc',
+    fullDescriptionKey: 'courses.fifaAgent.fullDesc',
+    durationKey: 'courses.fifaAgent.duration',
+    targetAudienceKey: 'courses.fifaAgent.target',
+    prerequisitesKey: 'courses.fifaAgent.prerequisites',
+    careerOutcomesKey: 'courses.fifaAgent.outcomes',
+    thumbnailImageId: 'course-fifa-agent',
+    heroImageId: 'hero-course-fifa-agent',
+    iconMediaId: 'icon-fifa-agent',
+    galleryImageIds: ['gallery-course-fifa-agent-1', 'gallery-course-fifa-agent-2', 'gallery-course-fifa-agent-3']
+  },
+  {
+    id: 'sports-data',
+    categoryId: 'sport-management',
+    titleKey: 'courses.sportsData.title',
+    shortDescriptionKey: 'courses.sportsData.shortDesc',
+    fullDescriptionKey: 'courses.sportsData.fullDesc',
+    durationKey: 'courses.sportsData.duration',
+    targetAudienceKey: 'courses.sportsData.target',
+    prerequisitesKey: 'courses.sportsData.prerequisites',
+    careerOutcomesKey: 'courses.sportsData.outcomes',
+    thumbnailImageId: 'course-sports-data',
+    heroImageId: 'hero-course-sports-data',
+    iconMediaId: 'icon-sports-data',
+    galleryImageIds: ['gallery-course-sports-data-1', 'gallery-course-sports-data-2', 'gallery-course-sports-data-3']
+  }
 ];
 
 export interface CampusLocation {

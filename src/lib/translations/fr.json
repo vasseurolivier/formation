@@ -35,7 +35,8 @@
     "languagesAndCultures": "Cultures & Langues Étrangères",
     "luxury": "Luxury Hospitality & Catering",
     "fashion": "Fashion",
-    "aeronautics": "Aeronautics"
+    "aeronautics": "Aeronautics",
+    "sportManagement": "Sport & Management"
   },
   "courses": {
     "flightAttendant": {
@@ -127,6 +128,33 @@
       "target": "Entrepreneurs et managers d'Asie désirant s'étendre en Europe.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Plan d'affaires pour une expansion européenne, réseau de contacts en Europe."
+    },
+    "footballCoach": {
+      "title": "Entraîneur de Football",
+      "shortDesc": "Devenez un tacticien du football moderne.",
+      "fullDesc": "Ce programme vous forme aux dernières méthodologies d'entraînement, à la gestion d'équipe et à l'analyse tactique pour exceller en tant que coach.",
+      "duration": "10 mois",
+      "target": "Futurs entraîneurs, éducateurs sportifs.",
+      "prerequisites": "Bonne connaissance du football, expérience en club appréciée.",
+      "outcomes": "Entraîneur diplômé, directeur technique, recruteur."
+    },
+    "fifaAgent": {
+      "title": "Agent de Joueurs (Licence FIFA)",
+      "shortDesc": "Gérez la carrière des futures stars du football.",
+      "fullDesc": "Apprenez les arcanes du métier d'agent : droit du sport, négociation de contrats, marketing et gestion de carrière pour obtenir la licence officielle de la FIFA.",
+      "duration": "8 mois",
+      "target": "Passionnés de football avec un sens des affaires.",
+      "prerequisites": "Bac+2, connaissances juridiques sont un plus.",
+      "outcomes": "Agent de joueurs licencié FIFA, conseiller sportif."
+    },
+    "sportsData": {
+      "title": "Data Analyst pour le Sport",
+      "shortDesc": "La performance sportive analysée par la donnée.",
+      "fullDesc": "Maîtrisez les outils d'analyse de données (tracking, statistiques avancées) pour optimiser la performance des athlètes et des équipes.",
+      "duration": "6 mois",
+      "target": "Profils analytiques, statisticiens, passionnés de sport.",
+      "prerequisites": "Bases en statistiques et programmation (Python/R).",
+      "outcomes": "Data analyst pour club professionnel, fédération ou média sportif."
     }
   },
   "aboutSection": {
