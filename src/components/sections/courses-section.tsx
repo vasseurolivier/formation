@@ -12,7 +12,7 @@ export default function CoursesSection() {
     <section className="py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         {courseCategories.map((category) => (
-          <div key={category.id} className="mb-16">
+          <div key={category.id} id={category.id} className="mb-16 scroll-mt-44">
             <ScrollReveal>
               <h3 className="font-headline text-2xl md:text-3xl font-semibold mb-8 text-foreground">
                 {t(category.titleKey)}

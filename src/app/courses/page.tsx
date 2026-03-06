@@ -1,3 +1,4 @@
+import CourseCategoryNav from '@/components/sections/course-category-nav';
 import CoursesIntroSection from '@/components/sections/courses-intro-section';
 import CoursesSection from '@/components/sections/courses-section';
 import PageHeroSection from '@/components/sections/page-hero-section';
@@ -11,6 +12,7 @@ export default function CoursesPage() {
         subtitleKey="coursesSection.subtitle"
       />
       <CoursesIntroSection />
+      <CourseCategoryNav />
       <CoursesSection />
     </>
   );
