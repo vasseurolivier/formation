@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Film, Save, CheckCircle, AlertTriangle, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Film, Save, CheckCircle, AlertTriangle, RefreshCw, Info } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,6 +16,8 @@ import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useTranslation } from '@/hooks/use-translation';
+import { getImageUsageInfo } from '@/lib/admin-helpers';
 
 type CustomMedia = {
   url: string;
@@ -25,6 +27,7 @@ type CustomMedia = {
 const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   const { toast } = useToast();
   const { firestore, auth } = useFirebase();
+  const { t } = useTranslation();
 
   const mediaDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
@@ -100,11 +103,18 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   
   const isCustom = !!customMediaData;
   const isVideo = media?.type.startsWith('video');
+  const usageInfo = getImageUsageInfo(image.id, t);
 
   return (
     <Card className="overflow-hidden flex flex-col">
       <CardHeader className="p-4">
         <CardTitle className="text-base font-medium">{image.description}</CardTitle>
+        {usageInfo && (
+          <div className="flex items-start gap-2 text-xs text-muted-foreground pt-1">
+            <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
+            <span>{usageInfo}</span>
+          </div>
+        )}
       </CardHeader>
       <CardContent className="p-4 pt-0 space-y-4 flex flex-col flex-grow">
         <div className="relative aspect-video w-full rounded-md overflow-hidden border bg-black">
