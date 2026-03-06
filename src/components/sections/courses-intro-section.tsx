@@ -26,7 +26,7 @@ export default function CoursesIntroSection() {
   ];
 
   return (
-    <section className="py-20 md:py-24 bg-primary text-primary-foreground">
+    <section className="py-8 md:py-10 bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
@@ -39,7 +39,7 @@ export default function CoursesIntroSection() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <ScrollReveal key={index} delay={100 * index} className="text-center">
               <div className="flex justify-center mb-4">
