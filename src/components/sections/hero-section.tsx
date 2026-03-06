@@ -49,7 +49,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full items-end justify-start pb-20 text-left md:pb-24">
         <div className="container px-4 md:px-6">
           <ScrollReveal>
-            <h1 className="font-headline max-w-xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+            <h1 className="font-headline max-w-xl text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl whitespace-pre-line">
               {t("hero.title")}
             </h1>
           </ScrollReveal>
