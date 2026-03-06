@@ -27,6 +27,7 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Set initial state on mount
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -34,7 +35,7 @@ export default function Header() {
   }, []);
 
   const headerClass = isScrolled
-    ? "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground/90 backdrop-blur-lg border-b border-white/20"
+    ? "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-sm border-b border-border"
     : "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent";
 
   const logoDocRef = useMemoFirebase(() => {
@@ -67,9 +68,10 @@ export default function Header() {
                         fill
                         style={{ objectFit: 'contain', objectPosition: 'left' }}
                         priority
+                        className={cn("transition-all duration-300", !isScrolled && "invert")}
                     />
                 ) : (
-                  <div className="h-full w-full bg-white/10 animate-pulse rounded-md"></div>
+                  <div className="h-full w-full bg-muted/20 animate-pulse rounded-md"></div>
                 )}
               </div>
           </Link>
@@ -79,8 +81,11 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                    "text-xl font-medium text-white/80 transition-colors hover:text-white [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.5))]",
-                    pathname === item.href && "text-white font-semibold"
+                    "text-xl font-medium transition-colors",
+                    isScrolled 
+                        ? "text-foreground/80 hover:text-foreground" 
+                        : "text-white/80 hover:text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]",
+                    (pathname === item.href) && (isScrolled ? "text-primary font-semibold" : "text-white font-semibold")
                 )}
                 >
                 {item.label}
@@ -89,9 +94,17 @@ export default function Header() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4 text-white ml-auto">
+        <div className={cn(
+          "flex items-center gap-4 ml-auto",
+          isScrolled ? "text-foreground" : "text-white"
+          )}>
           <LanguageSwitcher />
-           <Button asChild variant="outline" size="sm" className="text-white border-white/50 hover:bg-white/10">
+           <Button asChild variant="outline" size="sm" className={cn(
+             "transition-colors",
+             isScrolled 
+                ? "border-input hover:bg-accent hover:text-accent-foreground text-foreground" 
+                : "border-white/50 hover:bg-white/20 text-white"
+            )}>
             <Link href="/admin">Admin</Link>
           </Button>
         </div>
