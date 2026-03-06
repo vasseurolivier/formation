@@ -20,15 +20,8 @@ export default function Header() {
   const firestore = useFirestore();
 
   const [headerClass, setHeaderClass] = useState("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent");
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setHeaderClass("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-foreground/90 backdrop-blur-lg border-b border-white/20");
@@ -36,14 +29,14 @@ export default function Header() {
         setHeaderClass("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent");
       }
     };
-    
+
     handleScroll();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    }
-  }, [isMounted]);
+    };
+  }, []);
 
   const logoDocRef = useMemoFirebase(() => {
     if (!firestore) return null;
