@@ -99,14 +99,6 @@ export default function Header() {
           isScrolled ? "text-foreground" : "text-white"
           )}>
           <LanguageSwitcher />
-           <Button asChild variant="outline" size="sm" className={cn(
-             "transition-colors",
-             isScrolled 
-                ? "border-input hover:bg-accent hover:text-accent-foreground text-foreground" 
-                : "border-white/50 hover:bg-white/20 text-white"
-            )}>
-            <Link href="/admin">Admin</Link>
-          </Button>
         </div>
       </div>
     </header>
