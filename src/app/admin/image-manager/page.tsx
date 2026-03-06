@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { campusLocations, courses } from '@/lib/data';
-import { useFirebase } from '@/firebase';
+import { useFirebase, useDoc, useMemoFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -85,7 +85,8 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
       });
   };
 
-  const displayUrl = customImageData?.url || image.imageUrl;
+  const originalImage = PlaceHolderImages.find(img => img.id === image.id);
+  const displayUrl = isLoading ? null : customImageData?.url || originalImage?.imageUrl;
   const isCustom = !!customImageData;
   const effectiveError = error || docError;
 
@@ -96,7 +97,7 @@ const ManagedImageCard = ({ image }: { image: ImagePlaceholder }) => {
       </CardHeader>
       <CardContent className="p-4 pt-0 space-y-4 flex flex-col flex-grow">
         <div className="relative aspect-video w-full rounded-md overflow-hidden border">
-          {isLoading ? (
+          {!displayUrl ? (
             <Skeleton className="w-full h-full" />
           ) : (
             <Image

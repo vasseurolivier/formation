@@ -11,10 +11,11 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import { useFirebase } from '@/firebase';
+import { useFirebase, useDoc, useMemoFirebase } from '@/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import type { MediaAsset } from '@/lib/firebase-types';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Skeleton } from '@/components/ui/skeleton';
 
 type CustomMedia = {
   url: string;
@@ -84,12 +85,21 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
   };
   
   const effectiveError = error || docError;
-  const media: CustomMedia = customMediaData 
-    ? { url: customMediaData.url, type: customMediaData.type } 
-    : { url: image.imageUrl, type: 'image' };
+  const originalImage = PlaceHolderImages.find(img => img.id === image.id);
+
+  const media: CustomMedia | null = (() => {
+    if (isLoading) return null;
+    if (customMediaData) {
+      return { url: customMediaData.url, type: customMediaData.type };
+    }
+    if (originalImage) {
+      return { url: originalImage.imageUrl, type: 'image' };
+    }
+    return null;
+  })();
   
   const isCustom = !!customMediaData;
-  const isVideo = media.type.startsWith('video');
+  const isVideo = media?.type.startsWith('video');
 
   return (
     <Card className="overflow-hidden flex flex-col">
@@ -98,12 +108,12 @@ const ManagedHeroMediaCard = ({ image }: { image: ImagePlaceholder }) => {
       </CardHeader>
       <CardContent className="p-4 pt-0 space-y-4 flex flex-col flex-grow">
         <div className="relative aspect-video w-full rounded-md overflow-hidden border bg-black">
-          {isLoading ? (
-             <div className="w-full h-full bg-muted animate-pulse" />
+          {!media ? (
+             <Skeleton className="w-full h-full" />
           ) : isVideo ? (
               <video key={media.url} src={media.url} controls className="w-full h-full object-cover" />
           ) : (
-              <Image src={media.url} alt={image.description} fill className="object-cover" sizes="(min-width: 768px) 50vw, 100vw" />
+              <Image src={media.url} alt={image.description} fill className="object-cover" sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" />
           )}
           {isCustom && !isLoading && (
             <div className="absolute top-2 right-2 flex items-center gap-1 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
