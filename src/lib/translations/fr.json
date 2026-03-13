@@ -57,7 +57,7 @@
       "target": "Passionnés de gastronomie et de service, désirant travailler dans des établissements de prestige.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Maître d'hôtel, Chef de rang, Sommelier junior dans des restaurants gastronomiques, hôtels de luxe.",
-      "price": "À partir de 1490€"
+      "price": "À partir de 3990€"
     },
     "luxuryHotel": {
       "title": "Luxury Hotel Service Staff",
@@ -67,7 +67,7 @@
       "target": "Candidats avec un excellent sens du relationnel, une présentation soignée et une passion pour l'hôtellerie de luxe.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Réceptionniste, Concierge, Gouvernant(e) dans des hôtels 5 étoiles et palaces.",
-      "price": "À partir de 1790€"
+      "price": "À partir de 3990€"
     },
     "sommelier": {
       "title": "Sommelier",
@@ -77,7 +77,7 @@
       "target": "Amateurs de vin souhaitant professionnaliser leur passion, professionnels de la restauration.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Sommelier en restaurant, Caviste, Conseiller en vin, Représentant pour un domaine viticole.",
-      "price": "À partir de 2490€"
+      "price": "À partir de 3990€"
     },
     "fashionModel": {
       "title": "Mannequin",
@@ -87,7 +87,7 @@
       "target": "Jeunes talents (hommes et femmes) avec un fort potentiel physique et une personnalité charismatique.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Mannequin pour défilés, campagnes publicitaires, éditoriaux de mode.",
-      "price": "À partir de 990€"
+      "price": "À partir de 3990€"
     },
     "fle": {
       "title": "FLE (Français Langue Étrangère)",
@@ -97,7 +97,7 @@
       "target": "Étudiants internationaux, expatriés, professionnels, et toute personne souhaitant apprendre le français.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Maîtrise du français pour des objectifs personnels, académiques ou professionnels. Préparation aux examens DELF/DALF.",
-      "price": "À partir de 490€"
+      "price": "À partir de 1990€"
     },
     "hsk": {
       "title": "HSK (Mandarin Langue Étrangère )",
@@ -117,7 +117,7 @@
       "target": "Anglophones natifs ou bilingues souhaitant voyager et enseigner.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Certification TEFL reconnue mondialement, accès à notre réseau d'écoles partenaires pour des offres d'emploi.",
-      "price": "À partir de 1200€"
+      "price": "À partir de 1990€"
     },
     "businessChina": {
       "title": "Business & Digital Edge en Chine",
@@ -147,7 +147,7 @@
       "target": "Futurs entraîneurs, éducateurs sportifs.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Entraîneur diplômé, directeur technique, recruteur.",
-      "price": "À partir de 2990€"
+      "price": "À partir de 1200€"
     },
     "fifaAgent": {
       "title": "Agent de Joueurs (Licence FIFA)",
@@ -157,7 +157,7 @@
       "target": "Passionnés de football avec un sens des affaires.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Agent de joueurs licencié FIFA, conseiller sportif.",
-      "price": "À partir de 3490€"
+      "price": "À partir de 2490€"
     },
     "sportsData": {
       "title": "Data Analyst pour le Sport",
@@ -167,7 +167,7 @@
       "target": "Profils analytiques, statisticiens, passionnés de sport.",
       "prerequisites": "Être âgé d'au moins 16 ans.",
       "outcomes": "Data analyst pour club professionnel, fédération ou média sportif.",
-      "price": "À partir de 2790€"
+      "price": "À partir de 2990€"
     }
   },
   "aboutSection": {
